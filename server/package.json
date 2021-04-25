@@ -1,0 +1,24 @@
+{
+  "name": "blossom",
+  "version": "1.0.0",
+  "description": "Flower shop",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nadaabdelmaboud/Blossom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nadaabdelmaboud/Blossom/issues"
+  },
+  "homepage": "https://github.com/nadaabdelmaboud/Blossom#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5"
+  }
+}
