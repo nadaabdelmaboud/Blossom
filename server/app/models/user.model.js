@@ -44,10 +44,10 @@ const UserSchema = new mongoose.Schema({
     Cart : [
         {
             orders : [{
-                flowerId : {
+                bouquetId : {
                     type : mongoose.Schema.Types.ObjectId,
                     required : true,
-                    ref : 'Flower'
+                    ref : 'Bouquet'
                 },
                 amount : {
                     type : Number ,

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const FlowerSchema = new mongoose.Schema({
+const BouquetSchema = new mongoose.Schema({
 
     name : {
         type : String , 
