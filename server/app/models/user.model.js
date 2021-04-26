@@ -37,7 +37,9 @@ const UserSchema = new mongoose.Schema({
         required : true
     } , 
     creditCard: {
-        type : Number
+        cardNumber:Number,
+        ccNumber:Number,
+        expireDate:Date
     } ,
     Cart : [
         {
