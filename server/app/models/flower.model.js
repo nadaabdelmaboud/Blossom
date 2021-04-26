@@ -14,6 +14,10 @@ const FlowerSchema = new mongoose.Schema({
         sold:Number,
         available:Number
     }, 
+    info:{
+        type:String,
+        required:true
+    },
     images:[String]
 
 
