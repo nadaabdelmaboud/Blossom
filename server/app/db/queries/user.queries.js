@@ -7,7 +7,7 @@ const User = {
         return user;
     },
     async findUserByEmail(email,projection){
-        const user =  await UserModel.findById(email,projection);
+        const user =  await UserModel.findOne({email:email},projection);
         return user;
     },
     async comparePassword(user,password){

@@ -1,12 +1,13 @@
 const cors = require('cors')
 const bodyParser=require('body-parser')
-
+const AuthRoutes = require('../routes/auth.route')
 module.exports=function(app,winston){
 
 
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
 
+    app.use('/api',AuthRoutes);
     // 404 handler
     app.use("*", (req, res, next) => {
         error=new Error("API_NOT_FOUND");
