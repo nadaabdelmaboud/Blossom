@@ -1,8 +1,7 @@
 const cors = require('cors')
 const bodyParser=require('body-parser')
-const winston = require('winston')
-winston.add(new winston.transports.File({ filename: 'logfile.log' }));
-module.exports=function(app){
+
+module.exports=function(app,winston){
 
 
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -10,7 +9,9 @@ module.exports=function(app){
 
     // 404 handler
     app.use("*", (req, res, next) => {
-        next("API_NOT_FOUND", 404);
+        error=new Error("API_NOT_FOUND");
+        error.status=404;
+        next(error);
     });
 
     //error handler

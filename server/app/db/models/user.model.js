@@ -1,4 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const { comparePassword } = require('../queries/user.queries');
 const Address = {
     country : String,
     city: String ,
@@ -73,6 +75,14 @@ const UserSchema = new mongoose.Schema({
     ]
 
 
+})
+
+UserSchema.methods(async function comparePassword (password){
+    const match = await bcrypt.compare(password, this.password);
+    if(match) {
+        return true;
+    }
+    return false;
 })
 
 const UserModel = mongoose.model('User',UserSchema);
