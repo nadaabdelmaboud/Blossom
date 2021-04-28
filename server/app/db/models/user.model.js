@@ -1,4 +1,3 @@
-const { Router } = require('express')
 const mongoose = require('mongoose')
 const Address = {
     country : String,
@@ -21,11 +20,6 @@ const UserSchema = new mongoose.Schema({
     },
     password : {
         type : String,
-        required : true
-    },
-    userType : {
-        type : String,
-        enum : ["user","admin"],
         required : true
     },
     address : {
@@ -81,5 +75,5 @@ const UserSchema = new mongoose.Schema({
 
 })
 
-const UserModel = mongoose.model('User',BouquetSchema);
+const UserModel = mongoose.model('User',UserSchema);
 module.exports=UserModel;
