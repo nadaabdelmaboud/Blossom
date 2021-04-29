@@ -18,7 +18,18 @@
   },
   "homepage": "https://github.com/nadaabdelmaboud/Blossom#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.5"
+    "express-async-errors": "^3.1.1",
+    "joi": "^17.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.5",
+    "nodemon": "^2.0.7",
+    "npmlog": "^4.1.2",
+    "redis": "^3.1.2",
+    "winston": "^3.3.3"
   }
 }

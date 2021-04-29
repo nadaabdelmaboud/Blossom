@@ -22,3 +22,6 @@ const BouquetSchema = new mongoose.Schema({
 
 
 })
+
+const BouquetModel = mongoose.model('Bouquet',BouquetSchema);
+module.exports=BouquetModel;
