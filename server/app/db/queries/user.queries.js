@@ -2,11 +2,11 @@ const UserModel = require('../models/user.model');
 const client = require('../db.caching');
 const bcrypt = require('bcrypt')
 const User = {
-    async findUserById(id,projection){
+    async findUserById(id,projection={_id:1}){
         const user = await UserModel.findById(id,projection);
         return user;
     },
-    async findUserByEmail(email,projection){
+    async findUserByEmail(email,projection={_id:1}){
         const user =  await UserModel.findOne({email:email},projection);
         return user;
     },
