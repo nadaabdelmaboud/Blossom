@@ -2,21 +2,17 @@
   button {
     float: right;
     position: relative;
-    background-color: $darkBlue;
-    color: $lightPink;
-    height: 48px;
+    background-color: black;
+    color: $golden;
     border: none;
-    padding: 10px 20px;
-    border-radius: 32px;
-    font-weight: 700;
+    padding: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    &:hover {
+      background-color: $golden;
+      color: black;
+    }
   }
   button:focus{
     outline: none;
-  }
-  @media screen and (max-width: 360px) {
-    button{
-      padding: 4px;
-      height: 30px;
-      font-size: 14px;
-    }
   }

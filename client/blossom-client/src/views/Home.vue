@@ -1,17 +1,20 @@
 <template>
   <div class="home">
     Blossom
-    <AuthPopup />
+    <!--<AuthPopup />-->
+    <homeCard />
   </div>
 </template>
 
 <script>
-import AuthPopup from "./AuthPopup";
+//import AuthPopup from "./AuthPopup";
+import homeCard from "../components/HomePage/homeCard";
 
 export default {
   name: "UserHome",
   components: {
-    AuthPopup,
+    //AuthPopup,
+    homeCard,
   },
 };
 </script>
