@@ -46,7 +46,7 @@ export default {
     },
     close() {
       this.$store.commit("popupsState/toggleAuthPopup");
-    }
+    },
   },
   computed: {},
   created: function () {},

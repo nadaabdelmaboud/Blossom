@@ -21,10 +21,20 @@
           <span id="available"> available</span>
         </div>
         <div class="buttonDiv">
-          <button class="addToCart blossomButton" v-if="user == true" @click="showToast()">
+          <button
+            class="addToCart blossomButton"
+            v-if="user == true"
+            @click="showToast()"
+          >
             Add to Cart
           </button>
-          <button class="editCardInfo blossomButton" v-if="admin == true">Edit Card</button>
+          <button
+            class="editCardInfo blossomButton"
+            v-if="admin == true"
+            @click="toggleEditState()"
+          >
+            Edit Card
+          </button>
         </div>
       </div>
     </div>
@@ -127,7 +137,7 @@ img {
   margin-right: 12px;
   margin-bottom: 6px;
 }
-.blossomButton{
+.blossomButton {
   font-size: 15px;
   height: 10%;
 }
@@ -139,11 +149,15 @@ export default {
   name: "homeCard",
   data: function () {
     return {
-      admin: false,
-      user: true,
+      admin: true,
+      user: false,
     };
   },
   mixins: [showToast],
-  methods: {},
+  methods: {
+    toggleEditState() {
+      this.$store.commit("popupsState/toggleEditCardPopup");
+    },
+  },
 };
 </script>
