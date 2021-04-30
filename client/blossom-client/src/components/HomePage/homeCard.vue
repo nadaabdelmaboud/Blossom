@@ -38,6 +38,7 @@
 <style lang="scss" scoped>
 @import "../../scss/_Colors";
 @import "../../scss/BlossomButton";
+@import "../../scss/BlossomToast";
 .homeCard {
   width: 35%;
 }
@@ -129,62 +130,10 @@ img {
   float: right;
   margin: 12px;
 }
-.toastimage {
-  width: 20%;
-  border-radius: 10px;
-  margin-left: 5%;
-  margin-bottom: 2%;
-}
-.toast {
-  display: flex;
-  align-content: center;
-  text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  position: fixed;
-  bottom: 2%;
-  left: 42%;
-  margin-right: auto;
-  width: 18%;
-  background-color: rgb(19, 20, 20);
-  padding: 5px;
-  border-radius: 50px;
-  z-index: 1500;
-  box-shadow: 0 0 10 rgb(19, 20, 20);
-  transition: 0.5s ease-in-out;
-  .addedToCart {
-    font-size: 14px;
-    color: $lightGolden;
-    padding: 5%;
-    padding-top: 8%;
-    text-align: center;
-  }
-}
-.toast--visible {
-  visibility: visible;
-  opacity: 1;
-}
-@media screen and (max-width: 900px) {
-  .toast {
-    width: 30%;
-    left: 33%;
-  }
-}
-@media screen and (max-width: 420px) {
-  .toast {
-    width: 40%;
-    left: 27%;
-  }
-}
-@media screen and (max-width: 360px) {
-  .toast {
-    width: 50%;
-    left: 24%;
-  }
-}
 </style>
 
 <script>
+import { default as showToast } from "../../mixins/toast";
 export default {
   name: "homeCard",
   data: function () {
@@ -193,15 +142,7 @@ export default {
       user: true,
     };
   },
-  methods: {
-    showToast() {
-      var mytoast = document.getElementById("toastId");
-      clearTimeout(mytoast.hideTimeout);
-      mytoast.className = "toast toast--visible";
-      mytoast.hideTimeout = setTimeout(() => {
-        mytoast.classList.remove("toast--visible");
-      }, 2000);
-    },
-  },
+  mixins: [showToast],
+  methods: {},
 };
 </script>
