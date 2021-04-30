@@ -1,0 +1,22 @@
+
+  button {
+    float: right;
+    position: relative;
+    background-color: $darkBlue;
+    color: $lightPink;
+    height: 48px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 32px;
+    font-weight: 700;
+  }
+  button:focus{
+    outline: none;
+  }
+  @media screen and (max-width: 360px) {
+    button{
+      padding: 4px;
+      height: 30px;
+      font-size: 14px;
+    }
+  }

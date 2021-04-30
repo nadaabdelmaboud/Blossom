@@ -1,5 +1,17 @@
 <template>
-  <div class="home">Blossom</div>
+  <div class="home">
+    Blossom
+    <AuthPopup />
+  </div>
 </template>
 
-<script></script>
+<script>
+import AuthPopup from "./AuthPopup";
+
+export default {
+  name: "UserHome",
+  components: {
+    AuthPopup,
+  },
+};
+</script>
