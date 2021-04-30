@@ -31,7 +31,7 @@
 .container {
   padding: 15px;
   width: 100%;
-  height: 250px;
+  height: 30%;
   box-shadow: 0 3px 3px 3px rgba(10, 10, 10, 0.06);
   justify-content: center;
   text-align: center;
