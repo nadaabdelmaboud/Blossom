@@ -97,7 +97,6 @@ img {
 .description {
   margin-top: 7px;
   margin-bottom: 7px;
-
   font-size: 13px;
 }
 .price {
