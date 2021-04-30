@@ -2,6 +2,7 @@
   <div class="login">
     <BlossomLogo />
     <div class="form">
+      <i class="fa fa-times hoverGolden close" @click="close"></i>
       <h3>Welcome to Blossom</h3>
       <input placeholder="Username" class="blossomInput" v-model="username" />
       <input
@@ -50,6 +51,9 @@ export default {
     switchState() {
       this.$emit("switchState", true);
     },
+    close() {
+      this.$store.commit("popupsState/toggleAuthPopup");
+    }
   },
   computed: {},
   created: function () {},

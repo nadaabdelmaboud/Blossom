@@ -23,3 +23,16 @@ h3{
   .hoverGolden:hover{
     color: $lightGolden;
   }
+
+  .close{
+    font-size: 20px;
+    position: absolute;
+    transition: 0.25s ease-in-out;
+    right: 10px;
+    width: 20px;
+    top: 10px;
+  }
+  .close:active {
+    transform: scale(0.98);
+    
+  }
