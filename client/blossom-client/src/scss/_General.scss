@@ -6,3 +6,20 @@
     font-family: cursive;
     margin: auto;
 }
+
+h3{
+    color: $golden;
+    text-align: center;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.hoverGolden{
+    color: $darkGolden;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+
+  }
+  .hoverGolden:hover{
+    color: $lightGolden;
+  }

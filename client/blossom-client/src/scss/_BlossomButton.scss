@@ -1,22 +1,35 @@
 
-  button {
-    float: right;
-    position: relative;
-    background-color: $darkBlue;
-    color: $lightPink;
+  .blossomButton {
+    background-color: black;
+    color: $golden;
     height: 48px;
     border: none;
     padding: 10px 20px;
-    border-radius: 32px;
-    font-weight: 700;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 10px auto;
+    box-shadow:  3px 3px 3px $shadowColor;
   }
-  button:focus{
+  .blossomButton:focus{
     outline: none;
   }
   @media screen and (max-width: 360px) {
-    button{
+    .blossomButton{
       padding: 4px;
       height: 30px;
       font-size: 14px;
     }
   }
+
+
+.blossomButton:hover {
+  transform: scale(1.05);
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+
+.blossomButton:active {
+  transform: scale(0.98);
+  transition: 0.25s ease-in-out;
+}

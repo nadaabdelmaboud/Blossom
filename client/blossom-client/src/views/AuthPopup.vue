@@ -1,20 +1,30 @@
 <template>
   <div class="transparentBackground">
     <div class="popupBody">
-      <LoginForm />
+      <LoginForm v-if="isLogin" @switchState="switchState" />
+      <SignupForm v-if="!isLogin" @switchState="switchState" />
     </div>
   </div>
 </template>
 
 <script>
 import LoginForm from "../components/Auth/loginForm";
+import SignupForm from "../components/Auth/signupForm";
 export default {
   name: "Authentication",
   components: {
     LoginForm,
+    SignupForm,
   },
   data: function () {
-    return {};
+    return {
+      isLogin: true,
+    };
+  },
+  methods: {
+    switchState(state) {
+      this.isLogin = state;
+    },
   },
 };
 </script>
