@@ -9,6 +9,7 @@
     font-size: 20px;
     margin: 10px auto;
     box-shadow:  3px 3px 3px $shadowColor;
+    transition: 0.25s ease-in-out;
   }
   .blossomButton:focus{
     outline: none;
@@ -23,13 +24,13 @@
 
 
 .blossomButton:hover {
-  transform: scale(1.05);
-  transition: 0.25s ease-in-out;
   cursor: pointer;
+  background-color: $golden;
+  color: black;
 }
 
 
 .blossomButton:active {
   transform: scale(0.98);
-  transition: 0.25s ease-in-out;
+  
 }

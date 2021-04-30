@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const BouquetSchema = new mongoose.Schema({
+const PlantSchema = new mongoose.Schema({
 
     name : {
         type : String , 
@@ -18,9 +18,8 @@ const BouquetSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    bouquetSentiment:{
+    tips:{
         type:String,
-        enum:['I Love You','I Miss You','Congratulations','Get Well Soon','Happy Anniversary','Happy Birthday','I Am Sorry','Thank You','Wedding'],
         required:true
     },
     images:[String]
@@ -28,6 +27,5 @@ const BouquetSchema = new mongoose.Schema({
 
 })
 
-
-const BouquetModel = mongoose.model('Bouquet',BouquetSchema);
-module.exports=BouquetModel;
+const PlantModel = mongoose.model('Bouquet',PlantSchema);
+module.exports=PlantModel;

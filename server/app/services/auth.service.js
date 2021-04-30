@@ -1,5 +1,6 @@
 const AuthValidation = require('../validation/auth.validation')
 const User = require('../db/queries/user.queries')
+const Admin = require('../db/queries/admin.queries')
 const jwt = require('jsonwebtoken')
 const error = require('../validation/error');
 
@@ -8,11 +9,21 @@ const AuthService={
     async login(user){
         const isValidData = AuthValidation.login(user);
         if(!isValidData) return {token:false,err:error("Not valid data",400)}
-        const userObject = await User.findUserByEmail(user.email,{_id:1,password:1});
-        if(!userObject) return {token:false,err:error("Invalid Email",404)}
-        const checkPassword = await User.comparePassword(userObject,user.password)
-        if(!checkPassword)  return {token:false,err:error("Invalid Password",404)}
-        const token = await jwt.sign({_id:userObject._id}, process.env.JWT_SECRET_KEY, { expiresIn: '123456789' });
+        let userObject = await Admin.findAdminByEmail(user.email);
+        let type=''
+        if(userObject){
+            let checkPassword = await Admin.comparePassword(userObject,user.password)
+            if(!checkPassword)  return {token:false,err:error("Invalid Password",404)}
+            type = 'admin'
+        }
+        else{
+            userObject = await User.findUserByEmail(user.email,{_id:1,password:1});
+            if(!userObject) return {token:false,err:error("Invalid Email",404)}
+            let checkPassword = await User.comparePassword(userObject,user.password)
+            if(!checkPassword)  return {token:false,err:error("Invalid Password",404)}
+            type = 'user'
+        }
+        const token = await jwt.sign({_id:userObject._id,type:type}, process.env.JWT_SECRET_KEY, { expiresIn: '123456789' });
         return {token:token,err:''};
     },
     async signUp(user){
