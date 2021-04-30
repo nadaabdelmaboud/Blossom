@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const { comparePassword } = require('../queries/user.queries');
 const Address = {
     country : String,
     city: String ,
@@ -48,7 +47,17 @@ const UserSchema = new mongoose.Schema({
                 amount : {
                     type : Number ,
                     required : true
-                }
+                },
+                orderType:{
+                    type:String,
+                    required:true
+                },
+                category:{
+                    type:String,
+                    enum:['BabyOrchid','Cabbage','Chrysanthemums','Eucalyptus','Gerbera','Roses','Lilies','Spider','Tulips'],
+                    required:true
+                },
+
             }]  ,
             status : {
                 type : String , 
