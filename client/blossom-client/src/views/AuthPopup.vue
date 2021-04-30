@@ -36,4 +36,10 @@ export default {
   width: 900px;
   padding: 0px;
 }
+@media screen and (max-width: 900px) {
+  .popupBody {
+    margin: 50px auto;
+    width: 97%;
+  }
+}
 </style>

@@ -3,17 +3,24 @@
     <BlossomLogo />
     <div class="form">
       <h3>Welcome to Blossom</h3>
-      <input placeholder="Email" class="blossomInput" v-model="email" />
+      <input
+        placeholder="Email"
+        class="blossomInput"
+        type="email"
+        v-model="email"
+      />
       <input
         placeholder="Password"
         class="blossomInput"
         type="password"
         v-model="password"
       />
-      <p class="hoverGolden">Forgot password?</p>
+      <div>
+        <span class="hoverGolden floatRight">Forgot password?</span>
+      </div>
       <button class="blossomButton">Login</button>
       <div class="toSignup">
-        new to Blossom?
+        New to Blossom?
         <span class="hoverGolden" @click="switchState">Signup</span>
       </div>
     </div>
@@ -58,14 +65,16 @@ export default {
   align-content: center;
   flex-direction: column;
   padding: 0px 40px 0px 40px;
-  p {
-    text-align: end;
-  }
 }
 
 .toSignup {
   text-align: center;
   margin: 20px 0px;
   color: $golden;
+}
+.floatRight {
+  position: relative;
+  float: right;
+  margin: 10px 0px;
 }
 </style>
