@@ -8,7 +8,7 @@
       </div>
       <div class="box" id="flowerInfo">
         <div class="flowerState" v-if="user == true">In Stock</div>
-        <div class="deleteFlower" v-if="admin == true">
+        <div class="hoverGolden" id="deleteFlower" v-if="admin == true">
           <i class="fa fa-times"></i>
         </div>
         <div class="title">Love Flowers</div>
@@ -21,10 +21,10 @@
           <span id="available"> available</span>
         </div>
         <div class="buttonDiv">
-          <button class="addToCart" v-if="user == true" @click="showToast()">
+          <button class="addToCart blossomButton" v-if="user == true" @click="showToast()">
             Add to Cart
           </button>
-          <button class="editCardInfo" v-if="admin == true">Add to Cart</button>
+          <button class="editCardInfo blossomButton" v-if="admin == true">Edit Card</button>
         </div>
       </div>
     </div>
@@ -39,6 +39,7 @@
 @import "../../scss/_Colors";
 @import "../../scss/BlossomButton";
 @import "../../scss/BlossomToast";
+@import "../../scss/General";
 .homeCard {
   width: 35%;
 }
@@ -82,17 +83,12 @@ img {
   font-size: 12px;
   font-weight: 400;
 }
-.deleteFlower {
+#deleteFlower {
   margin-right: 7px;
   width: 100%;
-  color: $lightGolden;
   text-align: right;
   font-size: 14px;
   font-weight: 400;
-  cursor: pointer;
-  &:hover {
-    color: black;
-  }
 }
 .title {
   margin-top: 7px;
@@ -128,7 +124,12 @@ img {
 }
 .buttonDiv {
   float: right;
-  margin: 12px;
+  margin-right: 12px;
+  margin-bottom: 6px;
+}
+.blossomButton{
+  font-size: 15px;
+  height: 10%;
 }
 </style>
 

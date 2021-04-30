@@ -1,25 +1,31 @@
 <template>
   <div class="home">
-    <!--<AuthPopup />-->
+    <AuthPopup v-if="showAuth"/>
     <homeCard />
     <reviewCard />
-    <editCard />
+    
   </div>
 </template>
 
 <script>
-//import AuthPopup from "./AuthPopup";
+import AuthPopup from "./AuthPopup";
 import homeCard from "../components/HomePage/homeCard";
 import reviewCard from "../components/HomePage/reviewCard";
-import editCard from "../components/HomePage/editCard";
+//import editCard from "../components/HomePage/editCard";
+import { mapState } from "vuex";
 
 export default {
   name: "UserHome",
   components: {
-    //AuthPopup,
+    AuthPopup,
     homeCard,
     reviewCard,
-    editCard,
+    //editCard,
   },
+  computed:{
+    ...mapState({
+      showAuth: state => state.popupsState.authPopup
+    })
+  }
 };
 </script>

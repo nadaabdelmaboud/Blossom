@@ -67,6 +67,12 @@
     width: 100%;
   }
 }
+@media screen and (max-width: 600px) {
+  .popupBody {
+    margin: 50px auto;
+    width: 80%;
+  }
+}
 </style>
 
 <script>
