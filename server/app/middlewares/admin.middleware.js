@@ -1,6 +1,5 @@
-const Admin = require('../db/queries/admin.queries') 
 const jwt = require("jsonwebtoken");
-async function authAdmin(req, res, next) {
+function authAdmin(req, res, next) {
   const token = req.header("Authorization");
   if (!token) {
     return res.status(401).send("No Available token");
@@ -8,8 +7,7 @@ async function authAdmin(req, res, next) {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.admin = decoded;
-    const admin = await Admin.findAdminById(req.admin._id);
-    if(!admin){
+    if(req.admin.type!='admin'){
         throw new Error;
     }
     next();
