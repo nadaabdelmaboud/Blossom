@@ -1,7 +1,7 @@
 const Joi = require("joi");
 
 const AuthValidation = {
-  login(user) {
+  async login(user) {
     const schema = Joi.object({
       password: Joi.string().min(3).max(30).required(),
       email: Joi.string()
@@ -14,7 +14,7 @@ const AuthValidation = {
     }
     return true;
   },
-  signUp(user) {
+  async signUp(user) {
     const schema = Joi.object({
       name: Joi.string().min(3).max(30).required(),
       password: Joi.string().min(3).max(30).required(),

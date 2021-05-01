@@ -1,7 +1,7 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
 const UserValidation = {
-  getAllUsersPaging(query) {
+  async getAllUsersPaging(query) {
     const schema = Joi.object({
       pageNumber: Joi.number().min(1).required(),
       pageSize: Joi.number().min(1).required(),
@@ -10,7 +10,7 @@ const UserValidation = {
     query.pageSize = parseInt(query.pageSize);
     return schema.validate(query);
   },
-  validateID(id) {
+  async validateID(id) {
     try {
       const qId = mongoose.Types.ObjectId(id);
     } catch (err) {
@@ -18,7 +18,7 @@ const UserValidation = {
     }
     return true;
   },
-  updateUser(user){
+  async updateUser(user){
     const schema = Joi.object({
       name: Joi.string().min(3).max(30),
       email: Joi.string().email({

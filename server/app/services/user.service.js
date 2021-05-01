@@ -4,41 +4,41 @@ const error = require("../validation/error");
 
 const UserService = {
   async getAllUsers(query) {
-    const isValid = UserValidation.getAllUsersPaging(query);
+    const isValid = await UserValidation.getAllUsersPaging(query);
     if (isValid.error)
-      return { token: false, err: error(isValid.error.message, 400) };
+      return { data: false, err: error(isValid.error.message, 400) };
     const users = await User.getAllUsersInfo(query);
     if (!users || users.length == 0)
-      return { token: false, err: error("No Users Found", 404) };
-    return { token: users, err: "" };
+      return { data: false, err: error("No Users Found", 404) };
+    return { data: users, err: "" };
   },
   async getUser(user) {
-    const isValid = UserValidation.validateID(user.id);
-    if (!isValid) return { token: false, err: error("Invalid User ID", 400) };
+    const isValid = await UserValidation.validateID(user.id);
+    if (!isValid) return { data: false, err: error("Invalid User ID", 400) };
     const userObject = await User.getUserInfo(user.id);
     if (!userObject || userObject.length == 0)
-      return { token: false, err: error("Invalid User ID", 404) };
-    return { token: userObject, err: "" };
+      return { data: false, err: error("Invalid User ID", 404) };
+    return { data: userObject, err: "" };
   },
   async updateUser(user, id) {
-    const isValid = UserValidation.validateID(id);
-    if (!isValid) return { token: false, err: error("Invalid User ID", 404) };
-    const isUserFound = User.findUserById(id);
-    if(!isUserFound) return { token: false, err: error("Invalid User ID", 404) }; 
-    if (!user || user.length==0) return { token: false, err: error("Data Is Missing", 400) };
-    const isUserValid = UserValidation.updateUser(user);
-    if (isUserValid.error) return { token: false, err: error(isUserValid.error.message,400) };
+    const isValid = await UserValidation.validateID(id);
+    if (!isValid) return { data: false, err: error("Invalid User ID", 404) };
+    const isUserFound = await User.findUserById(id);
+    if(!isUserFound) return { data: false, err: error("Invalid User ID", 404) }; 
+    if (!user || user.length==0) return { data: false, err: error("Data Is Missing", 400) };
+    const isUserValid = await UserValidation.updateUser(user);
+    if (isUserValid.error) return { data: false, err: error(isUserValid.error.message,400) };
     const userObject = await User.updateUser(user, id);
     if (!userObject || userObject.length == 0)
-      return { token: false, err: error("Error Updating User",500) };
-    return { token: userObject, err: "" };
+      return { data: false, err: error("Error Updating User",500) };
+    return { data: userObject, err: "" };
   },
   async deleteUser(user) {
-    const isValid = UserValidation.validateID(user.id);
-    if (!isValid) return { token: false, err: error("Invalid User ID", 400) };
+    const isValid = await UserValidation.validateID(user.id);
+    if (!isValid) return { data: false, err: error("Invalid User ID", 400) };
     const userObject = await User.deleteUser(user.id);
-    if (!userObject) return { token: false, err: error("User Not Found", 404) };
-    return { token: userObject, err: "" };
+    if (!userObject) return { data: false, err: error("User Not Found", 404) };
+    return { data: userObject, err: "" };
   },
 };
 
