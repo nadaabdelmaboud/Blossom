@@ -41,6 +41,5 @@ img {
   .logo {
     display: none;
   }
-
 }
 </style>
