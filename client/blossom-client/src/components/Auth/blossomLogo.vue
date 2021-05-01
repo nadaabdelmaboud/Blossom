@@ -32,4 +32,15 @@ img {
   display: flex;
   align-self: center;
 }
+@media screen and (max-width: 700px) {
+  .logo {
+    display: none;
+  }
+}
+@media screen and (max-height: 820px) {
+  .logo {
+    display: none;
+  }
+
+}
 </style>

@@ -1,5 +1,5 @@
 const state = {
-  authPopup: false,
+  authPopup: true,
   editCardPopup: false,
 };
 
