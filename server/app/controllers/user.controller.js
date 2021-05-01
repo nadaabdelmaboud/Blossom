@@ -18,12 +18,13 @@ const UserController = {
     res.status(data.err.status).send(data.err.message);
   },
   async updateUser(req,res){
-    const user = req.params;
-    const data = await UserService.updateUser(user);
+    const user = req.body;
+    const id = req.params.id;
+    const data = await UserService.updateUser(user,id);
     if(data.token){
-      return res.status(200).send(token);
+      return res.status(200).send(data.token);
     }
-    res.staus(data.err.status).send(data.err.message);
+    res.status(data.err.status).send(data.err.message);
   },
   async deleteUser(req,res){
     const user = req.params;
