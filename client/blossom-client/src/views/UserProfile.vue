@@ -1,5 +1,5 @@
 <template>
-  <div class="userProfile">
+  <div class="userProfile blossomCard">
     <img src="../assets/BlossomLogo_v7.png" alt="logo Image" />
     <input placeholder="Username" class="blossomInput" v-model="username" />
     <input
@@ -55,17 +55,7 @@ export default {
 @import "../scss/General";
 @import "../scss/BlossomButton";
 @import "../scss/BlossomInput";
-.userProfile {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  margin: 40px auto;
-  -webkit-box-shadow: 0px 0px 10px 3px $lightGolden;
-  -moz-box-shadow: 0px 0px 10px 3px $lightGolden;
-  box-shadow: 0px 0px 10px 3px $lightGolden;
-  overflow: auto;
-  padding: 30px 0px;
-}
+@import "../scss/BlossomCard";
 .blossomInput {
   width: 50%;
   margin: 20px auto;
@@ -73,9 +63,5 @@ export default {
 }
 .blossomButton {
   margin: 40px auto;
-}
-img {
-  width: 200px;
-  margin: auto;
 }
 </style>
