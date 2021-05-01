@@ -1,0 +1,33 @@
+.blossomInput{
+    border: none;
+    height: 40px;
+    border-bottom: black 1px solid;
+    margin: 10px 0px;
+    transition: 0.25s ease-in-out;
+    font-weight: 400;
+    font-size: 16px;
+}
+.blossomInput:hover{
+    border-bottom: $golden 1px solid;
+}
+.blossomInput:focus{
+    outline: none;
+}
+
+::-webkit-input-placeholder { /* Edge */
+    color: $lightGolden;
+    font-weight: 400;
+    font-size: 16px; 
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $lightGolden;
+    font-weight: 400;
+    font-size: 16px;
+}
+  
+::placeholder {
+    color: $lightGolden;
+    font-weight: 400;
+    font-size: 16px;
+}

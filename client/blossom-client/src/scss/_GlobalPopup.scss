@@ -1,25 +1,28 @@
-.transparentBackground{
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    z-index: 12;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    max-height: 100vh;
-    overflow: auto;
+.transparentBackground {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 12;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100vh;
+  overflow: auto;
+}
+.popupBody {
+  margin: 70px auto;
+  background-color: white;
+  width: 600px;
+  padding: 10px;
+  position: relative;
+}
 
-  }
+@media screen and (max-width: 600px) {
   .popupBody {
     margin: 90px auto;
     background-color: white;
     width: 600px;
     padding: 20px;
-  }
 
-  @media screen and (max-width: 500px) {
-    .popupBody {
-      margin: 50px auto;
-      width: 97%;
-    }
-   }
+  }
+}

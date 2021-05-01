@@ -1,8 +1,42 @@
 @import "./Colors";
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+@import url("http://fonts.googleapis.com/css?family=Cedarville+Cursive");
 
 .slogan{
     color: $golden;
     font-size: 30px;
-    font-family: cursive;
+    font-family: 'Alex Brush', cursive; 
+   // font-family: "Cedarville",cursive; 
     margin: auto;
+    text-align: center;
 }
+
+h3{
+    color: $golden;
+    text-align: center;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.hoverGolden{
+    color: $darkGolden;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+
+  }
+  .hoverGolden:hover{
+    color: $lightGolden;
+  }
+
+  .close{
+    font-size: 20px;
+    position: absolute;
+    transition: 0.25s ease-in-out;
+    right: 10px;
+    width: 20px;
+    top: 10px;
+  }
+  .close:active {
+    transform: scale(0.98);
+    
+  }
