@@ -7,7 +7,7 @@ const error = require('../validation/error');
 const AuthService={
 
     async login(user){
-        const isValidData = AuthValidation.login(user);
+        const isValidData = await AuthValidation.login(user);
         if(!isValidData) return {token:false,err:error("Not valid data",400)}
         let userObject = await Admin.findAdminByEmail(user.email);
         let type=''
@@ -27,7 +27,7 @@ const AuthService={
         return {token:token,err:''};
     },
     async signUp(user){
-        const isValidData = AuthValidation.signUp(user);
+        const isValidData = await AuthValidation.signUp(user);
         if(!isValidData) return {token:false,err:error("Not valid data",400)}
         let userObject = await User.findUserByEmail(user.email,{_id:1});
         if(userObject) return {token:false,err:error("User already has an account",403)}

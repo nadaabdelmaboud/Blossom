@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="signup">
     <BlossomLogo />
     <div class="form">
       <i class="fa fa-times hoverGolden close" @click="close"></i>
@@ -66,7 +66,7 @@ export default {
 @import "../../scss/General";
 @import "../../scss/BlossomButton";
 @import "../../scss/BlossomInput";
-.login {
+.signup {
   display: flex;
   align-content: center;
 }
