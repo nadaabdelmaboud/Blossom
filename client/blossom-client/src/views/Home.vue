@@ -4,6 +4,7 @@
     <editCard v-if="showEditPopup" />
     <homeCard />
     <reviewCard />
+    <homeFooter />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import AuthPopup from "./AuthPopup";
 import homeCard from "../components/HomePage/homeCard";
 import reviewCard from "../components/HomePage/reviewCard";
 import editCard from "../components/HomePage/editCard";
+import homeFooter from "../components/HomePage/homeFooter";
 import { mapState } from "vuex";
 
 export default {
@@ -21,6 +23,7 @@ export default {
     homeCard,
     reviewCard,
     editCard,
+    homeFooter,
   },
   computed: {
     ...mapState({

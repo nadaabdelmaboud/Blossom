@@ -6,7 +6,8 @@
           <i class="fa fa-times" @click="toggleEditState()"></i>
         </div>
         <div class="logo">
-          <img src="../../assets/BlossomLogo_v7.png" alt="blossomLogo" />
+          <!--<img src="../../assets/BlossomLogo_v7.png" alt="blossomLogo" />-->
+          <p>Blossom</p>
         </div>
         <div class="container">
           <div class="box" id="imageBox">
@@ -16,25 +17,28 @@
             <input
               placeholder="Flower Name"
               class="blossomInput"
-              type="name"
+              type="text"
               v-model="flowerName"
             />
             <input
               placeholder="Description"
               class="blossomInput"
-              type="description"
+              type="text"
               v-model="flowerDescription"
             />
             <input
               placeholder="Price"
               class="blossomInput"
-              type="price"
+              type="number"
+              step="10"
+              min="100"
               v-model="price"
             />
             <input
               placeholder="Number Available"
               class="blossomInput"
               type="number"
+              min="0"
               v-model="number"
             />
             <div class="editButton">
@@ -60,9 +64,16 @@
 }
 .logo {
   text-align: center;
-  img {
-    width: 15%;
+  p {
+    color: $golden;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
+  /*img {
+    width: 15%;
+  }*/
 }
 .container {
   width: 100%;
