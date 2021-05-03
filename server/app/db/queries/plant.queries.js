@@ -14,11 +14,11 @@ const Plant = {
   async deletePlant(id) {
     let plantObject;
     try {
-        plantObject = await PlantModel.findByIdAndRemove(id);
+      plantObject = await PlantModel.findByIdAndRemove(id);
     } catch (err) {
       return false;
     }
-    if(!plantObject)return false;
+    if (!plantObject) return false;
     return { _id: plantObject._id };
   },
   async getPlant(name) {
@@ -51,6 +51,22 @@ const Plant = {
       return false;
     }
     return { _id: plantObject._id };
+  },
+  async updatePlant(plant, id) {
+    const plantData = await PlantModel.findById(id);
+    if (!plantData) return [];
+    if (plant.name) plantData.name = plant.name;
+    if (plant.type) plantData.type = plant.type;
+    if (plant.images) plantData.images = plant.images;
+    if (plant.info) plantData.info = plant.info;
+    if (plant.tips||plant.tips == "") plantData.tips = plant.tips;
+    if (plant.price) plantData.price = plant.price;
+    if (plant.count && plant.count.available)
+      plantData.count.available = plant.count.available;
+    if (plant.count && plant.count.sold)
+      plantData.count.sold = plant.count.sold;
+    const result = await plantData.save();
+    return result;
   },
 };
 module.exports = Plant;

@@ -24,6 +24,12 @@ const PlantController = {
     if (data.data) return res.status(200).send(data.data);
     res.status(data.err.status).send(data.err.message);
   },
-  async updatePlant(req, res) {},
+  async updatePlant(req, res) {
+    const id =req.params.id;
+    const plant = req.body;
+    const data = await PlantService.updatePlant(plant,id);
+    if (data.data) return res.status(200).send(data.data);
+    res.status(data.err.status).send(data.err.message);
+  },
 };
 module.exports = PlantController;

@@ -5,7 +5,7 @@ const AdminMiddleware = require("../middlewares/admin.middleware");
 
 router.get("/plant/",AuthMiddleware,PlantController.getAllPlants);
 router.get("/plant/:id", AuthMiddleware, PlantController.getPlant);
-router.put("/plant/:id", AuthMiddleware, PlantController.updatePlant);
+router.put("/plant/:id", AuthMiddleware,AdminMiddleware, PlantController.updatePlant);
 router.post("/plant/", AuthMiddleware,AdminMiddleware, PlantController.createPlant);
 router.delete("/plant/:id", AuthMiddleware,AdminMiddleware,PlantController.deletePlant);
 
