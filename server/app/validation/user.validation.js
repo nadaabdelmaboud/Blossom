@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const UserValidation = {
   async getAllUsersPaging(query) {
     const schema = Joi.object({
-      pageNumber: Joi.number().min(1).required(),
-      pageSize: Joi.number().min(1).required(),
+      pageNumber: Joi.number().min(1),
+      pageSize: Joi.number().min(1),
     });
     query.pageNumber = parseInt(query.pageNumber);
     query.pageSize = parseInt(query.pageSize);

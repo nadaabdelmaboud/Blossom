@@ -51,8 +51,8 @@ const User = {
     return user;
   },
   async getAllUsersInfo(query) {
-    const pageNumber = parseInt(query.pageNumber);
-    const pageSize = parseInt(query.pageSize);
+    const pageSize = query.pageSize ? query.pageSize : 10;
+    const pageNumber = query.pageNumber ? query.pageNumber : 1;
     const users = await UserModel.find(
       {},
       { name: 1, email: 1, address: 1, phone: 1 }
