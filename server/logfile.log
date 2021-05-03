@@ -435,3 +435,5 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"level":"error","message":"Unexpected token b in JSON at position 1 Unexpected token b in JSON at position 1","stack":"SyntaxError: Unexpected token b in JSON at position 1\n    at JSON.parse (<anonymous>)\n    at Object.getBouquets (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\db\\queries\\bouquet.queries.js:7:22)\n    at Object.getBouquets (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\services\\bouquet.service.js:11:44)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
 {"message":"Server is listening at port 3000","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
