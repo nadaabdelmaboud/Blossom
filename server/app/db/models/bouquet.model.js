@@ -18,6 +18,11 @@ const BouquetSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    bouquetCategory:{
+        type:String,
+        enum:['BabyOrchid','Cabbage','Chrysanthemums','Eucalyptus','Gerbera','Roses','Lilies','Spider','Tulips'],
+        required:true
+    },
     bouquetSentiment:{
         type:String,
         enum:['I Love You','I Miss You','Congratulations','Get Well Soon','Happy Anniversary','Happy Birthday','I Am Sorry','Thank You','Wedding'],
