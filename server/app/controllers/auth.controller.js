@@ -5,7 +5,7 @@ const AuthController = {
         const user = req.body;
         const data = await AuthService.login(user);
         if(data.token){
-            return res.status(200).send(data.token);
+            return res.status(200).send({token:data.token});
         }
         res.status(data.err.status).send(data.err.message);
     },
@@ -13,7 +13,7 @@ const AuthController = {
         const user = req.body;
         const data = await AuthService.signUp(user);
         if(data.token){
-            return res.status(200).send(data.token);
+            return res.status(200).send({token:data.token});
         }
         res.status(data.err.status).send(data.err.message);
     }
