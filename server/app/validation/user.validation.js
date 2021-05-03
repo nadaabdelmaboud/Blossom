@@ -1,5 +1,4 @@
 const Joi = require("joi");
-const mongoose = require("mongoose");
 const UserValidation = {
   async getAllUsersPaging(query) {
     const schema = Joi.object({
@@ -9,14 +8,6 @@ const UserValidation = {
     query.pageNumber = parseInt(query.pageNumber);
     query.pageSize = parseInt(query.pageSize);
     return schema.validate(query);
-  },
-  async validateID(id) {
-    try {
-      const qId = mongoose.Types.ObjectId(id);
-    } catch (err) {
-      return false;
-    }
-    return true;
   },
   async updateUser(user){
     const schema = Joi.object({

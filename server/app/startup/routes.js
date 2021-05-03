@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const AuthRoutes = require("../routes/auth.route");
 const UserRoutes = require("../routes/user.route");
 const ImageRoutes = require("../routes/image.route");
+const BouquetRoutes = require('../routes/bouquet.route')
 module.exports = function (app, winston) {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
@@ -10,6 +11,7 @@ module.exports = function (app, winston) {
   app.use("/api", AuthRoutes);
   app.use("/api", UserRoutes);
   app.use("/api", ImageRoutes);
+  app.use('/api',BouquetRoutes);
   // 404 handler
   app.use("*", (req, res, next) => {
     error = new Error("API_NOT_FOUND");
