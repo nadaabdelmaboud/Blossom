@@ -28,7 +28,10 @@ const BouquetSchema = new mongoose.Schema({
         enum:['I Love You','I Miss You','Congratulations','Get Well Soon','Happy Anniversary','Happy Birthday','I Am Sorry','Thank You','Wedding'],
         required:true
     },
-    images:[String]
+    images:{
+        type:String,
+        required:true
+    }
 
 
 })

@@ -26,6 +26,11 @@ const UserController = {
       res.status(data.err.status).send(data.err.message);
   },
   async updateBouquet(req,res){
+      const data = await BouquetService.updateBouquet(req.body,req.params.id);
+      if (data.data) {
+        return res.status(200).send(data.data);
+      }
+      res.status(data.err.status).send(data.err.message);
 
   },
   async deleteBouquet(req,res){

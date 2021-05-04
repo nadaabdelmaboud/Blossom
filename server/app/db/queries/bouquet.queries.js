@@ -1,5 +1,6 @@
 const BouquetModel = require('../models/bouquet.model');
 const client = require('../db.caching');
+const  Mongoose  = require('mongoose');
 const Bouquet = {
     async getBouquets(pageNumber,pageSize,category='',sentiment=''){
         let query = (category==''&&sentiment=='')?"{}":(category!=''&&sentiment=='')?`{"bouquetCategory":"${category}"}`:(category==''&&sentiment!='')?`{"bouquetSentiment":"${sentiment}"}`:`"{bouquetCategory":"${category}","bouquetSentiment":"${sentiment}"}`;
@@ -10,7 +11,7 @@ const Bouquet = {
         return bouquets;
     },
     async getBouquetById(id){
-        const bouquet = await BouquetModel.findById(id);
+        const bouquet = await BouquetModel.findById(id).lean();
         return bouquet;
     },
     async createBouquet(bouquet){
@@ -22,13 +23,27 @@ const Bouquet = {
                 available:bouquet.count
             }, 
             info:bouquet.info,
-            bouquetCategory:bouquet.category,
-            bouquetSentiment:bouquet.sentiment,
-            images:[bouquet.image]
+            bouquetCategory:bouquet.bouquetCategory,
+            bouquetSentiment:bouquet.bouquetSentiment,
+            images:bouquet.image
           });
           bouquet = await newBouquet.save();
           if(bouquet)return true;
           return false;
+    },
+    async updateBouquet(bouquet,id){
+        id = Mongoose.Types.ObjectId(id)
+        let bouquetObject = await BouquetModel.findById(id);
+        if(!bouquetObject) return false;
+        if(bouquet.count){
+            bouquet.count= {
+                sold:bouquetObject.count.sold,
+                available:bouquet.count
+            }
+        }
+        return await BouquetModel.findByIdAndUpdate(id, {
+            $set: bouquet
+          }).lean()
     }
    
 }
