@@ -20,7 +20,7 @@ const PlantValidation = {
         available: Joi.number().min(1).required(),
       },
       info: Joi.string().required(),
-      tips: Joi.string().allow(""),
+      tips: Joi.array().items(Joi.string()),
       images: Joi.array().items(Joi.string()).required(),
     });
     plant.type = plant.type.toLowerCase();
@@ -41,7 +41,7 @@ const PlantValidation = {
         available: Joi.number().min(1),
       },
       info: Joi.string(),
-      tips: Joi.string().allow(""),
+      tips: Joi.array().items(Joi.string()),
       images: Joi.array().items(Joi.string()),
     });
     if(plant.type) plant.type = plant.type.toLowerCase();

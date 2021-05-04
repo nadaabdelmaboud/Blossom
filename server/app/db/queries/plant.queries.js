@@ -30,7 +30,7 @@ const Plant = {
     return plant;
   },
   async createPlant(plant) {
-    const plantTips = plant.tips ? plant.tips : "";
+    const plantTips = plant.tips ? plant.tips : [];
     const images = plant.images ? plant.images : [];
     const newPlant = new PlantModel({
       name: plant.name.toLowerCase(),
@@ -59,7 +59,7 @@ const Plant = {
     if (plant.type) plantData.type = plant.type;
     if (plant.images) plantData.images = plant.images;
     if (plant.info) plantData.info = plant.info;
-    if (plant.tips||plant.tips == "") plantData.tips = plant.tips;
+    if (plant.tips||plant.tips == []) plantData.tips = plant.tips;
     if (plant.price) plantData.price = plant.price;
     if (plant.count && plant.count.available)
       plantData.count.available = plant.count.available;
