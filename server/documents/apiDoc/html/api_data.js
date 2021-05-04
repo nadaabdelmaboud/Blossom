@@ -661,13 +661,13 @@ define({ "api": [
     "version": "1.1.0",
     "permission": [
       {
-        "name": "</br><h1>admin</h1></br>"
+        "name": "Admin"
       }
     ],
     "examples": [
       {
         "title": "Example usage:",
-        "content": "         curl --location --request POST 'http://localhost:3000/api/plant' \\\n--data-raw '{\n \"images\":[\n    \n ],\n \"name\":\"SUNFLOWERS\",\n \"type\":\"flower\",\n \"price\":800,\n \"count\":{\n    \"available\":4\n },\n \"info\":\"The sunflower (Helianthus annuus) is an annual plant with a large daisy-like flower face. Its scientific name comes from the Greek words helios (“sun”) and anthos (“flower”). The flowers come in many colors (yellow, red, orange, maroon, brown), but they are commonly bright yellow with brown centers that ripen into heavy heads filled with seeds. \",\n \"tips\":\"1-Find a sunny spot! Sunflowers grow best in locations with direct sunlight (6 to 8 hours per day); they require long, hot summers to flower well.2-Choose a location with well-draining soil. It shouldn’t pool water after it rains.3-Sunflowers aren’t picky but the soil can’t be too compact. They have long tap roots that need to stretch out; in preparing a bed, dig down 2 feet in depth and about 3 feet across.\"\n}'",
+        "content": "curl --location --request POST 'http://localhost:3000/api/plant' \\\n--data-raw '{\n \"images\":[\n    \n ],\n \"name\":\"SUNFLOWERS\",\n \"type\":\"flower\",\n \"price\":800,\n \"count\":{\n    \"available\":4\n },\n \"info\":\"The sunflower (Helianthus annuus) is an annual plant with a large daisy-like flower face. Its scientific name comes from the Greek words helios (“sun”) and anthos (“flower”). The flowers come in many colors (yellow, red, orange, maroon, brown), but they are commonly bright yellow with brown centers that ripen into heavy heads filled with seeds. \",\n \"tips\":[\"Find a sunny spot! Sunflowers grow best in locations with direct sunlight (6 to 8 hours per day); they require long, hot summers to flower well.\",\n         \"Choose a location with well-draining soil. It shouldn’t pool water after it rains.\",\n         \"Sunflowers aren’t picky but the soil can’t be too compact. They have long tap roots that need to stretch out; in preparing a bed, dig down 2 feet in depth and about 3 feet across.\"\n         ]\n}'",
         "type": "curl"
       }
     ],
@@ -703,7 +703,7 @@ define({ "api": [
           },
           {
             "group": "BodyParameters",
-            "type": "Object[]",
+            "type": "String[]",
             "optional": false,
             "field": "images",
             "description": "<p>array of plant images</p>"
@@ -746,7 +746,7 @@ define({ "api": [
           },
           {
             "group": "BodyParameters",
-            "type": "String",
+            "type": "String[]",
             "optional": true,
             "field": "tips",
             "description": "<p>tips about planting the plants</p>"
@@ -786,7 +786,7 @@ define({ "api": [
     "version": "1.1.0",
     "permission": [
       {
-        "name": "</br><h1>admin</h1></br>"
+        "name": "Admin"
       }
     ],
     "examples": [
@@ -842,7 +842,7 @@ define({ "api": [
     "description": "<p>this request retruns all the plant in the database and doesn't return the plants tips.</p>",
     "permission": [
       {
-        "name": "</br><h1>user</h1></br>"
+        "name": "None"
       }
     ],
     "examples": [
@@ -852,19 +852,6 @@ define({ "api": [
         "type": "curl"
       }
     ],
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>token</p>"
-          }
-        ]
-      }
-    },
     "parameter": {
       "fields": {
         "QueryParameters": [
@@ -976,7 +963,7 @@ define({ "api": [
     "description": "<p>this request retruns all the plant info.</p>",
     "permission": [
       {
-        "name": "</br><h1>user</h1></br>"
+        "name": "None"
       }
     ],
     "examples": [
@@ -986,19 +973,6 @@ define({ "api": [
         "type": "curl"
       }
     ],
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>token</p>"
-          }
-        ]
-      }
-    },
     "parameter": {
       "fields": {
         "PathParameters": [
@@ -1038,7 +1012,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "String[]",
             "optional": false,
             "field": "images",
             "description": "<p>array of plant images</p>"
@@ -1080,7 +1054,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "String[]",
             "optional": false,
             "field": "tips",
             "description": "<p>tips about planting the plants</p>"
@@ -1090,7 +1064,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": [],\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": \"1-Plant in the spring after the threat of frost has passed. (See local frost dates.)2-Plant in the shade.3-Add compost to the soil before planting.4-Soak the soil around the plant until moist.5-Add mulch to keep moisture in and weeds out.\"\n     }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": [],\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n                 \"Plant in the spring after the threat of frost has passed.\",\n                 \"Plant in the shade.\",\n                 \"Add compost to the soil before planting.\",\n                 \"Soak the soil around the plant until moist.\",\n                 \"Add mulch to keep moisture in and weeds out.\"\n                 ]\n     }",
           "type": "json"
         }
       ]
@@ -1107,7 +1081,7 @@ define({ "api": [
     "version": "1.1.0",
     "permission": [
       {
-        "name": "</br><h1>admin</h1></br>"
+        "name": "Admin"
       }
     ],
     "examples": [
@@ -1208,7 +1182,7 @@ define({ "api": [
           },
           {
             "group": "BodyParameters",
-            "type": "String",
+            "type": "String[]",
             "optional": true,
             "field": "tips",
             "description": "<p>tips about planting the plants</p>"
@@ -1242,7 +1216,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "String[]",
             "optional": false,
             "field": "images",
             "description": "<p>array of plant images</p>"
@@ -1284,7 +1258,7 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "String[]",
             "optional": false,
             "field": "tips",
             "description": "<p>tips about planting the plants</p>"
@@ -1294,7 +1268,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": [],\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": \"1-Plant in the spring after the threat of frost has passed. (See local frost dates.)2-Plant in the shade.3-Add compost to the soil before planting.4-Soak the soil around the plant until moist.5-Add mulch to keep moisture in and weeds out.\"\n     }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": [],\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n             \"Plant in the spring after the threat of frost has passed.\",\n             \"Plant in the shade.\",\n             \"Add compost to the soil before planting.\",\n             \"Soak the soil around the plant until moist.\",\n             \"Add mulch to keep moisture in and weeds out.\"\n         ]\n     }",
           "type": "json"
         }
       ]

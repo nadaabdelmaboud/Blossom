@@ -22,9 +22,7 @@ const PlantSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  tips: {
-    type: String,
-  },
+  tips: [String],
   images: [String],
 });
 
