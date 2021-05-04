@@ -44,6 +44,17 @@ const Bouquet = {
         return await BouquetModel.findByIdAndUpdate(id, {
             $set: bouquet
           }).lean()
+    },
+    async deleteBouquet(id){
+        id = Mongoose.Types.ObjectId(id)
+        try{
+            await BouquetModel.deleteOne({_id:id});
+            return true;
+        }
+        catch(err){
+            return false;
+        }
+
     }
    
 }

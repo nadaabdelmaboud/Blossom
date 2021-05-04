@@ -17,6 +17,7 @@ const BouquetService={
         async getBouquetById(id){
             const isVlidId = await MongooseValidation.validateID(id);
             if(!isVlidId) return {data:false,err:await error("Not Valid ID",400)}
+            console.log(isVlidId,id)
             const bouquet = await Bouquet.getBouquetById(id);
             if(!bouquet) return {data:false,err:await error("No Bouquet found",404)}
             return {data:bouquet,err:''}
@@ -38,8 +39,12 @@ const BouquetService={
             return {data:bouquet,err:''}
 
         },
-        async deleteBouquet(bouquet){
-
+        async deleteBouquet(bouquetId){
+            const isValidId = await MongooseValidation.validateID(bouquetId)
+            if(!isValidId) return {data:false,err:await error("Not Valid ID",400)}
+            const success = await Bouquet.deleteBouquet(bouquetId)
+            if(!success) return {data:false,err:await error("Error in deleting bouquet",403)}
+            return {data:true,err:''}
         }
 
     
