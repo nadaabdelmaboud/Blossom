@@ -26,7 +26,8 @@ const UserService = {
     if (!isValid) return { data: false, err:await error("Invalid User ID", 404) };
     const isUserFound = await User.findUserById(id);
     if(!isUserFound) return { data: false, err:await error("Invalid User ID", 404) }; 
-    if (!user || user.length==0) return { data: false, err:await error("Data Is Missing", 400) };
+    if (user.constructor === Object && Object.keys(user).length === 0)
+      return { data: false, err: await error("Data Is Missing", 400) };
     const isUserValid = await UserValidation.updateUser(user);
     if (isUserValid.error) return { data: false, err:await error(isUserValid.error.message,400) };
     const userObject = await User.updateUser(user, id);
