@@ -21,7 +21,8 @@
 	"password":"hello"
 '}'/
  * 
- * @apiSuccessExample {json} Success-Response:
+ * @apiSuccessExample {json} Success-Response:  
+ * HTTP/1.1 200 OK
  *{
 *    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTc1YzY4Mzg3YmNlYjEwYWMzZDMzOTQiLCJwcm9kdWN0IjoiZnJlZSIsInVzZXJUeXBlIjoiQXJ0aXN0IiwiaWF0IjoxNTg1NjYzMzQ2LCJleHAiOjE1ODU3NDk3NDZ9.hLom36hxkDhABZEquFdKtFGEdmdxUziQx9eWVVry_3s"
 *}
@@ -69,6 +70,7 @@
 '}'/
  * 
  * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
  *{
 *    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTc1YzY4Mzg3YmNlYjEwYWMzZDMzOTQiLCJwcm9kdWN0IjoiZnJlZSIsInVzZXJUeXBlIjoiQXJ0aXN0IiwiaWF0IjoxNTg1NjYzMzQ2LCJleHAiOjE1ODU3NDk3NDZ9.hLom36hxkDhABZEquFdKtFGEdmdxUziQx9eWVVry_3s"
 *  }
@@ -89,6 +91,7 @@
  * <h1>Request Parameters</h1></br></br>
  * 
  * <h1>Endpoint</h1> 
+ * @apiHeader {String} Authorization token
  * 
  * @apiParam (BodyParameters) {String} name Required. Name of the bouquet
  * @apiParam (BodyParameters) {String} image Required. The key that is returned from the upload Image request
@@ -111,6 +114,7 @@
 '}'/
  * 
  * @apiSuccessExample {boolean} Success-Response:
+ * HTTP/1.1 200 OK
  * true
  *
  *
@@ -136,6 +140,7 @@
  * curl --location --request GET 'http://localhost:3000/api/bouquets?category=&sentiment=I Love you&pageSize=2&pageNumber=1' \/
  * 
  * @apiSuccessExample {Array[objects]} Success-Response:
+ * HTTP/1.1 200 OK
 [
     {
         "count": {
@@ -174,6 +179,7 @@
  * curl --location --request GET 'http://localhost:3000/api/bouquets/6090ae8be91a4e1150085d41' \
  * 
  * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
  * {
     "count": {
         "sold": 0,
@@ -204,13 +210,14 @@
  * <h1>Request Parameters</h1></br></br>
  * 
  * <h1>Endpoint</h1> 
- * 
+ * @apiHeader {String} Authorization token
  * @apiParam (PathParameters) {String} id Required. Id of the bouquet
  * 
  *@apiExample {curl} Example usage
  * curl --location --request DELETE 'http://localhost:3000/api/bouquets/6090ae8be91a4e1150085d41' \
  * 
  * @apiSuccessExample {Boolean} Success-Response:
+ * HTTP/1.1 200 OK
  * true
  *
  *
@@ -228,6 +235,8 @@
  * <h1>Request Parameters</h1></br></br>
  * 
  * <h1>Endpoint</h1> 
+ * 
+ * @apiHeader {String} Authorization token
  * @apiParam (PathParameters) {String} id Required. Id of the bouquet
  * @apiParam (BodyParameters) {String} [name] Name of the bouquet
  * @apiParam (BodyParameters) {String} [image] The key that is returned from the upload Image request
@@ -244,6 +253,7 @@
 '}'/
  * 
  * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
 {
     "_id": "6090ae8be91a4e1150085d41",
     "name": "Tulip",
@@ -275,6 +285,7 @@
  * 
  * <h1>Request Parameters</h1></br></br>
  * <h1>Endpoint</h1> 
+ * @apiHeader {String} Authorization token
  * @apiParam (BodyParameters) {String} ContentType Required. Type of the img jpg,png,jpeg,...
  * @apiParam (BodyParameters) {String="Bouquet","Plant"} Type Required. Type of the category of the image 
  * @apiExample {curl} Example usage
@@ -285,6 +296,7 @@
 '}'/
  * 
  * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
 {
     "key": "Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg",
     "url": "https://blossom-bucket.s3.amazonaws.com/Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg?AWSAccessKeyId=AKIAWP5OWQE4EZK3NJG5&Content-Type=image%2Fjpg&Expires=1620011171&Signature=2f9InXJfKmGvodBsUcAOzX0C7qs%3D"

@@ -37,13 +37,13 @@
     "success": {
       "examples": [
         {
-          "title": "Success-Response:",
-          "content": "{\n   \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTc1YzY4Mzg3YmNlYjEwYWMzZDMzOTQiLCJwcm9kdWN0IjoiZnJlZSIsInVzZXJUeXBlIjoiQXJ0aXN0IiwiaWF0IjoxNTg1NjYzMzQ2LCJleHAiOjE1ODU3NDk3NDZ9.hLom36hxkDhABZEquFdKtFGEdmdxUziQx9eWVVry_3s\"\n}",
+          "title": "Success-Response:  ",
+          "content": "HTTP/1.1 200 OK\n{\n   \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTc1YzY4Mzg3YmNlYjEwYWMzZDMzOTQiLCJwcm9kdWN0IjoiZnJlZSIsInVzZXJUeXBlIjoiQXJ0aXN0IiwiaWF0IjoxNTg1NjYzMzQ2LCJleHAiOjE1ODU3NDk3NDZ9.hLom36hxkDhABZEquFdKtFGEdmdxUziQx9eWVVry_3s\"\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "documents/apiDoc/code/doc.js",
+    "filename": "code/doc.js",
     "groupTitle": "Auth"
   },
   {
@@ -141,12 +141,12 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n   \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTc1YzY4Mzg3YmNlYjEwYWMzZDMzOTQiLCJwcm9kdWN0IjoiZnJlZSIsInVzZXJUeXBlIjoiQXJ0aXN0IiwiaWF0IjoxNTg1NjYzMzQ2LCJleHAiOjE1ODU3NDk3NDZ9.hLom36hxkDhABZEquFdKtFGEdmdxUziQx9eWVVry_3s\"\n }",
+          "content": "HTTP/1.1 200 OK\n{\n   \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTc1YzY4Mzg3YmNlYjEwYWMzZDMzOTQiLCJwcm9kdWN0IjoiZnJlZSIsInVzZXJUeXBlIjoiQXJ0aXN0IiwiaWF0IjoxNTg1NjYzMzQ2LCJleHAiOjE1ODU3NDk3NDZ9.hLom36hxkDhABZEquFdKtFGEdmdxUziQx9eWVVry_3s\"\n }",
           "type": "json"
         }
       ]
     },
-    "filename": "documents/apiDoc/code/doc.js",
+    "filename": "code/doc.js",
     "groupTitle": "Auth"
   },
   {
@@ -162,6 +162,19 @@
     ],
     "version": "1.1.0",
     "description": "<h1>Request Parameters</h1></br></br> <h1>Endpoint</h1>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "BodyParameters": [
@@ -250,12 +263,12 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "true",
+          "content": "HTTP/1.1 200 OK\ntrue",
           "type": "boolean"
         }
       ]
     },
-    "filename": "documents/apiDoc/code/doc.js",
+    "filename": "code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -271,6 +284,19 @@
     ],
     "version": "1.1.0",
     "description": "<h1>Request Parameters</h1></br></br> <h1>Endpoint</h1>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "PathParameters": [
@@ -295,12 +321,12 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "true",
+          "content": "HTTP/1.1 200 OK\ntrue",
           "type": "Boolean"
         }
       ]
     },
-    "filename": "documents/apiDoc/code/doc.js",
+    "filename": "code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -378,12 +404,12 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "[\n    {\n        \"count\": {\n            \"sold\": 0,\n            \"available\": 5\n        },\n        \"_id\": \"6090ae8be91a4e1150085d41\",\n        \"name\": \"Tulip\",\n        \"price\": 100,\n        \"info\": \"Tulips are the most colorful of all spring flowers. They are also one of the easiest flowers you'll ever grow. Just plant the bulbs in fall for blossoms the following spring. There are hundreds of beautiful tulips to choose from, in enough colors, shapes, sizes and bloom times to inspire every gardener's creativity.\",\n        \"bouquetCategory\": \"Tulips\",\n        \"bouquetSentiment\": \"I Love You\",\n        \"images\": \"Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg\",\n        \"__v\": 0\n    }\n]",
+          "content": "HTTP/1.1 200 OK\n[\n    {\n        \"count\": {\n            \"sold\": 0,\n            \"available\": 5\n        },\n        \"_id\": \"6090ae8be91a4e1150085d41\",\n        \"name\": \"Tulip\",\n        \"price\": 100,\n        \"info\": \"Tulips are the most colorful of all spring flowers. They are also one of the easiest flowers you'll ever grow. Just plant the bulbs in fall for blossoms the following spring. There are hundreds of beautiful tulips to choose from, in enough colors, shapes, sizes and bloom times to inspire every gardener's creativity.\",\n        \"bouquetCategory\": \"Tulips\",\n        \"bouquetSentiment\": \"I Love You\",\n        \"images\": \"Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg\",\n        \"__v\": 0\n    }\n]",
           "type": "Array[objects]"
         }
       ]
     },
-    "filename": "documents/apiDoc/code/doc.js",
+    "filename": "code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -418,12 +444,12 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"count\": {\n        \"sold\": 0,\n        \"available\": 10\n    },\n    \"_id\": \"6090ae8be91a4e1150085d41\",\n    \"name\": \"Tuli\",\n    \"price\": 100,\n    \"info\": \"Tulips are the most colorful of all spring flowers. They are also one of the easiest flowers you'll ever grow. Just plant the bulbs in fall for blossoms the following spring. There are hundreds of beautiful tulips to choose from, in enough colors, shapes, sizes and bloom times to inspire every gardener's creativity.\",\n    \"bouquetCategory\": \"Tulips\",\n    \"bouquetSentiment\": \"I Love You\",\n    \"images\": \"Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg\",\n    \"__v\": 0\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"count\": {\n        \"sold\": 0,\n        \"available\": 10\n    },\n    \"_id\": \"6090ae8be91a4e1150085d41\",\n    \"name\": \"Tuli\",\n    \"price\": 100,\n    \"info\": \"Tulips are the most colorful of all spring flowers. They are also one of the easiest flowers you'll ever grow. Just plant the bulbs in fall for blossoms the following spring. There are hundreds of beautiful tulips to choose from, in enough colors, shapes, sizes and bloom times to inspire every gardener's creativity.\",\n    \"bouquetCategory\": \"Tulips\",\n    \"bouquetSentiment\": \"I Love You\",\n    \"images\": \"Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg\",\n    \"__v\": 0\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "documents/apiDoc/code/doc.js",
+    "filename": "code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -439,6 +465,19 @@
     ],
     "version": "1.1.0",
     "description": "<h1>Request Parameters</h1></br></br> <h1>Endpoint</h1>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "PathParameters": [
@@ -536,12 +575,12 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"_id\": \"6090ae8be91a4e1150085d41\",\n    \"name\": \"Tulip\",\n    \"price\": 100,\n    \"count\": {\n        \"sold\": 0,\n        \"available\": 5\n    },\n    \"info\": \"Tulips are the most colorful of all spring flowers. They are also one of the easiest flowers you'll ever grow. Just plant the bulbs in fall for blossoms the following spring. There are hundreds of beautiful tulips to choose from, in enough colors, shapes, sizes and bloom times to inspire every gardener's creativity.\",\n    \"bouquetCategory\": \"Tulips\",\n    \"bouquetSentiment\": \"I Love You\",\n    \"images\": \"Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg\",\n    \"__v\": 0\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"_id\": \"6090ae8be91a4e1150085d41\",\n    \"name\": \"Tulip\",\n    \"price\": 100,\n    \"count\": {\n        \"sold\": 0,\n        \"available\": 5\n    },\n    \"info\": \"Tulips are the most colorful of all spring flowers. They are also one of the easiest flowers you'll ever grow. Just plant the bulbs in fall for blossoms the following spring. There are hundreds of beautiful tulips to choose from, in enough colors, shapes, sizes and bloom times to inspire every gardener's creativity.\",\n    \"bouquetCategory\": \"Tulips\",\n    \"bouquetSentiment\": \"I Love You\",\n    \"images\": \"Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg\",\n    \"__v\": 0\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "documents/apiDoc/code/doc.js",
+    "filename": "code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -557,6 +596,19 @@
     ],
     "version": "1.1.0",
     "description": "<p style=\"color:red\">Get Presigned Url Of an Image</p> </br></br> <h1>Request Parameters</h1></br></br> <h1>Endpoint</h1>",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "BodyParameters": [
@@ -592,12 +644,12 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n    \"key\": \"Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg\",\n    \"url\": \"https://blossom-bucket.s3.amazonaws.com/Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg?AWSAccessKeyId=AKIAWP5OWQE4EZK3NJG5&Content-Type=image%2Fjpg&Expires=1620011171&Signature=2f9InXJfKmGvodBsUcAOzX0C7qs%3D\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"key\": \"Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg\",\n    \"url\": \"https://blossom-bucket.s3.amazonaws.com/Bouquet/77630c85-5038-4b80-b71f-f7158b0addc7.jpg?AWSAccessKeyId=AKIAWP5OWQE4EZK3NJG5&Content-Type=image%2Fjpg&Expires=1620011171&Signature=2f9InXJfKmGvodBsUcAOzX0C7qs%3D\"\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "documents/apiDoc/code/doc.js",
+    "filename": "code/doc.js",
     "groupTitle": "Images"
   },
   {
@@ -722,7 +774,7 @@
         }
       ]
     },
-    "filename": "documents/apiDoc/code/plants.js",
+    "filename": "code/plants.js",
     "groupTitle": "Plant"
   },
   {
@@ -765,7 +817,7 @@
             "type": "String",
             "optional": false,
             "field": "_id",
-            "description": "<p>id of delted plant</p>"
+            "description": "<p>id of deleted plant</p>"
           }
         ]
       },
@@ -777,7 +829,7 @@
         }
       ]
     },
-    "filename": "documents/apiDoc/code/plants.js",
+    "filename": "code/plants.js",
     "groupTitle": "Plant"
   },
   {
@@ -911,7 +963,7 @@
         }
       ]
     },
-    "filename": "documents/apiDoc/code/plants.js",
+    "filename": "code/plants.js",
     "groupTitle": "Plant"
   },
   {
@@ -1043,7 +1095,7 @@
         }
       ]
     },
-    "filename": "documents/apiDoc/code/plants.js",
+    "filename": "code/plants.js",
     "groupTitle": "Plant"
   },
   {
@@ -1247,7 +1299,7 @@
         }
       ]
     },
-    "filename": "documents/apiDoc/code/plants.js",
+    "filename": "code/plants.js",
     "groupTitle": "Plant"
   }
 ]
