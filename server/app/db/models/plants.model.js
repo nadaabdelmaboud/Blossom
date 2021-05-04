@@ -23,7 +23,7 @@ const PlantSchema = new mongoose.Schema({
     required: true,
   },
   tips: [String],
-  images: [String],
+  image: String,
 });
 
 const PlantModel = mongoose.model('Plant',PlantSchema);

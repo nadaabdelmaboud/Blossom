@@ -21,7 +21,7 @@ const PlantValidation = {
       },
       info: Joi.string().required(),
       tips: Joi.array().items(Joi.string()),
-      images: Joi.array().items(Joi.string()).required(),
+      images: Joi.string().required(),
     });
     plant.type = plant.type.toLowerCase();
     return schema.validate(plant);
@@ -42,7 +42,7 @@ const PlantValidation = {
       },
       info: Joi.string(),
       tips: Joi.array().items(Joi.string()),
-      images: Joi.array().items(Joi.string()),
+      images: Joi.string(),
     });
     if(plant.type) plant.type = plant.type.toLowerCase();
     if(plant.name) plant.name = plant.name.toLowerCase();

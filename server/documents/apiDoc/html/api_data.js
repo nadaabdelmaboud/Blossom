@@ -43,7 +43,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/doc.js",
+    "filename": "documents/apiDoc/code/doc.js",
     "groupTitle": "Auth"
   },
   {
@@ -146,7 +146,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/doc.js",
+    "filename": "documents/apiDoc/code/doc.js",
     "groupTitle": "Auth"
   },
   {
@@ -268,7 +268,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/doc.js",
+    "filename": "documents/apiDoc/code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -326,7 +326,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/doc.js",
+    "filename": "documents/apiDoc/code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -409,7 +409,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/doc.js",
+    "filename": "documents/apiDoc/code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -449,7 +449,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/doc.js",
+    "filename": "documents/apiDoc/code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -580,7 +580,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/doc.js",
+    "filename": "documents/apiDoc/code/doc.js",
     "groupTitle": "Bouquets"
   },
   {
@@ -649,7 +649,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/doc.js",
+    "filename": "documents/apiDoc/code/doc.js",
     "groupTitle": "Images"
   },
   {
@@ -667,7 +667,7 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl --location --request POST 'http://localhost:3000/api/plant' \\\n--data-raw '{\n \"images\":[\n    \n ],\n \"name\":\"SUNFLOWERS\",\n \"type\":\"flower\",\n \"price\":800,\n \"count\":{\n    \"available\":4\n },\n \"info\":\"The sunflower (Helianthus annuus) is an annual plant with a large daisy-like flower face. Its scientific name comes from the Greek words helios (“sun”) and anthos (“flower”). The flowers come in many colors (yellow, red, orange, maroon, brown), but they are commonly bright yellow with brown centers that ripen into heavy heads filled with seeds. \",\n \"tips\":[\"Find a sunny spot! Sunflowers grow best in locations with direct sunlight (6 to 8 hours per day); they require long, hot summers to flower well.\",\n         \"Choose a location with well-draining soil. It shouldn’t pool water after it rains.\",\n         \"Sunflowers aren’t picky but the soil can’t be too compact. They have long tap roots that need to stretch out; in preparing a bed, dig down 2 feet in depth and about 3 feet across.\"\n         ]\n}'",
+        "content": "curl --location --request POST 'http://localhost:3000/api/plant' \\\n--data-raw '{\n \"image\":\"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n \"name\":\"SUNFLOWERS\",\n \"type\":\"flower\",\n \"price\":800,\n \"count\":{\n    \"available\":4\n },\n \"info\":\"The sunflower (Helianthus annuus) is an annual plant with a large daisy-like flower face. Its scientific name comes from the Greek words helios (“sun”) and anthos (“flower”). The flowers come in many colors (yellow, red, orange, maroon, brown), but they are commonly bright yellow with brown centers that ripen into heavy heads filled with seeds. \",\n \"tips\":[\"Find a sunny spot! Sunflowers grow best in locations with direct sunlight (6 to 8 hours per day); they require long, hot summers to flower well.\",\n         \"Choose a location with well-draining soil. It shouldn’t pool water after it rains.\",\n         \"Sunflowers aren’t picky but the soil can’t be too compact. They have long tap roots that need to stretch out; in preparing a bed, dig down 2 feet in depth and about 3 feet across.\"\n         ]\n}'",
         "type": "curl"
       }
     ],
@@ -703,10 +703,10 @@ define({ "api": [
           },
           {
             "group": "BodyParameters",
-            "type": "String[]",
+            "type": "String",
             "optional": false,
-            "field": "images",
-            "description": "<p>array of plant images</p>"
+            "field": "image",
+            "description": "<p>plant image</p>"
           },
           {
             "group": "BodyParameters",
@@ -774,7 +774,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/plants.js",
+    "filename": "documents/apiDoc/code/plants.js",
     "groupTitle": "Plant"
   },
   {
@@ -829,7 +829,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "code/plants.js",
+    "filename": "documents/apiDoc/code/plants.js",
     "groupTitle": "Plant"
   },
   {
@@ -900,10 +900,10 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "String",
             "optional": false,
-            "field": "images",
-            "description": "<p>array of plant images</p>"
+            "field": "image",
+            "description": "<p>plant image</p>"
           },
           {
             "group": "Success 200",
@@ -945,12 +945,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[\n     {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 4\n         },\n         \"images\": [],\n         \"_id\": \"608fe3662947f108c0fcdb0c\",\n         \"name\": \"lavender\",\n         \"type\": \"herb\",\n         \"price\": 300,\n         \"info\": \"Lavender is a bushy, strong-scented perennial plant from the Mediterranean. In warmer regions, its gray to green foliage stays evergreen throughout the year, and the herb thrives in some of the toughest of garden condition. Here’s how to plant, grow, and harvest lavender in the garden.\"\n     },\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": [],\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n     }\n\n ]",
+          "content": "HTTP/1.1 200 OK\n[\n     {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 4\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe3662947f108c0fcdb0c\",\n         \"name\": \"lavender\",\n         \"type\": \"herb\",\n         \"price\": 300,\n         \"info\": \"Lavender is a bushy, strong-scented perennial plant from the Mediterranean. In warmer regions, its gray to green foliage stays evergreen throughout the year, and the herb thrives in some of the toughest of garden condition. Here’s how to plant, grow, and harvest lavender in the garden.\"\n     },\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n     }\n\n ]",
           "type": "json"
         }
       ]
     },
-    "filename": "code/plants.js",
+    "filename": "documents/apiDoc/code/plants.js",
     "groupTitle": "Plant"
   },
   {
@@ -1012,10 +1012,10 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String[]",
+            "type": "String",
             "optional": false,
-            "field": "images",
-            "description": "<p>array of plant images</p>"
+            "field": "image",
+            "description": "<p>plant image</p>"
           },
           {
             "group": "Success 200",
@@ -1064,12 +1064,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": [],\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n                 \"Plant in the spring after the threat of frost has passed.\",\n                 \"Plant in the shade.\",\n                 \"Add compost to the soil before planting.\",\n                 \"Soak the soil around the plant until moist.\",\n                 \"Add mulch to keep moisture in and weeds out.\"\n                 ]\n     }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n                 \"Plant in the spring after the threat of frost has passed.\",\n                 \"Plant in the shade.\",\n                 \"Add compost to the soil before planting.\",\n                 \"Soak the soil around the plant until moist.\",\n                 \"Add mulch to keep moisture in and weeds out.\"\n                 ]\n     }",
           "type": "json"
         }
       ]
     },
-    "filename": "code/plants.js",
+    "filename": "documents/apiDoc/code/plants.js",
     "groupTitle": "Plant"
   },
   {
@@ -1139,10 +1139,10 @@ define({ "api": [
           },
           {
             "group": "BodyParameters",
-            "type": "Object[]",
+            "type": "String",
             "optional": true,
-            "field": "images",
-            "description": "<p>array of plant images</p>"
+            "field": "image",
+            "description": "<p>plant image</p>"
           },
           {
             "group": "BodyParameters",
@@ -1216,10 +1216,10 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String[]",
+            "type": "String",
             "optional": false,
-            "field": "images",
-            "description": "<p>array of plant images</p>"
+            "field": "image",
+            "description": "<p>plant image</p>"
           },
           {
             "group": "Success 200",
@@ -1268,12 +1268,12 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": [],\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n             \"Plant in the spring after the threat of frost has passed.\",\n             \"Plant in the shade.\",\n             \"Add compost to the soil before planting.\",\n             \"Soak the soil around the plant until moist.\",\n             \"Add mulch to keep moisture in and weeds out.\"\n         ]\n     }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n             \"Plant in the spring after the threat of frost has passed.\",\n             \"Plant in the shade.\",\n             \"Add compost to the soil before planting.\",\n             \"Soak the soil around the plant until moist.\",\n             \"Add mulch to keep moisture in and weeds out.\"\n         ]\n     }",
           "type": "json"
         }
       ]
     },
-    "filename": "code/plants.js",
+    "filename": "documents/apiDoc/code/plants.js",
     "groupTitle": "Plant"
   }
 ] });

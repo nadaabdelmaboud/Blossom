@@ -5,7 +5,7 @@ const Plant = {
     const pageNumber = query.pageNumber ? query.pageNumber : 1;
     const plants = await PlantModel.find(
       {},
-      { name: 1, type: 1, price: 1, count: 1, info: 1, images: 1 }
+      { name: 1, type: 1, price: 1, count: 1, info: 1, image: 1 }
     )
       .skip((pageNumber - 1) * pageSize)
       .limit(pageSize);
@@ -31,7 +31,7 @@ const Plant = {
   },
   async createPlant(plant) {
     const plantTips = plant.tips ? plant.tips : [];
-    const images = plant.images ? plant.images : [];
+    const image = plant.image ? plant.image : "";
     const newPlant = new PlantModel({
       name: plant.name.toLowerCase(),
       type: plant.type,
@@ -42,7 +42,7 @@ const Plant = {
       },
       info: plant.info,
       tips: plantTips,
-      images: images,
+      image: image,
     });
     let plantObject;
     try {
@@ -57,7 +57,7 @@ const Plant = {
     if (!plantData) return [];
     if (plant.name) plantData.name = plant.name;
     if (plant.type) plantData.type = plant.type;
-    if (plant.images) plantData.images = plant.images;
+    if (plant.image) plantData.image = plant.image;
     if (plant.info) plantData.info = plant.info;
     if (plant.tips||plant.tips == []) plantData.tips = plant.tips;
     if (plant.price) plantData.price = plant.price;
