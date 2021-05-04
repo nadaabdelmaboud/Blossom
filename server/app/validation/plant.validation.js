@@ -12,20 +12,16 @@ const PlantValidation = {
   async validatePlant(plant) {
     const schema = Joi.object({
       name: Joi.string().min(3).max(30).required(),
-      type: Joi.string().valid(
-        "vegetable",
-        "fruit",
-        "herb",
-        "flower",
-        "house plant"
-      ),
+      type: Joi.string()
+        .valid("vegetable", "fruit", "herb", "flower", "house plant")
+        .required(),
       price: Joi.number().min(1).required(),
       count: {
         available: Joi.number().min(1).required(),
       },
       info: Joi.string().required(),
       tips: Joi.string().allow(""),
-      images: Joi.array().items(Joi.string()),
+      images: Joi.array().items(Joi.string()).required(),
     });
     plant.type = plant.type.toLowerCase();
     return schema.validate(plant);
