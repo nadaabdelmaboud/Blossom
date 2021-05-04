@@ -264,6 +264,11 @@
     "title": "Delete Bouquet",
     "name": "Delete_Bouquet",
     "group": "Bouquets",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
     "version": "1.1.0",
     "description": "<h1>Request Parameters</h1></br></br> <h1>Endpoint</h1>",
     "parameter": {
@@ -427,6 +432,11 @@
     "title": "Update Bouquet",
     "name": "Update_Bouquet",
     "group": "Bouquets",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
     "version": "1.1.0",
     "description": "<h1>Request Parameters</h1></br></br> <h1>Endpoint</h1>",
     "parameter": {
@@ -540,6 +550,11 @@
     "title": "Upload Image",
     "name": "Upload_Image",
     "group": "Images",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
     "version": "1.1.0",
     "description": "<p style=\"color:red\">Get Presigned Url Of an Image</p> </br></br> <h1>Request Parameters</h1></br></br> <h1>Endpoint</h1>",
     "parameter": {

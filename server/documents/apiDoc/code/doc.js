@@ -196,6 +196,7 @@
  * @api {delete} api/bouquets/:id Delete Bouquet
  * @apiName Delete Bouquet
  * @apiGroup Bouquets
+ * @apiPermission admin
  * @apiVersion  1.1.0
 @apiDescription
  * 
@@ -219,6 +220,7 @@
  * @api {put} api/bouquets/:id Update Bouquet
  * @apiName Update Bouquet
  * @apiGroup Bouquets
+ * @apiPermission admin
  * @apiVersion  1.1.0
 @apiDescription
  * 
@@ -265,6 +267,7 @@
  * @api {get} api/upload Upload Image
  * @apiName Upload Image
  * @apiGroup Images
+ * @apiPermission admin
  * @apiVersion  1.1.0
 @apiDescription
  * 
