@@ -1,8 +1,10 @@
 <template>
-  <div class="upload blossomCard"
+  <div
+    class="upload blossomCard"
     :class="{
-              marginDown: showCategory || showSpecials,
-            }">
+      marginDown: showCategory || showSpecials,
+    }"
+  >
     <img src="../assets/BlossomLogo_v7.png" alt="logo Image" class="logoImg" />
     <input
       style="display: none"
@@ -23,15 +25,17 @@
         <input placeholder="Price" class="blossomInput" v-model="price" />
 
         <div class="blossomRadio">
-          <p>Type </p>
-            <label class="container">Plant
-              <input type="radio"  name="type" value="Plant" v-model="type" >
-              <span class="checkmark"></span>
-            </label>
-            <label class="container">Boquete
-              <input type="radio"  name="type" value="Boquete" v-model="type" >
-              <span class="checkmark"></span>
-            </label>
+          <p>Type</p>
+          <label class="container"
+            >Plant
+            <input type="radio" name="type" value="Plant" v-model="type" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >Boquete
+            <input type="radio" name="type" value="Boquete" v-model="type" />
+            <span class="checkmark"></span>
+          </label>
         </div>
 
         <div class="blossomSelectComponent">
@@ -65,7 +69,7 @@
           </div>
         </div>
 
-        <div class="blossomSelectComponent" v-if="type && type =='Boquete'">
+        <div class="blossomSelectComponent" v-if="type && type == 'Boquete'">
           <div
             class="blossomInput blossomSelect"
             :class="{
@@ -122,7 +126,6 @@
     <div class="toast" id="chooseType">
       <div class="addedToCart">Choose type first</div>
     </div>
-
   </div>
 </template>
 
@@ -135,7 +138,6 @@
 @import "../scss/BlossomSelect";
 @import "../scss/BlossomToast";
 @import "../scss/BlossomRadio";
-
 
 .uploadForm {
   display: flex;
@@ -230,15 +232,14 @@
   background-color: rgba(230, 0, 35, 0.03);
   color: rgb(230, 0, 35);
 }
-.addedToCart{
-padding:auto;
-width: 100%
+.addedToCart {
+  padding: auto;
+  width: 100%;
 }
 
-.blossomSelectList{
+.blossomSelectList {
   width: 90%;
 }
-
 </style>
 
 <script>
@@ -280,7 +281,7 @@ export default {
           name: "happy birth day",
         },
       ],
-      tips:[]
+      tips: [],
     };
   },
   methods: {
@@ -325,19 +326,18 @@ export default {
       this.specialityName = specialityName;
       this.showSpecials = false;
     },
-    showCategoriesOptions(){
-      if(!this.type){
+    showCategoriesOptions() {
+      if (!this.type) {
         this.showToast("chooseType");
-        return
+        return;
       }
-      this.showCategory = !this.showCategory
-      this.showSpecials = false
-
+      this.showCategory = !this.showCategory;
+      this.showSpecials = false;
     },
-    upload(){
+    upload() {
       this.showToast("upload");
-      this.$router.push('/') 
-    }
+      this.$router.push("/");
+    },
   },
   computed: {},
 };

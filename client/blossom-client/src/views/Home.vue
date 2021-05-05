@@ -7,12 +7,12 @@
     <createCategoryPopup v-if="showCategoryPopup" />
     <createSpecialPopup v-if="showSpecialPopup" />
     <reviewCard />
-       <div class="toast" id="upload">
+    <categories />
+    <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
-
     <homeFooter />
-       <div class="toast" id="upload">
+    <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
     <router-view />
@@ -29,6 +29,7 @@ import navBar from "../components/HomePage/navBar";
 import homeCard from "../components/HomePage/homeCard";
 import reviewCard from "../components/HomePage/reviewCard";
 import editCard from "../components/HomePage/editCard";
+import categories from "../components/HomePage/categories";
 import homeFooter from "../components/HomePage/homeFooter";
 import createCategoryPopup from "../components/CreatePopups/newCategoryPopup";
 import createSpecialPopup from "../components/CreatePopups/newSpecialPopup";
@@ -44,6 +45,7 @@ export default {
     createCategoryPopup,
     createSpecialPopup,
     navBar,
+    categories,
   },
   computed: {
     ...mapState({
