@@ -10,11 +10,11 @@
           <i class="fa fa-bars"></i>
         </button>
         <ul id="listItems">
-          <li v-if="noUser">Login</li>
+          <li v-if="noUser" @click="showLogin()">Login</li>
           <li v-if="noUser">Signup</li>
           <li v-if="admin">Users</li>
           <li v-if="admin">Orders</li>
-          <li v-if="admin"><i class="fa fa-chart-line"></i> Statistics</li>
+          <li v-if="admin">Statistics</li>
           <li v-if="user">Track Orders</li>
           <li v-if="user"><i class="fa fa-user"></i> Profile</li>
           <li v-if="user || admin">Logout</li>
@@ -144,8 +144,8 @@ export default {
   data: function () {
     return {
       admin: false,
-      user: true,
-      noUser: false,
+      user: false,
+      noUser: true,
       count: 0,
       toggleList: false,
     };
@@ -165,6 +165,9 @@ export default {
     showlist() {
       var list = document.getElementById("listItems");
       list.classList.toggle("show");
+    },
+    showLogin() {
+      this.$store.commit("popupsState/toggleAuthPopup");
     },
   },
 };
