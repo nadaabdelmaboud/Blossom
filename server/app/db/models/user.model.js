@@ -53,6 +53,7 @@ const UserSchema = new mongoose.Schema({
                     required:true
                 },
                 category:{
+                    //this is the order category which is either one of the plants categories or bouquet categories 
                     type:String,
                     enum:['BabyOrchid','Cabbage','Chrysanthemums','Eucalyptus','Gerbera','Roses','Lilies','Spider','Tulips'],
                     required:true

@@ -8,19 +8,19 @@ const AuthService={
 
     async login(user){
         const isValidData = await AuthValidation.login(user);
-        if(!isValidData) return {token:false,err:error("Not valid data",400)}
+        if(!isValidData) return {token:false,err:await error("Not valid data",400)}
         let userObject = await Admin.findAdminByEmail(user.email);
         let type=''
         if(userObject){
             let checkPassword = await Admin.comparePassword(userObject,user.password)
-            if(!checkPassword)  return {token:false,err:error("Invalid Password",404)}
+            if(!checkPassword)  return {token:false,err:await error("Invalid Password",404)}
             type = 'admin'
         }
         else{
             userObject = await User.findUserByEmail(user.email,{_id:1,password:1});
-            if(!userObject) return {token:false,err:error("Invalid Email",404)}
+            if(!userObject) return {token:false,err:await error("Invalid Email",404)}
             let checkPassword = await User.comparePassword(userObject,user.password)
-            if(!checkPassword)  return {token:false,err:error("Invalid Password",404)}
+            if(!checkPassword)  return {token:false,err:await error("Invalid Password",404)}
             type = 'user'
         }
         const token = await jwt.sign({_id:userObject._id,type:type}, process.env.JWT_SECRET_KEY, { expiresIn: '123456789' });
@@ -28,9 +28,9 @@ const AuthService={
     },
     async signUp(user){
         const isValidData = await AuthValidation.signUp(user);
-        if(!isValidData) return {token:false,err:error("Not valid data",400)}
+        if(!isValidData) return {token:false,err:await error("Not valid data",400)}
         let userObject = await User.findUserByEmail(user.email,{_id:1});
-        if(userObject) return {token:false,err:error("User already has an account",403)}
+        if(userObject) return {token:false,err:await error("User already has an account",403)}
         userObject  = await User.createUser(user);
         const token = await jwt.sign(userObject, process.env.JWT_SECRET_KEY, { expiresIn: '123456789' });
         return {token:token,err:''};

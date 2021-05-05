@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nadaabdelmaboud/Blossom#readme",
   "dependencies": {
+    "apidoc": "^0.27.1",
     "aws-sdk": "^2.897.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
