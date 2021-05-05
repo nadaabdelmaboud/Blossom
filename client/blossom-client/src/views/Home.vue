@@ -5,6 +5,7 @@
     <editCard v-if="showEditPopup" />
     <homeCard />
     <reviewCard />
+    <categories />
     <homeFooter />
     <router-view />
   </div>
@@ -16,6 +17,7 @@ import navBar from "../components/HomePage/navBar";
 import homeCard from "../components/HomePage/homeCard";
 import reviewCard from "../components/HomePage/reviewCard";
 import editCard from "../components/HomePage/editCard";
+import categories from "../components/HomePage/categories";
 import homeFooter from "../components/HomePage/homeFooter";
 import { mapState } from "vuex";
 
@@ -28,6 +30,7 @@ export default {
     editCard,
     homeFooter,
     navBar,
+    categories,
   },
   computed: {
     ...mapState({
