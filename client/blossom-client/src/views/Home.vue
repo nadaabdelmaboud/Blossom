@@ -4,6 +4,8 @@
     <authPopup v-if="showAuth" />
     <editCard v-if="showEditPopup" />
     <homeCard />
+    <createCategoryPopup v-if="showCategoryPopup" />
+    <createSpecialPopup v-if="showSpecialPopup" />
     <reviewCard />
     <categories />
     <homeFooter />
@@ -19,8 +21,9 @@ import reviewCard from "../components/HomePage/reviewCard";
 import editCard from "../components/HomePage/editCard";
 import categories from "../components/HomePage/categories";
 import homeFooter from "../components/HomePage/homeFooter";
+import createCategoryPopup from "../components/CreatePopups/newCategoryPopup";
+import createSpecialPopup from "../components/CreatePopups/newSpecialPopup";
 import { mapState } from "vuex";
-
 export default {
   name: "UserHome",
   components: {
@@ -29,6 +32,8 @@ export default {
     reviewCard,
     editCard,
     homeFooter,
+    createCategoryPopup,
+    createSpecialPopup,
     navBar,
     categories,
   },
@@ -36,6 +41,8 @@ export default {
     ...mapState({
       showAuth: (state) => state.popupsState.authPopup,
       showEditPopup: (state) => state.popupsState.editCardPopup,
+      showCategoryPopup: (state) => state.popupsState.createCategoryPopup,
+      showSpecialPopup: (state) => state.popupsState.createSpecialPopup,
     }),
   },
 };

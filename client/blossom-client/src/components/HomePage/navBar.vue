@@ -132,7 +132,7 @@ li:focus {
 }
 #cart {
   float: right;
-  width: 35px;
+  //width: 45px;
   padding: 7px;
   padding-top: 2px;
   padding-bottom: 2px;

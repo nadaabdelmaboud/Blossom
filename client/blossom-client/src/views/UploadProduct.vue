@@ -18,6 +18,68 @@
         />
         <input placeholder="Amount" class="blossomInput" v-model="amount" />
         <input placeholder="Price" class="blossomInput" v-model="price" />
+
+        <div class="blossomSelectComponent">
+          <div
+            class="blossomInput blossomSelect"
+            :class="{
+              optionChosen: category != 'Choose Category',
+            }"
+            @click="(showCategory = !showCategory), (showSpecials = false)"
+          >
+            {{ category }}
+
+            <i class="fa fa-chevron-right arrow" id="openArrow"></i>
+          </div>
+          <div class="blossomSelectList" v-if="showCategory">
+            <input type="text" v-model="searchCategory" placeholder="Search" />
+            <div v-for="(c, i) in categories" :key="i" class="options">
+              <ul>
+                <li
+                  v-if="c.name.search(new RegExp(searchCategory, 'i')) != -1"
+                  @click="chooseCategory(c.name)"
+                >
+                  {{ c.name }}
+                </li>
+              </ul>
+            </div>
+            <div class="create" @click="createCategory">
+              <strong>Create Category</strong>
+              <i class="fa fa-plus globalIcons"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="blossomSelectComponent">
+          <div
+            class="blossomInput blossomSelect"
+            :class="{
+              optionChosen: specialityName != 'Choose Special',
+            }"
+            @click="(showSpecials = !showSpecials), (showCategory = false)"
+          >
+            {{ specialityName }}
+
+            <i class="fa fa-chevron-right arrow" id="openArrow"></i>
+          </div>
+          <div class="blossomSelectList" v-if="showSpecials">
+            <input type="text" v-model="searchSpecial" placeholder="Search" />
+            <div v-for="(s, i) in specialities" :key="i" class="options">
+              <ul>
+                <li
+                  v-if="s.name.search(new RegExp(searchSpecial, 'i')) != -1"
+                  @click="chooseSpecial(s.name)"
+                >
+                  {{ s.name }}
+                </li>
+              </ul>
+            </div>
+            <div class="create" @click="createSpeciality">
+              <strong>Create Special</strong>
+              <i class="fa fa-plus globalIcons"></i>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="imageInput doubleBorder"
@@ -50,6 +112,7 @@
 @import "../scss/BlossomButton";
 @import "../scss/BlossomInput";
 @import "../scss/BlossomCard";
+@import "../scss/BlossomSelect";
 
 .uploadForm {
   display: flex;
@@ -60,9 +123,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-
   max-width: 60%;
-  // margin: ;
 }
 .imageInput {
   width: 30%;
@@ -157,14 +218,34 @@ export default {
       title: "",
       description: "",
       searchCategory: "",
+      searchSpecial: "",
       amount: "",
       price: "",
+      category: "Choose Category",
+      specialityName: "Choose Special",
+      type: null,
       showCategory: false,
       showSpecials: false,
       imageFile: null,
       width: "",
       height: "",
       validate: false,
+      categories: [
+        {
+          name: "lillies",
+        },
+        {
+          name: "tulip",
+        },
+      ],
+      specialities: [
+        {
+          name: "I love you",
+        },
+        {
+          name: "happy birth day",
+        },
+      ],
     };
   },
   methods: {
@@ -194,39 +275,20 @@ export default {
       this.dragover = false;
     },
     createSpeciality() {
-      this.$store.commit("popUpsState/toggleCreateSpeciality");
+      this.$store.commit("popupsState/toggleCreateSpecialPopup");
+      this.showSpecials = false;
     },
     createCategory() {
-      this.$store.commit("popUpsState/toggleCreateCategory");
+      this.$store.commit("popupsState/toggleCreateCategoryPopup");
+      this.showCategory = false;
     },
-    chooseCategory() {},
-    chooseSpecial() {},
-    showSection(i) {
-      let index = this.showSections.indexOf(i);
-      if (index == -1) this.showSections.push(i);
-      else this.showSections.splice(index, 1);
+    chooseCategory(categoryName) {
+      this.category = categoryName;
+      this.showCategory = false;
     },
-    createPin() {
-      if (this.chosenBoardName == "Select") {
-        this.showBoard = true;
-      } else {
-        if (this.title == "" || !this.imageFile) this.validate = true;
-        else {
-          let pin = {
-            title: this.title,
-            board: this.chosenBoardId,
-            imageWidth: this.width,
-            imageHeight: this.height,
-            imageId: this.imageFile,
-            topicName: this.label,
-          };
-          if (this.chosenSectionId != "") {
-            pin.section = this.chosenSectionId;
-          }
-          if (this.note != "") pin.note = this.note;
-          this.$store.dispatch("pins/createPin", { pin, label: this.label });
-        }
-      }
+    chooseSpecial(specialityName) {
+      this.specialityName = specialityName;
+      this.showSpecials = false;
     },
   },
   computed: {},
