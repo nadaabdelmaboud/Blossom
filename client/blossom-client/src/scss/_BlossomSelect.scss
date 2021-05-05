@@ -1,0 +1,100 @@
+.blossomSelect{
+    cursor: pointer;
+    color: rgba(192,160,91,0.6);
+    position: relative;
+    .arrow{
+        transform: rotateZ(90deg);
+        position: absolute;
+        top:10px;
+        right: 10px;
+        font-size: 15px;
+
+    }
+}
+.blossomSelectComponent{
+    position: relative;
+}
+.optionChosen{
+    color: $golden;
+    color: black;
+    opacity: 1;
+    .arrow{
+        color: $golden;
+    }
+
+}
+
+.blossomSelect:hover{
+    opacity: 1;
+}
+
+.blossomSelectList{
+    background-color: white;
+    z-index: 10;
+    -webkit-box-shadow: 0px 0px 10px 3px $lightGolden;
+    -moz-box-shadow: 0px 0px 10px 3px $lightGolden;
+    box-shadow: 0px 0px 10px 3px $lightGolden;
+    overflow: auto;
+    padding: 30px;
+    max-height: 400px;
+    max-width: 95vw;
+    position: absolute;
+    width: 100%;
+    p{
+        margin:16px 0;
+      }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: black;
+        li {
+            padding: 10px 10px;
+            margin: 4px 0;
+            height: 40px;
+            cursor: pointer;
+            transition: background-color 0.5s ease;
+            border-radius: 16px;
+        }
+        li:hover {
+            background-color: rgba(192,160,91,0.5) ;
+        }
+    }
+
+
+    input {
+        display: table-cell;
+        background-color: rgba(192,160,91,0.5);
+        height: 48px;
+        margin-top: 4px;
+        width: 100%;
+        border: none;
+        padding: 10px;
+        border-radius: 40px;
+        transition: background-color 0.5s ease;
+      }
+      input:focus{
+        background-color: rgba(192,160,91,0.5);
+        border: $lightGolden 4px solid;
+        outline: none;
+      }
+}
+
+.create {
+    color: black;
+    background-color: $lightGolden;
+    cursor: pointer;
+    height: 48px;
+    padding: 12px 0;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    transition: background-color 0.5s ease;
+    text-align: center;
+    margin-top: 20px;
+    i {
+      margin: 0 10px;
+    }
+  }
+  .create:hover {
+    background-color: rgba(192,160,91,0.5);
+  }

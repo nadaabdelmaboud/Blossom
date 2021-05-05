@@ -4,29 +4,37 @@
     <editCard v-if="showEditPopup" />
     <homeCard />
     <reviewCard /> -->
+    <!-- <homeFooter /> -->
+    <createCategoryPopup v-if="showCategoryPopup"/>
+    <createSpecialPopup v-if="showSpecialPopup"/>
     <router-view />
   </div>
 </template>
 
 <script>
-// import authPopup from "./AuthPopup";
-// import homeCard from "../components/HomePage/homeCard";
-// import reviewCard from "../components/HomePage/reviewCard";
-// import editCard from "../components/HomePage/editCard";
-import { mapState } from "vuex";
 
+import createCategoryPopup from "../components/CreatePopups/newCategoryPopup"
+import createSpecialPopup from "../components/CreatePopups/newSpecialPopup"
+import { mapState } from "vuex";
 export default {
   name: "UserHome",
   components: {
-    // authPopup,
-    // homeCard,
-    // reviewCard,
-    // editCard,
+    authPopup,
+    homeCard,
+    reviewCard,
+    editCard,
+    homeFooter,
+    createCategoryPopup,
+    createSpecialPopup
+
   },
   computed: {
     ...mapState({
       showAuth: (state) => state.popupsState.authPopup,
       showEditPopup: (state) => state.popupsState.editCardPopup,
+      showCategoryPopup: (state) => state.popupsState.createCategoryPopup,
+      showSpecialPopup: (state) => state.popupsState.createSpecialPopup,
+
     }),
   },
 };
