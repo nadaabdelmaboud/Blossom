@@ -4,9 +4,18 @@ const PlantValidation = {
     const schema = Joi.object({
       pageNumber: Joi.number().min(1),
       pageSize: Joi.number().min(1),
+      type: Joi.string().valid(
+        "vegetable",
+        "fruit",
+        "herb",
+        "flower",
+        "house plant"
+      ),
+      hasTips:Joi.boolean()
     });
     if (query.pageNumber) query.pageNumber = parseInt(query.pageNumber);
     if (query.pageSize) query.pageSize = parseInt(query.pageSize);
+    if (query.hasTips) query.hasTips = (query.hasTips == 'true');
     return schema.validate(query);
   },
   async validatePlant(plant) {

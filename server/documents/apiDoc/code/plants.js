@@ -11,17 +11,20 @@
  * 
  * @apiParam (QueryParameters) {Number} [pageNumber=1] page number
  * @apiParam (QueryParameters) {Number} [pageSize=10] max number of plants displayed in the page
- *
+ * @apiParam (QueryParameters) {Boolean} [hasTips] when true the tips of the plants are returned
+ * @apiParam (QueryParameters) {String="vegetable", "fruit" , "herb" , "flower" ,"house plant"} [type] plant type
+ * 
  * @apiSuccess {Object} count plant count
  * @apiSuccess {Number} count.sold  the plants sold count
  * @apiSuccess {Number} count.available  the plants available count
  * @apiSuccess {String} image plant image
  * @apiSuccess {String} _id plant id
- * @apiSuccess {String} type plant type
+ * @apiSuccess {String="vegetable", "fruit" , "herb" , "flower" ,"house plant"} type plant type
  * @apiSuccess {String} name plant name
  * @apiSuccess {Number} price plant price
  * @apiSuccess {String} info plant information
  * @apiSuccess {String} image plant image
+ * @apiSuccess {String[]} tips array of strings returned if the hasTips parameter is true
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
