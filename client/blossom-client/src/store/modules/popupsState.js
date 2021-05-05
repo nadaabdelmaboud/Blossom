@@ -1,9 +1,8 @@
 const state = {
-  authPopup: true,
+  authPopup: false,
   editCardPopup: false,
   createCategoryPopup: false,
   createSpecialPopup: false,
-
 };
 
 const mutations = {

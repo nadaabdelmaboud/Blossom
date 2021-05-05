@@ -6,6 +6,7 @@ mongoose
   .connect(process.env.DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false 
   })
   .then(() => {
     winston.info("Successfully connected to the database");

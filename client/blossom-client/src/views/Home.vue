@@ -1,20 +1,26 @@
 <template>
   <div class="home">
-    <!-- <authPopup v-if="showAuth" />
+    <navBar />
+    <authPopup v-if="showAuth" />
     <editCard v-if="showEditPopup" />
     <homeCard />
-    <reviewCard /> -->
-    <!-- <homeFooter /> -->
-    <createCategoryPopup v-if="showCategoryPopup"/>
-    <createSpecialPopup v-if="showSpecialPopup"/>
+    <createCategoryPopup v-if="showCategoryPopup" />
+    <createSpecialPopup v-if="showSpecialPopup" />
+    <reviewCard />
+    <homeFooter />
     <router-view />
   </div>
 </template>
 
 <script>
-
-import createCategoryPopup from "../components/CreatePopups/newCategoryPopup"
-import createSpecialPopup from "../components/CreatePopups/newSpecialPopup"
+import authPopup from "./AuthPopup";
+import navBar from "../components/HomePage/navBar";
+import homeCard from "../components/HomePage/homeCard";
+import reviewCard from "../components/HomePage/reviewCard";
+import editCard from "../components/HomePage/editCard";
+import homeFooter from "../components/HomePage/homeFooter";
+import createCategoryPopup from "../components/CreatePopups/newCategoryPopup";
+import createSpecialPopup from "../components/CreatePopups/newSpecialPopup";
 import { mapState } from "vuex";
 export default {
   name: "UserHome",
@@ -25,8 +31,8 @@ export default {
     editCard,
     homeFooter,
     createCategoryPopup,
-    createSpecialPopup
-
+    createSpecialPopup,
+    navBar,
   },
   computed: {
     ...mapState({
@@ -34,7 +40,6 @@ export default {
       showEditPopup: (state) => state.popupsState.editCardPopup,
       showCategoryPopup: (state) => state.popupsState.createCategoryPopup,
       showSpecialPopup: (state) => state.popupsState.createSpecialPopup,
-
     }),
   },
 };

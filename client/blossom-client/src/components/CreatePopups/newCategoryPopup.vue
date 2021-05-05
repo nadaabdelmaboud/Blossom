@@ -1,12 +1,20 @@
 <template>
   <div class="transparentBackground">
     <div class="popupBody">
-        <i class="fa fa-times hoverGolden close" @click="close"></i>
-       <img src="../../assets/BlossomLogo_v7.png" alt="logo Image" class="logoImg" />
-               <h3>Add new category? Intersting!</h3>
+      <i class="fa fa-times hoverGolden close" @click="close"></i>
+      <img
+        src="../../assets/BlossomLogo_v7.png"
+        alt="logo Image"
+        class="logoImg"
+      />
+      <h3>Add new category? Intersting!</h3>
 
-       <input class="blossomInput" v-model="categoryName" placeholder="Category Name"/>
-       <button class="blossomButton" @click="addCategory">Add Category</button>
+      <input
+        class="blossomInput"
+        v-model="categoryName"
+        placeholder="Category Name"
+      />
+      <button class="blossomButton" @click="addCategory">Add Category</button>
     </div>
   </div>
 </template>
@@ -23,22 +31,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-align-content: center;  
+  align-content: center;
 }
-.logoImg{
-    display: flex;
-    justify-self: center;
-    width: 150px;
-
+.logoImg {
+  display: flex;
+  justify-self: center;
+  width: 150px;
 }
-.blossomInput{
-      border: $golden 3px solid;  
-      text-align: center;
-      height: 48px;
-
+.blossomInput {
+  border: $golden 3px solid;
+  text-align: center;
+  height: 48px;
 }
-.blossomInput:hover{
-    border: $lightGolden 3px solid;  
+.blossomInput:hover {
+  border: $lightGolden 3px solid;
 }
 @media screen and (max-width: 900px) {
   .popupBody {
@@ -46,8 +52,8 @@ align-content: center;
     width: 97%;
   }
 }
-h3{
-    margin-top:-20px;
+h3 {
+  margin-top: -20px;
 }
 </style>
 
@@ -56,16 +62,16 @@ export default {
   name: "CreateCategory",
   data: function () {
     return {
-        categoryName:""
+      categoryName: "",
     };
   },
   methods: {
-      addCategory(){
-          this.close();
-      },
-      close(){
-          this.$store.commit("popupsState/toggleCreateCategoryPopup");
-      }
+    addCategory() {
+      this.close();
+    },
+    close() {
+      this.$store.commit("popupsState/toggleCreateCategoryPopup");
+    },
   },
 };
 </script>

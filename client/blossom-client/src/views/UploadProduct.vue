@@ -25,7 +25,7 @@
             :class="{
               optionChosen: category != 'Choose Category',
             }"
-            @click="showCategory = !showCategory,showSpecials=false"
+            @click="(showCategory = !showCategory), (showSpecials = false)"
           >
             {{ category }}
 
@@ -56,7 +56,7 @@
             :class="{
               optionChosen: specialityName != 'Choose Special',
             }"
-            @click="showSpecials = !showSpecials,showCategory=false"
+            @click="(showSpecials = !showSpecials), (showCategory = false)"
           >
             {{ specialityName }}
 
@@ -80,9 +80,6 @@
             </div>
           </div>
         </div>
-
-
-
       </div>
       <div
         class="imageInput doubleBorder"
@@ -225,7 +222,7 @@ export default {
       amount: "",
       price: "",
       category: "Choose Category",
-      specialityName:"Choose Special",
+      specialityName: "Choose Special",
       type: null,
       showCategory: false,
       showSpecials: false,
