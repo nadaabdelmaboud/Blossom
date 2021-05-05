@@ -1275,5 +1275,558 @@
     },
     "filename": "documents/apiDoc/code/plants.js",
     "groupTitle": "Plant"
+  },
+  {
+    "type": "get",
+    "url": "api/users",
+    "title": "Get All Users",
+    "name": "Get_All_Users",
+    "group": "User",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "Admin"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request GET 'http://localhost:3000/api/users?pageNumber=1&pageSize=10' \\",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "QueryParameters": [
+          {
+            "group": "QueryParameters",
+            "type": "Number",
+            "optional": true,
+            "field": "pageNumber",
+            "defaultValue": "1",
+            "description": "<p>page number</p>"
+          },
+          {
+            "group": "QueryParameters",
+            "type": "Number",
+            "optional": true,
+            "field": "pageSize",
+            "defaultValue": "10",
+            "description": "<p>max number of plants displayed in the page</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "address",
+            "description": "<p>user count</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.country",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.city",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.street",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.buildingNo",
+            "description": "<p>user building number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.apartmentNo",
+            "description": "<p>user apartment number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>user id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>user email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>user name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>user phone number</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [\n    {\n        \"_id\": \"6089d14c3323d34078fba7d9\",\n        \"name\": \"Nada\",\n        \"email\": \"nada@gmail.com\",\n        \"address\": {\n            \"country\": \"egypt\",\n            \"city\": \"giza\",\n            \"street\": \"abdelzaher\",\n            \"buildingNo\": 20,\n            \"apartmentNo\": 5\n        },\n        \"phone\": \"01283176585\"\n    },\n    {\n        \"_id\": \"608d666e7ff51820a8cb248d\",\n        \"name\": \"hager\",\n        \"email\": \"hager@gmail.com\",\n        \"address\": {\n            \"country\": \"alexandria\",\n            \"city\": \"aboer\",\n            \"street\": \"seastreet\",\n            \"buildingNo\": 5,\n            \"apartmentNo\": 6\n        },\n        \"phone\": \"01165655744\"\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "api/users/:id",
+    "title": "Get User By Id",
+    "name": "Get_User_By_Id",
+    "group": "User",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request GET 'http://localhost:3000/api/users/6089d14c3323d34078fba7d9' \\",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "PathParameters": [
+          {
+            "group": "PathParameters",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>user id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "address",
+            "description": "<p>user count</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.country",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.city",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.street",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.buildingNo",
+            "description": "<p>user building number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.apartmentNo",
+            "description": "<p>user apartment number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>user id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>user email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>user name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>user phone number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "Cart",
+            "description": "<p>array of all user's orders</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [\n    {\n        \"_id\": \"6089d14c3323d34078fba7d9\",\n        \"name\": \"Nada\",\n        \"email\": \"nada@gmail.com\",\n        \"address\": {\n            \"country\": \"egypt\",\n            \"city\": \"giza\",\n            \"street\": \"abdelzaher\",\n            \"buildingNo\": 20,\n            \"apartmentNo\": 5\n        },\n        \"phone\": \"01283176585\",\n        \"Cart\": []\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "put",
+    "url": "api/users/:id",
+    "title": "Update User",
+    "name": "Update_User",
+    "group": "User",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request PUT 'http://localhost:3000/api/users/608d666e7ff51820a8cb248d' \\",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "PathParameters": [
+          {
+            "group": "PathParameters",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>user id</p>"
+          }
+        ],
+        "BodyParameters": [
+          {
+            "group": "BodyParameters",
+            "type": "Object",
+            "optional": true,
+            "field": "address",
+            "description": "<p>user count</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "String",
+            "optional": true,
+            "field": "address.country",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "String",
+            "optional": true,
+            "field": "address.city",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "String",
+            "optional": true,
+            "field": "address.street",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "Number",
+            "optional": true,
+            "field": "address.buildingNo",
+            "description": "<p>user building number</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "Number",
+            "optional": true,
+            "field": "address.apartmentNo",
+            "description": "<p>user apartment number</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "String",
+            "optional": true,
+            "field": "email",
+            "description": "<p>user email</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "String",
+            "optional": true,
+            "field": "name",
+            "description": "<p>user name</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "String",
+            "optional": true,
+            "field": "phone",
+            "description": "<p>user phone number</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "address",
+            "description": "<p>user count</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.country",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.city",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.street",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.buildingNo",
+            "description": "<p>user building number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.apartmentNo",
+            "description": "<p>user apartment number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>user email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>user name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>user phone number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "creditCard",
+            "description": "<p>credit card info</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"creditCard\": {\n        \"cardNumber\": 0,\n        \"ccNumber\": 0,\n        \"expireDate\": null\n    },\n    \"_id\": \"608d666e7ff51820a8cb248d\",\n    \"name\": \"hager\",\n    \"email\": \"hager@gmail.com\",\n    \"password\": \"$2b$10$/bD5c6Y/jT35zBvDtIXZAOInn8X8aCT9k24FzcurgpB4uFOUHdEka\",\n    \"address\": {\n        \"country\": \"alexandria\",\n        \"city\": \"aboer\",\n        \"street\": \"seastreet\",\n        \"buildingNo\": 5,\n        \"apartmentNo\": 6\n    },\n    \"phone\": \"01165655744\",\n    \"Cart\": [],\n    \"__v\": 0\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "delete",
+    "url": "api/users/:id",
+    "title": "delete user",
+    "name": "delete_user",
+    "group": "User",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "Admin"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request DELETE 'http://localhost:3000/api/users/608d666e7ff51820a8cb248d'",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "PathParameters": [
+          {
+            "group": "PathParameters",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>user id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "address",
+            "description": "<p>user count</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.country",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.city",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.street",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.buildingNo",
+            "description": "<p>user building number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.apartmentNo",
+            "description": "<p>user apartment number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>user id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>user email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>user name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>user phone number</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [\n    {\n        \"_id\": \"6089d14c3323d34078fba7d9\",\n        \"name\": \"Nada\",\n        \"email\": \"nada@gmail.com\",\n        \"address\": {\n            \"country\": \"egypt\",\n            \"city\": \"giza\",\n            \"street\": \"abdelzaher\",\n            \"buildingNo\": 20,\n            \"apartmentNo\": 5\n        },\n        \"phone\": \"01283176585\"\n    },\n    {\n        \"_id\": \"608d666e7ff51820a8cb248d\",\n        \"name\": \"hager\",\n        \"email\": \"hager@gmail.com\",\n        \"address\": {\n            \"country\": \"alexandria\",\n            \"city\": \"aboer\",\n            \"street\": \"seastreet\",\n            \"buildingNo\": 5,\n            \"apartmentNo\": 6\n        },\n        \"phone\": \"01165655744\"\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/user.js",
+    "groupTitle": "User"
   }
 ]
