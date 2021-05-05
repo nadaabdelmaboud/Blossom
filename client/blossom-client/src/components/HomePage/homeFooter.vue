@@ -4,7 +4,10 @@
       <div class="footer-section info">
         <div id="addressInfo">
           <span id="addressTitle">Shop Address</span>
-          <span>23 street, Madinat Naser</span>
+          <span
+            ><i class="fa fa-map-marker" aria-hidden="true"></i> 23 street,
+            Madinat Naser</span
+          >
         </div>
         <div id="contactInfoDiv">
           <span id="contactInfo">Contact Information</span>

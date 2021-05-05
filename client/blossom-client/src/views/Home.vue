@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <navBar />
     <authPopup v-if="showAuth" />
     <editCard v-if="showEditPopup" />
     <homeCard />
@@ -11,6 +12,7 @@
 
 <script>
 import authPopup from "./AuthPopup";
+import navBar from "../components/HomePage/navBar";
 import homeCard from "../components/HomePage/homeCard";
 import reviewCard from "../components/HomePage/reviewCard";
 import editCard from "../components/HomePage/editCard";
@@ -25,6 +27,7 @@ export default {
     reviewCard,
     editCard,
     homeFooter,
+    navBar,
   },
   computed: {
     ...mapState({
