@@ -3,10 +3,14 @@ const Plant = {
   async getAllPlants(query) {
     const pageSize = query.pageSize ? query.pageSize : 10;
     const pageNumber = query.pageNumber ? query.pageNumber : 1;
-    const plants = await PlantModel.find(
-      {},
-      { name: 1, type: 1, price: 1, count: 1, info: 1, image: 1 }
-    )
+    var fields = { name: 1, type: 1, price: 1, count: 1, info: 1, image: 1 };
+    var filters = {};
+    if (query.type && query.type != "") filters.type = query.type;
+    if (query.hasTips) {
+      filters.tips = { $exists: true, $ne: [] };
+      fields.tips = 1;
+    }
+    const plants = await PlantModel.find(filters, fields)
       .skip((pageNumber - 1) * pageSize)
       .limit(pageSize);
     return plants;
@@ -59,7 +63,7 @@ const Plant = {
     if (plant.type) plantData.type = plant.type;
     if (plant.image) plantData.image = plant.image;
     if (plant.info) plantData.info = plant.info;
-    if (plant.tips||plant.tips == []) plantData.tips = plant.tips;
+    if (plant.tips || plant.tips == []) plantData.tips = plant.tips;
     if (plant.price) plantData.price = plant.price;
     if (plant.count && plant.count.available)
       plantData.count.available = plant.count.available;

@@ -870,6 +870,27 @@ define({ "api": [
             "field": "pageSize",
             "defaultValue": "10",
             "description": "<p>max number of plants displayed in the page</p>"
+          },
+          {
+            "group": "QueryParameters",
+            "type": "Boolean",
+            "optional": true,
+            "field": "hasTips",
+            "description": "<p>when true the tips of the plants are returned</p>"
+          },
+          {
+            "group": "QueryParameters",
+            "type": "String",
+            "allowedValues": [
+              "\"vegetable\"",
+              "\"fruit\"",
+              "\"herb\"",
+              "\"flower\"",
+              "\"house plant\""
+            ],
+            "optional": true,
+            "field": "type",
+            "description": "<p>plant type</p>"
           }
         ]
       }
@@ -915,6 +936,13 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
+            "allowedValues": [
+              "\"vegetable\"",
+              "\"fruit\"",
+              "\"herb\"",
+              "\"flower\"",
+              "\"house plant\""
+            ],
             "optional": false,
             "field": "type",
             "description": "<p>plant type</p>"
@@ -939,6 +967,13 @@ define({ "api": [
             "optional": false,
             "field": "info",
             "description": "<p>plant information</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "tips",
+            "description": "<p>array of strings returned if the hasTips parameter is true</p>"
           }
         ]
       },
