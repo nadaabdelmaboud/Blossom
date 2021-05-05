@@ -1,7 +1,7 @@
 export default {
   methods: {
-    showToast() {
-      var mytoast = document.getElementById("toastId");
+    showToast(toastId) {
+      var mytoast = document.getElementById(toastId);
       clearTimeout(mytoast.hideTimeout);
       mytoast.className = "toast toast--visible";
       mytoast.hideTimeout = setTimeout(() => {

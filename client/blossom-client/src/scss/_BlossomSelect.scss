@@ -51,7 +51,6 @@
         li {
             padding: 10px 10px;
             margin: 4px 0;
-            height: 40px;
             cursor: pointer;
             transition: background-color 0.5s ease;
             border-radius: 16px;
@@ -65,9 +64,8 @@
     input {
         display: table-cell;
         background-color: rgba(192,160,91,0.5);
-        height: 48px;
         margin-top: 4px;
-        width: 100%;
+        width: calc(100% - 20px);
         border: none;
         padding: 10px;
         border-radius: 40px;
@@ -84,7 +82,6 @@
     color: black;
     background-color: $lightGolden;
     cursor: pointer;
-    height: 48px;
     padding: 12px 0;
     margin-bottom: 10px;
     border-radius: 16px;

@@ -7,10 +7,21 @@
     <createCategoryPopup v-if="showCategoryPopup" />
     <createSpecialPopup v-if="showSpecialPopup" />
     <reviewCard />
+       <div class="toast" id="upload">
+      <div class="addedToCart">A new product is uploaded!</div>
+    </div>
+
     <homeFooter />
+       <div class="toast" id="upload">
+      <div class="addedToCart">A new product is uploaded!</div>
+    </div>
     <router-view />
   </div>
 </template>
+<style scoped lang="scss">
+@import "../scss/Colors";
+@import "../scss/BlossomToast";
+</style>
 
 <script>
 import authPopup from "./AuthPopup";

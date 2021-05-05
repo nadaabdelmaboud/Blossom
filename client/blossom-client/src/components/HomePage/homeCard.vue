@@ -24,7 +24,7 @@
           <button
             class="addToCart blossomButton"
             v-if="user == true"
-            @click="showToast()"
+            @click="showToast('toastId')"
           >
             Add to Cart
           </button>
