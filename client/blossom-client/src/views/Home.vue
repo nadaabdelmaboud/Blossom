@@ -8,6 +8,7 @@
     <createSpecialPopup v-if="showSpecialPopup" />
     <reviewCard />
     <categories />
+    <whyUs />
     <homeFooter />
     <router-view />
   </div>
@@ -20,6 +21,7 @@ import homeCard from "../components/HomePage/homeCard";
 import reviewCard from "../components/HomePage/reviewCard";
 import editCard from "../components/HomePage/editCard";
 import categories from "../components/HomePage/categories";
+import whyUs from "../components/HomePage/whyUs";
 import homeFooter from "../components/HomePage/homeFooter";
 import createCategoryPopup from "../components/CreatePopups/newCategoryPopup";
 import createSpecialPopup from "../components/CreatePopups/newSpecialPopup";
@@ -36,6 +38,7 @@ export default {
     createSpecialPopup,
     navBar,
     categories,
+    whyUs,
   },
   computed: {
     ...mapState({

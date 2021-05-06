@@ -74,7 +74,7 @@ img {
   width: 100%;
   background-color: $golden;
   li {
-    font-size: 11px;
+    font-size: 15px;
     padding-left: 1px;
     color: black;
     font-weight: 700;
@@ -88,14 +88,14 @@ img {
   flex-direction: row;
   justify-content: space-between;
   padding-top: 15px;
-  padding-bottom: 8px;
+  border-bottom: solid 1px $golden;
   padding-left: 10px;
   z-index: 1;
   font-weight: 700;
 }
 .blossom {
   color: $lightGolden;
-  font-size: 27px;
+  font-size: 30px;
   font-weight: 700;
   width: 20%;
   padding-left: 15px;
@@ -120,7 +120,7 @@ li {
   padding: 8px 17px;
   text-align: center;
   color: $lightGolden;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   &:hover {
     color: $golden;
@@ -146,7 +146,8 @@ li:focus {
   display: none;
   float: right;
   margin-left: 5px;
-  margin-bottom: 2px;
+  //margin-bottom: 1px;
+  margin-top: 3px;
   margin-right: 10px;
   font-size: 25px;
   background-color: transparent;
@@ -172,6 +173,7 @@ button:focus {
   }
   #showMyList.show {
     display: block;
+    border-top: solid 1px $golden;
     z-index: 10;
     ul {
       text-align: center;
@@ -204,7 +206,7 @@ export default {
       if (window.pageYOffset > 150) {
         navId.style.cssText +=
           "position:fixed; top:0; width:100%; background-color:black;";
-        navList.style.cssText += "position:fixed; top:60px;";
+        navList.style.cssText += "position:fixed; top:57px;";
       } else {
         navId.style = "default";
         navList.style = "default";

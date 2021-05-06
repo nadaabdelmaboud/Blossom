@@ -152,7 +152,6 @@
   p {
     padding: 0px 30px;
     text-align: center;
-    text-align: center;
     font-size: 20px;
   }
 }
