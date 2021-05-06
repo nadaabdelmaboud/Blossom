@@ -8,13 +8,10 @@
     <createSpecialPopup v-if="showSpecialPopup" />
     <reviewCard />
     <categories />
-<<<<<<< HEAD
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
-=======
     <whyUs />
->>>>>>> d4fd82404eaa2df74198eade704d5a4357bd2645
     <homeFooter />
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
