@@ -40,18 +40,28 @@
           <div class="blossomSelectList" v-if="showCity">
             <div v-for="(c, i) in cities" :key="i" class="options">
               <ul>
-                <li
-                  @click="address.city = c.name,showCity=false"
-                >
+                <li @click="(address.city = c.name), (showCity = false)">
                   {{ c.name }}
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <input placeholder="Street" class="blossomInput" v-model="address.street" />
-        <input placeholder="building Number" class="blossomInput" v-model="address.buildingNo" />
-        <input placeholder="apartment Number" class="blossomInput" v-model="address.apartmentNo" />
+        <input
+          placeholder="Street"
+          class="blossomInput"
+          v-model="address.street"
+        />
+        <input
+          placeholder="building Number"
+          class="blossomInput"
+          v-model="address.buildingNo"
+        />
+        <input
+          placeholder="apartment Number"
+          class="blossomInput"
+          v-model="address.apartmentNo"
+        />
       </div>
       <button class="blossomButton" @click="signup">Signup</button>
       <div class="toSignup">
@@ -76,32 +86,33 @@ export default {
       phoneNumber: "",
       address: {
         country: "egypt",
-        city:"City",
-        street:"",
-        buildingNo:"",
-        apartmentNo:""
+        city: "City",
+        street: "",
+        buildingNo: "",
+        apartmentNo: "",
       },
-      showCity:false,
-      cities:[
+      showCity: false,
+      cities: [
         {
-          name: "Cairo"
-        },{
-          name: "Giza"
-        }
-      ]
+          name: "Cairo",
+        },
+        {
+          name: "Giza",
+        },
+      ],
     };
   },
   methods: {
-    signup(){
-      const user={
+    signup() {
+      const user = {
         name: this.username,
         email: this.email,
         password: this.password,
         repeat_password: this.password,
         phone: this.phoneNumber,
-        address: this.address
-      }
-      this.$store.dispatch("authorization/signup",user);
+        address: this.address,
+      };
+      this.$store.dispatch("authorization/signup", user);
     },
     switchState() {
       this.$emit("switchState", true);
@@ -146,43 +157,42 @@ export default {
   padding: 10px;
   width: calc(100% - 20px);
 }
-.address{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
-    .blossomInput{
-  width: 40%;
-  margin: 0%;
-
-}
-}
-.addressLabel{
-  text-align: start;
-  color: $golden;
-}
-.blossomSelectComponent{
-      width: 40%;
-      .blossomInput{
-        width: 100%;
-        }
+.address {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  .blossomInput {
+    width: 40%;
+    margin: 0%;
   }
-
-  @media screen and (max-width: 450px) {
- .address{
-    .blossomInput{
-  width: 100%;
 }
-}
-.addressLabel{
+.addressLabel {
   text-align: start;
   color: $golden;
 }
-.blossomSelectComponent{
+.blossomSelectComponent {
+  width: 40%;
+  .blossomInput {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .address {
+    .blossomInput {
       width: 100%;
-      .blossomInput{
-        width: 100%;
-        }
+    }
+  }
+  .addressLabel {
+    text-align: start;
+    color: $golden;
+  }
+  .blossomSelectComponent {
+    width: 100%;
+    .blossomInput {
+      width: 100%;
+    }
   }
 }
 </style>

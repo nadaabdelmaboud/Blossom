@@ -4,7 +4,7 @@ const state = {
   status: "",
   token: localStorage.getItem("token") || "",
   user: {},
-  isAdmin: Boolean
+  isAdmin: Boolean,
 };
 
 const mutations = {
@@ -25,39 +25,39 @@ const mutations = {
     state.user = {};
   },
 };
-const actions ={
-  signup({ commit, dispatch}, user) {
+const actions = {
+  signup({ commit, dispatch }, user) {
     commit("auth_request");
     axios
-      .post("/api/sign", user )
-      .then(response => {
-        console.log("response ",response)
+      .post("/api/sign", user)
+      .then((response) => {
+        console.log("response ", response);
         const token = response.data.token;
         localStorage.setItem("token", token);
         axios.defaults.headers.common["Authorization"] = token;
         dispatch("get_user");
       })
-      .catch(error => {
+      .catch((error) => {
         commit("auth_error", "signup_err");
         localStorage.removeItem("token");
         console.log(error);
       });
   },
-  login({ commit ,dispatch }, user) {
-      commit("auth_request");
-      axios
-        .post("/api/login", user)
-        .then(response => {
-          const token = response.data.token;
-          localStorage.setItem("token", token);
-          axios.defaults.headers.common["Authorization"] = token;
-          dispatch("get_user");
-        })
-        .catch(error => {
-          console.log(error);
-          commit("auth_error", "login_err");
-          localStorage.removeItem("token");
-        });
+  login({ commit, dispatch }, user) {
+    commit("auth_request");
+    axios
+      .post("/api/login", user)
+      .then((response) => {
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        axios.defaults.headers.common["Authorization"] = token;
+        dispatch("get_user");
+      })
+      .catch((error) => {
+        console.log(error);
+        commit("auth_error", "login_err");
+        localStorage.removeItem("token");
+      });
   },
   get_user({ commit }) {
     const token = localStorage.getItem("token");
@@ -77,18 +77,17 @@ const actions ={
   //     .then(() => {})
   //     .catch(() => {});
   // },
-}
-const getters ={
-  username: state => state.user.displayName,
-  getStatus: state => state.status,
-  user: state => state.user,
-  isAdmin: state => state.isAdmin
-
-}
+};
+const getters = {
+  username: (state) => state.user.displayName,
+  getStatus: (state) => state.status,
+  user: (state) => state.user,
+  isAdmin: (state) => state.isAdmin,
+};
 export default {
   namespaced: true,
   state,
   mutations,
   actions,
-  getters
+  getters,
 };

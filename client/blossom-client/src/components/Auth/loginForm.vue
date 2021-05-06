@@ -41,12 +41,12 @@ export default {
     };
   },
   methods: {
-    login(){
-      const user={
-        email:this.email,
-        password:this.password
-      }
-      this.$store.dispatch("authorization/login",user);
+    login() {
+      const user = {
+        email: this.email,
+        password: this.password,
+      };
+      this.$store.dispatch("authorization/login", user);
     },
     switchState() {
       this.$emit("switchState", false);
