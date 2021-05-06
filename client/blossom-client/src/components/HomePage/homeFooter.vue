@@ -48,15 +48,15 @@
 }
 .footer-bottom {
   padding: 10px;
-  font-size: 10px;
+  font-size: 15px;
 }
 .info {
   justify-content: center;
-  font-size: 13px;
+  font-size: 17px;
   #addressTitle,
   #contactInfo {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 18px;
   }
   span {
     line-height: 30px;
@@ -68,7 +68,7 @@
 }
 .time {
   color: $darkGolden;
-  font-size: 10px;
+  font-size: 15px;
 }
 @media screen and (max-width: 650px) {
   #contactInfoDiv,

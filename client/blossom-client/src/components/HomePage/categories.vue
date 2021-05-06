@@ -5,13 +5,14 @@
       <typesCard />
     </div>
     <div class="showMore">
-      <button>Show More</button>
+      <button class="blossomButton">Show More</button>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 @import "../../scss/_Colors";
+@import "../../scss/BlossomButton";
 .catogries {
   width: 100%;
   height: 60%;
@@ -20,27 +21,15 @@
 }
 h6 {
   font-family: "Dancing Script";
-  font-size: 20px;
+  font-size: 30px;
+  font-weight: 700;
   color: $golden;
   padding-top: 10px;
   margin: 5px;
 }
-button {
-  background-color: transparent;
-  border: solid 2px $golden;
-  color: $golden;
-  font-weight: 700;
-  padding: 10px 35px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px $shadowColor;
-  transition: 0.25s ease-in-out;
-  margin: 20px;
-}
-button:focus {
-  outline: none;
-}
-button:active {
-  transform: scale(0.98);
+.blossomButton {
+  width: 150px;
+  margin-bottom: 40px;
 }
 </style>
 

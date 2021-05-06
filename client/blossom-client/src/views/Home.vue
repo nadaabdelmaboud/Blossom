@@ -8,9 +8,13 @@
     <createSpecialPopup v-if="showSpecialPopup" />
     <reviewCard />
     <categories />
+<<<<<<< HEAD
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
+=======
+    <whyUs />
+>>>>>>> d4fd82404eaa2df74198eade704d5a4357bd2645
     <homeFooter />
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
@@ -30,6 +34,7 @@ import homeCard from "../components/HomePage/homeCard";
 import reviewCard from "../components/HomePage/reviewCard";
 import editCard from "../components/HomePage/editCard";
 import categories from "../components/HomePage/categories";
+import whyUs from "../components/HomePage/whyUs";
 import homeFooter from "../components/HomePage/homeFooter";
 import createCategoryPopup from "../components/CreatePopups/newCategoryPopup";
 import createSpecialPopup from "../components/CreatePopups/newSpecialPopup";
@@ -46,6 +51,7 @@ export default {
     createSpecialPopup,
     navBar,
     categories,
+    whyUs,
   },
   computed: {
     ...mapState({

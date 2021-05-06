@@ -27,7 +27,7 @@
   height: 88%;
   img {
     width: 100%;
-    height: 100%;
+    height: 97%;
     background-size: cover;
     object-fit: cover;
   }
@@ -35,7 +35,7 @@
 
 .typeName {
   text-align: center;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   padding-top: 5px;
   color: $golden;
