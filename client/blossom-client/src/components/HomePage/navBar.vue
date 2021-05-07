@@ -4,7 +4,6 @@
       <ul>
         <li v-if="admin">Reviews</li>
         <li v-if="admin">Statistics</li>
-        <li v-if="admin || user">Plant Tips</li>
         <li v-if="user">Track Orders</li>
         <li v-if="admin">Users</li>
       </ul>
@@ -25,6 +24,7 @@
             <i class="fa fa-pagelines"></i> Flowers
           </li>
           <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
+          <li v-if="admin || user">Plant Tips</li>
           <li v-if="admin">Orders</li>
           <li v-if="user"><i class="fa fa-user"></i> Profile</li>
           <li v-if="user || admin">Logout</li>
@@ -40,6 +40,7 @@
         <li v-if="noUser">Signup</li>
         <li @click="callFlowers()"><i class="fa fa-pagelines"></i> Flowers</li>
         <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
+        <li v-if="admin || user">Plant Tips</li>
         <li v-if="admin">Orders</li>
         <li v-if="user"><i class="fa fa-user"></i> Profile</li>
         <li v-if="user || admin">Logout</li>

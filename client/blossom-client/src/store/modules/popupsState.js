@@ -1,8 +1,9 @@
 const state = {
-  authPopup: true,
+  authPopup: false,
   editCardPopup: false,
   createCategoryPopup: false,
   createSpecialPopup: false,
+  descriptionPopup: false,
 };
 
 const mutations = {
@@ -17,6 +18,9 @@ const mutations = {
   },
   toggleCreateSpecialPopup(state) {
     state.createSpecialPopup = !state.createSpecialPopup;
+  },
+  toggleDescriptionPopup(state) {
+    state.descriptionPopup = !state.descriptionPopup;
   },
 };
 export default {

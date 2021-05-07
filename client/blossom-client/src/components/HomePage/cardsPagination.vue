@@ -5,9 +5,9 @@
         class="box"
         v-for="card in homeCards"
         :key="card._id"
+        :id="card._id"
         :image="card.images"
         :name="card.name"
-        :description="card.info"
         :price="card.price"
         :available="card.count.available"
       />
@@ -38,8 +38,10 @@
   display: grid;
   place-items: center;
   text-align: center;
+  justify-self: center;
 }
 .pagination {
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   color: $darkGolden;
@@ -57,13 +59,12 @@
 }
 @media screen and (max-width: 960px) {
   .container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     padding: 4px;
   }
 }
 @media screen and (max-width: 300px) {
   .container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     padding: 0;
   }
 }

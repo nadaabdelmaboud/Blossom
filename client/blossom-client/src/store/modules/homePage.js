@@ -6,6 +6,9 @@ const state = {
   isFlower: true,
   cateogry: "",
   sentiment: "",
+  cardId: "",
+  cardName: "",
+  cardDescription: "",
 };
 
 const mutations = {
@@ -29,6 +32,15 @@ const mutations = {
   },
   setIsFlower(state, check) {
     state.isFlower = check;
+  },
+  setCardID(state, value) {
+    state.cardId = value;
+  },
+  setCardName(state, value) {
+    state.cardName = value;
+  },
+  setCardDescription(state, value) {
+    state.cardDescription = value;
   },
 };
 
@@ -63,6 +75,30 @@ const actions = {
       .then((response) => {
         state.homeCards = [];
         commit("setHomeCards", response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  getFlowerById({ commit }, id) {
+    axios
+      .get("bouquets/" + id)
+      .then((response) => {
+        commit("setCardName", response.data.name);
+        commit("setCardDescription", response.data.info);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  getPlantById({ commit }, id) {
+    axios
+      .get("plant/" + id)
+      .then((response) => {
+        commit("setCardName", response.data.name);
+        commit("setCardDescription", response.data.info);
         console.log(response.data);
       })
       .catch((error) => {

@@ -57,6 +57,7 @@ p {
   display: grid;
   place-items: center;
   text-align: center;
+  justify-self: center;
 }
 @media screen and (max-width: 960px) {
   .container {
@@ -66,7 +67,6 @@ p {
 }
 @media screen and (max-width: 300px) {
   .container {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     padding: 3px;
   }
 }

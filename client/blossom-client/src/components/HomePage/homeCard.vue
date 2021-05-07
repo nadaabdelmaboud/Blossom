@@ -15,10 +15,9 @@
       </div>
       <div class="box" id="flowerInfo">
         <div class="title">{{ name }}</div>
-        <!--<div class="line"></div>
-        <div class="description">
-          {{ description }}
-        </div>-->
+        <div class="description" @click="showDescriptionPopup()">
+          See Description
+        </div>
         <div class="price">{{ price }} EG</div>
         <div class="flowersCount" v-if="admin == true">
           <span id="counter">{{ available }} </span>
@@ -123,9 +122,10 @@ img {
   margin-top: 7px;
 }
 .description {
-  margin-top: 7px;
-  margin-bottom: 7px;
-  font-size: 18px;
+  font-size: 17px;
+  text-decoration: underline;
+  color: $golden;
+  cursor: pointer;
 }
 .price {
   margin-top: 7px;
@@ -155,7 +155,7 @@ img {
 }
 .blossomButton {
   font-size: 15px;
-  height: 10%;
+  height: 15%;
 }
 </style>
 
@@ -165,18 +165,18 @@ export default {
   name: "homeCard",
   data: function () {
     return {
-      admin: false,
-      user: true,
+      admin: true,
+      user: false,
     };
   },
   props: {
+    id: {
+      type: String,
+    },
     image: {
       type: String,
     },
     name: {
-      type: String,
-    },
-    description: {
       type: String,
     },
     price: {
@@ -190,6 +190,11 @@ export default {
   methods: {
     toggleEditState() {
       this.$store.commit("popupsState/toggleEditCardPopup");
+    },
+    showDescriptionPopup() {
+      this.$store.commit("popupsState/toggleDescriptionPopup");
+      this.$store.commit("homePage/setCardID", this.id);
+      console.log(this.id);
     },
   },
 };
