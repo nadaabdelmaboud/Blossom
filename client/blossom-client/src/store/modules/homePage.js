@@ -3,7 +3,7 @@ const state = {
   homeCards: [],
   counter: 1,
   maxPages: 5,
-  isFlower: false,
+  isFlower: true,
   cateogry: "",
   sentiment: "",
 };

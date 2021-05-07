@@ -2,6 +2,7 @@
   <div class="navBar">
     <div class="firstNav">
       <ul>
+        <li v-if="admin">Reviews</li>
         <li v-if="admin">Statistics</li>
         <li v-if="admin || user">Plant Tips</li>
         <li v-if="user">Track Orders</li>
@@ -20,10 +21,10 @@
         <ul id="listItems">
           <li v-if="noUser" @click="showLogin()">Login</li>
           <li v-if="noUser">Signup</li>
-          <li v-if="admin || user || noUser">
+          <li @click="callFlowers()">
             <i class="fa fa-pagelines"></i> Flowers
           </li>
-          <li v-if="admin || user || noUser">
+          <li @click="callPlants()">
             <i class="fa fa-leaf"></i> Plants
           </li>
           <li v-if="admin">Orders</li>
@@ -39,10 +40,10 @@
       <ul>
         <li v-if="noUser" @click="showLogin()">Login</li>
         <li v-if="noUser">Signup</li>
-        <li v-if="admin || user || noUser">
+        <li @click="callFlowers()">
           <i class="fa fa-pagelines"></i> Flowers
         </li>
-        <li v-if="admin || user || noUser">
+        <li @click="callPlants()">
           <i class="fa fa-leaf"></i> Plants
         </li>
         <li v-if="admin">Orders</li>
@@ -192,8 +193,8 @@ export default {
   name: "navBar",
   data: function () {
     return {
-      admin: false,
-      user: true,
+      admin: true,
+      user: false,
       noUser: false,
       count: 0,
       toggleList: false,
@@ -221,6 +222,19 @@ export default {
     showLogin() {
       this.$store.commit("popupsState/toggleAuthPopup");
     },
+    callFlowers(){
+      this.$store.commit("homePage/isFlower" , true);
+      this.$store.commit("homePage/cateogry" , "");
+      this.$store.commit("homePage/sentiment" , "");
+      this.$store.commit("homePage/counter" , 1);
+      this.$store.dispatch("homePage/callFlowerCards", 1);
+    },
+    callPlants(){
+      this.$store.commit("homePage/isFlower" , false);
+      this.$store.commit("homePage/cateogry" , "");
+      this.$store.commit("homePage/counter" , 1);
+      this.$store.dispatch("homePage/callPlantCards", 1);
+    }
   },
 };
 </script>
