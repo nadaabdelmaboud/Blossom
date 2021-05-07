@@ -9,7 +9,7 @@
 <style lang="scss" scoped>
 @import "../../scss/_Colors";
 .aboutUsCard {
-  width: 200px;
+  width: 190px;
   justify-content: center;
   text-align: center;
   padding: 10px;

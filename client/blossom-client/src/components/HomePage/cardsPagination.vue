@@ -31,10 +31,10 @@
   margin: auto;
   padding: 20px;
   margin-top: 30px;
-  grid-gap: 13px;
+  grid-gap: 5px;
 }
 .container .box {
-  width: 100%;
+  width: 95%;
   display: grid;
   place-items: center;
   text-align: center;
