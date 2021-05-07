@@ -15,7 +15,7 @@ const actions = {
         file.append("file", imageFile);
         // axios({url:"url_goes_here",data:{params:{foo:'bar'}})
         try {
-            let data = await axios.post("api/upload",imageData)
+            let data = await axios.post("upload",imageData)
             console.log(data)
             delete axios.defaults.headers.common["Authorization"];
             let response = await axios({ method: "get",url: data.data.url,data: file , 

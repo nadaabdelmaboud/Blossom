@@ -4,6 +4,7 @@ import popupsState from "./modules/popupsState.js";
 import authorization from "./modules/authorization.js";
 import whyChooseUs from "./modules/whyChooseUs.js";
 import products from "./modules/products.js";
+import homePage from "./modules/homePage.js";
 
 Vue.use(Vuex);
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
     popupsState,
     authorization,
     whyChooseUs,
-    products
+    products,
+    homePage
   },
 });

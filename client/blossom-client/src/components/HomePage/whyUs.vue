@@ -30,30 +30,34 @@ h6 {
   font-weight: 700;
   font-size: 30px;
   color: $golden;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 p {
   color: black;
   font-size: 20px;
   padding: 5px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   margin-top: 15px;
 }
 .container {
   position: relative;
   max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(190px, 1fr));
   grid-template-rows: minmax(auto, auto);
   margin: auto;
   padding: 20px;
-  margin-top: 30px;
+  margin-top: 25px;
   grid-gap: 13px;
+  justify-content: center;
 }
 .container .box {
-  width: 100%;
+  width: 93%;
   display: grid;
   place-items: center;
   text-align: center;
+  justify-self: center;
 }
 @media screen and (max-width: 960px) {
   .container {
@@ -63,7 +67,6 @@ p {
 }
 @media screen and (max-width: 300px) {
   .container {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     padding: 3px;
   }
 }

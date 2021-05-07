@@ -61,6 +61,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  font-size: 25px;
 }
 .logo {
   text-align: center;

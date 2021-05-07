@@ -3,7 +3,8 @@
     <navBar />
     <authPopup v-if="showAuth" />
     <editCard v-if="showEditPopup" />
-    <homeCard />
+    <cardsPagination />
+    <cardDescription v-if="showCardDescription" />
     <createCategoryPopup v-if="showCategoryPopup" />
     <createSpecialPopup v-if="showSpecialPopup" />
     <reviewCard />
@@ -27,7 +28,8 @@
 <script>
 import authPopup from "./AuthPopup";
 import navBar from "../components/HomePage/navBar";
-import homeCard from "../components/HomePage/homeCard";
+import cardsPagination from "../components/HomePage/cardsPagination";
+import cardDescription from "../components/HomePage/cardDescription";
 import reviewCard from "../components/HomePage/reviewCard";
 import editCard from "../components/HomePage/editCard";
 import categories from "../components/HomePage/categories";
@@ -40,7 +42,8 @@ export default {
   name: "UserHome",
   components: {
     authPopup,
-    homeCard,
+    cardsPagination,
+    cardDescription,
     reviewCard,
     editCard,
     homeFooter,
@@ -56,6 +59,7 @@ export default {
       showEditPopup: (state) => state.popupsState.editCardPopup,
       showCategoryPopup: (state) => state.popupsState.createCategoryPopup,
       showSpecialPopup: (state) => state.popupsState.createSpecialPopup,
+      showCardDescription: (state) => state.popupsState.descriptionPopup,
     }),
   },
 };

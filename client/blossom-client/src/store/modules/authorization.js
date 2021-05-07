@@ -29,7 +29,7 @@ const actions = {
   signup({ commit, dispatch }, user) {
     commit("auth_request");
     axios
-      .post("/api/sign", user)
+      .post("sign", user)
       .then((response) => {
         console.log("response ", response);
         const token = response.data.token;
@@ -46,7 +46,7 @@ const actions = {
   login({ commit, dispatch }, user) {
     commit("auth_request");
     axios
-      .post("/api/login", user)
+      .post("login", user)
       .then((response) => {
         const token = response.data.token;
         localStorage.setItem("token", token);
