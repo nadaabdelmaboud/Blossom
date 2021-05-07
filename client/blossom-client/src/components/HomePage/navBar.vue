@@ -24,9 +24,7 @@
           <li @click="callFlowers()">
             <i class="fa fa-pagelines"></i> Flowers
           </li>
-          <li @click="callPlants()">
-            <i class="fa fa-leaf"></i> Plants
-          </li>
+          <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
           <li v-if="admin">Orders</li>
           <li v-if="user"><i class="fa fa-user"></i> Profile</li>
           <li v-if="user || admin">Logout</li>
@@ -40,12 +38,8 @@
       <ul>
         <li v-if="noUser" @click="showLogin()">Login</li>
         <li v-if="noUser">Signup</li>
-        <li @click="callFlowers()">
-          <i class="fa fa-pagelines"></i> Flowers
-        </li>
-        <li @click="callPlants()">
-          <i class="fa fa-leaf"></i> Plants
-        </li>
+        <li @click="callFlowers()"><i class="fa fa-pagelines"></i> Flowers</li>
+        <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
         <li v-if="admin">Orders</li>
         <li v-if="user"><i class="fa fa-user"></i> Profile</li>
         <li v-if="user || admin">Logout</li>
@@ -222,19 +216,19 @@ export default {
     showLogin() {
       this.$store.commit("popupsState/toggleAuthPopup");
     },
-    callFlowers(){
-      this.$store.commit("homePage/isFlower" , true);
-      this.$store.commit("homePage/cateogry" , "");
-      this.$store.commit("homePage/sentiment" , "");
-      this.$store.commit("homePage/counter" , 1);
+    callFlowers() {
+      this.$store.commit("homePage/setIsFlower", true);
+      this.$store.commit("homePage/setCateogry", "");
+      this.$store.commit("homePage/setSentiment", "");
+      this.$store.commit("homePage/setCounter", 1);
       this.$store.dispatch("homePage/callFlowerCards", 1);
     },
-    callPlants(){
-      this.$store.commit("homePage/isFlower" , false);
-      this.$store.commit("homePage/cateogry" , "");
-      this.$store.commit("homePage/counter" , 1);
+    callPlants() {
+      this.$store.commit("homePage/setIsFlower", false);
+      this.$store.commit("homePage/setCateogry", "");
+      this.$store.commit("homePage/setCounter", 1);
       this.$store.dispatch("homePage/callPlantCards", 1);
-    }
+    },
   },
 };
 </script>
