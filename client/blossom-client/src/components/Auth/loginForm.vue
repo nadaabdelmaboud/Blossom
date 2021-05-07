@@ -19,7 +19,7 @@
       <div>
         <span class="hoverGolden floatRight">Forgot password?</span>
       </div>
-      <button class="blossomButton">Login</button>
+      <button class="blossomButton" @click="login">Login</button>
       <div class="toSignup">
         New to Blossom?
         <span class="hoverGolden" @click="switchState">Signup</span>
@@ -41,6 +41,13 @@ export default {
     };
   },
   methods: {
+    login() {
+      const user = {
+        email: this.email,
+        password: this.password,
+      };
+      this.$store.dispatch("authorization/login", user);
+    },
     switchState() {
       this.$emit("switchState", false);
     },

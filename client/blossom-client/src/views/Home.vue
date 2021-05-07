@@ -8,11 +8,21 @@
     <createSpecialPopup v-if="showSpecialPopup" />
     <reviewCard />
     <categories />
+    <div class="toast" id="upload">
+      <div class="addedToCart">A new product is uploaded!</div>
+    </div>
     <whyUs />
     <homeFooter />
+    <div class="toast" id="upload">
+      <div class="addedToCart">A new product is uploaded!</div>
+    </div>
     <router-view />
   </div>
 </template>
+<style scoped lang="scss">
+@import "../scss/Colors";
+@import "../scss/BlossomToast";
+</style>
 
 <script>
 import authPopup from "./AuthPopup";
