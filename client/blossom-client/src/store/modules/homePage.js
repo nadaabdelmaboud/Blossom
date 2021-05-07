@@ -34,12 +34,15 @@ const mutations = {
 
 const actions = {
   callFlowerCards({ commit }, index) {
+    let cateogryVal = "";
+    let sentimentVal = "";
+    if (state.cateogry != "") cateogryVal = "category=" + state.cateogry;
+    if (state.sentiment != "") sentimentVal = "&sentiment=" + state.sentiment;
     axios
       .get(
-        "bouquets?category=" +
-          state.cateogry +
-          "&sentiment=" +
-          state.sentiment +
+        "bouquets?" +
+          cateogryVal +
+          sentimentVal +
           "&pageSize=12&pageNumber=" +
           index
       )
@@ -53,9 +56,10 @@ const actions = {
       });
   },
   callPlantCards({ commit }, index) {
-    //.get("plant?type=" + state.cateogry + "&pageSize=10&pageNumber=" + index)
+    let typeVal = "";
+    if (state.cateogry != "") typeVal = "type=" + state.cateogry;
     axios
-      .get("plant?pageSize=4&pageNumber=" + index)
+      .get("plant?" + typeVal + "pageSize=4&pageNumber=" + index)
       .then((response) => {
         state.homeCards = [];
         commit("setHomeCards", response.data);
