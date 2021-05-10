@@ -82,6 +82,9 @@ const Plant = {
     const index = types.indexOf(type);
     types.splice(index, 1);
     return types;
+  },
+  async getAllPlantsTypes(){
+    return types
   }
 
 };
