@@ -740,3 +740,64 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"status":404,"level":"error","message":"API_NOT_FOUND API_NOT_FOUND","stack":"Error: API_NOT_FOUND\n    at app.use (D:\\college\\third year\\arch\\Blossom\\server\\app\\startup\\routes.js:20:13)\n    at newFn (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:284:7\n    at param (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)"}
 {"status":404,"level":"error","message":"API_NOT_FOUND API_NOT_FOUND","stack":"Error: API_NOT_FOUND\n    at app.use (D:\\college\\third year\\arch\\Blossom\\server\\app\\startup\\routes.js:20:13)\n    at newFn (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:284:7\n    at param (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
