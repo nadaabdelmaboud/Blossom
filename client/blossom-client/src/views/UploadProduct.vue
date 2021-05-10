@@ -32,8 +32,8 @@
             <span class="checkmark"></span>
           </label>
           <label class="container"
-            >Boquete
-            <input type="radio" name="type" value="Boquete" v-model="type" />
+            >Bouquet
+            <input type="radio" name="type" value="Bouquet" v-model="type" />
             <span class="checkmark"></span>
           </label>
         </div>
@@ -69,7 +69,7 @@
           </div>
         </div>
 
-        <div class="blossomSelectComponent" v-if="type && type == 'Boquete'">
+        <div class="blossomSelectComponent" v-if="type && type == 'Bouquet'">
           <div
             class="blossomInput blossomSelect"
             :class="{
@@ -261,9 +261,8 @@ export default {
       showCategory: false,
       showSpecials: false,
       imageFile: null,
-      width: "",
-      height: "",
       validate: false,
+      imgExtention:"",
       categories: [
         {
           name: "lillies",
@@ -286,6 +285,9 @@ export default {
   methods: {
     onFileSelected: function (event) {
       this.imageFile = event.target.files[0];
+      let splited = this.imageFile.name.split(".")
+      this.imgExtention= splited[splited.length -1]
+      console.log("my image ", this.imgExtention);
       if (this.imageFile) {
         const reader = new FileReader();
         var image = new Image();
@@ -294,12 +296,9 @@ export default {
           img.setAttribute("src", this.result);
           img.style.display = "block";
           image.setAttribute("src", this.result);
+          
         });
         reader.readAsDataURL(this.imageFile);
-        setTimeout(() => {
-          this.width = image.width;
-          this.height = image.height;
-        }, 500);
       }
     },
     unUpload: function () {
@@ -334,8 +333,13 @@ export default {
       this.showSpecials = false;
     },
     upload() {
-      this.showToast("upload");
-      this.$router.push("/");
+      let imageData = {
+            ContentType: this.imgExtention,
+            Type: this.type,
+          };
+      this.$store.dispatch("products/uploadImg", {imageFile:this.imageFile,imageData});
+      //this.showToast("upload");
+      //this.$router.push("/");
     },
   },
   computed: {},

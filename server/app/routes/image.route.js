@@ -3,7 +3,7 @@ const AdminMiddleware = require('../middlewares/admin.middleware')
 const AuthMiddleware = require('../middlewares/auth.middleware')
 const ImageController = require('../controllers/image.controller')
 
-router.get('/upload',AuthMiddleware,AdminMiddleware,ImageController.upload)
+router.post('/upload',AuthMiddleware,AdminMiddleware,ImageController.upload)
 
 
 module.exports=router;

@@ -1,4 +1,5 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+let types = ["vegetable", "fruit", "herb", "flower", "house plant"];
 const PlantSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -7,7 +8,7 @@ const PlantSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["vegetable", "fruit" , "herb" , "flower" ,"house plant"],
+    enum: types,
     required: true,
   },
   price: {
@@ -27,4 +28,5 @@ const PlantSchema = new mongoose.Schema({
 });
 
 const PlantModel = mongoose.model('Plant',PlantSchema);
-module.exports=PlantModel;
+module.exports.PlantModel=PlantModel;
+module.exports.types = types;
