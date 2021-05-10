@@ -25,10 +25,14 @@
         <ul id="listItems">
           <li v-if="noUser" @click="showLogin()">Login</li>
           <li v-if="noUser">Signup</li>
-          <li @click="callFlowers()">
-            <i class="fa fa-pagelines"></i> Flowers
-          </li>
-          <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
+          <router-link to="/">
+            <li @click="callFlowers()">
+              <i class="fa fa-pagelines"></i> Flowers
+            </li>
+          </router-link>
+          <router-link to="/">
+            <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
+          </router-link>
           <li v-if="admin || user">Plant Tips</li>
           <li v-if="admin">Orders</li>
           <li v-if="user"><i class="fa fa-user"></i> Profile</li>
@@ -43,8 +47,14 @@
       <ul>
         <li v-if="noUser" @click="showLogin()">Login</li>
         <li v-if="noUser">Signup</li>
-        <li @click="callFlowers()"><i class="fa fa-pagelines"></i> Flowers</li>
-        <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
+        <router-link to="/">
+          <li @click="callFlowers()">
+            <i class="fa fa-pagelines"></i> Flowers
+          </li>
+        </router-link>
+        <router-link to="/">
+          <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
+        </router-link>
         <li v-if="admin || user">Plant Tips</li>
         <li v-if="admin">Orders</li>
         <li v-if="user"><i class="fa fa-user"></i> Profile</li>

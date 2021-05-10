@@ -1,10 +1,12 @@
 <template>
   <div class="userCard">
-    <div class="userName">Nihal Mansour</div>
+    <div class="userName">{{ name }}</div>
     <div class="line"></div>
-    <div class="address">Address: Egypt/Cairo/FAtmaRushdie Street</div>
-    <div class="userEmail">Email: nihalmansour0599@gmail.com</div>
-    <div class="phoneNumber">Phone Number: 01097737726</div>
+    <div class="address">
+      Address: {{ country }}/{{ city }}/{{ street }} Street
+    </div>
+    <div class="userEmail">Email: {{ email }}</div>
+    <div class="phoneNumber">Phone Number: {{ phone }}</div>
     <div class="banUser">
       <button class="blossomButton" @click="banUser()">Ban User</button>
     </div>
@@ -58,7 +60,7 @@
 }
 @media screen and (max-width: 300px) {
   .userCard {
-    width: 78%;
+    width: 85%;
   }
   .blossomButton {
     width: 150px;
@@ -69,6 +71,26 @@
 <script>
 export default {
   name: "userCard",
+  props: {
+    name: {
+      type: String,
+    },
+    email: {
+      type: String,
+    },
+    country: {
+      type: String,
+    },
+    city: {
+      type: String,
+    },
+    street: {
+      type: String,
+    },
+    phone: {
+      type: String,
+    },
+  },
   methods: {
     banUser() {},
   },
