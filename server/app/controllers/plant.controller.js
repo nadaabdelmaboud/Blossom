@@ -43,5 +43,10 @@ const PlantController = {
     if (data.data) return res.status(200).send(data.data);
     res.status(data.err.status).send(data.err.message);
   },
+  async getAllPlantsTypes(req,res){
+     const data = await PlantService.getAllPlantsTypes();
+     if (data.data) return res.status(200).send(data.data);
+     res.status(data.err.status).send(data.err.message);
+  }
 };
 module.exports = PlantController;

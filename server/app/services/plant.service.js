@@ -87,5 +87,9 @@ const PlantService = {
       return { data: false, err: await error("Types Cannot be empty", 500) };
     return { data: typeObject, err: "" };
   },
+  async getAllPlantsTypes(){
+    const types = await Plant.getAllPlantsTypes();
+    return { data: types, err: "" };
+  }
 };
 module.exports = PlantService;

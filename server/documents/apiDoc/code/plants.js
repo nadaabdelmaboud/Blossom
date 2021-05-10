@@ -224,7 +224,7 @@
  */
 
 /**
- * @api {delete} api/plant delete Plant
+ * @api {delete} api/plant Delete Plant
  * @apiName Delete Plant
  * @apiGroup Plant
  * @apiVersion 1.1.0
@@ -249,14 +249,14 @@
  */
 
 /**
- * @api {put} api/plant/type add Type
+ * @api {put} api/plants/type Add Type
  * @apiName Add Type
  * @apiGroup Plant
  * @apiVersion 1.1.0
  * @apiPermission User
  * 
  * @apiExample {curl} Example usage:
- *          curl --location --request PUT 'http://localhost:3000/api/plant/type/tree' \
+ *          curl --location --request PUT 'http://localhost:3000/api/plants/type/tree' \
  *  
  * @apiHeader {String} Authorization token
  * 
@@ -273,17 +273,39 @@
  */
 
 /**
- * @api {delete} api/plant/type delete Type
+ * @api {delete} api/plants/type Delete Type
  * @apiName Delete Type
  * @apiGroup Plant
  * @apiVersion 1.1.0
  * @apiPermission User
  * 
  * @apiExample {curl} Example usage:
- *          curl --location --request DELETE 'http://localhost:3000/api/plant/type/tree' \
+ *          curl --location --request DELETE 'http://localhost:3000/api/plants/type/tree' \
  *  
  * @apiHeader {String} Authorization token
  * @apiParam (PathParameters) {String} type type to be deleted
+ * 
+ * @apiSuccess {String[]} types all the available types
+ *
+ * @apiSuccessExample {String[]} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     
+ *         ["vegetable","fruit","herb","flower","house plant"]
+ *
+ * 
+ */
+
+/**
+ * @api {get} api/plants/type Get All Types
+ * @apiName Get All Types
+ * @apiGroup Plant
+ * @apiVersion 1.1.0
+ * @apiPermission User
+ * 
+ * @apiExample {curl} Example usage:
+ *          curl --location --request GET 'http://localhost:3000/api/plants/type' \
+ *  
+ * @apiHeader {String} Authorization token
  * 
  * @apiSuccess {String[]} types all the available types
  *
