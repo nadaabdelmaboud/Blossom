@@ -2,17 +2,22 @@
   <div class="navBar">
     <div class="firstNav">
       <ul>
+        <li v-if="admin">Upload</li>
         <li v-if="admin">Reviews</li>
         <li v-if="admin">Statistics</li>
         <li v-if="user">Track Orders</li>
-        <li v-if="admin">Users</li>
+        <router-link to="/blossomUsers">
+          <li v-if="admin">Users</li>
+        </router-link>
       </ul>
     </div>
     <div class="Logo">
       <img src="../../assets/BlossomLogo_v7.png" alt="Logo" />
     </div>
     <div class="navContent" id="stickyNav">
-      <div class="blossom">Blossom</div>
+      <div class="blossom">
+        <router-link to="/"> Blossom </router-link>
+      </div>
       <div class="pages">
         <button id="bars" @click="showlist()">
           <i class="fa fa-bars"></i>
@@ -55,7 +60,8 @@
   background-color: black;
   margin-bottom: 30px;
   width: 100%;
-  height: 210px;
+  //height: 210px;
+  height: 40%;
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -88,6 +94,10 @@ img {
   padding-left: 10px;
   z-index: 1;
   font-weight: 700;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 .blossom {
   color: $lightGolden;
