@@ -3,6 +3,7 @@
     <userCard
       v-for="card in users"
       :key="card._id"
+      :id="card._id"
       :name="card.name"
       :email="card.email"
       :phone="card.phone"
