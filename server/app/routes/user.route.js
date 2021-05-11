@@ -7,4 +7,5 @@ router.get("/users/",AuthMiddleware,AdminMiddleware, UserController.getAllUsers)
 router.get("/users/:id",AuthMiddleware, UserController.getUser);
 router.put("/users/:id",AuthMiddleware, UserController.updateUser);
 router.delete("/users/:id",AuthMiddleware, UserController.deleteUser);
+router.post("/users/:id/cart/orders",AuthMiddleware,UserController.addOrder);
 module.exports = router;
