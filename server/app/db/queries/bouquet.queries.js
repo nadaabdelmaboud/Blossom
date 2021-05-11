@@ -1,4 +1,6 @@
-const BouquetModel = require('../models/bouquet.model');
+const BouquetModel = require('../models/bouquet.model').BouquetModel;
+const categories = require('../models/bouquet.model').categories;
+const sentiments = require('../models/bouquet.model').sentiments;
 const client = require('../db.caching');
 const  Mongoose  = require('mongoose');
 const Bouquet = {
@@ -55,7 +57,40 @@ const Bouquet = {
             return false;
         }
 
+    },
+    async getCategories(){
+        return categories;
+
+    },
+    async updateCategory(category,newCategory){
+        const index = categories.indexOf(category);
+        const newIndex = categories.indexOf(newCategory);
+        if(newIndex!=-1) return false;
+        categories[index]=newCategory;
+        return true;
+    },
+    async deleteCategory(category){
+        const index = categories.indexOf(category);
+        categories.splice(index, 1);
+        return true;
+    },
+    async getSentiments(){
+        return sentiments;
+
+    },
+    async updateSentiment(sentiment,newSentiment){
+        const index = sentiments.indexOf(sentiment);
+        const newIndex = sentiments.indexOf(newSentiment);
+        if(newIndex!=-1) return false;
+        sentiments[index]=newSentiment;
+        return true;
+    },
+    async deleteSentiment(sentiment){
+        const index = sentiments.indexOf(sentiment);
+        sentiments.splice(index, 1);
+        return true;
     }
+   
    
 }
 module.exports = Bouquet;

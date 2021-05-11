@@ -15,6 +15,12 @@ const mutations = {
   setMaxPage(state, value) {
     state.maxPages = value;
   },
+  banUser(state, userId){
+    var index = state.users.findIndex(x => x._id === userId);
+    if(index !== -1){
+      state.users.splice(index , 1);
+    }
+  }
 };
 
 const actions = {
@@ -29,6 +35,20 @@ const actions = {
         state.users = [];
         commit("setUsers", response.data);
         console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  banUser({ commit }, id) {
+    //to be deleted when token is ready
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
+    //////////////////////////////////////
+    axios
+      .delete("users/" + id)
+      .then(() => {
+        commit("banUser", id);
       })
       .catch((error) => {
         console.log(error);
