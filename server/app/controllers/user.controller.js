@@ -33,6 +33,15 @@ const UserController = {
       return res.status(200).send(data.data);
     }
     res.status(data.err.status).send(data.err.message);
+  },
+  async addOrder(req,res){
+    const order = req.body;
+    const userId = req.params.id;
+    const data = await UserService.addOrder(userId,order);
+    if (data.data) {
+      return res.status(200).send(data.data);
+    }
+    res.status(data.err.status).send(data.err.message);
   }
 
 

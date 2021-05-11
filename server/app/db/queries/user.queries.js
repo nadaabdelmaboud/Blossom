@@ -65,25 +65,36 @@ const User = {
     const user = await UserModel.findByIdAndRemove(id);
     return user;
   },
-  async updateUser(user,id){
+  async updateUser(user, id) {
     const userData = await UserModel.findById(id);
-    if(!userData)return [];
-    if(user.name)
-      userData.name = user.name;
-    if(user.email)
-      userData.email = user.email;
-    if(user.address)
-      userData.address = user.address;
-    if(user.phone)
-      userData.phone = user.phone;
-    if(user.password){
+    if (!userData) return [];
+    if (user.name) userData.name = user.name;
+    if (user.email) userData.email = user.email;
+    if (user.address) userData.address = user.address;
+    if (user.phone) userData.phone = user.phone;
+    if (user.password) {
       const salt = await bcrypt.genSalt(10);
       const hash = await bcrypt.hash(user.password, salt);
       userData.password = hash;
     }
     const result = await userData.save();
     return result;
-
-  }
+  },
+  async addOrder(userId, order) {
+    let today = new Date();
+    const userData = await UserModel.findById(userId);
+    if (userData.Cart[0].orders[order.bouquetId]) {
+      userData.Cart[0].orders[order.bouquetId].amount += order.amount;
+    } else {
+      userData.Cart[0].orders[order.bouquetId] = {
+        amount: order.amount,
+        orderType: order.orderType,
+        category: order.category,
+      };
+    }
+    userData.Cart[0].lastEdit = today;
+    const result = await userData.save();
+    return result;
+  },
 };
 module.exports = User;

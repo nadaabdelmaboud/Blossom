@@ -5,13 +5,7 @@ const PlantValidation = {
     const schema = Joi.object({
       pageNumber: Joi.number().min(1),
       pageSize: Joi.number().min(1),
-      type: Joi.string().valid(
-        "vegetable",
-        "fruit",
-        "herb",
-        "flower",
-        "house plant"
-      ),
+      type: Joi.string().valid(...types),
       hasTips: Joi.boolean(),
     });
     if (query.pageNumber) query.pageNumber = parseInt(query.pageNumber);
@@ -23,7 +17,7 @@ const PlantValidation = {
     const schema = Joi.object({
       name: Joi.string().min(3).max(30).required(),
       type: Joi.string()
-        .valid("vegetable", "fruit", "herb", "flower", "house plant")
+        .valid(...types)
         .required(),
       price: Joi.number().min(1).required(),
       count: {
@@ -39,13 +33,7 @@ const PlantValidation = {
   async validateUpdatePlant(plant) {
     const schema = Joi.object({
       name: Joi.string().min(3).max(30),
-      type: Joi.string().valid(
-        "vegetable",
-        "fruit",
-        "herb",
-        "flower",
-        "house plant"
-      ),
+      type: Joi.string().valid(...types),
       price: Joi.number().min(1),
       count: {
         available: Joi.number().min(1),

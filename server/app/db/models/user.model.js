@@ -1,99 +1,75 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 const Address = {
-    country : String,
-    city: String ,
-    street : String , 
-    buildingNo: Number , 
-    apartmentNo: Number 
-}
+  country: String,
+  city: String,
+  street: String,
+  buildingNo: Number,
+  apartmentNo: Number,
+};
 const UserSchema = new mongoose.Schema({
-
-    name : {
-        type:String,
-        required: true
-    },
-    email : {
-        type:String,
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  address: {
+    type: Address,
+    require: true,
+  },
+  phone: {
+    type: String,
+    required: true,
+  },
+  creditCard: {
+    cardNumber: Number,
+    ccNumber: Number,
+    expireDate: Date,
+  },
+  Cart: [
+    {
+      orders: {
+        type:Object
+      },
+      status: {
+        type: String,
+        enum: ["pending", "progress", "delivered"],
         required: true,
-        unique : true
-
+      },
+      address: {
+        type: Address,
+        required: true,
+      },
+      deliveryDate: {
+        type: Date,
+      },
+      lastEdit: {
+        type: Date,
+      },
+      feedback: {
+        comment: String,
+        rate: Number,
+        feedbackDate: Date,
+      },
     },
-    password : {
-        type : String,
-        required : true
-    },
-    address : {
-        type : Address ,
-        require:true
-    },
-    phone:{
-        type : String,
-        required : true
-    } , 
-    creditCard: {
-        cardNumber:Number,
-        ccNumber:Number,
-        expireDate:Date
-    } ,
-    Cart : [
-        {
-            orders : [{
-                bouquetId : {
-                    type : mongoose.Schema.Types.ObjectId,
-                    required : true,
-                    ref : 'Bouquet'
-                },
-                amount : {
-                    type : Number ,
-                    required : true
-                },
-                orderType:{
-                    type:String,
-                    required:true
-                },
-                category:{
-                    //this is the order category which is either one of the plants categories or bouquet categories 
-                    type:String,
-                    enum:['BabyOrchid','Cabbage','Chrysanthemums','Eucalyptus','Gerbera','Roses','Lilies','Spider','Tulips'],
-                    required:true
-                },
+  ],
+});
 
-            }]  ,
-            status : {
-                type : String , 
-                enum : ["pending","progress","delivered"],
-                required : true
-            } ,
-            address : {
-                type: Address , 
-                required:true
-            },
-            deliveryDate :  {
-                type :Date
-            },
-            lastEdit: {
-                type : Date
-            } ,
-            feedback:{
-                comment : String , 
-                rate: Number ,
-                feedbackDate : Date 
-            }
-    
-        }
-    ]
-
-
-})
-
-UserSchema.methods.comparePassword=async function(password){
-    const match = await bcrypt.compare(password, this.password);
-    if(match) {
-        return true;
-    }
-    return false;
+UserSchema.methods.comparePassword = async function (password) {
+  const match = await bcrypt.compare(password, this.password);
+  if (match) {
+    return true;
+  }
+  return false;
 };
 
-const UserModel = mongoose.model('User',UserSchema);
-module.exports=UserModel;
+const UserModel = mongoose.model("User", UserSchema);
+module.exports = UserModel;

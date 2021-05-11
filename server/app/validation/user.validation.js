@@ -1,4 +1,6 @@
 const Joi = require("joi");
+const { PlantModel, types } = require("../db/models/plants.model");
+
 const UserValidation = {
   async getAllUsersPaging(query) {
     const schema = Joi.object({
@@ -27,6 +29,15 @@ const UserValidation = {
       phone: Joi.string().length(11)
     });
     return schema.validate(user);
+  },
+  async validateOrder(order){
+    const schema = Joi.object({
+      bouquetId: Joi.string().required(),
+      amount: Joi.number().required(),
+      orderType: Joi.string().required(),
+      category: Joi.string().required().valid(...types)
+    });
+    return schema.validate(order);
   }
 };
 
