@@ -94,6 +94,7 @@ const User = {
     }
     userData.Cart[0].lastEdit = today;
     const result = await userData.save();
+    if (result) return result.Cart[0];
     return result;
   },
 };

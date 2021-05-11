@@ -210,3 +210,49 @@
     }
 ]
  */
+
+
+/**
+ * @api {post} /users/:id/cart/orders add item to cart
+ * @apiName add item
+ * @apiGroup User
+ * @apiVersion 1.1.0
+ * @apiPermission User
+ *
+ * @apiExample {curl} Example usage:
+ *      curl --location --request POST 'http://localhost:3000/api/users/6099e34312fb9933383b9c93/cart/orders' \
+ *--data-raw '{
+ *   "bouquetId":"608fe3662947f108c0fcdb0c",
+ *   "amount":1,
+ *   "orderType":"plant",
+ *   "category":"flower"
+ *}
+ * @apiParam (PathParameters) {String} id user id
+ * @apiParam (BodyParameters) {String} bouquetId item id
+ * @apiParam (BodyParameters) {Number} amount item amount
+ * @apiParam (BodyParameters) {String} orderType item type (plant or bouquetId)
+ * @apiParam (BodyParameters) {String} category item category 
+ *
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
+{
+    "_id": "6099e46231a2c759a833803a",
+    "orders": {
+        "608fe3662947f108c0fcdb0c": {
+            "amount": 3,
+            "orderType": "plant",
+            "category": "herb"
+        }
+    },
+    "lastEdit": "2021-05-11T02:43:45.224Z",
+    "address": {
+        "country": "alex",
+        "city": "cairo",
+        "street": "aboear",
+        "buildingNo": 5,
+        "apartmentNo": 3
+    },
+    "status": "pending"
+}
+ */
