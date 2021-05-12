@@ -157,7 +157,7 @@
  */
 
 /**
- * @api {delete} api/users/:id delete user
+ * @api {delete} api/users/:id Delete User
  * @apiName delete user
  * @apiGroup User
  * @apiVersion 1.1.0
@@ -211,10 +211,9 @@
 ]
  */
 
-
 /**
- * @api {post} /users/:id/cart/orders add item to cart
- * @apiName add item
+ * @api {post} /users/:id/cart/orders Add Item 
+ * @apiName add item to cart
  * @apiGroup User
  * @apiVersion 1.1.0
  * @apiPermission User
@@ -254,5 +253,93 @@
         "apartmentNo": 3
     },
     "status": "pending"
+}
+ */
+
+/**
+ * @api {delete} /users/:id/cart/orders/:itemid Delete Item
+ * @apiName delete item from current cart
+ * @apiGroup User
+ * @apiVersion 1.1.0
+ * @apiPermission User
+ *
+ * @apiExample {curl} Example usage:
+ *      curl --location --request DELETE 'http://localhost:3000/api/users/609c100297a5162a543d22af/cart/orders/608ff1141485280f2c7ba5bb' \
+ * 
+ * @apiParam (PathParameters) {String} id user id
+ * @apiParam (PathParameters) {String} itemid item (boquet/plant to remove) id 
+ *
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
+{
+    "_id": "609c49726d4c4e2a789f6e32",
+    "orders": {
+        "6093f1545604aa1b3c911672": {
+            "amount": 2,
+            "orderType": "bouquet",
+            "category": "Tulips"
+        },
+        "6090043a8410d235d0097a21": {
+            "amount": 3,
+            "orderType": "plant",
+            "category": "herb"
+        }
+    },
+    "status": "pending",
+    "address": {
+        "country": "alex",
+        "city": "cairo",
+        "street": "aboear",
+        "buildingNo": 5,
+        "apartmentNo": 3
+    },
+    "lastEdit": "2021-05-12T21:34:05.817Z"
+}
+ */
+
+/**
+ * @api {get} /users/:id/cart/orders/ Get Order Items
+ * @apiName get grder items of the current cart
+ * @apiGroup User
+ * @apiVersion 1.1.0
+ * @apiPermission User
+ *
+ * @apiExample {curl} Example usage:
+ *      curl --location --request POST 'http://localhost:3000/api/users/609c100297a5162a543d22af/cart/orders' \
+ * 
+ * @apiParam (PathParameters) {String} id user id
+ *
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
+{
+    "_id": "609c49726d4c4e2a789f6e32",
+    "orders": {
+        "608fe3662947f108c0fcdb0c": {
+            "amount": 2,
+            "orderType": "plant",
+            "category": "herb"
+        },
+        "6093f1545604aa1b3c911672": {
+            "amount": 2,
+            "orderType": "bouquet",
+            "category": "Tulips"
+        },
+        "6090043a8410d235d0097a21": {
+            "amount": 3,
+            "orderType": "plant",
+            "category": "herb"
+        }
+    },
+    "status": "pending",
+    "address": {
+        "country": "alex",
+        "city": "cairo",
+        "street": "aboear",
+        "buildingNo": 5,
+        "apartmentNo": 3
+    },
+    "lastEdit": "2021-05-12T21:34:05.817Z"
 }
  */

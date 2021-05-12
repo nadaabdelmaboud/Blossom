@@ -32,14 +32,14 @@ const UserValidation = {
     });
     return schema.validate(user);
   },
-  async validateOrder(order){
+  async validateItem(item){
     const schema = Joi.object({
       bouquetId: Joi.string().required(),
       amount: Joi.number().required(),
       orderType: Joi.string().required(),
       category: Joi.string().required().valid(...allCategories)
     });
-    return schema.validate(order);
+    return schema.validate(item);
   }
 };
 

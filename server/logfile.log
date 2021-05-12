@@ -807,3 +807,73 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"userObject is not defined userObject is not defined","stack":"ReferenceError: userObject is not defined\n    at Object.deleteItem (D:\\college\\third year\\arch\\Blossom\\server\\app\\services\\user.service.js:87:20)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"name":"MongoNetworkError","level":"error","message":"connection 1 to 35.174.152.209:27017 closed connection 1 to 35.174.152.209:27017 closed","stack":"MongoNetworkError: connection 1 to 35.174.152.209:27017 closed\n    at (anonymous function).forEach.op (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\connection.js:68:15)\n    at Map.forEach (<anonymous>)\n    at TLSSocket.Connection.stream.on (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\connection.js:67:20)\n    at TLSSocket.emit (events.js:198:13)\n    at TLSSocket.EventEmitter.emit (domain.js:448:20)\n    at _handle.close (net.js:606:12)\n    at TCP.done (_tls_wrap.js:388:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"errno":"ECONNREFUSED","code":"ECONNREFUSED","syscall":"querySrv","hostname":"_mongodb._tcp.cluster0.fztyp.mongodb.net","level":"error","message":"Could not connect to the database. Exiting now... querySrv ECONNREFUSED _mongodb._tcp.cluster0.fztyp.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.fztyp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:196:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.addItem (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:86:26)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"errors":{"Cart.0.address":{"name":"ValidatorError","message":"Path `address` is required.","properties":{"message":"Path `address` is required.","type":"required","path":"address"},"kind":"required","path":"address"},"Cart.0.status":{"name":"ValidatorError","message":"Path `status` is required.","properties":{"message":"Path `status` is required.","type":"required","path":"status"},"kind":"required","path":"status"}},"_message":"User validation failed","level":"error","message":"User validation failed: Cart.0.address: Path `address` is required., Cart.0.status: Path `status` is required. User validation failed: Cart.0.address: Path `address` is required., Cart.0.status: Path `status` is required.","stack":"ValidationError: User validation failed: Cart.0.address: Path `address` is required., Cart.0.status: Path `status` is required.\n    at model.Document.invalidate (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongoose\\lib\\document.js:2704:32)\n    at EmbeddedDocument.invalidate (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongoose\\lib\\types\\embedded.js:298:29)\n    at D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongoose\\lib\\document.js:2524:17\n    at D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongoose\\lib\\schematype.js:1256:9\n    at process._tickCallback (internal/process/next_tick.js:61:11)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '608ff1141485280f2c7ba5bb' of undefined Cannot read property '608ff1141485280f2c7ba5bb' of undefined","stack":"TypeError: Cannot read property '608ff1141485280f2c7ba5bb' of undefined\n    at Object.addItem (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:91:32)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"level":"error","message":"Operation `users.findOne()` buffering timed out after 10000ms Operation `users.findOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `users.findOne()` buffering timed out after 10000ms\n    at Timeout.setTimeout (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:185:20)\n    at ontimeout (timers.js:436:11)\n    at tryOnTimeout (timers.js:300:5)\n    at listOnTimeout (timers.js:263:5)\n    at Timer.processTimers (timers.js:223:10)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"level":"error","message":"Operation `users.findOne()` buffering timed out after 10000ms Operation `users.findOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `users.findOne()` buffering timed out after 10000ms\n    at Timeout.setTimeout (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:185:20)\n    at ontimeout (timers.js:436:11)\n    at tryOnTimeout (timers.js:300:5)\n    at listOnTimeout (timers.js:263:5)\n    at Timer.processTimers (timers.js:223:10)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"level":"error","message":"Operation `users.findOne()` buffering timed out after 10000ms Operation `users.findOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `users.findOne()` buffering timed out after 10000ms\n    at Timeout.setTimeout (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:185:20)\n    at ontimeout (timers.js:436:11)\n    at tryOnTimeout (timers.js:300:5)\n    at listOnTimeout (timers.js:263:5)\n    at Timer.processTimers (timers.js:223:10)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '_id' of null Cannot read property '_id' of null","stack":"TypeError: Cannot read property '_id' of null\n    at Object.deleteItem (D:\\college\\third year\\arch\\Blossom\\server\\app\\services\\user.service.js:78:18)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '_id' of null Cannot read property '_id' of null","stack":"TypeError: Cannot read property '_id' of null\n    at Object.deleteItem (D:\\college\\third year\\arch\\Blossom\\server\\app\\services\\user.service.js:78:18)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '_id' of null Cannot read property '_id' of null","stack":"TypeError: Cannot read property '_id' of null\n    at Object.addItem (D:\\college\\third year\\arch\\Blossom\\server\\app\\services\\user.service.js:58:17)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

@@ -7,5 +7,7 @@ router.get("/users/",AuthMiddleware,AdminMiddleware, UserController.getAllUsers)
 router.get("/users/:id",AuthMiddleware, UserController.getUser);
 router.put("/users/:id",AuthMiddleware, UserController.updateUser);
 router.delete("/users/:id",AuthMiddleware, UserController.deleteUser);
-router.post("/users/:id/cart/orders",AuthMiddleware,UserController.addOrder);
+router.post("/users/:id/cart/orders",AuthMiddleware,UserController.addItem);
+router.get("/users/:id/cart/orders/", AuthMiddleware, UserController.getOrderItems);
+router.delete("/users/:id/cart/orders/:itemid", AuthMiddleware, UserController.deleteItem);
 module.exports = router;
