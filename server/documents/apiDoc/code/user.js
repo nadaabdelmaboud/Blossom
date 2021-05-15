@@ -119,7 +119,9 @@
  * @apiSuccess {String} email user email
  * @apiSuccess {String} name user name
  * @apiSuccess {String} phone user phone number
- * @apiSuccess {Object[]} Cart array of all user's orders
+ * @apiSuccess {String} type user or admin
+ * @apiSuccess {Number} Cart number of carts of the user
+ * @apiSuccess {Number} orders number of items inside the cart
  *
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
@@ -136,7 +138,9 @@
             "apartmentNo": 5
         },
         "phone": "01283176585",
-        "Cart": []
+        "Cart": 1,
+        "orders": 2,
+        "type": "user"
     }
 ]
  */

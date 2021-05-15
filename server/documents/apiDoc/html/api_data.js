@@ -1723,17 +1723,31 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>user or admin</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
             "optional": false,
             "field": "Cart",
-            "description": "<p>array of all user's orders</p>"
+            "description": "<p>number of carts of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>number of items inside the cart</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n [\n    {\n        \"_id\": \"6089d14c3323d34078fba7d9\",\n        \"name\": \"Nada\",\n        \"email\": \"nada@gmail.com\",\n        \"address\": {\n            \"country\": \"egypt\",\n            \"city\": \"giza\",\n            \"street\": \"abdelzaher\",\n            \"buildingNo\": 20,\n            \"apartmentNo\": 5\n        },\n        \"phone\": \"01283176585\",\n        \"Cart\": []\n    }\n]",
+          "content": "HTTP/1.1 200 OK\n [\n    {\n        \"_id\": \"6089d14c3323d34078fba7d9\",\n        \"name\": \"Nada\",\n        \"email\": \"nada@gmail.com\",\n        \"address\": {\n            \"country\": \"egypt\",\n            \"city\": \"giza\",\n            \"street\": \"abdelzaher\",\n            \"buildingNo\": 20,\n            \"apartmentNo\": 5\n        },\n        \"phone\": \"01283176585\",\n        \"Cart\": 1,\n        \"orders\": 2,\n        \"type\": \"user\"\n    }\n]",
           "type": "json"
         }
       ]

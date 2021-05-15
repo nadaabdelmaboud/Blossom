@@ -1,8 +1,9 @@
 const User = require("../db/queries/user.queries");
+const Admin = require("../db/queries/admin.queries");
 const Plant = require("../db/queries/plant.queries");
 const Bouquet = require("../db/queries/bouquet.queries");
 const UserValidation = require("../validation/user.validation");
-const MongooseValidation = require('../validation/mongoose.validation')
+const MongooseValidation = require("../validation/mongoose.validation");
 const error = require("../validation/error");
 
 const UserService = {
@@ -24,10 +25,20 @@ const UserService = {
       return { data: false, err: error("Invalid User ID", 404) };
     return { data: userObject, err: "" };
   },
-  async getCurrentUser(userId) {
-    const userObject = await User.getCurrentUserInfo(userId);
+  async getCurrentUser(userId, type) {
+    var userObject;
+    if (type == "user") {
+      userObject = await User.getCurrentUserInfo(userId);
+    } else {
+      userObject = await AdminfindAdminById(userId);
+    }
     if (!userObject || userObject.length == 0)
       return { data: false, err: error("Invalid User ID", 404) };
+    if (type == "user") {
+      userObject[0].type = type;
+    } else {
+      userObject.type = type;
+    }
     return { data: userObject, err: "" };
   },
   async updateUser(user, id) {

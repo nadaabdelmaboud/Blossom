@@ -894,3 +894,63 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"orders is not defined orders is not defined","stack":"ReferenceError: orders is not defined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:65:17)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'length' of undefined Cannot read property 'length' of undefined","stack":"TypeError: Cannot read property 'length' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:65:27)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'length' of undefined Cannot read property 'length' of undefined","stack":"TypeError: Cannot read property 'length' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:65:30)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'length' of undefined Cannot read property 'length' of undefined","stack":"TypeError: Cannot read property 'length' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:66:30)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '0' of undefined Cannot read property '0' of undefined","stack":"TypeError: Cannot read property '0' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:66:43)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:69:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot convert undefined or null to object Cannot convert undefined or null to object","stack":"TypeError: Cannot convert undefined or null to object\n    at Function.keys (<anonymous>)\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:29)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:45)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

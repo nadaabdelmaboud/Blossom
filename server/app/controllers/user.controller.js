@@ -18,7 +18,8 @@ const UserController = {
   },
   async getCurrentUser(req, res) {
     const userId = req.user._id;
-    const data = await UserService.getCurrentUser(userId);
+    const type = req.user.type;
+    const data = await UserService.getCurrentUser(userId,type);
     if (data.data) {
       return res.status(200).send(data.data);
     }
