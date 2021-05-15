@@ -50,6 +50,19 @@ const User = {
       });
     return user;
   },
+  async getCurrentUserInfo(id) {
+    const qId = mongoose.Types.ObjectId(id);
+    const user = await UserModel.aggregate()
+      .match({ _id: qId })
+      .project({
+        Cart: 1,
+        name: 1,
+        email: 1,
+        address: 1,
+        phone: 1,
+      });
+    return user;
+  },
   async getAllUsersInfo(query) {
     const pageSize = query.pageSize ? query.pageSize : 10;
     const pageNumber = query.pageNumber ? query.pageNumber : 1;
