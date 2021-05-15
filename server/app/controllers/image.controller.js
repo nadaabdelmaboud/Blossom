@@ -3,7 +3,7 @@ const { v4: uuidv4 } = require('uuid');
 const s3 = new aws.S3( {
     accessKeyId:process.env.S3_ACCESS_KEY_ID,
     secretAccessKey:process.env.S3_SECRET_ACCESS_KEY,
-    region:process.env.S3_REGION,
+    region: "us-east-2",
     signatureVersion: 'v4'
 })
 const ImageController = {

@@ -334,7 +334,7 @@ export default {
     },
     upload() {
       let imageData = {
-            ContentType: this.imgExtention,
+            ContentType: this.imageFile.type,
             Type: this.type,
           };
       this.$store.dispatch("products/uploadImg", {imageFile:this.imageFile,imageData});
