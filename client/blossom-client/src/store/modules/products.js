@@ -17,6 +17,7 @@ const actions = {
             delete axios.defaults.headers.common["Authorization"];
             let url = data.data.url;
             let key = data.data.key;
+            console.log("key",key)
             let response = await axios.put(url,imageFile , {headers:{"Content-Type": imageFile.type}})
             console.log("amazon res",response)
           } catch (err) {
