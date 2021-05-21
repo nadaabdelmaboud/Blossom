@@ -6,6 +6,7 @@ import whyChooseUs from "./modules/whyChooseUs.js";
 import products from "./modules/products.js";
 import homePage from "./modules/homePage.js";
 import blossomUsers from "./modules/blossomUsers";
+import statistics from "./modules/statistics";
 
 Vue.use(Vuex);
 
@@ -17,5 +18,6 @@ export default new Vuex.Store({
     products,
     homePage,
     blossomUsers,
+    statistics
   },
 });

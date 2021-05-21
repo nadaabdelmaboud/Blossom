@@ -333,15 +333,12 @@ export default {
     },
     upload() {
       let imageData = {
-        ContentType: this.imgExtention,
-        Type: this.type,
-      };
-      this.$store.dispatch("products/uploadImg", {
-        imageFile: this.imageFile,
-        imageData,
-      });
-      //this.showToast("upload");
-      //this.$router.push("/");
+            ContentType: this.imageFile.type,
+            Type: this.type,
+          };
+      this.$store.dispatch("products/uploadImg", {imageFile:this.imageFile,imageData});
+      this.showToast("upload");
+      this.$router.push("/");
     },
   },
   computed: {},

@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <BlossomLogo />
-    <div class="form">
+    <form class="form">
       <i class="fa fa-times hoverGolden close" @click="close"></i>
       <h3>Welcome to Blossom</h3>
       <input
@@ -9,27 +9,36 @@
         class="blossomInput"
         type="email"
         v-model="email"
+        required
       />
+      <div class="passwordContainer">
       <input
         placeholder="Password"
         class="blossomInput"
+        id="passwordInput"
         type="password"
         v-model="password"
+        required
       />
+         <i v-if="showPassword"  class="fa fa-eye-slash passwordIcon" id="togglePassword" @click="togglePasswordState"></i>
+      <i v-else class="fa fa-eye passwordIcon" id="togglePassword" @click="togglePasswordState"></i>
+
+      </div>
       <div>
         <span class="hoverGolden floatRight">Forgot password?</span>
       </div>
-      <button class="blossomButton" @click="login">Login</button>
+      <button class="blossomButton" @submit="login">Login</button>
       <div class="toSignup">
         New to Blossom?
         <span class="hoverGolden" @click="switchState">Signup</span>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 
 <script>
 import BlossomLogo from "./blossomLogo";
+import { default as togglePasswordState } from "../../mixins/togglePasswordState";
 export default {
   components: {
     BlossomLogo,
@@ -38,8 +47,10 @@ export default {
     return {
       email: "",
       password: "",
+      showPassword: true
     };
   },
+  mixins: [togglePasswordState],
   methods: {
     login() {
       const user = {
@@ -88,4 +99,5 @@ export default {
   float: right;
   margin: 10px 0px;
 }
+
 </style>

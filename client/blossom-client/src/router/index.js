@@ -5,6 +5,7 @@ import UserProfile from "../views/UserProfile.vue";
 import UploadProduct from "../views/UploadProduct.vue";
 import BlossomUsers from "../views/BlossomUsers.vue";
 import HomeBody from "../views/HomeBody.vue";
+import AdminStatistics from "../views/AdminStatistics.vue"
 
 Vue.use(VueRouter);
 
@@ -20,20 +21,25 @@ const routes = [
         component: HomeBody,
       },
       {
-        path: "/myprofile",
+        path: "myprofile",
         name: "UserProfile",
         component: UserProfile,
       },
       {
-        path: "/uploadProduct",
+        path: "uploadProduct",
         name: "UploadProduct",
         component: UploadProduct,
       },
       {
-        path: "/blossomUsers",
+        path: "blossomUsers",
         name: "blossomUsers",
         component: BlossomUsers,
       },
+      {
+        path: "statistics",
+        name: "statistics",
+        component: AdminStatistics,
+      }
     ],
   },
 ];

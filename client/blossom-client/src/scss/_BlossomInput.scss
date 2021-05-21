@@ -25,9 +25,32 @@
     font-weight: 400;
     font-size: 16px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
   
 ::placeholder {
     color: $lightGolden;
     font-weight: 400;
     font-size: 16px;
+}
+
+.passwordContainer{
+    position: relative;
+    .blossomInput{
+      width: 100%;
+    }
+}
+.passwordIcon{
+    margin-left: -30px;
+    cursor: pointer;
+    position: relative;
 }
