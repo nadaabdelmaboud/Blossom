@@ -1,0 +1,120 @@
+<template>
+  <div class="cartCard">
+    <div class="container">
+      <div class="box">
+        <div class="hoverGolden" id="deleteFlower">
+          <i class="fa fa-times"></i>
+        </div>
+      </div>
+      <div class="box" id="image">
+        <img src="../../assets/flower.jpg" alt="BlossomFlower" />
+      </div>
+      <div class="box">
+        <div class="flowerName">
+          <h3>Tulip</h3>
+        </div>
+        <div class="flowerPrice">
+          <h3>250 LE</h3>
+        </div>
+        <div class="amountButton">
+          <button class="blossomButton">
+            {{ amount }} bouquet
+            <i class="fa fa-arrow-up" @click="increaseCount()"></i>
+            <i class="fa fa-arrow-down" @click="decreaseCount()"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+@import "../../scss/_Colors";
+@import "../../scss/BlossomButton";
+@import "../../scss/General";
+.cartCard {
+  width: 300px;
+}
+.container {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 4px 4px 4px rgba(10, 10, 10, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+.box {
+  margin: 5px 5px 5px 5px;
+  box-sizing: border-box;
+  position: relative;
+}
+#deleteFlower {
+  padding-right: 7px;
+  width: 100%;
+  text-align: right;
+  i {
+    font-size: 25px;
+    font-weight: 400;
+  }
+}
+img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 5px;
+  background-size: cover;
+  object-fit: cover;
+}
+#image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-box-shadow: 0px 0px 10px 3px $lightGolden;
+  -moz-box-shadow: 0px 0px 10px 3px $lightGolden;
+  box-shadow: 0px 0px 10px 3px $lightGolden;
+}
+h3 {
+  margin: 10px 0;
+  color: $darkGolden;
+}
+.flowerName,
+.flowerPrice {
+  font-weight: 700;
+  font-size: 25px;
+  text-align: center;
+}
+.flowerPrice {
+  font-size: 20px;
+  font-weight: 200;
+}
+i {
+  padding-left: 5px;
+}
+.amountButton {
+  text-align: center;
+  margin-bottom: 20px;
+}
+</style>
+
+<script>
+export default {
+  name: "cartCard",
+  data: function () {
+    return {
+      amount: 1,
+    };
+  },
+  methods: {
+    increaseCount() {
+      this.amount = this.amount + 1;
+    },
+    decreaseCount() {
+      if (this.amount - 1 > 0) this.amount = this.amount - 1;
+    },
+  },
+};
+</script>
