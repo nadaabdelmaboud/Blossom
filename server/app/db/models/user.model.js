@@ -41,7 +41,7 @@ const UserSchema = new mongoose.Schema({
       },
       status: {
         type: String,
-        enum: ["pending", "progress", "delivered"],
+        enum: ["empty","ordering","pending", "progress", "delivered"],
         required: true,
       },
       address: {

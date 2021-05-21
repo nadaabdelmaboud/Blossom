@@ -2,42 +2,48 @@ const UserModel = require("../models/user.model");
 const Order = {
   async addItem(userId, item) {
     let today = new Date();
-    const userData = await UserModel.findById(userId);
-    /*userData.Cart[0] = {};
-    userData.Cart[0].orders = {};
-    userData.Cart[0].status = "pending";
-    userData.Cart[0].address = userData.address;*/
-    if (userData.Cart[0].orders[item.bouquetId]) {
-      userData.Cart[0].orders[item.bouquetId].amount += item.amount;
+    const UserData = await UserModel.findById(userId);
+    const Index = UserData.Cart.length - 1;
+    /*userData.Cart[Index] = {};
+    userData.Cart[Index].orders = {};
+    userData.Cart[Index].status = "pending";
+    userData.Cart[Index].address = userData.address;*/
+    if (UserData.Cart[Index].orders[item.bouquetId]) {
+      UserData.Cart[Index].orders[item.bouquetId].amount += item.amount;
     } else {
-      userData.Cart[0].orders[item.bouquetId] = {
+      UserData.Cart[Index].orders[item.bouquetId] = {
         amount: item.amount,
         orderType: item.orderType,
         category: item.category,
       };
     }
-    userData.Cart[0].lastEdit = today;
-    userData.markModified("Cart");
-    const result = await userData.save();
-    if (result) return result.Cart[0];
+    UserData.Cart[Index].lastEdit = today;
+    UserData.Cart[Index].status = "ordering";
+    UserData.markModified("Cart");
+    const result = await UserData.save();
+    if (result) return result.Cart[Index];
     return result;
   },
   async getOrderItems(userId) {
-    const userData = await UserModel.findById(userId);
-    if (userData) return userData.Cart[0].orders;
-    return userData;
+    const UserData = await UserModel.findById(userId);
+    if (UserData) return UserData.Cart[UserData.Cart.length - 1].orders;
+    return UserData;
   },
   async deleteItem(userId, itemId) {
-    const userData = await UserModel.findById(userId);
-    if (userData.Cart[0].orders[itemId]) {
-      if (Object.keys(userData.Cart[0].orders).length == 1)
-        userData.Cart[0].orders = {};
-      else delete userData.Cart[0].orders[itemId];
+    const UserData = await UserModel.findById(userId);
+    const Index = UserData.Cart.length - 1;
+    let amount;
+    if (UserData.Cart[Index].orders[itemId]) {
+      amount = UserData.Cart[Index].orders[itemId];
+      if (Object.keys(UserData.Cart[Index].orders).length == 1) {
+        UserData.Cart[Index].orders = {};
+        UserData.Cart[Index].status = "empty";
+      } else delete UserData.Cart[Index].orders[itemId];
     } else return false;
-    userData.markModified("Cart");
-    const result = await userData.save();
-    if (result) return result.Cart[0];
+    UserData.markModified("Cart");
+    const result = await UserData.save();
+    if (result) return {result:result.Cart[Index],amount:amount.amount};
     return result;
-  }
+  },
 };
 module.exports = Order;

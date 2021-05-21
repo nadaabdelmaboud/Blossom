@@ -25,6 +25,16 @@ const OrderService = {
         err: await error("No availabel bouquet/plant ID", 400),
       };
     }
+    if (item.orderType == "plant") {
+      const UpdatePlant = await Plant.updatePlantCount(1,item.bouquetId,item.amount);
+      if (!UpdatePlant)
+        return {data: false,err: await error("Plant not available", 500),};
+    }
+    if (item.orderType == "bouquet") {
+      const UpdateBouquet = await Bouquet.updateBouquetCount(1,item.bouquetId,item.amount);
+      if (!UpdateBouquet)
+        return { data: false, err: await error("Bouquet not available", 500) };
+    }
     const userObject = await Order.addItem(userId, item);
     if (!userObject)
       return { data: false, err: await error("Problem Adding Item", 500) };
@@ -63,7 +73,11 @@ const OrderService = {
     const itemObject = await Order.deleteItem(userId, itemId);
     if (!itemObject)
       return { data: false, err: await error("Problem Deleting Item", 500) };
-    return { data: itemObject, err: "" };
+    const UpdatePlant = await Plant.updatePlantCount(0,itemId,itemObject.amount);
+    const UpdateBouquet = await Bouquet.updateBouquetCount(0,itemId,itemObject.amount);
+    if (!UpdatePlant && !UpdateBouquet)
+      return {data: false,err: await error("Problem Updating The Item Count", 500)};
+    return { data: itemObject.result, err: "" };
   },
 };
 module.exports = OrderService;
