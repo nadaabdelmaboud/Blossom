@@ -4,7 +4,14 @@
       <ul>
         <li v-if="admin">Upload</li>
         <li v-if="admin">Reviews</li>
-        <li v-if="admin">Statistics</li>
+        <router-link 
+        v-if="admin"
+        to="/statistics"
+        >
+        <li>
+        Statistics
+        </li>
+        </router-link>
         <li v-if="user">Track Orders</li>
         <router-link to="/blossomUsers">
           <li v-if="admin">Users</li>
