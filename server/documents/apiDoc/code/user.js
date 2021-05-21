@@ -59,7 +59,7 @@
  * @apiName Get User By Id
  * @apiGroup User
  * @apiVersion 1.1.0
- * @apiPermission User
+ * @apiPermission Admin
  *
  * @apiExample {curl} Example usage:
  *      curl --location --request GET 'http://localhost:3000/api/users/6089d14c3323d34078fba7d9' \
@@ -99,16 +99,62 @@
  */
 
 /**
- * @api {put} api/users/:id Update User
+ * @api {get} api/user/current Get Current User
+ * @apiName Get Current User
+ * @apiGroup User
+ * @apiVersion 1.1.0
+ * @apiPermission User
+ *
+ * @apiExample {curl} Example usage:
+ *      curl --location --request GET 'http://localhost:3000/api/user/current' \
+ *
+ *
+ * @apiSuccess {Object} address user count
+ * @apiSuccess {String} address.country user country
+ * @apiSuccess {String} address.city user country
+ * @apiSuccess {String} address.street user country
+ * @apiSuccess {Number} address.buildingNo user building number
+ * @apiSuccess {Number} address.apartmentNo user apartment number
+ * @apiSuccess {String} _id user id
+ * @apiSuccess {String} email user email
+ * @apiSuccess {String} name user name
+ * @apiSuccess {String} phone user phone number
+ * @apiSuccess {String} type user or admin
+ * @apiSuccess {Number} Cart number of carts of the user
+ * @apiSuccess {Number} orders number of items inside the cart
+ *
+ * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
+ [
+    {
+        "_id": "6089d14c3323d34078fba7d9",
+        "name": "Nada",
+        "email": "nada@gmail.com",
+        "address": {
+            "country": "egypt",
+            "city": "giza",
+            "street": "abdelzaher",
+            "buildingNo": 20,
+            "apartmentNo": 5
+        },
+        "phone": "01283176585",
+        "Cart": 1,
+        "orders": 2,
+        "type": "user"
+    }
+]
+ */
+
+/**
+ * @api {put} api/users Update User
  * @apiName Update User
  * @apiGroup User
  * @apiVersion 1.1.0
  * @apiPermission User
  *
  * @apiExample {curl} Example usage:
- *      curl --location --request PUT 'http://localhost:3000/api/users/608d666e7ff51820a8cb248d' \
+ *      curl --location --request PUT 'http://localhost:3000/api/users' \
  *
- * @apiParam (PathParameters) {String} id user id
  *
  * @apiParam (BodyParameters) {Object} [address] user count
  * @apiParam (BodyParameters) {String} [address.country] user country
@@ -212,21 +258,21 @@
  */
 
 /**
- * @api {post} /users/:id/cart/orders Add Item 
+ * @api {post} /users/cart/orders Add Item 
  * @apiName add item to cart
  * @apiGroup User
  * @apiVersion 1.1.0
  * @apiPermission User
  *
  * @apiExample {curl} Example usage:
- *      curl --location --request POST 'http://localhost:3000/api/users/6099e34312fb9933383b9c93/cart/orders' \
+ *      curl --location --request POST 'http://localhost:3000/api/users/cart/orders' \
  *--data-raw '{
  *   "bouquetId":"608fe3662947f108c0fcdb0c",
  *   "amount":1,
  *   "orderType":"plant",
  *   "category":"flower"
  *}
- * @apiParam (PathParameters) {String} id user id
+ *
  * @apiParam (BodyParameters) {String} bouquetId item id
  * @apiParam (BodyParameters) {Number} amount item amount
  * @apiParam (BodyParameters) {String} orderType item type (plant or bouquetId)
@@ -257,16 +303,15 @@
  */
 
 /**
- * @api {delete} /users/:id/cart/orders/:itemid Delete Item
+ * @api {delete} /users/cart/orders/:itemid Delete Item
  * @apiName delete item from current cart
  * @apiGroup User
  * @apiVersion 1.1.0
  * @apiPermission User
  *
  * @apiExample {curl} Example usage:
- *      curl --location --request DELETE 'http://localhost:3000/api/users/609c100297a5162a543d22af/cart/orders/608ff1141485280f2c7ba5bb' \
+ *      curl --location --request DELETE 'http://localhost:3000/api/users/cart/orders/608ff1141485280f2c7ba5bb' \
  * 
- * @apiParam (PathParameters) {String} id user id
  * @apiParam (PathParameters) {String} itemid item (boquet/plant to remove) id 
  *
  *
@@ -299,16 +344,15 @@
  */
 
 /**
- * @api {get} /users/:id/cart/orders/ Get Order Items
- * @apiName get grder items of the current cart
+ * @api {get} /users/cart/orders/ Get Order Items
+ * @apiName get order items of the current cart
  * @apiGroup User
  * @apiVersion 1.1.0
  * @apiPermission User
  *
  * @apiExample {curl} Example usage:
- *      curl --location --request POST 'http://localhost:3000/api/users/609c100297a5162a543d22af/cart/orders' \
+ *      curl --location --request POST 'http://localhost:3000/api/users/cart/orders' \
  * 
- * @apiParam (PathParameters) {String} id user id
  *
  *
  * @apiSuccessExample {json} Success-Response:

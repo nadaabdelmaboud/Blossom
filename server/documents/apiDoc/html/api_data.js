@@ -1631,6 +1631,132 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "api/user/current",
+    "title": "Get Current User",
+    "name": "Get_Current_User",
+    "group": "User",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request GET 'http://localhost:3000/api/user/current' \\",
+        "type": "curl"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "address",
+            "description": "<p>user count</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.country",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.city",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address.street",
+            "description": "<p>user country</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.buildingNo",
+            "description": "<p>user building number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "address.apartmentNo",
+            "description": "<p>user apartment number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>user id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>user email</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>user name</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>user phone number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>user or admin</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "Cart",
+            "description": "<p>number of carts of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>number of items inside the cart</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [\n    {\n        \"_id\": \"6089d14c3323d34078fba7d9\",\n        \"name\": \"Nada\",\n        \"email\": \"nada@gmail.com\",\n        \"address\": {\n            \"country\": \"egypt\",\n            \"city\": \"giza\",\n            \"street\": \"abdelzaher\",\n            \"buildingNo\": 20,\n            \"apartmentNo\": 5\n        },\n        \"phone\": \"01283176585\",\n        \"Cart\": 1,\n        \"orders\": 2,\n        \"type\": \"user\"\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
     "url": "api/users/:id",
     "title": "Get User By Id",
     "name": "Get_User_By_Id",
@@ -1638,7 +1764,7 @@ define({ "api": [
     "version": "1.1.0",
     "permission": [
       {
-        "name": "User"
+        "name": "Admin"
       }
     ],
     "examples": [
@@ -1756,7 +1882,7 @@ define({ "api": [
   },
   {
     "type": "put",
-    "url": "api/users/:id",
+    "url": "api/users",
     "title": "Update User",
     "name": "Update_User",
     "group": "User",
@@ -1769,21 +1895,12 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl --location --request PUT 'http://localhost:3000/api/users/608d666e7ff51820a8cb248d' \\",
+        "content": "curl --location --request PUT 'http://localhost:3000/api/users' \\",
         "type": "curl"
       }
     ],
     "parameter": {
       "fields": {
-        "PathParameters": [
-          {
-            "group": "PathParameters",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>user id</p>"
-          }
-        ],
         "BodyParameters": [
           {
             "group": "BodyParameters",
@@ -1939,7 +2056,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/users/:id/cart/orders",
+    "url": "/users/cart/orders",
     "title": "Add Item",
     "name": "add_item_to_cart",
     "group": "User",
@@ -1952,21 +2069,12 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "     curl --location --request POST 'http://localhost:3000/api/users/6099e34312fb9933383b9c93/cart/orders' \\\n--data-raw '{\n  \"bouquetId\":\"608fe3662947f108c0fcdb0c\",\n  \"amount\":1,\n  \"orderType\":\"plant\",\n  \"category\":\"flower\"\n}",
+        "content": "     curl --location --request POST 'http://localhost:3000/api/users/cart/orders' \\\n--data-raw '{\n  \"bouquetId\":\"608fe3662947f108c0fcdb0c\",\n  \"amount\":1,\n  \"orderType\":\"plant\",\n  \"category\":\"flower\"\n}",
         "type": "curl"
       }
     ],
     "parameter": {
       "fields": {
-        "PathParameters": [
-          {
-            "group": "PathParameters",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>user id</p>"
-          }
-        ],
         "BodyParameters": [
           {
             "group": "BodyParameters",
@@ -2013,7 +2121,7 @@ define({ "api": [
   },
   {
     "type": "delete",
-    "url": "/users/:id/cart/orders/:itemid",
+    "url": "/users/cart/orders/:itemid",
     "title": "Delete Item",
     "name": "delete_item_from_current_cart",
     "group": "User",
@@ -2026,20 +2134,13 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl --location --request DELETE 'http://localhost:3000/api/users/609c100297a5162a543d22af/cart/orders/608ff1141485280f2c7ba5bb' \\",
+        "content": "curl --location --request DELETE 'http://localhost:3000/api/users/cart/orders/608ff1141485280f2c7ba5bb' \\",
         "type": "curl"
       }
     ],
     "parameter": {
       "fields": {
         "PathParameters": [
-          {
-            "group": "PathParameters",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>user id</p>"
-          },
           {
             "group": "PathParameters",
             "type": "String",
@@ -2182,9 +2283,9 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/users/:id/cart/orders/",
+    "url": "/users/cart/orders/",
     "title": "Get Order Items",
-    "name": "get_grder_items_of_the_current_cart",
+    "name": "get_order_items_of_the_current_cart",
     "group": "User",
     "version": "1.1.0",
     "permission": [
@@ -2195,23 +2296,10 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl --location --request POST 'http://localhost:3000/api/users/609c100297a5162a543d22af/cart/orders' \\",
+        "content": "curl --location --request POST 'http://localhost:3000/api/users/cart/orders' \\",
         "type": "curl"
       }
     ],
-    "parameter": {
-      "fields": {
-        "PathParameters": [
-          {
-            "group": "PathParameters",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>user id</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "examples": [
         {

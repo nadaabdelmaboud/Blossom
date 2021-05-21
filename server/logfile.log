@@ -877,3 +877,80 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"status":404,"level":"error","message":"API_NOT_FOUND API_NOT_FOUND","stack":"Error: API_NOT_FOUND\n    at app.use (D:\\college\\third year\\arch\\Blossom\\server\\app\\startup\\routes.js:20:13)\n    at newFn (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:284:7\n    at param (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"operationTime":"6962625887896338660","ok":0,"code":17124,"codeName":"Location17124","$clusterTime":{"clusterTime":"6962625887896338660","signature":{"hash":"MtKuVJdfJcOWP8zUIWh+ByfQ5PY=","keyId":"6955375446229778435"}},"name":"MongoError","level":"error","message":"The argument to $size must be an array, but was of type: missing The argument to $size must be an array, but was of type: missing","stack":"MongoError: The argument to $size must be an array, but was of type: missing\n    at MessageStream.messageHandler (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\connection.js:268:20)\n    at MessageStream.emit (events.js:198:13)\n    at MessageStream.EventEmitter.emit (domain.js:448:20)\n    at processIncomingData (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:144:12)\n    at MessageStream._write (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:42:5)\n    at doWrite (_stream_writable.js:415:12)\n    at writeOrBuffer (_stream_writable.js:399:5)\n    at MessageStream.Writable.write (_stream_writable.js:299:11)\n    at TLSSocket.ondata (_stream_readable.js:709:20)\n    at TLSSocket.emit (events.js:198:13)\n    at TLSSocket.EventEmitter.emit (domain.js:448:20)\n    at addChunk (_stream_readable.js:288:12)\n    at readableAddChunk (_stream_readable.js:269:11)\n    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n    at TLSWrap.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"operationTime":"6962627683192668166","ok":0,"code":17124,"codeName":"Location17124","$clusterTime":{"clusterTime":"6962627683192668166","signature":{"hash":"2skyOCi6SuD0V1RXpHAiSaK//ss=","keyId":"6955375446229778435"}},"name":"MongoError","level":"error","message":"The argument to $size must be an array, but was of type: missing The argument to $size must be an array, but was of type: missing","stack":"MongoError: The argument to $size must be an array, but was of type: missing\n    at MessageStream.messageHandler (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\connection.js:268:20)\n    at MessageStream.emit (events.js:198:13)\n    at MessageStream.EventEmitter.emit (domain.js:448:20)\n    at processIncomingData (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:144:12)\n    at MessageStream._write (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:42:5)\n    at doWrite (_stream_writable.js:415:12)\n    at writeOrBuffer (_stream_writable.js:399:5)\n    at MessageStream.Writable.write (_stream_writable.js:299:11)\n    at TLSSocket.ondata (_stream_readable.js:709:20)\n    at TLSSocket.emit (events.js:198:13)\n    at TLSSocket.EventEmitter.emit (domain.js:448:20)\n    at addChunk (_stream_readable.js:288:12)\n    at readableAddChunk (_stream_readable.js:269:11)\n    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n    at TLSWrap.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"orders is not defined orders is not defined","stack":"ReferenceError: orders is not defined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:65:17)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'length' of undefined Cannot read property 'length' of undefined","stack":"TypeError: Cannot read property 'length' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:65:27)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'length' of undefined Cannot read property 'length' of undefined","stack":"TypeError: Cannot read property 'length' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:65:30)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'length' of undefined Cannot read property 'length' of undefined","stack":"TypeError: Cannot read property 'length' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:66:30)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '0' of undefined Cannot read property '0' of undefined","stack":"TypeError: Cannot read property '0' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:66:43)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:69:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot convert undefined or null to object Cannot convert undefined or null to object","stack":"TypeError: Cannot convert undefined or null to object\n    at Function.keys (<anonymous>)\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:29)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:70:45)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

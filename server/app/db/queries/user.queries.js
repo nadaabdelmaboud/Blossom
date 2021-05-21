@@ -50,6 +50,19 @@ const User = {
       });
     return user;
   },
+  async getCurrentUserInfo(id) {
+    const qId = mongoose.Types.ObjectId(id);
+    const user = await UserModel.aggregate().match({ _id: qId }).project({
+      name: 1,
+      email: 1,
+      address: 1,
+      phone: 1,
+      Cart: 1,
+    });
+    user[0].orders = Object.keys(user[0].Cart[0].orders).length;
+    user[0].Cart = user[0].Cart.length;
+    return user;
+  },
   async getAllUsersInfo(query) {
     const pageSize = query.pageSize ? query.pageSize : 10;
     const pageNumber = query.pageNumber ? query.pageNumber : 1;
