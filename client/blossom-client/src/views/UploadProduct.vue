@@ -262,7 +262,7 @@ export default {
       showSpecials: false,
       imageFile: null,
       validate: false,
-      imgExtention:"",
+      imgExtention: "",
       categories: [
         {
           name: "lillies",
@@ -285,8 +285,8 @@ export default {
   methods: {
     onFileSelected: function (event) {
       this.imageFile = event.target.files[0];
-      let splited = this.imageFile.name.split(".")
-      this.imgExtention= splited[splited.length -1]
+      let splited = this.imageFile.name.split(".");
+      this.imgExtention = splited[splited.length - 1];
       console.log("my image ", this.imgExtention);
       if (this.imageFile) {
         const reader = new FileReader();
@@ -296,7 +296,6 @@ export default {
           img.setAttribute("src", this.result);
           img.style.display = "block";
           image.setAttribute("src", this.result);
-          
         });
         reader.readAsDataURL(this.imageFile);
       }
@@ -338,8 +337,8 @@ export default {
             Type: this.type,
           };
       this.$store.dispatch("products/uploadImg", {imageFile:this.imageFile,imageData});
-      //this.showToast("upload");
-      //this.$router.push("/");
+      this.showToast("upload");
+      this.$router.push("/");
     },
   },
   computed: {},

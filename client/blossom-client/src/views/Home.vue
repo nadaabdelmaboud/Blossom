@@ -3,37 +3,32 @@
     <navBar />
     <authPopup v-if="showAuth" />
     <editCard v-if="showEditPopup" />
-    <cardsPagination />
     <cardDescription v-if="showCardDescription" />
     <createCategoryPopup v-if="showCategoryPopup" />
     <createSpecialPopup v-if="showSpecialPopup" />
-    <reviewCard />
-    <categories />
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
-    <whyUs />
+    <div class="toast" id="upload">
+      <div class="addedToCart">A new product is uploaded!</div>
+    </div>
+    <router-view class="content" />
     <homeFooter />
-    <div class="toast" id="upload">
-      <div class="addedToCart">A new product is uploaded!</div>
-    </div>
-    <router-view />
   </div>
 </template>
 <style scoped lang="scss">
 @import "../scss/Colors";
 @import "../scss/BlossomToast";
+//.content {
+// min-height: calc(100vh - 400px);
+//}
 </style>
 
 <script>
 import authPopup from "./AuthPopup";
 import navBar from "../components/HomePage/navBar";
-import cardsPagination from "../components/HomePage/cardsPagination";
-import cardDescription from "../components/HomePage/cardDescription";
-import reviewCard from "../components/HomePage/reviewCard";
 import editCard from "../components/HomePage/editCard";
-import categories from "../components/HomePage/categories";
-import whyUs from "../components/HomePage/whyUs";
+import cardDescription from "../components/HomePage/cardDescription";
 import homeFooter from "../components/HomePage/homeFooter";
 import createCategoryPopup from "../components/CreatePopups/newCategoryPopup";
 import createSpecialPopup from "../components/CreatePopups/newSpecialPopup";
@@ -42,16 +37,12 @@ export default {
   name: "UserHome",
   components: {
     authPopup,
-    cardsPagination,
-    cardDescription,
-    reviewCard,
     editCard,
+    cardDescription,
     homeFooter,
     createCategoryPopup,
     createSpecialPopup,
     navBar,
-    categories,
-    whyUs,
   },
   computed: {
     ...mapState({

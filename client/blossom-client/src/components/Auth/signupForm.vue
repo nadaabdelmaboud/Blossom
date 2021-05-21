@@ -1,26 +1,36 @@
 <template>
   <div class="signup">
     <BlossomLogo />
-    <div class="form">
+    <form class="form">
       <i class="fa fa-times hoverGolden close" @click="close"></i>
       <h3>Welcome to Blossom</h3>
-      <input placeholder="Username" class="blossomInput" v-model="username" />
+      <input placeholder="Username" class="blossomInput" v-model="username" required/>
       <input
         placeholder="Email"
         type="email"
         class="blossomInput"
         v-model="email"
+        required
       />
+
+      <div class="passwordContainer">
       <input
         placeholder="Password"
         class="blossomInput"
+        id="passwordInput"
         type="password"
         v-model="password"
+        required
       />
+      <i v-if="showPassword"  class="fa fa-eye-slash passwordIcon" id="togglePassword" @click="togglePasswordState"></i>
+      <i v-else class="fa fa-eye passwordIcon" id="togglePassword" @click="togglePasswordState"></i>
+      </div>
+
       <input
         placeholder="Phone Number"
         class="blossomInput"
         v-model="phoneNumber"
+        required
       />
       <p class="addressLabel">Address</p>
 
@@ -51,33 +61,43 @@
           placeholder="Street"
           class="blossomInput"
           v-model="address.street"
+          required
         />
         <input
           placeholder="building Number"
+          type="number"
           class="blossomInput"
+                    min="0"
+
           v-model="address.buildingNo"
+          required
         />
         <input
           placeholder="apartment Number"
+          type="number"
           class="blossomInput"
+          min="0"
           v-model="address.apartmentNo"
+          required
         />
       </div>
-      <button class="blossomButton" @click="signup">Signup</button>
+      <button class="blossomButton" @submit="signup">Signup</button>
       <div class="toSignup">
         Have an account?
         <span class="hoverGolden" @click="switchState">login</span>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 
 <script>
 import BlossomLogo from "./blossomLogo";
+import { default as togglePasswordState } from "../../mixins/togglePasswordState";
 export default {
   components: {
     BlossomLogo,
   },
+  mixins: [togglePasswordState],
   data: function () {
     return {
       email: "",
@@ -100,6 +120,7 @@ export default {
           name: "Giza",
         },
       ],
+      showPassword:true
     };
   },
   methods: {

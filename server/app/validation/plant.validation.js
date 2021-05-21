@@ -1,28 +1,23 @@
 const Joi = require("joi");
+const { PlantModel, types } = require("../db/models/plants.model");
 const PlantValidation = {
   async getAllPlants(query) {
     const schema = Joi.object({
       pageNumber: Joi.number().min(1),
       pageSize: Joi.number().min(1),
-      type: Joi.string().valid(
-        "vegetable",
-        "fruit",
-        "herb",
-        "flower",
-        "house plant"
-      ),
-      hasTips:Joi.boolean()
+      type: Joi.string().valid(...types),
+      hasTips: Joi.boolean(),
     });
     if (query.pageNumber) query.pageNumber = parseInt(query.pageNumber);
     if (query.pageSize) query.pageSize = parseInt(query.pageSize);
-    if (query.hasTips) query.hasTips = (query.hasTips == 'true');
+    if (query.hasTips) query.hasTips = query.hasTips == "true";
     return schema.validate(query);
   },
   async validatePlant(plant) {
     const schema = Joi.object({
       name: Joi.string().min(3).max(30).required(),
       type: Joi.string()
-        .valid("vegetable", "fruit", "herb", "flower", "house plant")
+        .valid(...types)
         .required(),
       price: Joi.number().min(1).required(),
       count: {
@@ -35,16 +30,10 @@ const PlantValidation = {
     plant.type = plant.type.toLowerCase();
     return schema.validate(plant);
   },
-  async validateUpdatePlant(plant){
+  async validateUpdatePlant(plant) {
     const schema = Joi.object({
       name: Joi.string().min(3).max(30),
-      type: Joi.string().valid(
-        "vegetable",
-        "fruit",
-        "herb",
-        "flower",
-        "house plant"
-      ),
+      type: Joi.string().valid(...types),
       price: Joi.number().min(1),
       count: {
         available: Joi.number().min(1),
@@ -53,10 +42,18 @@ const PlantValidation = {
       tips: Joi.array().items(Joi.string()),
       images: Joi.string(),
     });
-    if(plant.type) plant.type = plant.type.toLowerCase();
-    if(plant.name) plant.name = plant.name.toLowerCase();
+    if (plant.type) plant.type = plant.type.toLowerCase();
+    if (plant.name) plant.name = plant.name.toLowerCase();
     return schema.validate(plant);
-  }
+  },
+  async vlalidateType(type) {
+    type = type.toLowerCase();
+    const schema = Joi.string().min(3).max(30);
+    return schema.validate(type);
+  },
+  async inTypes(type) {
+    return types.includes(type);
+  },
 };
 
 module.exports = PlantValidation;

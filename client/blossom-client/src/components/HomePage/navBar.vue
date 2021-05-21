@@ -2,28 +2,37 @@
   <div class="navBar">
     <div class="firstNav">
       <ul>
+        <li v-if="admin">Upload</li>
         <li v-if="admin">Reviews</li>
         <li v-if="admin">Statistics</li>
         <li v-if="user">Track Orders</li>
-        <li v-if="admin">Users</li>
+        <router-link to="/blossomUsers">
+          <li v-if="admin">Users</li>
+        </router-link>
       </ul>
     </div>
     <div class="Logo">
       <img src="../../assets/BlossomLogo_v7.png" alt="Logo" />
     </div>
     <div class="navContent" id="stickyNav">
-      <div class="blossom">Blossom</div>
+      <div class="blossom">
+        <router-link to="/"> Blossom </router-link>
+      </div>
       <div class="pages">
         <button id="bars" @click="showlist()">
           <i class="fa fa-bars"></i>
         </button>
         <ul id="listItems">
+          <router-link to="/">
+            <li @click="callFlowers()">
+              <i class="fa fa-pagelines"></i> Flowers
+            </li>
+          </router-link>
+          <router-link to="/">
+            <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
+          </router-link>
           <li v-if="noUser" @click="showLogin()">Login</li>
           <li v-if="noUser">Signup</li>
-          <li @click="callFlowers()">
-            <i class="fa fa-pagelines"></i> Flowers
-          </li>
-          <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
           <li v-if="admin || user">Plant Tips</li>
           <li v-if="admin">Orders</li>
           <li v-if="user"><i class="fa fa-user"></i> Profile</li>
@@ -38,8 +47,14 @@
       <ul>
         <li v-if="noUser" @click="showLogin()">Login</li>
         <li v-if="noUser">Signup</li>
-        <li @click="callFlowers()"><i class="fa fa-pagelines"></i> Flowers</li>
-        <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
+        <router-link to="/">
+          <li @click="callFlowers()">
+            <i class="fa fa-pagelines"></i> Flowers
+          </li>
+        </router-link>
+        <router-link to="/">
+          <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
+        </router-link>
         <li v-if="admin || user">Plant Tips</li>
         <li v-if="admin">Orders</li>
         <li v-if="user"><i class="fa fa-user"></i> Profile</li>
@@ -55,7 +70,8 @@
   background-color: black;
   margin-bottom: 30px;
   width: 100%;
-  height: 210px;
+  //height: 210px;
+  height: 40%;
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -88,6 +104,10 @@ img {
   padding-left: 10px;
   z-index: 1;
   font-weight: 700;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 .blossom {
   color: $lightGolden;
@@ -190,7 +210,7 @@ export default {
     return {
       admin: true,
       user: false,
-      noUser: false,
+      noUser: true,
       count: 0,
       toggleList: false,
     };

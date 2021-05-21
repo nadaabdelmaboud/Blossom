@@ -1,10 +1,8 @@
 import axios from "axios";
 
-const state = {
-};
+const state = {};
 
-const mutations = {
-};
+const mutations = {};
 const actions = {
     async uploadImg({ state },  {imageFile,imageData}) {
         const token = localStorage.getItem("token");
@@ -28,9 +26,8 @@ const actions = {
       },
  
 };
-const getters = {
-  
-};
+
+const getters = {};
 export default {
   namespaced: true,
   state,

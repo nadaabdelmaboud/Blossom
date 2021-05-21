@@ -653,6 +653,74 @@ define({ "api": [
     "groupTitle": "Images"
   },
   {
+    "type": "put",
+    "url": "api/plants/type",
+    "title": "Add Type",
+    "name": "Add_Type",
+    "group": "Plant",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request PUT 'http://localhost:3000/api/plants/type/tree' \\",
+        "type": "curl"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "PathParameters": [
+          {
+            "group": "PathParameters",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>new type to add</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "types",
+            "description": "<p>all the available types</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n\n    [\"vegetable\",\"fruit\",\"herb\",\"flower\",\"house plant\",\"tree\"]",
+          "type": "String[]"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/plants.js",
+    "groupTitle": "Plant"
+  },
+  {
     "type": "post",
     "url": "api/plant",
     "title": "Create Plant",
@@ -780,7 +848,7 @@ define({ "api": [
   {
     "type": "delete",
     "url": "api/plant",
-    "title": "delete Plant",
+    "title": "Delete Plant",
     "name": "Delete_Plant",
     "group": "Plant",
     "version": "1.1.0",
@@ -826,6 +894,74 @@ define({ "api": [
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n\n    {\n         \"_id\": \"608fe99514f3af4878571a6a\"\n     }",
           "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/plants.js",
+    "groupTitle": "Plant"
+  },
+  {
+    "type": "delete",
+    "url": "api/plants/type",
+    "title": "Delete Type",
+    "name": "Delete_Type",
+    "group": "Plant",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request DELETE 'http://localhost:3000/api/plants/type/tree' \\",
+        "type": "curl"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "PathParameters": [
+          {
+            "group": "PathParameters",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>type to be deleted</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "types",
+            "description": "<p>all the available types</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n\n    [\"vegetable\",\"fruit\",\"herb\",\"flower\",\"house plant\"]",
+          "type": "String[]"
         }
       ]
     },
@@ -982,6 +1118,61 @@ define({ "api": [
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n[\n     {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 4\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe3662947f108c0fcdb0c\",\n         \"name\": \"lavender\",\n         \"type\": \"herb\",\n         \"price\": 300,\n         \"info\": \"Lavender is a bushy, strong-scented perennial plant from the Mediterranean. In warmer regions, its gray to green foliage stays evergreen throughout the year, and the herb thrives in some of the toughest of garden condition. Here’s how to plant, grow, and harvest lavender in the garden.\"\n     },\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n     }\n\n ]",
           "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/plants.js",
+    "groupTitle": "Plant"
+  },
+  {
+    "type": "get",
+    "url": "api/plants/type",
+    "title": "Get All Types",
+    "name": "Get_All_Types",
+    "group": "Plant",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request GET 'http://localhost:3000/api/plants/type' \\",
+        "type": "curl"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "types",
+            "description": "<p>all the available types</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n\n    [\"vegetable\",\"fruit\",\"herb\",\"flower\",\"house plant\"]",
+          "type": "String[]"
         }
       ]
     },
@@ -1747,9 +1938,134 @@ define({ "api": [
     "groupTitle": "User"
   },
   {
+    "type": "post",
+    "url": "/users/:id/cart/orders",
+    "title": "Add Item",
+    "name": "add_item_to_cart",
+    "group": "User",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "     curl --location --request POST 'http://localhost:3000/api/users/6099e34312fb9933383b9c93/cart/orders' \\\n--data-raw '{\n  \"bouquetId\":\"608fe3662947f108c0fcdb0c\",\n  \"amount\":1,\n  \"orderType\":\"plant\",\n  \"category\":\"flower\"\n}",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "PathParameters": [
+          {
+            "group": "PathParameters",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>user id</p>"
+          }
+        ],
+        "BodyParameters": [
+          {
+            "group": "BodyParameters",
+            "type": "String",
+            "optional": false,
+            "field": "bouquetId",
+            "description": "<p>item id</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "Number",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>item amount</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "String",
+            "optional": false,
+            "field": "orderType",
+            "description": "<p>item type (plant or bouquetId)</p>"
+          },
+          {
+            "group": "BodyParameters",
+            "type": "String",
+            "optional": false,
+            "field": "category",
+            "description": "<p>item category</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"_id\": \"6099e46231a2c759a833803a\",\n    \"orders\": {\n        \"608fe3662947f108c0fcdb0c\": {\n            \"amount\": 3,\n            \"orderType\": \"plant\",\n            \"category\": \"herb\"\n        }\n    },\n    \"lastEdit\": \"2021-05-11T02:43:45.224Z\",\n    \"address\": {\n        \"country\": \"alex\",\n        \"city\": \"cairo\",\n        \"street\": \"aboear\",\n        \"buildingNo\": 5,\n        \"apartmentNo\": 3\n    },\n    \"status\": \"pending\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "delete",
+    "url": "/users/:id/cart/orders/:itemid",
+    "title": "Delete Item",
+    "name": "delete_item_from_current_cart",
+    "group": "User",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request DELETE 'http://localhost:3000/api/users/609c100297a5162a543d22af/cart/orders/608ff1141485280f2c7ba5bb' \\",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "PathParameters": [
+          {
+            "group": "PathParameters",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>user id</p>"
+          },
+          {
+            "group": "PathParameters",
+            "type": "String",
+            "optional": false,
+            "field": "itemid",
+            "description": "<p>item (boquet/plant to remove) id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"_id\": \"609c49726d4c4e2a789f6e32\",\n    \"orders\": {\n        \"6093f1545604aa1b3c911672\": {\n            \"amount\": 2,\n            \"orderType\": \"bouquet\",\n            \"category\": \"Tulips\"\n        },\n        \"6090043a8410d235d0097a21\": {\n            \"amount\": 3,\n            \"orderType\": \"plant\",\n            \"category\": \"herb\"\n        }\n    },\n    \"status\": \"pending\",\n    \"address\": {\n        \"country\": \"alex\",\n        \"city\": \"cairo\",\n        \"street\": \"aboear\",\n        \"buildingNo\": 5,\n        \"apartmentNo\": 3\n    },\n    \"lastEdit\": \"2021-05-12T21:34:05.817Z\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/user.js",
+    "groupTitle": "User"
+  },
+  {
     "type": "delete",
     "url": "api/users/:id",
-    "title": "delete user",
+    "title": "Delete User",
     "name": "delete_user",
     "group": "User",
     "version": "1.1.0",
@@ -1857,6 +2173,50 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "HTTP/1.1 200 OK\n [\n    {\n        \"_id\": \"6089d14c3323d34078fba7d9\",\n        \"name\": \"Nada\",\n        \"email\": \"nada@gmail.com\",\n        \"address\": {\n            \"country\": \"egypt\",\n            \"city\": \"giza\",\n            \"street\": \"abdelzaher\",\n            \"buildingNo\": 20,\n            \"apartmentNo\": 5\n        },\n        \"phone\": \"01283176585\"\n    },\n    {\n        \"_id\": \"608d666e7ff51820a8cb248d\",\n        \"name\": \"hager\",\n        \"email\": \"hager@gmail.com\",\n        \"address\": {\n            \"country\": \"alexandria\",\n            \"city\": \"aboer\",\n            \"street\": \"seastreet\",\n            \"buildingNo\": 5,\n            \"apartmentNo\": 6\n        },\n        \"phone\": \"01165655744\"\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "documents/apiDoc/code/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "get",
+    "url": "/users/:id/cart/orders/",
+    "title": "Get Order Items",
+    "name": "get_grder_items_of_the_current_cart",
+    "group": "User",
+    "version": "1.1.0",
+    "permission": [
+      {
+        "name": "User"
+      }
+    ],
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl --location --request POST 'http://localhost:3000/api/users/609c100297a5162a543d22af/cart/orders' \\",
+        "type": "curl"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "PathParameters": [
+          {
+            "group": "PathParameters",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>user id</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"_id\": \"609c49726d4c4e2a789f6e32\",\n    \"orders\": {\n        \"608fe3662947f108c0fcdb0c\": {\n            \"amount\": 2,\n            \"orderType\": \"plant\",\n            \"category\": \"herb\"\n        },\n        \"6093f1545604aa1b3c911672\": {\n            \"amount\": 2,\n            \"orderType\": \"bouquet\",\n            \"category\": \"Tulips\"\n        },\n        \"6090043a8410d235d0097a21\": {\n            \"amount\": 3,\n            \"orderType\": \"plant\",\n            \"category\": \"herb\"\n        }\n    },\n    \"status\": \"pending\",\n    \"address\": {\n        \"country\": \"alex\",\n        \"city\": \"cairo\",\n        \"street\": \"aboear\",\n        \"buildingNo\": 5,\n        \"apartmentNo\": 3\n    },\n    \"lastEdit\": \"2021-05-12T21:34:05.817Z\"\n}",
           "type": "json"
         }
       ]

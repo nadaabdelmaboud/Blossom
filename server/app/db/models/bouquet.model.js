@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+let categories = ['BabyOrchid','Cabbage','Chrysanthemums','Eucalyptus','Gerbera','Roses','Lilies','Spider','Tulips'];
+let sentiments = ['I Love You','I Miss You','Congratulations','Get Well Soon','Happy Anniversary','Happy Birthday','I Am Sorry','Thank You','Wedding'];
 const BouquetSchema = new mongoose.Schema({
 
     name : {
@@ -20,12 +22,12 @@ const BouquetSchema = new mongoose.Schema({
     },
     bouquetCategory:{
         type:String,
-        enum:['BabyOrchid','Cabbage','Chrysanthemums','Eucalyptus','Gerbera','Roses','Lilies','Spider','Tulips'],
+        enum:categories,
         required:true
     },
     bouquetSentiment:{
         type:String,
-        enum:['I Love You','I Miss You','Congratulations','Get Well Soon','Happy Anniversary','Happy Birthday','I Am Sorry','Thank You','Wedding'],
+        enum:sentiments,
         required:true
     },
     images:{
@@ -38,4 +40,4 @@ const BouquetSchema = new mongoose.Schema({
 
 
 const BouquetModel = mongoose.model('Bouquet',BouquetSchema);
-module.exports=BouquetModel;
+module.exports={BouquetModel,categories,sentiments};

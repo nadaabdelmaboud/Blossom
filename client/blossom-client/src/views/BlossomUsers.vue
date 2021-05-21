@@ -1,0 +1,90 @@
+<template>
+  <div class="blossomUsers">
+    <userCard
+      v-for="card in users"
+      :key="card._id"
+      :id="card._id"
+      :name="card.name"
+      :email="card.email"
+      :phone="card.phone"
+      :country="card.address.country"
+      :city="card.address.city"
+      :street="card.address.street"
+    />
+    <div class="pagination">
+      <div><i class="fa fa-arrow-left" @click="previousPage()"></i></div>
+      <div class="counter">{{ counter }}</div>
+      <div><i class="fa fa-arrow-right" @click="nextPage()"></i></div>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+@import "../scss/_Colors";
+.blossomUsers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pagination {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  color: $darkGolden;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  i {
+    cursor: pointer;
+  }
+}
+.counter {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (max-width: 700px) {
+  .blossomUsers {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+</style>
+
+<script>
+import { mapState } from "vuex";
+import userCard from "../components/BlossomUsers/userCard";
+export default {
+  name: "blossomUsers",
+  components: {
+    userCard,
+  },
+  computed: {
+    ...mapState({
+      users: (state) => state.blossomUsers.users,
+      counter: (state) => state.blossomUsers.counter,
+      maxPages: (state) => state.blossomUsers.maxPages,
+    }),
+  },
+  mounted() {
+    this.$store.dispatch("blossomUsers/callBlossomUsers", 1);
+  },
+  methods: {
+    nextPage() {
+      if (this.counter + 1 <= this.maxPages) {
+        this.$store.commit("blossomUsers/setCounter", this.counter + 1);
+        this.$store.dispatch("blossomUsers/callBlossomUsers", this.counter);
+      }
+    },
+    previousPage() {
+      if (this.counter - 1 != 0) {
+        this.$store.commit("blossomUsers/setCounter", this.counter - 1);
+        this.$store.dispatch("blossomUsers/callBlossomUsers", this.counter);
+      }
+    },
+  },
+};
+</script>
