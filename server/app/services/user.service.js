@@ -67,64 +67,6 @@ const UserService = {
       return { data: false, err: await error("User Not Found", 404) };
     return { data: userObject, err: "" };
   },
-  async addItem(userId, item) {
-    const isValid = await MongooseValidation.validateID(userId);
-    if (!isValid)
-      return { data: false, err: await error("Invalid User ID", 400) };
-    const isUserFound = await User.findUserById(userId);
-    if (!isUserFound)
-      return { data: false, err: await error("Invalid User ID", 404) };
-    const isOrderVaild = await UserValidation.validateItem(item);
-    if (isOrderVaild.error)
-      return { data: false, err: await error(isOrderVaild.error.message, 400) };
-    const idPlant = await Plant.getPlantById(item.bouquetId);
-    const idBouquet = await Bouquet.getBouquetById(item.bouquetId);
-    if (!idPlant && !idBouquet) {
-      return {
-        data: false,
-        err: await error("No availabel bouquet/plant ID", 400),
-      };
-    }
-    const userObject = await User.addItem(userId, item);
-    if (!userObject)
-      return { data: false, err: await error("Problem Adding Item", 500) };
-    return { data: userObject, err: "" };
-  },
-  async getOrderItems(userId) {
-    const isValid = await MongooseValidation.validateID(userId);
-    if (!isValid)
-      return { data: false, err: await error("Invalid User ID", 400) };
-    const isUserFound = await User.findUserById(userId);
-    if (!isUserFound)
-      return { data: false, err: await error("Invalid User ID", 404) };
-    const orderObject = await User.getOrderItems(userId);
-    if (!orderObject)
-      return { data: false, err: await error("Problem Adding Item", 500) };
-    return { data: orderObject, err: "" };
-  },
-  async deleteItem(userId, itemId) {
-    const isUserIdValid = await MongooseValidation.validateID(userId);
-    if (!isUserIdValid)
-      return { data: false, err: await error("Invalid User ID", 400) };
-    const isItemIdValid = await MongooseValidation.validateID(itemId);
-    if (!isItemIdValid)
-      return { data: false, err: await error("Invalid Item ID", 400) };
-    const isUserFound = await User.findUserById(userId);
-    if (!isUserFound)
-      return { data: false, err: await error("User Not Found", 404) };
-    const idPlant = await Plant.getPlantById(itemId);
-    const idBouquet = await Bouquet.getBouquetById(itemId);
-    if (!idPlant && !idBouquet) {
-      return {
-        data: false,
-        err: await error("No availabel bouquet/plant ID", 400),
-      };
-    }
-    const itemObject = await User.deleteItem(userId, itemId);
-    if (!itemObject)
-      return { data: false, err: await error("Problem Deleting Item", 500) };
-    return { data: itemObject, err: "" };
-  },
 };
 
 module.exports = UserService;
