@@ -123,7 +123,7 @@ export default {
   data: function () {
     return {
       amount: 1,
-      available: false,
+      available: true,
     };
   },
   methods: {
