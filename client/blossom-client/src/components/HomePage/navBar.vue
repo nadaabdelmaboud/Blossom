@@ -212,7 +212,7 @@ export default {
   name: "navBar",
   data: function () {
     return {
-      admin: true,
+      admin: false,
       user: true,
       noUser: false,
       count: 0,
