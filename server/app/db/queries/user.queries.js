@@ -29,7 +29,13 @@ const User = {
         ccNumber: 0,
         expireDate: null,
       },
-      Cart: [],
+      Cart: [
+        {
+          orders: {},
+          status:"empty",
+          address:user.address
+        }
+      ]
     });
     const userObject = await newUser.save();
     if (userObject) {
