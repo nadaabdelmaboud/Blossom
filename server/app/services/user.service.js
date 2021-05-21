@@ -30,7 +30,7 @@ const UserService = {
     if (type == "user") {
       userObject = await User.getCurrentUserInfo(userId);
     } else {
-      userObject = await AdminfindAdminById(userId);
+      userObject = await Admin.findAdminById(userId);
     }
     if (!userObject || userObject.length == 0)
       return { data: false, err: error("Invalid User ID", 404) };
