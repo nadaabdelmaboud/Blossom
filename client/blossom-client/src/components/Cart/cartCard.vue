@@ -9,7 +9,7 @@
       <div class="box" id="image">
         <img src="../../assets/flower.jpg" alt="BlossomFlower" />
       </div>
-      <div class="box">
+      <div class="box" v-if="available">
         <div class="flowerName">
           <h3>Tulip</h3>
         </div>
@@ -22,6 +22,14 @@
             <i class="fa fa-arrow-up" @click="increaseCount()"></i>
             <i class="fa fa-arrow-down" @click="decreaseCount()"></i>
           </button>
+        </div>
+      </div>
+      <div class="box" v-if="!available">
+        <div class="flowerName">
+          <h3>Tulip</h3>
+        </div>
+        <div class="notAvailable">
+          <h3>Not Available</h3>
         </div>
       </div>
     </div>
@@ -82,14 +90,23 @@ h3 {
   color: $darkGolden;
 }
 .flowerName,
-.flowerPrice {
+.flowerPrice,
+.notAvailable {
   font-weight: 700;
   font-size: 25px;
   text-align: center;
 }
 .flowerPrice {
-  font-size: 20px;
-  font-weight: 200;
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+.notAvailable {
+  h3 {
+    font-size: 19px;
+  }
+  margin-top: 20px;
 }
 i {
   padding-left: 5px;
@@ -106,6 +123,7 @@ export default {
   data: function () {
     return {
       amount: 1,
+      available: false,
     };
   },
   methods: {
