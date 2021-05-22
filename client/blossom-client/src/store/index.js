@@ -18,6 +18,6 @@ export default new Vuex.Store({
     products,
     homePage,
     blossomUsers,
-    statistics
+    statistics,
   },
 });

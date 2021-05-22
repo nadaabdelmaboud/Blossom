@@ -4,13 +4,8 @@
       <ul>
         <li v-if="admin">Upload</li>
         <li v-if="admin">Reviews</li>
-        <router-link 
-        v-if="admin"
-        to="/statistics"
-        >
-        <li>
-        Statistics
-        </li>
+        <router-link v-if="admin" to="/statistics">
+          <li>Statistics</li>
         </router-link>
         <li v-if="user">Track Orders</li>
         <router-link to="/blossomUsers">
@@ -45,9 +40,11 @@
           <li v-if="user"><i class="fa fa-user"></i> Profile</li>
           <li v-if="user || admin">Logout</li>
         </ul>
-        <div v-if="user" id="cart">
-          <i class="fa fa-shopping-cart"></i> {{ count }}
-        </div>
+        <router-link to="/userCart">
+          <div v-if="user" id="cart">
+            <i class="fa fa-shopping-cart"></i> {{ count }}
+          </div>
+        </router-link>
       </div>
     </div>
     <div id="showMyList">
@@ -215,9 +212,9 @@ export default {
   name: "navBar",
   data: function () {
     return {
-      admin: true,
-      user: false,
-      noUser: true,
+      admin: false,
+      user: true,
+      noUser: false,
       count: 0,
       toggleList: false,
     };

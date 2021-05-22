@@ -89,6 +89,18 @@ const Bouquet = {
         const index = sentiments.indexOf(sentiment);
         sentiments.splice(index, 1);
         return true;
+    },
+    async updateBouquetCount(operation, id, amount){
+        const BouquetData = await BouquetModel.findById(id);
+        if (!BouquetData) return false;
+        if (operation == 1)
+          if (amount <= BouquetData.count.available)
+            BouquetData.count.available -= amount;
+          else return false;
+        else if (operation == 0) BouquetData.count.available += amount;
+        const Result = await BouquetData.save();
+        if (Result) return true;
+        return false;
     }
    
    
