@@ -12,17 +12,26 @@
         required
       />
       <div class="passwordContainer">
-      <input
-        placeholder="Password"
-        class="blossomInput"
-        id="passwordInput"
-        type="password"
-        v-model="password"
-        required
-      />
-         <i v-if="showPassword"  class="fa fa-eye-slash passwordIcon" id="togglePassword" @click="togglePasswordState"></i>
-      <i v-else class="fa fa-eye passwordIcon" id="togglePassword" @click="togglePasswordState"></i>
-
+        <input
+          placeholder="Password"
+          class="blossomInput"
+          id="passwordInput"
+          type="password"
+          v-model="password"
+          required
+        />
+        <i
+          v-if="showPassword"
+          class="fa fa-eye-slash passwordIcon"
+          id="togglePassword"
+          @click="togglePasswordState"
+        ></i>
+        <i
+          v-else
+          class="fa fa-eye passwordIcon"
+          id="togglePassword"
+          @click="togglePasswordState"
+        ></i>
       </div>
       <div>
         <span class="hoverGolden floatRight">Forgot password?</span>
@@ -47,7 +56,7 @@ export default {
     return {
       email: "",
       password: "",
-      showPassword: true
+      showPassword: true,
     };
   },
   mixins: [togglePasswordState],
@@ -99,5 +108,4 @@ export default {
   float: right;
   margin: 10px 0px;
 }
-
 </style>

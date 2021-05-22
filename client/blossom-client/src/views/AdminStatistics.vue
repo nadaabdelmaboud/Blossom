@@ -1,97 +1,107 @@
 <template>
   <div class="statistics">
     <div class="sales">
-        <lineChart 
+      <lineChart
         v-if="salesLoaded"
         :chartdata="chartdataSales"
-        :options="options"/>
-        </div>
+        :options="options"
+      />
+    </div>
     <div class="bar">
-        <div class="rating">
-          <barChart 
-        v-if="salesLoaded"
-        :chartdata="chartdataRate"
-        :options="options"/>
-        </div>
-        <br/>
-        <div class="users">
-          <h3 class="slogan"> Top Users</h3>
-          <p v-for="u,i in topUsers" :key="i" class="slogan names">{{u}}</p>
-        </div>
+      <div class="rating">
+        <barChart
+          v-if="salesLoaded"
+          :chartdata="chartdataRate"
+          :options="options"
+        />
+      </div>
+      <br />
+      <div class="users">
+        <h3 class="slogan">Top Users</h3>
+        <p v-for="(u, i) in topUsers" :key="i" class="slogan names">{{ u }}</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import lineChart from "../components/Statistics/lineChart"
-import barChart from "../components/Statistics/barChart"
+import lineChart from "../components/Statistics/lineChart";
+import barChart from "../components/Statistics/barChart";
 import { mapState } from "vuex";
 export default {
-  name:"statistics",
+  name: "statistics",
   components: {
     lineChart,
-    barChart
+    barChart,
   },
   data: function () {
     return {
-     monthNames : ["January", "February", "March", "April", "May", "June",
-                   "July", "August", "September", "October", "November", "December"
-     ],
-    chartdataSales: {
-      labels:[],
-      datasets: [
-        {
-          backgroundColor: 'rgba(192,160,91,0.6)',
-          pointBackgroundColor: "#846b36",
-        pointBorderColor: "#846b36",
-          borderColor: [
-                "#846b36"
-            ],
-            borderWidth: 2
-        }
-      ]
-    },
-    chartdataRate: {
-      labels:[1,2,3,4,5],
-      datasets: [
-        {
-          label:"Blossom Ratings",
-          backgroundColor: 'rgba(192,160,91,0.6)',
+      monthNames: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+      chartdataSales: {
+        labels: [],
+        datasets: [
+          {
+            backgroundColor: "rgba(192,160,91,0.6)",
+            pointBackgroundColor: "#846b36",
+            pointBorderColor: "#846b36",
+            borderColor: ["#846b36"],
+            borderWidth: 2,
+          },
+        ],
+      },
+      chartdataRate: {
+        labels: [1, 2, 3, 4, 5],
+        datasets: [
+          {
+            label: "Blossom Ratings",
+            backgroundColor: "rgba(192,160,91,0.6)",
 
-           borderColor: [
-                '#846b36',
-                 '#846b36',
-                 '#846b36',
-                 '#846b36',
-                 '#846b36',
-                
+            borderColor: [
+              "#846b36",
+              "#846b36",
+              "#846b36",
+              "#846b36",
+              "#846b36",
             ],
-            borderWidth: 2
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false
-    }
+            borderWidth: 2,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
     };
   },
   methods: {
-      setSales(){
-            let d =new Date();
-            let month= d.getMonth();
-            let year= d.getFullYear();
-            this.chartdataSales.datasets[0].label = this.monthNames[month] + " Sales";
-            this.chartdataSales.datasets[0].data = this.sales;
-            let monthDays=new Date(year, month+1, 0).getDate();
-            for(let i=0;i<monthDays;i++)
-                this.chartdataSales.labels.push(i+1)
-            this.$store.dispatch("statistics/getSales");
-      },
-      setRate(){
-            this.chartdataRate.datasets[0].data = this.rating;
-            this.$store.dispatch("statistics/getRating");
-      }
+    setSales() {
+      let d = new Date();
+      let month = d.getMonth();
+      let year = d.getFullYear();
+      this.chartdataSales.datasets[0].label = this.monthNames[month] + " Sales";
+      this.chartdataSales.datasets[0].data = this.sales;
+      let monthDays = new Date(year, month + 1, 0).getDate();
+      for (let i = 0; i < monthDays; i++)
+        this.chartdataSales.labels.push(i + 1);
+      this.$store.dispatch("statistics/getSales");
+    },
+    setRate() {
+      this.chartdataRate.datasets[0].data = this.rating;
+      this.$store.dispatch("statistics/getRating");
+    },
   },
   computed: {
     ...mapState({
@@ -99,12 +109,12 @@ export default {
       sales: (state) => state.statistics.sales,
       rating: (state) => state.statistics.rating,
       ratingLoaded: (state) => state.statistics.ratingLoaded,
-      topUsers: (state) => state.statistics.topUsers
+      topUsers: (state) => state.statistics.topUsers,
     }),
   },
   created: function () {
-      this.setSales();
-      this.setRate();
+    this.setSales();
+    this.setRate();
   },
 };
 </script>
@@ -113,31 +123,31 @@ export default {
 @import "../scss/Colors";
 @import "../scss/General";
 @import "../scss/BlossomButton";
-.statistics{
+.statistics {
   display: flex;
   padding: 10px;
   justify-content: space-around;
 }
-.sales{
- width: 60%;
- margin-right: 10px;
+.sales {
+  width: 60%;
+  margin-right: 10px;
 }
-.bar{
+.bar {
   width: 30%;
 }
-.names{
+.names {
   color: black;
 }
 @media screen and (max-width: 855px) {
-.statistics{
-  flex-direction: column;
-}
-.sales{
- width: 100%;
- margin-bottom: 30px;
-}
-.bar{
-  width: 100%;
-}
+  .statistics {
+    flex-direction: column;
+  }
+  .sales {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .bar {
+    width: 100%;
+  }
 }
 </style>

@@ -19,9 +19,9 @@
 <style scoped lang="scss">
 @import "../scss/Colors";
 @import "../scss/BlossomToast";
-//.content {
-// min-height: calc(100vh - 400px);
-//}
+.content {
+  min-height: calc(100vh - 400px);
+}
 </style>
 
 <script>

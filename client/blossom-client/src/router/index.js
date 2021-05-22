@@ -5,7 +5,8 @@ import UserProfile from "../views/UserProfile.vue";
 import UploadProduct from "../views/UploadProduct.vue";
 import BlossomUsers from "../views/BlossomUsers.vue";
 import HomeBody from "../views/HomeBody.vue";
-import AdminStatistics from "../views/AdminStatistics.vue"
+import AdminStatistics from "../views/AdminStatistics.vue";
+import UserCart from "../views/UserCart.vue";
 
 Vue.use(VueRouter);
 
@@ -39,7 +40,12 @@ const routes = [
         path: "statistics",
         name: "statistics",
         component: AdminStatistics,
-      }
+      },
+      {
+        path: "userCart",
+        name: "userCart",
+        component: UserCart,
+      },
     ],
   },
 ];

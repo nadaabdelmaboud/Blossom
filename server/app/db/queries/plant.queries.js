@@ -1,5 +1,5 @@
 const { array } = require("joi");
-const {PlantModel,types} = require("../models/plants.model");
+const { PlantModel, types } = require("../models/plants.model");
 const Plant = {
   async getAllPlants(query) {
     const pageSize = query.pageSize ? query.pageSize : 10;
@@ -72,20 +72,36 @@ const Plant = {
       plantData.count.sold = plant.count.sold;
     const result = await plantData.save();
     return result;
-  },async addType(type){
+  },
+  async addType(type) {
     types.push(type);
     return types;
-  },async deleteType(type){
-    if(array.length==1){
+  },
+  async deleteType(type) {
+    if (array.length == 1) {
       return false;
     }
     const index = types.indexOf(type);
     types.splice(index, 1);
     return types;
   },
-  async getAllPlantsTypes(){
-    return types
-  }
-
+  async getAllPlantsTypes() {
+    return types;
+  },
+  async updatePlantCount(operation, id, amount) {
+    const PlantData = await PlantModel.findById(id);
+    /*console.log(PlantData);
+    console.log(typeof PlantData.count.available);
+    console.log(PlantData.count.available);*/
+    if (!PlantData) return false;
+    if (operation == 1)
+      if (amount <= PlantData.count.available)
+        PlantData.count.available -=amount;
+      else return false;
+    else if (operation == 0) PlantData.count.available +=amount;
+    const Result = await PlantData.save();
+    if (Result) return true;
+    return false;
+  },
 };
 module.exports = Plant;
