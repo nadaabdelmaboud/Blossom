@@ -12,6 +12,18 @@ const BouquetValidation = {
       });
       return schema.validate(query);
   },
+  async createSentiment(body){
+    const schema = Joi.object({
+       sentiment:Joi.string().min(3).required()
+    });
+    return schema.validate(body);
+  },
+  async createCategory(body){
+    const schema = Joi.object({
+       category:Joi.string().min(3).required()
+    });
+    return schema.validate(body);
+  },
   async updateCategory(body){
     const schema = Joi.object({
        category:Joi.string().valid(...categories).required(),

@@ -47,6 +47,13 @@ const UserController = {
     }
     res.status(data.err.status).send(data.err.message);
   },
+  async createCategory(req,res){
+    const data = await BouquetService.createCategory(req.body);
+    if(data.data){
+      return res.status(200).send(data.data);
+    }
+    res.status(data.err.status).send(data.err.message);
+  },
   async updateCategory(req,res){
     const data = await BouquetService.updateCategory(req.body);
     if(data.data){
@@ -63,6 +70,13 @@ const UserController = {
   },
   async getSentiments(req,res){
     const data = await BouquetService.getSentiments();
+    if(data.data){
+      return res.status(200).send(data.data);
+    }
+    res.status(data.err.status).send(data.err.message);
+  },
+  async createSentiment(req,res){
+    const data = await BouquetService.createSentiment(req.body);
     if(data.data){
       return res.status(200).send(data.data);
     }

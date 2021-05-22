@@ -62,6 +62,12 @@ const Bouquet = {
         return categories;
 
     },
+    async createCategory(category){
+        const index = categories.indexOf(category);
+        if(index!=-1) return false;
+        categories.push(category)
+        return true;
+    },
     async updateCategory(category,newCategory){
         const index = categories.indexOf(category);
         const newIndex = categories.indexOf(newCategory);
@@ -78,11 +84,18 @@ const Bouquet = {
         return sentiments;
 
     },
+    async createSentiment(sentiment){
+        const index = sentiments.indexOf(sentiment);
+        if(index!=-1) return false;
+        sentiments.push(sentiment)
+        return true;
+    },
     async updateSentiment(sentiment,newSentiment){
         const index = sentiments.indexOf(sentiment);
         const newIndex = sentiments.indexOf(newSentiment);
         if(newIndex!=-1) return false;
         sentiments[index]=newSentiment;
+        console.log(sentiments)
         return true;
     },
     async deleteSentiment(sentiment){
