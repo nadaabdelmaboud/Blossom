@@ -6,6 +6,7 @@ const ImageRoutes = require("../routes/image.route");
 const PlantRoutes = require("../routes/plant.route");
 const BouquetRoutes = require("../routes/bouquet.route");
 const OrderRoutes = require("../routes/order.route");
+const CartRoutes  = require("../routes/cart.route")
 module.exports = function (app, winston) {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
@@ -17,7 +18,7 @@ module.exports = function (app, winston) {
   app.use("/api", PlantRoutes);
   app.use("/api", BouquetRoutes);
   app.use("/api", OrderRoutes);
-
+  app.use("/api", CartRoutes);
   // 404 handler
   app.use("*", (req, res, next) => {
     error = new Error("API_NOT_FOUND");
