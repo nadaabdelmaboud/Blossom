@@ -72,7 +72,7 @@
 export default {
   name: "userCard",
   props: {
-    id:{
+    id: {
       type: String,
     },
     name: {
@@ -96,7 +96,7 @@ export default {
   },
   methods: {
     banUser() {
-       this.$store.dispatch("blossomUsers/banUser", this.id);
+      this.$store.dispatch("blossomUsers/banUser", this.id);
     },
   },
 };

@@ -15,12 +15,12 @@ const mutations = {
   setMaxPage(state, value) {
     state.maxPages = value;
   },
-  banUser(state, userId){
-    var index = state.users.findIndex(x => x._id === userId);
-    if(index !== -1){
-      state.users.splice(index , 1);
+  banUser(state, userId) {
+    var index = state.users.findIndex((x) => x._id === userId);
+    if (index !== -1) {
+      state.users.splice(index, 1);
     }
-  }
+  },
 };
 
 const actions = {

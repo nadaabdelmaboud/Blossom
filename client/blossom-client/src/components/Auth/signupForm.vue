@@ -4,7 +4,12 @@
     <form class="form">
       <i class="fa fa-times hoverGolden close" @click="close"></i>
       <h3>Welcome to Blossom</h3>
-      <input placeholder="Username" class="blossomInput" v-model="username" required/>
+      <input
+        placeholder="Username"
+        class="blossomInput"
+        v-model="username"
+        required
+      />
       <input
         placeholder="Email"
         type="email"
@@ -14,16 +19,26 @@
       />
 
       <div class="passwordContainer">
-      <input
-        placeholder="Password"
-        class="blossomInput"
-        id="passwordInput"
-        type="password"
-        v-model="password"
-        required
-      />
-      <i v-if="showPassword"  class="fa fa-eye-slash passwordIcon" id="togglePassword" @click="togglePasswordState"></i>
-      <i v-else class="fa fa-eye passwordIcon" id="togglePassword" @click="togglePasswordState"></i>
+        <input
+          placeholder="Password"
+          class="blossomInput"
+          id="passwordInput"
+          type="password"
+          v-model="password"
+          required
+        />
+        <i
+          v-if="showPassword"
+          class="fa fa-eye-slash passwordIcon"
+          id="togglePassword"
+          @click="togglePasswordState"
+        ></i>
+        <i
+          v-else
+          class="fa fa-eye passwordIcon"
+          id="togglePassword"
+          @click="togglePasswordState"
+        ></i>
       </div>
 
       <input
@@ -67,8 +82,7 @@
           placeholder="building Number"
           type="number"
           class="blossomInput"
-                    min="0"
-
+          min="0"
           v-model="address.buildingNo"
           required
         />
@@ -120,7 +134,7 @@ export default {
           name: "Giza",
         },
       ],
-      showPassword:true
+      showPassword: true,
     };
   },
   methods: {
