@@ -20,6 +20,7 @@ const BouquetService={
             console.log(isVlidId,id)
             const bouquet = await Bouquet.getBouquetById(id);
             if(!bouquet) return {data:false,err:await error("No Bouquet found",404)}
+
             return {data:bouquet,err:''}
         },
         async createBouquet(bouquet){
@@ -27,6 +28,7 @@ const BouquetService={
             if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
             bouquet = await Bouquet.createBouquet(bouquet)
             if(!bouquet) return {data:false,err:await error("Error in creating new bouquet",403)}
+            
             return {data:true,err:''}
         },
         async updateBouquet(bouquet,id){

@@ -10,26 +10,38 @@ const CartService={
     async getUserCart(userId){
         const isValidId = await MongooseValidation.validateID(userId)
         if(!isValidId) return {data:false,err:await error("Not Valid ID",400)}
-        const user = await User.findUserById(userId,{Cart:1});
+        const user = await User.findUserById(userId,{Cart:1,address:1});
         if(!user)  return {data:false,err:await error("No such user",404)};
         const cart = await Cart.getUserCart(user);
         if(!cart) return {data:false,err:await error("Couldn't retrieve cart",404)};
         return {data:cart,err:''};
     },
-    async getUserAllCarts(userId){
+    async getUserAllCarts(userId,limit){
         const isValidId = await MongooseValidation.validateID(userId)
         if(!isValidId) return {data:false,err:await error("Not Valid ID",400)}
-        const user = await User.findUserById(userId,{Cart:1});
+        const user = await User.findUserById(userId,{Cart:1,address:1});
         if(!user)  return {data:false,err:await error("No such user",404)};
-        const carts = await Cart.getUserAllCarts(user);
+        const carts = await Cart.getUserAllCarts(user,limit);
         if(!carts||carts.length==0) return {data:false,err:await error("no carts",404)};
         return {data:carts,err:''};
     },
-    async buyCart(userId,creditCard,saveCredit){
+    async buyCart(userId,creditCard,saveCredit,address){
+        const isValidId = await MongooseValidation.validateID(userId)
+        if(!isValidId) return {data:false,err:await error("Not Valid ID",400)}
+        const user = await User.findUserById(userId,{Cart:1,address:1});
+        if(!user)  return {data:false,err:await error("No such user",404)};
+        const checkPayment = await Cart.buyCart(user);
+        if(checkPayment) return {data:false,err:await error("Error in payment",400)};
+        return {data:checkPayment,err:''};
+    },
+    async emptyCart(userId){
         const isValidId = await MongooseValidation.validateID(userId)
         if(!isValidId) return {data:false,err:await error("Not Valid ID",400)}
         const user = await User.findUserById(userId,{Cart:1});
         if(!user)  return {data:false,err:await error("No such user",404)};
+        const empty = await Cart.empryCart(user);
+        if(!empty) return {data:false,err:await error("Error in payment",400)};
+        return {data:empty,err:''};
     }
 }
 
