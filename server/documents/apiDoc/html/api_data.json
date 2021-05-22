@@ -1615,13 +1615,20 @@
             "optional": false,
             "field": "phone",
             "description": "<p>user phone number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "maxPage",
+            "description": "<p>max pages available</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n [\n    {\n        \"_id\": \"6089d14c3323d34078fba7d9\",\n        \"name\": \"Nada\",\n        \"email\": \"nada@gmail.com\",\n        \"address\": {\n            \"country\": \"egypt\",\n            \"city\": \"giza\",\n            \"street\": \"abdelzaher\",\n            \"buildingNo\": 20,\n            \"apartmentNo\": 5\n        },\n        \"phone\": \"01283176585\"\n    },\n    {\n        \"_id\": \"608d666e7ff51820a8cb248d\",\n        \"name\": \"hager\",\n        \"email\": \"hager@gmail.com\",\n        \"address\": {\n            \"country\": \"alexandria\",\n            \"city\": \"aboer\",\n            \"street\": \"seastreet\",\n            \"buildingNo\": 5,\n            \"apartmentNo\": 6\n        },\n        \"phone\": \"01165655744\"\n    }\n]",
+          "content": "HTTP/1.1 200 OK\n {\n    \"users\": [\n        {\n            \"_id\": \"6089d14c3323d34078fba7d9\",\n            \"name\": \"Nada\",\n            \"email\": \"nada@gmail.com\",\n            \"address\": {\n                \"country\": \"egypt\",\n                \"city\": \"giza\",\n                \"street\": \"abdelzaher\",\n                \"buildingNo\": 20,\n                \"apartmentNo\": 5\n            },\n            \"phone\": \"01283176585\"\n        },\n        {\n            \"_id\": \"6093e0c547edeb70146b26a4\",\n            \"name\": \"Menna\",\n            \"email\": \"menna123mahmoud@gmail.com\",\n            \"address\": {\n                \"country\": \"egypt\",\n                \"city\": \"Cairo\",\n                \"street\": \"Elfostat\",\n                \"buildingNo\": \"83\",\n                \"apartmentNo\": \"43\"\n            },\n            \"phone\": \"01066761053\"\n        }\n    ],\n    \"maxPage\": 3\n}",
           "type": "json"
         }
       ]

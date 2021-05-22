@@ -2,6 +2,7 @@ const { array } = require("joi");
 const { PlantModel, types } = require("../models/plants.model");
 const Plant = {
   async getAllPlants(query) {
+    const count = await PlantModel.countDocuments();
     const pageSize = query.pageSize ? query.pageSize : 10;
     const pageNumber = query.pageNumber ? query.pageNumber : 1;
     var fields = { name: 1, type: 1, price: 1, count: 1, info: 1, image: 1 };
