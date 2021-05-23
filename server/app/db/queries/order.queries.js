@@ -4,6 +4,9 @@ const Order = {
     let today = new Date();
     const UserData = await UserModel.findById(userId);
     const Index = UserData.Cart.length - 1;
+    if(!UserData.Cart[Index].orders){
+      UserData.Cart[Index].orders={}
+    }
     /*userData.Cart[Index] = {};
     userData.Cart[Index].orders = {};
     userData.Cart[Index].status = "pending";

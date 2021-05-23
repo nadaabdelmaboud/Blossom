@@ -37,26 +37,47 @@ const Cart = {
         await user.save();
         return true;
     },
-    async buyCart(user){
+    async buyCart(user,address){
         if(user.Cart.length==0||user.Cart[user.Cart.length-1].status!="ordering"){
             return false;
         }
-        let price =0;
+        let totalPrice =0;
+        items=[]
         for(order in user.Cart[user.Cart.length-1].orders){
+            let name,sku,price,quantity=''
             let orderObject = user.Cart[user.Cart.length-1].orders[order];
-            if(orderObject.orderType=='Plant'){
-                let plant = await PlantModel.findById(order,{price:1});
+            sku=order;
+            quantity=orderObject.amount;
+            if(orderObject.orderType=='plant'){
+                let plant = await PlantModel.findById(order,{price:1,name:1});
                 if(!plant) return false;
-                price +=(orderObject.amount*plant.price);
+                name=plant.name;
+                price=.064*plant.price;
+                totalPrice +=(orderObject.amount*price);
             }
-            else if(orderObject.orderType=='Bouquet'){
-                let bouquet = await BouquetModel.findById(order,{price:1});
+            else if(orderObject.orderType=='bouquet'){
+                let bouquet = await BouquetModel.findById(order,{price:1,name:1});
                 if(!bouquet) return false;
-                price +=(orderObject.amount*bouquet.price);
+                name=bouquet.name;
+                price=.064*bouquet.price;
+                totalPrice +=(orderObject.amount*price);
             }
+            let item={
+                "name": name,
+                "sku": sku,
+                "price": parseInt(price)+".00",
+                "currency": "USD",
+                "quantity": quantity
+            }
+            items.push(item)
         }
         user.Cart[user.Cart.length-1].status="pending";
+        if(address){
+            user.Cart[user.Cart.length-1].address=address;
+        }
+        await user.save();
         user = await this.createCart(user);
+        return {items,totalPrice};
     }
 }
 module.exports = Cart

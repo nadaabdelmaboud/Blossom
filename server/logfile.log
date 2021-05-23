@@ -1250,3 +1250,145 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cart.empryCart is not a function Cart.empryCart is not a function","stack":"TypeError: Cart.empryCart is not a function\n    at Object.emptyCart (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\services\\cart.service.js:42:34)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"status":404,"level":"error","message":"API_NOT_FOUND API_NOT_FOUND","stack":"Error: API_NOT_FOUND\n    at app.use (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\startup\\routes.js:24:13)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:284:7\n    at param (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at cors (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\cors\\lib\\index.js:188:7)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\cors\\lib\\index.js:224:17\n    at originCallback (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\cors\\lib\\index.js:214:15)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\cors\\lib\\index.js:219:13\n    at optionsCallback (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\cors\\lib\\index.js:199:9)\n    at corsMiddleware (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\cors\\lib\\index.js:204:7)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '6093f1545604aa1b3c911672' of undefined Cannot read property '6093f1545604aa1b3c911672' of undefined","stack":"TypeError: Cannot read property '6093f1545604aa1b3c911672' of undefined\n    at Object.addItem (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\db\\queries\\order.queries.js:11:36)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '6093f1545604aa1b3c911672' of undefined Cannot read property '6093f1545604aa1b3c911672' of undefined","stack":"TypeError: Cannot read property '6093f1545604aa1b3c911672' of undefined\n    at Object.addItem (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\db\\queries\\order.queries.js:12:36)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"address is not defined address is not defined","stack":"ReferenceError: address is not defined\n    at Object.buyCart (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\db\\queries\\cart.queries.js:75:9)\n    at Object.buyCart (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\services\\cart.service.js:43:40)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Invalid status code: undefined Invalid status code: undefined","stack":"RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: undefined\n    at ServerResponse.writeHead (_http_server.js:209:11)\n    at ServerResponse._implicitHeader (_http_server.js:200:8)\n    at ServerResponse.end (_http_outgoing.js:705:10)\n    at ServerResponse.send (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:221:10)\n    at buyCart (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\controllers\\cart.controller.js:46:37)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Invalid status code: undefined Invalid status code: undefined","stack":"RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: undefined\n    at ServerResponse.writeHead (_http_server.js:209:11)\n    at ServerResponse._implicitHeader (_http_server.js:200:8)\n    at ServerResponse.end (_http_outgoing.js:705:10)\n    at ServerResponse.send (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:221:10)\n    at buyCart (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\controllers\\cart.controller.js:46:37)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Invalid status code: undefined Invalid status code: undefined","stack":"RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: undefined\n    at ServerResponse.writeHead (_http_server.js:209:11)\n    at ServerResponse._implicitHeader (_http_server.js:200:8)\n    at ServerResponse.end (_http_outgoing.js:705:10)\n    at ServerResponse.send (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:221:10)\n    at buyCart (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\controllers\\cart.controller.js:46:37)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Invalid status code: undefined Invalid status code: undefined","stack":"RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: undefined\n    at ServerResponse.writeHead (_http_server.js:209:11)\n    at ServerResponse._implicitHeader (_http_server.js:200:8)\n    at ServerResponse.end (_http_outgoing.js:705:10)\n    at ServerResponse.send (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:221:10)\n    at buyCart (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\controllers\\cart.controller.js:46:37)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Invalid status code: undefined Invalid status code: undefined","stack":"RangeError [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: undefined\n    at ServerResponse.writeHead (_http_server.js:209:11)\n    at ServerResponse._implicitHeader (_http_server.js:200:8)\n    at ServerResponse.end (_http_outgoing.js:705:10)\n    at ServerResponse.send (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:221:10)\n    at buyCart (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\controllers\\cart.controller.js:46:37)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"response":{"name":"VALIDATION_ERROR","message":"Invalid request - see details","debug_id":"5d8e486e4348d","information_link":"https://developer.paypal.com/docs/api/payments/#errors","details":[{"field":"/transactions/0/amount","location":"body","issue":"Cannot construct instance of `com.paypal.platform.payments.model.rest.common.Amount`, problem: INVALID_CURRENCY_AMOUNT_FORMAT"}],"httpStatusCode":400},"httpStatusCode":400,"level":"error","message":"Response Status : 400 Response Status : 400","stack":"Error: Response Status : 400\n    at IncomingMessage.<anonymous> (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\paypal-rest-sdk\\lib\\client.js:130:23)\n    at IncomingMessage.emit (events.js:203:15)\n    at IncomingMessage.EventEmitter.emit (domain.js:448:20)\n    at endReadableNT (_stream_readable.js:1145:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"int is not defined int is not defined","stack":"ReferenceError: int is not defined\n    at Object.buyCart (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\db\\queries\\cart.queries.js:68:26)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"response":{"name":"VALIDATION_ERROR","message":"Invalid request - see details","debug_id":"419cbc9d1ec3a","information_link":"https://developer.paypal.com/docs/api/payments/#errors","details":[{"field":"/transactions/0/amount","location":"body","issue":"Cannot construct instance of `com.paypal.platform.payments.model.rest.common.Amount`, problem: INVALID_CURRENCY_AMOUNT_FORMAT"}],"httpStatusCode":400},"httpStatusCode":400,"level":"error","message":"Response Status : 400 Response Status : 400","stack":"Error: Response Status : 400\n    at IncomingMessage.<anonymous> (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\paypal-rest-sdk\\lib\\client.js:130:23)\n    at IncomingMessage.emit (events.js:203:15)\n    at IncomingMessage.EventEmitter.emit (domain.js:448:20)\n    at endReadableNT (_stream_readable.js:1145:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"response":{"name":"VALIDATION_ERROR","message":"Invalid request - see details","debug_id":"ebdc13250cd73","information_link":"https://developer.paypal.com/docs/api/payments/#errors","details":[{"field":"/transactions/0/item_list/items/0","location":"body","issue":"Cannot construct instance of `com.paypal.platform.payments.model.rest.common.Item`, problem: INVALID_CURRENCY_AMOUNT_FORMAT"}],"httpStatusCode":400},"httpStatusCode":400,"level":"error","message":"Response Status : 400 Response Status : 400","stack":"Error: Response Status : 400\n    at IncomingMessage.<anonymous> (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\paypal-rest-sdk\\lib\\client.js:130:23)\n    at IncomingMessage.emit (events.js:203:15)\n    at IncomingMessage.EventEmitter.emit (domain.js:448:20)\n    at endReadableNT (_stream_readable.js:1145:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"response":{"name":"VALIDATION_ERROR","message":"Invalid request - see details","debug_id":"66b0a609e0774","information_link":"https://developer.paypal.com/docs/api/payments/#errors","details":[{"field":"/transactions/0/item_list/items/0","location":"body","issue":"Cannot construct instance of `com.paypal.platform.payments.model.rest.common.Item`, problem: INVALID_CURRENCY_AMOUNT_FORMAT"}],"httpStatusCode":400},"httpStatusCode":400,"level":"error","message":"Response Status : 400 Response Status : 400","stack":"Error: Response Status : 400\n    at IncomingMessage.<anonymous> (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\paypal-rest-sdk\\lib\\client.js:130:23)\n    at IncomingMessage.emit (events.js:203:15)\n    at IncomingMessage.EventEmitter.emit (domain.js:448:20)\n    at endReadableNT (_stream_readable.js:1145:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"response":{"name":"VALIDATION_ERROR","message":"Invalid request - see details","debug_id":"c1fb692ffa017","information_link":"https://developer.paypal.com/docs/api/payments/#errors","details":[{"field":"/transactions/0/amount","location":"body","issue":"Cannot construct instance of `com.paypal.platform.payments.model.rest.common.Amount`, problem: INVALID_CURRENCY_AMOUNT_FORMAT"}],"httpStatusCode":400},"httpStatusCode":400,"level":"error","message":"Response Status : 400 Response Status : 400","stack":"Error: Response Status : 400\n    at IncomingMessage.<anonymous> (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\paypal-rest-sdk\\lib\\client.js:130:23)\n    at IncomingMessage.emit (events.js:203:15)\n    at IncomingMessage.EventEmitter.emit (domain.js:448:20)\n    at endReadableNT (_stream_readable.js:1145:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"response":{"name":"VALIDATION_ERROR","details":[{"field":"transactions[0]","issue":"Item amount must add up to specified amount subtotal (or total if amount details not specified)"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"8de6f5002cfd4","httpStatusCode":400},"httpStatusCode":400,"level":"error","message":"Response Status : 400 Response Status : 400","stack":"Error: Response Status : 400\n    at IncomingMessage.<anonymous> (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\paypal-rest-sdk\\lib\\client.js:130:23)\n    at IncomingMessage.emit (events.js:203:15)\n    at IncomingMessage.EventEmitter.emit (domain.js:448:20)\n    at endReadableNT (_stream_readable.js:1145:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"response":{"name":"VALIDATION_ERROR","details":[{"field":"transactions[0]","issue":"Item amount must add up to specified amount subtotal (or total if amount details not specified)"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"f76ad390d3ada","httpStatusCode":400},"httpStatusCode":400,"level":"error","message":"Response Status : 400 Response Status : 400","stack":"Error: Response Status : 400\n    at IncomingMessage.<anonymous> (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\paypal-rest-sdk\\lib\\client.js:130:23)\n    at IncomingMessage.emit (events.js:203:15)\n    at IncomingMessage.EventEmitter.emit (domain.js:448:20)\n    at endReadableNT (_stream_readable.js:1145:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"status":404,"level":"error","message":"API_NOT_FOUND API_NOT_FOUND","stack":"Error: API_NOT_FOUND\n    at app.use (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\startup\\routes.js:24:13)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:284:7\n    at param (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

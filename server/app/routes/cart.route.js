@@ -9,6 +9,16 @@ router.get('/me/cart',AuthMiddleware,CartController.getCurrentUserCart)
 //get another user cart -Require Admin Authorization -
 router.get('/users/:userId/cart',AuthMiddleware,AdminMiddleware,CartController.getUserCart)
 
+//get current user past carts -Require Only User Authorization -
+router.get('/me/carts',AuthMiddleware,CartController.getCurrentUserAllCarts)
 
+//get another user past carts -Require Admin Authorization -
+router.get('/users/:userId/carts',AuthMiddleware,AdminMiddleware,CartController.getUserAllCarts)
+
+//empty cart
+router.delete('/me/cart',AuthMiddleware,CartController.emptyCart)
+
+//buy cart
+router.post('/me/cart',AuthMiddleware,CartController.buyCart)
 
 module.exports=router;
