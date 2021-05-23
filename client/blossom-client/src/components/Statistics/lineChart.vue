@@ -10,4 +10,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+canvas {
+  box-shadow: 0px 0px 10px 3px black;
+}
+</style>

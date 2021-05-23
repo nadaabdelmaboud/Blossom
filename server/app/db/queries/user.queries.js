@@ -70,6 +70,7 @@ const User = {
     return user;
   },
   async getAllUsersInfo(query) {
+    const count = await UserModel.countDocuments();
     const pageSize = query.pageSize ? query.pageSize : 10;
     const pageNumber = query.pageNumber ? query.pageNumber : 1;
     const users = await UserModel.find(
@@ -78,7 +79,7 @@ const User = {
     )
       .skip((pageNumber - 1) * pageSize)
       .limit(pageSize);
-    return users;
+    return { users: users, maxPage: Math.ceil(count / pageSize) };
   },
   async deleteUser(id) {
     const user = await UserModel.findByIdAndRemove(id);
@@ -98,6 +99,6 @@ const User = {
     }
     const result = await userData.save();
     return result;
-  }
+  },
 };
 module.exports = User;

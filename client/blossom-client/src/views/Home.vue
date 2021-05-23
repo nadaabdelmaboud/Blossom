@@ -20,7 +20,7 @@
 @import "../scss/Colors";
 @import "../scss/BlossomToast";
 .content {
-min-height: calc(100vh - 400px);
+  min-height: calc(100vh - 400px);
 }
 </style>
 

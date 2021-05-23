@@ -21,37 +21,41 @@
  * @apiSuccess {String} email user email
  * @apiSuccess {String} name user name
  * @apiSuccess {String} phone user phone number
+ * @apiSuccess {Number} maxPage max pages available
  *
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
- [
-    {
-        "_id": "6089d14c3323d34078fba7d9",
-        "name": "Nada",
-        "email": "nada@gmail.com",
-        "address": {
-            "country": "egypt",
-            "city": "giza",
-            "street": "abdelzaher",
-            "buildingNo": 20,
-            "apartmentNo": 5
+ {
+    "users": [
+        {
+            "_id": "6089d14c3323d34078fba7d9",
+            "name": "Nada",
+            "email": "nada@gmail.com",
+            "address": {
+                "country": "egypt",
+                "city": "giza",
+                "street": "abdelzaher",
+                "buildingNo": 20,
+                "apartmentNo": 5
+            },
+            "phone": "01283176585"
         },
-        "phone": "01283176585"
-    },
-    {
-        "_id": "608d666e7ff51820a8cb248d",
-        "name": "hager",
-        "email": "hager@gmail.com",
-        "address": {
-            "country": "alexandria",
-            "city": "aboer",
-            "street": "seastreet",
-            "buildingNo": 5,
-            "apartmentNo": 6
-        },
-        "phone": "01165655744"
-    }
-]
+        {
+            "_id": "6093e0c547edeb70146b26a4",
+            "name": "Menna",
+            "email": "menna123mahmoud@gmail.com",
+            "address": {
+                "country": "egypt",
+                "city": "Cairo",
+                "street": "Elfostat",
+                "buildingNo": "83",
+                "apartmentNo": "43"
+            },
+            "phone": "01066761053"
+        }
+    ],
+    "maxPage": 3
+}
  */
 
 /**
