@@ -1392,3 +1392,52 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'orders' of undefined Cannot read property 'orders' of undefined","stack":"TypeError: Cannot read property 'orders' of undefined\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\order.queries.js:33:52)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"obj is not defined obj is not defined","stack":"ReferenceError: obj is not defined\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\order.queries.js:37:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"obj is not defined obj is not defined","stack":"ReferenceError: obj is not defined\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\order.queries.js:37:50)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'push' of undefined Cannot read property 'push' of undefined","stack":"TypeError: Cannot read property 'push' of undefined\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\order.queries.js:41:21)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'push' of undefined Cannot read property 'push' of undefined","stack":"TypeError: Cannot read property 'push' of undefined\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\order.queries.js:43:21)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'push' of undefined Cannot read property 'push' of undefined","stack":"TypeError: Cannot read property 'push' of undefined\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\order.queries.js:43:21)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'push' of undefined Cannot read property 'push' of undefined","stack":"TypeError: Cannot read property 'push' of undefined\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\order.queries.js:44:21)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Bouquet.fillData is not a function Bouquet.fillData is not a function","stack":"TypeError: Bouquet.fillData is not a function\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\services\\order.service.js:55:39)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Bouquet.fillData is not a function Bouquet.fillData is not a function","stack":"TypeError: Bouquet.fillData is not a function\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\services\\order.service.js:55:39)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

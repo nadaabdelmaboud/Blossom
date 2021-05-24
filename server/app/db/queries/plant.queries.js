@@ -2,7 +2,6 @@ const { array } = require("joi");
 const { PlantModel, types } = require("../models/plants.model");
 const Plant = {
   async getAllPlants(query) {
-    const count = await PlantModel.countDocuments();
     const pageSize = query.pageSize ? query.pageSize : 10;
     const pageNumber = query.pageNumber ? query.pageNumber : 1;
     var fields = { name: 1, type: 1, price: 1, count: 1, info: 1, image: 1 };
@@ -97,12 +96,26 @@ const Plant = {
     if (!PlantData) return false;
     if (operation == 1)
       if (amount <= PlantData.count.available)
-        PlantData.count.available -=amount;
+        PlantData.count.available -= amount;
       else return false;
-    else if (operation == 0) PlantData.count.available +=amount;
+    else if (operation == 0) PlantData.count.available += amount;
     const Result = await PlantData.save();
     if (Result) return true;
     return false;
+  },
+  async fillData(orderObject) {
+    const Plants = await PlantModel.find(
+      { _id: { $in: orderObject.plantId } },
+      { name: 1, image: 1, price: 1, count: 1 }
+    );
+    if(!Plants || !Plants.length)return false;
+    for (var i = 0; i < Plants.length; i++){
+      orderObject.UserData[Plants[i]._id].name = Plants[i].name;
+      orderObject.UserData[Plants[i]._id].image = Plants[i].image;
+      orderObject.UserData[Plants[i]._id].price = Plants[i].price;
+      orderObject.UserData[Plants[i]._id].count = Plants[i].count;
+    }
+    return true;
   },
 };
 module.exports = Plant;

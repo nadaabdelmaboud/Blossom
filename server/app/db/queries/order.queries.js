@@ -4,8 +4,8 @@ const Order = {
     let today = new Date();
     const UserData = await UserModel.findById(userId);
     const Index = UserData.Cart.length - 1;
-    if(!UserData.Cart[Index].orders){
-      UserData.Cart[Index].orders={}
+    if (!UserData.Cart[Index].orders) {
+      UserData.Cart[Index].orders = {};
     }
     /*userData.Cart[Index] = {};
     userData.Cart[Index].orders = {};
@@ -28,8 +28,23 @@ const Order = {
     return result;
   },
   async getOrderItems(userId) {
-    const UserData = await UserModel.findById(userId);
-    if (UserData) return UserData.Cart[UserData.Cart.length - 1].orders;
+    const UserData = await UserModel.findById(userId, "Cart");
+    if (UserData) {
+      let items = UserData.Cart[UserData.Cart.length - 1].orders;
+      let result = {};
+      let plantId = [];
+      let bouquetId = [];
+      for (var id in items) {
+        if (Object.prototype.hasOwnProperty.call(items, id)) {
+          if(items[id].orderType == "plant") plantId.push(id);
+          else bouquetId.push(id);
+        }
+      }
+      result.UserData = items;
+      result.plantId = plantId;
+      result.bouquetId = bouquetId;
+      return result;
+    };
     return UserData;
   },
   async deleteItem(userId, itemId) {
@@ -45,7 +60,7 @@ const Order = {
     } else return false;
     UserData.markModified("Cart");
     const result = await UserData.save();
-    if (result) return {result:result.Cart[Index],amount:amount.amount};
+    if (result) return { result: result.Cart[Index], amount: amount.amount };
     return result;
   },
 };

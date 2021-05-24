@@ -362,32 +362,37 @@
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
 {
-    "_id": "609c49726d4c4e2a789f6e32",
-    "orders": {
-        "608fe3662947f108c0fcdb0c": {
-            "amount": 2,
-            "orderType": "plant",
-            "category": "herb"
-        },
-        "6093f1545604aa1b3c911672": {
-            "amount": 2,
-            "orderType": "bouquet",
-            "category": "Tulips"
-        },
-        "6090043a8410d235d0097a21": {
-            "amount": 3,
-            "orderType": "plant",
-            "category": "herb"
+    "6090043a8410d235d0097a21": {
+        "amount": 18,
+        "orderType": "plant",
+        "category": "herb",
+        "name": "sunflower",
+        "price": 1000,
+        "count": {
+            "sold": 0,
+            "available": 0
         }
     },
-    "status": "pending",
-    "address": {
-        "country": "alex",
-        "city": "cairo",
-        "street": "aboear",
-        "buildingNo": 5,
-        "apartmentNo": 3
+    "608fe99514f3af4878571a6a": {
+        "amount": 4,
+        "orderType": "plant",
+        "category": "herb",
+        "name": "bleeding heart",
+        "price": 600,
+        "count": {
+            "sold": 0,
+            "available": 2
+        }
     },
-    "lastEdit": "2021-05-12T21:34:05.817Z"
-}
- */
+    "6093f1545604aa1b3c911672": {
+        "amount": 1,
+        "orderType": "bouquet",
+        "category": "Tulips",
+        "name": "Tuli",
+        "price": 100,
+        "count": {
+            "sold": 0,
+            "available": 1
+        }
+    }
+} */
