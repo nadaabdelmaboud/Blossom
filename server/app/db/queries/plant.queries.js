@@ -30,8 +30,9 @@ const Plant = {
     const plant = await PlantModel.find({ name: name }, { _id: 1 });
     return plant;
   },
-  async getPlantById(id) {
-    const plant = await PlantModel.findById(id);
+  async getPlantById(id,idOnly = 0) {
+    const projection = (idOnly==1)?{_id:1}:{};
+    const plant = await PlantModel.findById(id, projection);
     return plant;
   },
   async createPlant(plant) {
@@ -95,10 +96,14 @@ const Plant = {
     console.log(PlantData.count.available);*/
     if (!PlantData) return false;
     if (operation == 1)
-      if (amount <= PlantData.count.available)
+      if (amount <= PlantData.count.available) {
         PlantData.count.available -= amount;
-      else return false;
-    else if (operation == 0) PlantData.count.available += amount;
+        PlantData.count.sold += amount;
+      } else return false;
+    else if (operation == 0) {
+      PlantData.count.available += amount;
+      PlantData.count.sold -= amount;
+    }
     const Result = await PlantData.save();
     if (Result) return true;
     return false;
@@ -108,8 +113,8 @@ const Plant = {
       { _id: { $in: orderObject.plantId } },
       { name: 1, image: 1, price: 1, count: 1 }
     );
-    if(!Plants || !Plants.length)return false;
-    for (var i = 0; i < Plants.length; i++){
+    if (!Plants || !Plants.length) return false;
+    for (var i = 0; i < Plants.length; i++) {
       orderObject.UserData[Plants[i]._id].name = Plants[i].name;
       orderObject.UserData[Plants[i]._id].image = Plants[i].image;
       orderObject.UserData[Plants[i]._id].price = Plants[i].price;

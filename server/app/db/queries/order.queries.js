@@ -2,15 +2,11 @@ const UserModel = require("../models/user.model");
 const Order = {
   async addItem(userId, item) {
     let today = new Date();
-    const UserData = await UserModel.findById(userId);
+    const UserData = await UserModel.findById(userId,"Cart");
     const Index = UserData.Cart.length - 1;
     if (!UserData.Cart[Index].orders) {
       UserData.Cart[Index].orders = {};
     }
-    /*userData.Cart[Index] = {};
-    userData.Cart[Index].orders = {};
-    userData.Cart[Index].status = "pending";
-    userData.Cart[Index].address = userData.address;*/
     if (UserData.Cart[Index].orders[item.bouquetId]) {
       UserData.Cart[Index].orders[item.bouquetId].amount += item.amount;
     } else {
@@ -48,7 +44,7 @@ const Order = {
     return UserData;
   },
   async deleteItem(userId, itemId) {
-    const UserData = await UserModel.findById(userId);
+    const UserData = await UserModel.findById(userId,"Cart");
     const Index = UserData.Cart.length - 1;
     let amount;
     if (UserData.Cart[Index].orders[itemId]) {

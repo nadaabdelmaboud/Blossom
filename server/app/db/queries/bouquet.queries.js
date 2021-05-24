@@ -107,10 +107,15 @@ const Bouquet = {
         const BouquetData = await BouquetModel.findById(id);
         if (!BouquetData) return false;
         if (operation == 1)
-          if (amount <= BouquetData.count.available)
+          if (amount <= BouquetData.count.available){
             BouquetData.count.available -= amount;
+            BouquetData.count.sold += amount;
+            }
           else return false;
-        else if (operation == 0) BouquetData.count.available += amount;
+        else if (operation == 0) {
+            BouquetData.count.available += amount;
+            BouquetData.count.sold -= amount;
+        }
         const Result = await BouquetData.save();
         if (Result) return true;
         return false;

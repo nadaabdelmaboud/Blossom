@@ -1441,3 +1441,12 @@
 {"level":"error","message":"Bouquet.fillData is not a function Bouquet.fillData is not a function","stack":"TypeError: Bouquet.fillData is not a function\n    at Object.getOrderItems (D:\\college\\third year\\arch\\Blossom\\server\\app\\services\\order.service.js:55:39)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"_id is not defined _id is not defined","stack":"ReferenceError: _id is not defined\n    at Object.getPlantById (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\plant.queries.js:34:37)\n    at Object.addItem (D:\\college\\third year\\arch\\Blossom\\server\\app\\services\\order.service.js:20:33)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

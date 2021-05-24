@@ -17,7 +17,7 @@ const OrderService = {
     const isOrderVaild = await OrderValidation.validateItem(item);
     if (isOrderVaild.error)
       return { data: false, err: await error(isOrderVaild.error.message, 400) };
-    const idPlant = await Plant.getPlantById(item.bouquetId);
+    const idPlant = await Plant.getPlantById(item.bouquetId,1);
     const idBouquet = await Bouquet.getBouquetById(item.bouquetId);
     if (!idPlant && !idBouquet) {
       return {
@@ -80,7 +80,7 @@ const OrderService = {
     const isUserFound = await User.findUserById(userId);
     if (!isUserFound)
       return { data: false, err: await error("User Not Found", 404) };
-    const idPlant = await Plant.getPlantById(itemId);
+    const idPlant = await Plant.getPlantById(itemId,1);
     const idBouquet = await Bouquet.getBouquetById(itemId);
     if (!idPlant && !idBouquet) {
       return {
