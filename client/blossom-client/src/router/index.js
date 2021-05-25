@@ -7,6 +7,7 @@ import BlossomUsers from "../views/BlossomUsers.vue";
 import HomeBody from "../views/HomeBody.vue";
 import AdminStatistics from "../views/AdminStatistics.vue";
 import UserCart from "../views/UserCart.vue";
+import Tips from "../views/Tips.vue";
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,11 @@ const routes = [
         path: "userCart",
         name: "userCart",
         component: UserCart,
+      },
+      {
+        path: "tips/:plantId",
+        name: "tips",
+        component: Tips,
       },
     ],
   },
