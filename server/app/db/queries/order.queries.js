@@ -20,7 +20,7 @@ const Order = {
     UserData.Cart[Index].status = "ordering";
     UserData.markModified("Cart");
     const result = await UserData.save();
-    if (result) return result.Cart[Index];
+    if (result) return {status:1,cartID:result._id};
     return result;
   },
   async getOrderItems(userId) {

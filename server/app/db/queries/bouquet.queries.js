@@ -104,20 +104,20 @@ const Bouquet = {
         return true;
     },
     async updateBouquetCount(operation, id, amount){
-        const BouquetData = await BouquetModel.findById(id);
+        const BouquetData = await BouquetModel.findById(id,{count:1});
         if (!BouquetData) return false;
         if (operation == 1)
           if (amount <= BouquetData.count.available){
             BouquetData.count.available -= amount;
             BouquetData.count.sold += amount;
             }
-          else return false;
+          else return { status: 0, count: BouquetData.count.available };
         else if (operation == 0) {
             BouquetData.count.available += amount;
             BouquetData.count.sold -= amount;
         }
         const Result = await BouquetData.save();
-        if (Result) return true;
+        if (Result) return { status: 1};
         return false;
     },
     async fillData(orderObject){

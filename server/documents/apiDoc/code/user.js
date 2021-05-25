@@ -282,28 +282,20 @@
  * @apiParam (BodyParameters) {String} orderType item type (plant or bouquetId)
  * @apiParam (BodyParameters) {String} category item category 
  *
+ * @apiSuccess {number} status when 0 the amount is too large on the requst if 1 the request succeded
  *
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
-{
-    "_id": "6099e46231a2c759a833803a",
-    "orders": {
-        "608fe3662947f108c0fcdb0c": {
-            "amount": 3,
-            "orderType": "plant",
-            "category": "herb"
-        }
-    },
-    "lastEdit": "2021-05-11T02:43:45.224Z",
-    "address": {
-        "country": "alex",
-        "city": "cairo",
-        "street": "aboear",
-        "buildingNo": 5,
-        "apartmentNo": 3
-    },
-    "status": "pending"
-}
+ * {
+ *   "status": 1,
+ *   "cartID": "609c100297a5162a543d22af"
+ * }
+ * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
+ * {
+ *  "status": 0,
+ *  "count": 9
+ * }
  */
 
 /**

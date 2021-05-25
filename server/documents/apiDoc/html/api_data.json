@@ -2115,10 +2115,26 @@
       }
     },
     "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>when 0 the amount is too large on the requst if 1 the request succeded</p>"
+          }
+        ]
+      },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"_id\": \"6099e46231a2c759a833803a\",\n    \"orders\": {\n        \"608fe3662947f108c0fcdb0c\": {\n            \"amount\": 3,\n            \"orderType\": \"plant\",\n            \"category\": \"herb\"\n        }\n    },\n    \"lastEdit\": \"2021-05-11T02:43:45.224Z\",\n    \"address\": {\n        \"country\": \"alex\",\n        \"city\": \"cairo\",\n        \"street\": \"aboear\",\n        \"buildingNo\": 5,\n        \"apartmentNo\": 3\n    },\n    \"status\": \"pending\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"cartID\": \"609c100297a5162a543d22af\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"status\": 0,\n \"count\": 9\n}",
           "type": "json"
         }
       ]
