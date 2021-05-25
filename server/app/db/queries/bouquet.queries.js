@@ -123,12 +123,12 @@ const Bouquet = {
     async fillData(orderObject){
         const Bouquets = await BouquetModel.find(
           { _id: { $in: orderObject.bouquetId } },
-          { name: 1, image: 1, price: 1, count: 1 }
+          { name: 1, images: 1, price: 1, count: 1 }
         );
         if (!Bouquets || !Bouquets.length) return false;
         for (var i = 0; i < Bouquets.length; i++) {
           orderObject.UserData[Bouquets[i]._id].name = Bouquets[i].name;
-          orderObject.UserData[Bouquets[i]._id].image = Bouquets[i].images;
+          orderObject.UserData[Bouquets[i]._id].images = Bouquets[i].images;
           orderObject.UserData[Bouquets[i]._id].price = Bouquets[i].price;
           orderObject.UserData[Bouquets[i]._id].count = Bouquets[i].count;
         }

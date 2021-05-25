@@ -4,7 +4,7 @@ const Plant = {
   async getAllPlants(query) {
     const pageSize = query.pageSize ? query.pageSize : 10;
     const pageNumber = query.pageNumber ? query.pageNumber : 1;
-    var fields = { name: 1, type: 1, price: 1, count: 1, info: 1, image: 1 };
+    var fields = { name: 1, type: 1, price: 1, count: 1, info: 1, images: 1 };
     var filters = {};
     if (query.type && query.type != "") filters.type = query.type;
     if (query.hasTips) {
@@ -37,7 +37,7 @@ const Plant = {
   },
   async createPlant(plant) {
     const plantTips = plant.tips ? plant.tips : [];
-    const image = plant.image ? plant.image : "";
+    const images = plant.images ? plant.images : "";
     const newPlant = new PlantModel({
       name: plant.name.toLowerCase(),
       type: plant.type,
@@ -48,7 +48,7 @@ const Plant = {
       },
       info: plant.info,
       tips: plantTips,
-      image: image,
+      images: images,
     });
     let plantObject;
     try {
@@ -63,7 +63,7 @@ const Plant = {
     if (!plantData) return [];
     if (plant.name) plantData.name = plant.name;
     if (plant.type) plantData.type = plant.type;
-    if (plant.image) plantData.image = plant.image;
+    if (plant.images) plantData.images = plant.images;
     if (plant.info) plantData.info = plant.info;
     if (plant.tips || plant.tips == []) plantData.tips = plant.tips;
     if (plant.price) plantData.price = plant.price;
@@ -111,12 +111,12 @@ const Plant = {
   async fillData(orderObject) {
     const Plants = await PlantModel.find(
       { _id: { $in: orderObject.plantId } },
-      { name: 1, image: 1, price: 1, count: 1 }
+      { name: 1, images: 1, price: 1, count: 1 }
     );
     if (!Plants || !Plants.length) return false;
     for (var i = 0; i < Plants.length; i++) {
       orderObject.UserData[Plants[i]._id].name = Plants[i].name;
-      orderObject.UserData[Plants[i]._id].image = Plants[i].image;
+      orderObject.UserData[Plants[i]._id].images = Plants[i].images;     
       orderObject.UserData[Plants[i]._id].price = Plants[i].price;
       orderObject.UserData[Plants[i]._id].count = Plants[i].count;
     }

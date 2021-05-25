@@ -367,6 +367,7 @@
         "orderType": "plant",
         "category": "herb",
         "name": "sunflower",
+        "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
         "price": 1000,
         "count": {
             "sold": 0,
@@ -378,6 +379,7 @@
         "orderType": "plant",
         "category": "herb",
         "name": "bleeding heart",
+        "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
         "price": 600,
         "count": {
             "sold": 0,
@@ -389,6 +391,7 @@
         "orderType": "bouquet",
         "category": "Tulips",
         "name": "Tuli",
+        "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
         "price": 100,
         "count": {
             "sold": 0,
