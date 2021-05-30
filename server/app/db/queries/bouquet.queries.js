@@ -58,51 +58,6 @@ const Bouquet = {
         }
 
     },
-    async getCategories(){
-        return categories;
-
-    },
-    async createCategory(category){
-        const index = categories.indexOf(category);
-        if(index!=-1) return false;
-        categories.push(category)
-        return true;
-    },
-    async updateCategory(category,newCategory){
-        const index = categories.indexOf(category);
-        const newIndex = categories.indexOf(newCategory);
-        if(newIndex!=-1) return false;
-        categories[index]=newCategory;
-        return true;
-    },
-    async deleteCategory(category){
-        const index = categories.indexOf(category);
-        categories.splice(index, 1);
-        return true;
-    },
-    async getSentiments(){
-        return sentiments;
-
-    },
-    async createSentiment(sentiment){
-        const index = sentiments.indexOf(sentiment);
-        if(index!=-1) return false;
-        sentiments.push(sentiment)
-        return true;
-    },
-    async updateSentiment(sentiment,newSentiment){
-        const index = sentiments.indexOf(sentiment);
-        const newIndex = sentiments.indexOf(newSentiment);
-        if(newIndex!=-1) return false;
-        sentiments[index]=newSentiment;
-        console.log(sentiments)
-        return true;
-    },
-    async deleteSentiment(sentiment){
-        const index = sentiments.indexOf(sentiment);
-        sentiments.splice(index, 1);
-        return true;
-    },
     async updateBouquetCount(operation, id, amount){
         const BouquetData = await BouquetModel.findById(id,{count:1});
         if (!BouquetData) return false;

@@ -1,6 +1,6 @@
 const BouquetService = require('../services/bouquet.service');
 
-const UserController = {
+const BouquetController = {
 
   async getBouquets(req, res) {
     const query = req.query;
@@ -40,61 +40,6 @@ const UserController = {
     }
     res.status(data.err.status).send(data.err.message);
   },
-  async getCategories(req,res){
-    const data = await BouquetService.getCategories();
-    if(data.data){
-      return res.status(200).send(data.data);
-    }
-    res.status(data.err.status).send(data.err.message);
-  },
-  async createCategory(req,res){
-    const data = await BouquetService.createCategory(req.body);
-    if(data.data){
-      return res.status(200).send(data.data);
-    }
-    res.status(data.err.status).send(data.err.message);
-  },
-  async updateCategory(req,res){
-    const data = await BouquetService.updateCategory(req.body);
-    if(data.data){
-      return res.status(200).send(data.data);
-    }
-    res.status(data.err.status).send(data.err.message);
-  },
-  async deleteCategory(req,res){
-    const data = await BouquetService.deleteCategory(req.body);
-    if(data.data){
-      return res.status(200).send(data.data);
-    }
-    res.status(data.err.status).send(data.err.message);
-  },
-  async getSentiments(req,res){
-    const data = await BouquetService.getSentiments();
-    if(data.data){
-      return res.status(200).send(data.data);
-    }
-    res.status(data.err.status).send(data.err.message);
-  },
-  async createSentiment(req,res){
-    const data = await BouquetService.createSentiment(req.body);
-    if(data.data){
-      return res.status(200).send(data.data);
-    }
-    res.status(data.err.status).send(data.err.message);
-  },
-  async updateSentiment(req,res){
-    const data = await BouquetService.updateSentiment(req.body);
-    if(data.data){
-      return res.status(200).send(data.data);
-    }
-    res.status(data.err.status).send(data.err.message);
-  },
-  async deleteSentiment(req,res){
-    const data = await BouquetService.deleteSentiment(req.body);
-    if(data.data){
-      return res.status(200).send(data.data);
-    }
-    res.status(data.err.status).send(data.err.message);
-  },
+ 
 };
-module.exports = UserController;
+module.exports = BouquetController;

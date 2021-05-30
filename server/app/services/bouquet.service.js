@@ -48,53 +48,6 @@ const BouquetService={
             if(!success) return {data:false,err:await error("Error in deleting bouquet",403)}
             return {data:true,err:''}
         },
-        async getCategories(){
-            return {data:await Bouquet.getCategories(),err:''}
-        },
-        async createCategory(body){
-            const isValid = await BouquetValidation.createCategory(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.createCategory(body.category)
-            if(!success) return {data:false,err:await error("Error in creating category",403)}
-            return {data:true,err:''}
-        },
-        async updateCategory(body){
-            const isValid = await BouquetValidation.updateCategory(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.updateCategory(body.category,body.newCategory)
-            if(!success) return {data:false,err:await error("Error in updating category",403)}
-            return {data:true,err:''}
-        },
-        async deleteCategory(body){
-            const isValid = await BouquetValidation.deleteCategory(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.deleteCategory(body.category)
-            if(!success) return {data:false,err:await error("Error in deleting category",403)}
-            return {data:true,err:''}
-        },
-        async getSentiments(){
-            return {data:await Bouquet.getSentiments(),err:''}
-        },
-        async createSentiment(body){
-            const isValid = await BouquetValidation.createSentiment(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.createSentiment(body.sentiment)
-            if(!success) return {data:false,err:await error("Error in creating category",403)}
-            return {data:true,err:''}
-        },
-        async updateSentiment(body){
-            const isValid = await BouquetValidation.updateSentiment(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.updateSentiment(body.sentiment,body.newSentiment)
-            if(!success) return {data:false,err:await error("Error in updating category",403)}
-            return {data:true,err:''}
-        },
-        async deleteSentiment(body){
-            const isValid = await BouquetValidation.deleteSentiment(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.deleteSentiment(body.sentiment)
-            if(!success) return {data:false,err:await error("Error in deleting category",403)}
-            return {data:true,err:''}
-        }
+       
 }
 module.exports=BouquetService;

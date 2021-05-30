@@ -65,31 +65,6 @@ const PlantService = {
       return { data: false, err: await error("Error Creating Plant", 500) };
     return { data: plantObject, err: "" };
   },
-  async addPlantType(type) {
-    const isValid = await PlantValidation.vlalidateType(type);
-    if (isValid.error)
-      return { data: false, err: await error(isValid.error.message, 400) };
-    isFound = await PlantValidation.inTypes(type);
-    if (isFound)
-      return { data: false, err: await error("This Type Already Exists", 403) };
-    const typeObject = await Plant.addType(type);
-    return { data: typeObject, err: "" };
-  },
-  async deletePlantType(type) {
-    const isValid = await PlantValidation.vlalidateType(type);
-    if (isValid.error)
-      return { data: false, err: await error(isValid.error.message, 400) };
-    isFound = await PlantValidation.inTypes(type);
-    if (!isFound)
-      return { data: false, err: await error("This Type Doesn't Exists", 403) };
-    const typeObject = await Plant.deleteType(type);
-    if (!typeObject)
-      return { data: false, err: await error("Types Cannot be empty", 500) };
-    return { data: typeObject, err: "" };
-  },
-  async getAllPlantsTypes(){
-    const types = await Plant.getAllPlantsTypes();
-    return { data: types, err: "" };
-  }
+ 
 };
 module.exports = PlantService;

@@ -1477,3 +1477,117 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Identifier 'index' has already been declared Identifier 'index' has already been declared","stack":"SyntaxError: Identifier 'index' has already been declared\n    at Object.deleteBouquetCategory (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\services\\shop.service.js:27:36)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"ShopValidation.createCategory is not a function ShopValidation.createCategory is not a function","stack":"TypeError: ShopValidation.createCategory is not a function\n    at Object.createBouquetCategory (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\services\\shop.service.js:11:46)\n    at createCategory (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\controllers\\shop.controller.js:12:40)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at authAdmin (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\middlewares\\admin.middleware.js:6:5)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at auth (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\middlewares\\auth.middleware.js:10:5)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"status":404,"level":"error","message":"API_NOT_FOUND API_NOT_FOUND","stack":"Error: API_NOT_FOUND\n    at app.use (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\startup\\routes.js:27:13)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:284:7\n    at param (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"status":404,"level":"error","message":"API_NOT_FOUND API_NOT_FOUND","stack":"Error: API_NOT_FOUND\n    at app.use (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\startup\\routes.js:27:13)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:284:7\n    at param (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:354:14)\n    at param (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:365:14)\n    at Function.process_params (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:410:3)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:635:15\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:260:14)\n    at Function.handle (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:317:13)"}
+{"level":"error","message":"ShopService.addPlantType is not a function ShopService.addPlantType is not a function","stack":"TypeError: ShopService.addPlantType is not a function\n    at addPlantType (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\controllers\\shop.controller.js:62:40)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at authAdmin (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\middlewares\\admin.middleware.js:6:5)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at auth (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\middlewares\\auth.middleware.js:10:5)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at newFn (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express-async-errors\\index.js:16:20)\n    at Layer.handle [as handle_request] (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\router\\index.js:281:22"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

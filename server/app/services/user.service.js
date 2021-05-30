@@ -1,5 +1,5 @@
 const User = require("../db/queries/user.queries");
-const Admin = require("../db/queries/admin.queries");
+const Admin = require("../db/queries/shop.queries");
 const Plant = require("../db/queries/plant.queries");
 const Bouquet = require("../db/queries/bouquet.queries");
 const UserValidation = require("../validation/user.validation");

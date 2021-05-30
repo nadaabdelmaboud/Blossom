@@ -7,11 +7,14 @@ const PlantRoutes = require("../routes/plant.route");
 const BouquetRoutes = require("../routes/bouquet.route");
 const OrderRoutes = require("../routes/order.route");
 const CartRoutes  = require("../routes/cart.route")
+const ShopRoutes  = require("../routes/shop.route")
+
 module.exports = function (app, winston) {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(cors());
 
+  app.use("/api", ShopRoutes);
   app.use("/api", AuthRoutes);
   app.use("/api", UserRoutes);
   app.use("/api", ImageRoutes);

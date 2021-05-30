@@ -7,12 +7,5 @@ router.get('/bouquets/:id',BouquetController.getBouquetById)
 router.post('/bouquets',AuthMiddleware,AdminMiddleware,BouquetController.createBouquet)
 router.put('/bouquets/:id',AuthMiddleware,AdminMiddleware,BouquetController.updateBouquet)
 router.delete('/bouquets/:id',AuthMiddleware,AdminMiddleware,BouquetController.deleteBouquet)
-router.get('/bouquet/categories',BouquetController.getCategories)
-router.post('/bouquet/categories',AuthMiddleware,AdminMiddleware,BouquetController.createCategory)
-router.put('/bouquet/categories',AuthMiddleware,AdminMiddleware,BouquetController.updateCategory)
-router.delete('/bouquet/categories',AuthMiddleware,AdminMiddleware,BouquetController.deleteCategory)
-router.get('/bouquet/sentiments',BouquetController.getSentiments)
-router.post('/bouquet/sentiments',AuthMiddleware,AdminMiddleware,BouquetController.createSentiment)
-router.put('/bouquet/sentiments',AuthMiddleware,AdminMiddleware,BouquetController.updateSentiment)
-router.delete('/bouquet/sentiments',AuthMiddleware,AdminMiddleware,BouquetController.deleteSentiment)
+
 module.exports=router;

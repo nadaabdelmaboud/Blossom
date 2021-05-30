@@ -1,5 +1,5 @@
 const { array } = require("joi");
-const { PlantModel, types } = require("../models/plants.model");
+const { PlantModel} = require("../models/plants.model");
 const Plant = {
   async getAllPlants(query) {
     const pageSize = query.pageSize ? query.pageSize : 10;
@@ -74,21 +74,7 @@ const Plant = {
     const result = await plantData.save();
     return result;
   },
-  async addType(type) {
-    types.push(type);
-    return types;
-  },
-  async deleteType(type) {
-    if (array.length == 1) {
-      return false;
-    }
-    const index = types.indexOf(type);
-    types.splice(index, 1);
-    return types;
-  },
-  async getAllPlantsTypes() {
-    return types;
-  },
+ 
   async updatePlantCount(operation, id, amount) {
     const PlantData = await PlantModel.findById(id, { count :1});
     if (!PlantData) return false;

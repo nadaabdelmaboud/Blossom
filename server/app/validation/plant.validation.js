@@ -1,7 +1,9 @@
 const Joi = require("joi");
-const { PlantModel, types } = require("../db/models/plants.model");
+const { PlantModel} = require("../db/models/plants.model");
 const PlantValidation = {
   async getAllPlants(query) {
+    const types = await Shop.getAllPlantsTypes();
+
     const schema = Joi.object({
       pageNumber: Joi.number().min(1),
       pageSize: Joi.number().min(1),
@@ -14,6 +16,7 @@ const PlantValidation = {
     return schema.validate(query);
   },
   async validatePlant(plant) {
+    const types = await Shop.getAllPlantsTypes();
     const schema = Joi.object({
       name: Joi.string().min(3).max(30).required(),
       type: Joi.string()
@@ -31,6 +34,7 @@ const PlantValidation = {
     return schema.validate(plant);
   },
   async validateUpdatePlant(plant) {
+    const types = await Shop.getAllPlantsTypes();
     const schema = Joi.object({
       name: Joi.string().min(3).max(30),
       type: Joi.string().valid(...types),
@@ -46,14 +50,8 @@ const PlantValidation = {
     if (plant.name) plant.name = plant.name.toLowerCase();
     return schema.validate(plant);
   },
-  async vlalidateType(type) {
-    type = type.toLowerCase();
-    const schema = Joi.string().min(3).max(30);
-    return schema.validate(type);
-  },
-  async inTypes(type) {
-    return types.includes(type);
-  },
+
+ 
 };
 
 module.exports = PlantValidation;
