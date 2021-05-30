@@ -1,5 +1,6 @@
 const Joi = require("joi");
-const { PlantModel} = require("../db/models/plants.model");
+const Shop = require('../db/queries/shop.queries')
+
 const PlantValidation = {
   async getAllPlants(query) {
     const types = await Shop.getAllPlantsTypes();

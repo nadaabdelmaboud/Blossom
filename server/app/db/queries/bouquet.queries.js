@@ -10,7 +10,8 @@ const Bouquet = {
         pageNumber = parseInt(pageNumber);
         pageSize = parseInt(pageSize);
         const bouquets = await BouquetModel.find(query).skip((pageNumber-1)*pageSize).limit(pageSize);
-        return bouquets;
+        const bouquetsCount = await BouquetModel.countDocuments({});
+        return {bouquets,bouquetsCount};
     },
     async getBouquetById(id){
         const bouquet = await BouquetModel.findById(id).lean();

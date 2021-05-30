@@ -9,7 +9,7 @@ const BouquetService={
             const isValid =await BouquetValidation.getBouquets(query);
             if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
             const bouquets = await Bouquet.getBouquets(query.pageNumber,query.pageSize,query.category,query.sentiment);
-            if(!bouquets||bouquets.length==0){
+            if(!bouquets||bouquets.bouquets.length==0){
                 return {data:false,err:await error("No Bouquets found",404)}
             }
             return {data:bouquets,err:''}

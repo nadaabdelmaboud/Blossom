@@ -1,5 +1,5 @@
 const Joi = require("joi");
-
+const Shop = require('../db/queries/shop.queries')
 const BouquetValidation = {
   async getBouquets(query) {
     const categories = await Shop.getBouquetCategories();
