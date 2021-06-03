@@ -15,6 +15,7 @@ const OrderService = {
     if (!isUserFound)
       return { data: false, err: await error("Invalid User ID", 404) };
     const isOrderVaild = await OrderValidation.validateItem(item);
+    console.log(isOrderVaild);
     if (isOrderVaild.error)
       return { data: false, err: await error(isOrderVaild.error.message, 400) };
     const idPlant = await Plant.getPlantById(item.bouquetId, 1);
