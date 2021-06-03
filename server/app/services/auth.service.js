@@ -1,6 +1,6 @@
 const AuthValidation = require('../validation/auth.validation')
 const User = require('../db/queries/user.queries')
-const Admin = require('../db/queries/admin.queries')
+const Admin = require('../db/queries/shop.queries')
 const jwt = require('jsonwebtoken')
 const error = require('../validation/error');
 

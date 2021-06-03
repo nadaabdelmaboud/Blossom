@@ -17,13 +17,13 @@
  * @apiSuccess {Object} count plant count
  * @apiSuccess {Number} count.sold  the plants sold count
  * @apiSuccess {Number} count.available  the plants available count
- * @apiSuccess {String} image plant image
+ * @apiSuccess {String} images plant image
  * @apiSuccess {String} _id plant id
  * @apiSuccess {String="vegetable", "fruit" , "herb" , "flower" ,"house plant"} type plant type
  * @apiSuccess {String} name plant name
  * @apiSuccess {Number} price plant price
  * @apiSuccess {String} info plant information
- * @apiSuccess {String} image plant image
+ * @apiSuccess {String} images plant image
  * @apiSuccess {String[]} tips array of strings returned if the hasTips parameter is true
  *
  * @apiSuccessExample {json} Success-Response:
@@ -34,7 +34,7 @@
  *              "sold": 0,
  *              "available": 4
  *              },
- *              "image": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
+ *              "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
  *              "_id": "608fe3662947f108c0fcdb0c",
  *              "name": "lavender",
  *              "type": "herb",
@@ -46,7 +46,7 @@
  *              "sold": 0,
  *              "available": 6
  *              },
- *              "image": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
+ *              "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
  *              "_id": "608fe99514f3af4878571a6a",
  *              "name": "bleeding heart",
  *              "type": "flower",
@@ -78,7 +78,7 @@
  * @apiSuccess {Object} count plant count
  * @apiSuccess {Number} count.sold  the plants sold count
  * @apiSuccess {Number} count.available  the plants available count
- * @apiSuccess {String} image plant image
+ * @apiSuccess {String} images plant image
  * @apiSuccess {String} _id plant id
  * @apiSuccess {String} type plant type
  * @apiSuccess {String} name plant name
@@ -94,7 +94,7 @@
  *              "sold": 0,
  *              "available": 6
  *              },
- *              "image": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
+ *              "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
  *              "_id": "608fe99514f3af4878571a6a",
  *              "name": "bleeding heart",
  *              "type": "flower",
@@ -132,7 +132,7 @@
  * @apiParam (BodyParameters) {Object} [count] plant count
  * @apiParam (BodyParameters) {Number} [count.sold]  the plants sold count
  * @apiParam (BodyParameters) {Number} [count.available]  the plants available count
- * @apiParam (BodyParameters) {String} [image] plant image
+ * @apiParam (BodyParameters) {String} [images] plant image
  * @apiParam (BodyParameters) {String="vegetable", "fruit" , "herb" , "flower" ,"house plant"} [type] plant type
  * @apiParam (BodyParameters) {String{3..30}} [name] plant name
  * @apiParam (BodyParameters) {Number} [price] plant price
@@ -143,7 +143,7 @@
  * @apiSuccess {Object} count plant count
  * @apiSuccess {Number} count.sold  the plants sold count
  * @apiSuccess {Number} count.available  the plants available count
- * @apiSuccess {String} image plant image
+ * @apiSuccess {String} images plant image
  * @apiSuccess {String} _id plant id
  * @apiSuccess {String} type plant type
  * @apiSuccess {String} name plant name
@@ -159,7 +159,7 @@
  *              "sold": 0,
  *              "available": 6
  *              },
- *              "image": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
+ *              "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
  *              "_id": "608fe99514f3af4878571a6a",
  *              "name": "bleeding heart",
  *              "type": "flower",
@@ -187,7 +187,7 @@
  * @apiExample {curl} Example usage:
  * curl --location --request POST 'http://localhost:3000/api/plant' \
  * --data-raw '{
- *  "image":"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
+ *  "images":"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
  *  "name":"SUNFLOWERS",
  *  "type":"flower",
  *  "price":800,
@@ -205,7 +205,7 @@
  * 
  * @apiParam (BodyParameters) {Object} [count] plant count
  * @apiParam (BodyParameters) {Number} count.available  the plants available count
- * @apiParam (BodyParameters) {String} image plant image
+ * @apiParam (BodyParameters) {String} images plant image
  * @apiParam (BodyParameters) {String="vegetable", "fruit" , "herb" , "flower" ,"house plant"} type plant type
  * @apiParam (BodyParameters) {String{3..30}} name plant name
  * @apiParam (BodyParameters) {Number} price plant price

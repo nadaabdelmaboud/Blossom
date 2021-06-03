@@ -735,7 +735,7 @@ define({ "api": [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl --location --request POST 'http://localhost:3000/api/plant' \\\n--data-raw '{\n \"image\":\"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n \"name\":\"SUNFLOWERS\",\n \"type\":\"flower\",\n \"price\":800,\n \"count\":{\n    \"available\":4\n },\n \"info\":\"The sunflower (Helianthus annuus) is an annual plant with a large daisy-like flower face. Its scientific name comes from the Greek words helios (“sun”) and anthos (“flower”). The flowers come in many colors (yellow, red, orange, maroon, brown), but they are commonly bright yellow with brown centers that ripen into heavy heads filled with seeds. \",\n \"tips\":[\"Find a sunny spot! Sunflowers grow best in locations with direct sunlight (6 to 8 hours per day); they require long, hot summers to flower well.\",\n         \"Choose a location with well-draining soil. It shouldn’t pool water after it rains.\",\n         \"Sunflowers aren’t picky but the soil can’t be too compact. They have long tap roots that need to stretch out; in preparing a bed, dig down 2 feet in depth and about 3 feet across.\"\n         ]\n}'",
+        "content": "curl --location --request POST 'http://localhost:3000/api/plant' \\\n--data-raw '{\n \"images\":\"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n \"name\":\"SUNFLOWERS\",\n \"type\":\"flower\",\n \"price\":800,\n \"count\":{\n    \"available\":4\n },\n \"info\":\"The sunflower (Helianthus annuus) is an annual plant with a large daisy-like flower face. Its scientific name comes from the Greek words helios (“sun”) and anthos (“flower”). The flowers come in many colors (yellow, red, orange, maroon, brown), but they are commonly bright yellow with brown centers that ripen into heavy heads filled with seeds. \",\n \"tips\":[\"Find a sunny spot! Sunflowers grow best in locations with direct sunlight (6 to 8 hours per day); they require long, hot summers to flower well.\",\n         \"Choose a location with well-draining soil. It shouldn’t pool water after it rains.\",\n         \"Sunflowers aren’t picky but the soil can’t be too compact. They have long tap roots that need to stretch out; in preparing a bed, dig down 2 feet in depth and about 3 feet across.\"\n         ]\n}'",
         "type": "curl"
       }
     ],
@@ -773,7 +773,7 @@ define({ "api": [
             "group": "BodyParameters",
             "type": "String",
             "optional": false,
-            "field": "image",
+            "field": "images",
             "description": "<p>plant image</p>"
           },
           {
@@ -1059,7 +1059,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "image",
+            "field": "images",
             "description": "<p>plant image</p>"
           },
           {
@@ -1116,7 +1116,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[\n     {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 4\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe3662947f108c0fcdb0c\",\n         \"name\": \"lavender\",\n         \"type\": \"herb\",\n         \"price\": 300,\n         \"info\": \"Lavender is a bushy, strong-scented perennial plant from the Mediterranean. In warmer regions, its gray to green foliage stays evergreen throughout the year, and the herb thrives in some of the toughest of garden condition. Here’s how to plant, grow, and harvest lavender in the garden.\"\n     },\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n     }\n\n ]",
+          "content": "HTTP/1.1 200 OK\n[\n     {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 4\n         },\n         \"images\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe3662947f108c0fcdb0c\",\n         \"name\": \"lavender\",\n         \"type\": \"herb\",\n         \"price\": 300,\n         \"info\": \"Lavender is a bushy, strong-scented perennial plant from the Mediterranean. In warmer regions, its gray to green foliage stays evergreen throughout the year, and the herb thrives in some of the toughest of garden condition. Here’s how to plant, grow, and harvest lavender in the garden.\"\n     },\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n     }\n\n ]",
           "type": "json"
         }
       ]
@@ -1240,7 +1240,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "image",
+            "field": "images",
             "description": "<p>plant image</p>"
           },
           {
@@ -1290,7 +1290,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n                 \"Plant in the spring after the threat of frost has passed.\",\n                 \"Plant in the shade.\",\n                 \"Add compost to the soil before planting.\",\n                 \"Soak the soil around the plant until moist.\",\n                 \"Add mulch to keep moisture in and weeds out.\"\n                 ]\n     }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n                 \"Plant in the spring after the threat of frost has passed.\",\n                 \"Plant in the shade.\",\n                 \"Add compost to the soil before planting.\",\n                 \"Soak the soil around the plant until moist.\",\n                 \"Add mulch to keep moisture in and weeds out.\"\n                 ]\n     }",
           "type": "json"
         }
       ]
@@ -1367,7 +1367,7 @@ define({ "api": [
             "group": "BodyParameters",
             "type": "String",
             "optional": true,
-            "field": "image",
+            "field": "images",
             "description": "<p>plant image</p>"
           },
           {
@@ -1444,7 +1444,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "image",
+            "field": "images",
             "description": "<p>plant image</p>"
           },
           {
@@ -1494,7 +1494,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"image\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n             \"Plant in the spring after the threat of frost has passed.\",\n             \"Plant in the shade.\",\n             \"Add compost to the soil before planting.\",\n             \"Soak the soil around the plant until moist.\",\n             \"Add mulch to keep moisture in and weeds out.\"\n         ]\n     }",
+          "content": "HTTP/1.1 200 OK\n\n    {\n         \"count\": {\n         \"sold\": 0,\n         \"available\": 6\n         },\n         \"images\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n         \"_id\": \"608fe99514f3af4878571a6a\",\n         \"name\": \"bleeding heart\",\n         \"type\": \"flower\",\n         \"price\": 600,\n         \"info\": \"The old-fashioned bleeding heart is a favorite perennial of the shady flower garden and was called the finest hardy plant of the 19th century.\"\n         \"tips\": [\n             \"Plant in the spring after the threat of frost has passed.\",\n             \"Plant in the shade.\",\n             \"Add compost to the soil before planting.\",\n             \"Soak the soil around the plant until moist.\",\n             \"Add mulch to keep moisture in and weeds out.\"\n         ]\n     }",
           "type": "json"
         }
       ]
@@ -1615,13 +1615,20 @@ define({ "api": [
             "optional": false,
             "field": "phone",
             "description": "<p>user phone number</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "maxPage",
+            "description": "<p>max pages available</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n [\n    {\n        \"_id\": \"6089d14c3323d34078fba7d9\",\n        \"name\": \"Nada\",\n        \"email\": \"nada@gmail.com\",\n        \"address\": {\n            \"country\": \"egypt\",\n            \"city\": \"giza\",\n            \"street\": \"abdelzaher\",\n            \"buildingNo\": 20,\n            \"apartmentNo\": 5\n        },\n        \"phone\": \"01283176585\"\n    },\n    {\n        \"_id\": \"608d666e7ff51820a8cb248d\",\n        \"name\": \"hager\",\n        \"email\": \"hager@gmail.com\",\n        \"address\": {\n            \"country\": \"alexandria\",\n            \"city\": \"aboer\",\n            \"street\": \"seastreet\",\n            \"buildingNo\": 5,\n            \"apartmentNo\": 6\n        },\n        \"phone\": \"01165655744\"\n    }\n]",
+          "content": "HTTP/1.1 200 OK\n {\n    \"users\": [\n        {\n            \"_id\": \"6089d14c3323d34078fba7d9\",\n            \"name\": \"Nada\",\n            \"email\": \"nada@gmail.com\",\n            \"address\": {\n                \"country\": \"egypt\",\n                \"city\": \"giza\",\n                \"street\": \"abdelzaher\",\n                \"buildingNo\": 20,\n                \"apartmentNo\": 5\n            },\n            \"phone\": \"01283176585\"\n        },\n        {\n            \"_id\": \"6093e0c547edeb70146b26a4\",\n            \"name\": \"Menna\",\n            \"email\": \"menna123mahmoud@gmail.com\",\n            \"address\": {\n                \"country\": \"egypt\",\n                \"city\": \"Cairo\",\n                \"street\": \"Elfostat\",\n                \"buildingNo\": \"83\",\n                \"apartmentNo\": \"43\"\n            },\n            \"phone\": \"01066761053\"\n        }\n    ],\n    \"maxPage\": 3\n}",
           "type": "json"
         }
       ]
@@ -2108,10 +2115,26 @@ define({ "api": [
       }
     },
     "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>when 0 the amount is too large on the requst if 1 the request succeded</p>"
+          }
+        ]
+      },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"_id\": \"6099e46231a2c759a833803a\",\n    \"orders\": {\n        \"608fe3662947f108c0fcdb0c\": {\n            \"amount\": 3,\n            \"orderType\": \"plant\",\n            \"category\": \"herb\"\n        }\n    },\n    \"lastEdit\": \"2021-05-11T02:43:45.224Z\",\n    \"address\": {\n        \"country\": \"alex\",\n        \"city\": \"cairo\",\n        \"street\": \"aboear\",\n        \"buildingNo\": 5,\n        \"apartmentNo\": 3\n    },\n    \"status\": \"pending\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"status\": 1,\n  \"cartID\": \"609c100297a5162a543d22af\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n \"status\": 0,\n \"count\": 9\n}",
           "type": "json"
         }
       ]
@@ -2304,7 +2327,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"_id\": \"609c49726d4c4e2a789f6e32\",\n    \"orders\": {\n        \"608fe3662947f108c0fcdb0c\": {\n            \"amount\": 2,\n            \"orderType\": \"plant\",\n            \"category\": \"herb\"\n        },\n        \"6093f1545604aa1b3c911672\": {\n            \"amount\": 2,\n            \"orderType\": \"bouquet\",\n            \"category\": \"Tulips\"\n        },\n        \"6090043a8410d235d0097a21\": {\n            \"amount\": 3,\n            \"orderType\": \"plant\",\n            \"category\": \"herb\"\n        }\n    },\n    \"status\": \"pending\",\n    \"address\": {\n        \"country\": \"alex\",\n        \"city\": \"cairo\",\n        \"street\": \"aboear\",\n        \"buildingNo\": 5,\n        \"apartmentNo\": 3\n    },\n    \"lastEdit\": \"2021-05-12T21:34:05.817Z\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"6090043a8410d235d0097a21\": {\n        \"amount\": 18,\n        \"orderType\": \"plant\",\n        \"category\": \"herb\",\n        \"name\": \"sunflower\",\n        \"images\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n        \"price\": 1000,\n        \"count\": {\n            \"sold\": 0,\n            \"available\": 0\n        }\n    },\n    \"608fe99514f3af4878571a6a\": {\n        \"amount\": 4,\n        \"orderType\": \"plant\",\n        \"category\": \"herb\",\n        \"name\": \"bleeding heart\",\n        \"images\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n        \"price\": 600,\n        \"count\": {\n            \"sold\": 0,\n            \"available\": 2\n        }\n    },\n    \"6093f1545604aa1b3c911672\": {\n        \"amount\": 1,\n        \"orderType\": \"bouquet\",\n        \"category\": \"Tulips\",\n        \"name\": \"Tuli\",\n        \"images\": \"Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg\",\n        \"price\": 100,\n        \"count\": {\n            \"sold\": 0,\n            \"available\": 1\n        }\n    }\n}",
           "type": "json"
         }
       ]

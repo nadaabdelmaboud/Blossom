@@ -5,19 +5,25 @@ const state = {
   topUsersLoaded: false,
   ratingLoaded: false,
   sales: [
-    1, 29, 3, 4, 5, 6, 97, 8, 9, 10, 81, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-    22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+    0, 10, 20, 30, 40, 50, 60, 65, 70, 75, 80, 85, 80, 75, 65, 55, 50, 40, 35,
+    30, 20, 10, 20, 30, 40, 35, 30, 20, 10, 12, 17,
   ],
-  topUsers: {},
-  rating: {},
+  topUsers: ["Nada AbdElmaboud", "Nihal Mansour", "Hager Ismail"],
+  rating: [1, 2, 20, 30, 24],
 };
 
 const mutations = {
   setSalsesLoaded(state, flag) {
     state.salesLoaded = flag;
   },
-  setSalses(state, data) {
+  setSales(state, data) {
     state.sales = data;
+  },
+  setRatingLoaded(state, flag) {
+    state.ratingLoaded = flag;
+  },
+  setRating(state, data) {
+    state.rating = data;
   },
 };
 const actions = {
@@ -29,6 +35,19 @@ const actions = {
       // let data = await axios.post("upload",imageData)
       setTimeout(() => {
         commit("setSalsesLoaded", true);
+      }, 2000);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  // async
+  getRating({ commit }) {
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
+    try {
+      // let data = await axios.post("upload",imageData)
+      setTimeout(() => {
+        commit("setRatingLoaded", true);
       }, 2000);
     } catch (err) {
       console.log(err);

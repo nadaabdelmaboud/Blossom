@@ -29,7 +29,13 @@ const User = {
         ccNumber: 0,
         expireDate: null,
       },
-      Cart: [],
+      Cart: [
+        {
+          orders: {},
+          status:"empty",
+          address:user.address
+        }
+      ]
     });
     const userObject = await newUser.save();
     if (userObject) {
@@ -64,6 +70,7 @@ const User = {
     return user;
   },
   async getAllUsersInfo(query) {
+    const count = await UserModel.countDocuments();
     const pageSize = query.pageSize ? query.pageSize : 10;
     const pageNumber = query.pageNumber ? query.pageNumber : 1;
     const users = await UserModel.find(
@@ -72,7 +79,7 @@ const User = {
     )
       .skip((pageNumber - 1) * pageSize)
       .limit(pageSize);
-    return users;
+    return { users: users, maxPage: Math.ceil(count / pageSize) };
   },
   async deleteUser(id) {
     const user = await UserModel.findByIdAndRemove(id);
@@ -91,45 +98,6 @@ const User = {
       userData.password = hash;
     }
     const result = await userData.save();
-    return result;
-  },
-  async addItem(userId, item) {
-    let today = new Date();
-    const userData = await UserModel.findById(userId);
-    /*userData.Cart[0] = {};
-    userData.Cart[0].orders = {};
-    userData.Cart[0].status = "pending";
-    userData.Cart[0].address = userData.address;*/
-    if (userData.Cart[0].orders[item.bouquetId]) {
-      userData.Cart[0].orders[item.bouquetId].amount += item.amount;
-    } else {
-      userData.Cart[0].orders[item.bouquetId] = {
-        amount: item.amount,
-        orderType: item.orderType,
-        category: item.category,
-      };
-    }
-    userData.Cart[0].lastEdit = today;
-    userData.markModified("Cart");
-    const result = await userData.save();
-    if (result) return result.Cart[0];
-    return result;
-  },
-  async getOrderItems(userId) {
-    const userData = await UserModel.findById(userId);
-    if (userData) return userData.Cart[0].orders;
-    return userData;
-  },
-  async deleteItem(userId, itemId) {
-    const userData = await UserModel.findById(userId);
-    if (userData.Cart[0].orders[itemId]) {
-      if (Object.keys(userData.Cart[0].orders).length == 1)
-        userData.Cart[0].orders = {};
-      else delete userData.Cart[0].orders[itemId];
-    } else return false;
-    userData.markModified("Cart");
-    const result = await userData.save();
-    if (result) return result.Cart[0];
     return result;
   },
 };

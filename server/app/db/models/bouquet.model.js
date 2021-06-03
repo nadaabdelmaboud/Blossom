@@ -22,12 +22,10 @@ const BouquetSchema = new mongoose.Schema({
     },
     bouquetCategory:{
         type:String,
-        enum:categories,
         required:true
     },
     bouquetSentiment:{
         type:String,
-        enum:sentiments,
         required:true
     },
     images:{

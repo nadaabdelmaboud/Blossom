@@ -1,9 +1,9 @@
 const Joi = require("joi");
-const categories = require("../db/models/bouquet.model").categories;
-const sentiments = require("../db/models/bouquet.model").sentiments;
-
+const Shop = require('../db/queries/shop.queries')
 const BouquetValidation = {
   async getBouquets(query) {
+    const categories = await Shop.getBouquetCategories();
+    const sentiments = await Shop.getBouquetSentiments();
     const schema = Joi.object({
         category: Joi.string().valid(...categories),
         sentiment: Joi.string().valid(...sentiments),
@@ -12,33 +12,10 @@ const BouquetValidation = {
       });
       return schema.validate(query);
   },
-  async updateCategory(body){
-    const schema = Joi.object({
-       category:Joi.string().valid(...categories).required(),
-       newCategory:Joi.string().min(3).required()
-    });
-    return schema.validate(body);
-  },
-  async deleteCategory(category){
-    const schema = Joi.object({
-       category:Joi.string().valid(...categories).required()
-    });
-    return schema.validate(category);
-  },
-  async updateSentiment(body){
-    const schema = Joi.object({
-       sentiment:Joi.string().valid(...sentiments).required(),
-       newSentiment:Joi.string().min(3).required()
-    });
-    return schema.validate(body);
-  },
-  async deleteSentiment(sentiment){
-    const schema = Joi.object({
-      sentiment:Joi.string().valid(...sentiments).required()
-    });
-    return schema.validate(sentiment);
-  },
+ 
   async createBouquet(bouquet){
+    const categories = await Shop.getBouquetCategories();
+    const sentiments = await Shop.getBouquetSentiments();
     const schema = Joi.object({
       bouquetCategory: Joi.string().valid(...categories).required(),
       bouquetSentiment: Joi.string().valid(...sentiments).required(),
@@ -53,6 +30,8 @@ const BouquetValidation = {
  
   },
   async updateBouquet(bouquet){
+    const categories = await Shop.getBouquetCategories();
+    const sentiments = await Shop.getBouquetSentiments();
     const schema = Joi.object({
       bouquetCategory: Joi.string().valid(...categories),
       bouquetSentiment: Joi.string().valid(...sentiments),

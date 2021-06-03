@@ -1,8 +1,8 @@
 <script>
-import { Line } from "vue-chartjs";
+import { Bar } from "vue-chartjs";
 
 export default {
-  extends: Line,
+  extends: Bar,
   props: ["chartdata", "options"],
   mounted() {
     this.renderChart(this.chartdata, this.options);
@@ -10,4 +10,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+canvas {
+  box-shadow: 0px 0px 10px 3px #888888;
+}
+</style>
