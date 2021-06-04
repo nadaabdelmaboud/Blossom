@@ -2006,3 +2006,19 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"errno":"ECONNREFUSED","code":"ECONNREFUSED","syscall":"querySrv","hostname":"_mongodb._tcp.cluster0.fztyp.mongodb.net","level":"error","message":"Could not connect to the database. Exiting now... querySrv ECONNREFUSED _mongodb._tcp.cluster0.fztyp.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.fztyp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:196:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"errno":"ECONNREFUSED","code":"ECONNREFUSED","syscall":"querySrv","hostname":"_mongodb._tcp.cluster0.fztyp.mongodb.net","level":"error","message":"Could not connect to the database. Exiting now... querySrv ECONNREFUSED _mongodb._tcp.cluster0.fztyp.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.fztyp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:196:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"errno":"ECONNREFUSED","code":"ECONNREFUSED","syscall":"querySrv","hostname":"_mongodb._tcp.cluster0.fztyp.mongodb.net","level":"error","message":"Could not connect to the database. Exiting now... querySrv ECONNREFUSED _mongodb._tcp.cluster0.fztyp.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.fztyp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:196:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

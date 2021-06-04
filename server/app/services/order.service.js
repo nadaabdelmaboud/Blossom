@@ -78,7 +78,8 @@ const OrderService = {
           err: await error("Problem Retrieving Bouquet", 500),
         };
     }
-    return { data: orderObject.UserData, err: "" };
+    const OrderItems = await Order.formateItems(orderObject.UserData);
+    return { data: OrderItems, err: "" };
   },
   async deleteItem(userId, itemId) {
     const isUserIdValid = await MongooseValidation.validateID(userId);
