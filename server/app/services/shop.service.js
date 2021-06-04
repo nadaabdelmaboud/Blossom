@@ -77,6 +77,6 @@ const ShopService={
       async getAllPlantsTypes(){
         const types = await Shop.getAllPlantsTypes();
         return { data: types, err: "" };
-      }
+      },
 }
 module.exports = ShopService;

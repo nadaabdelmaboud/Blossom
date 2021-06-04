@@ -25,6 +25,16 @@ const OrderController = {
       return res.status(200).send(data.data);
     }
     res.status(data.err.status).send(data.err.message);
+  },
+  async changeOrderStatus(req,res){
+    const userId = req.params.userId;
+    const orderId = req.params.orderId;
+    const status = req.query.status;
+    const data = await OrderService.changeUserOrderStatus(userId, orderId,status);
+    if (data.data) {
+      return res.status(200).send(data.data);
+    }
+    res.status(data.err.status).send(data.err.message);
   }
 };
 module.exports = OrderController;

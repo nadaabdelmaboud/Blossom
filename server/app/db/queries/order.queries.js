@@ -59,5 +59,21 @@ const Order = {
     if (result) return { result: result.Cart[Index], amount: amount.amount };
     return result;
   },
+  async changeUserOrdersStatus(user,orderId,status){
+    if(user.Cart.length==0){
+      return false;
+    }
+    console.log(user.Cart);
+    console.log(orderId);
+
+    order =await user.Cart.find(order => order._id == orderId);
+    if(!order) return false;
+    if(order.status!="pending" && order.status!="progress") return false;
+    if(order.status=="pending" && status!="progress") return false;
+    if(order.status=="progress" && status!="delivered") return false;
+    order.status = status;
+    await user.save();
+    return true;
+  }
 };
 module.exports = Order;

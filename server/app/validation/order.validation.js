@@ -14,5 +14,9 @@ const OrderValidation = {
     });
     return schema.validate(item);
   },
+  async validateStatus(status){
+    const schema = Joi.string().required().valid("pending","delivered");
+    return schema.validate(status);
+  }
 };
 module.exports = OrderValidation;

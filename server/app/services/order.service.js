@@ -117,5 +117,32 @@ const OrderService = {
       };
     return { data: itemObject.result, err: "" };
   },
+  async changeUserOrderStatus(userId,orderId,status){
+    const isValidUserId = await MongooseValidation.validateID(userId);
+    if (!isValidUserId)
+      return { data: false, err: await error("Invalid User ID", 400) };
+    const isValidOrderId = await MongooseValidation.validateID(orderId);
+    if (!isValidOrderId)
+      return { data: false, err: await error("Invalid Order ID", 400) };
+    const isValidStatus = await OrderValidation.validateStatus(status);
+    if (isValidStatus.error)
+    return { data: false, err: await error(isValidStatus.error.message, 400) };
+    const user = await User.findUserById(userId,{Cart:1});
+    if(!user)
+      return { data: false, err: await error("No such user", 404) };
+    const isChanged = await Order.changeUserOrdersStatus(user,orderId,status);
+    if(!isChanged)
+      return { data: false, err: await error("Couldnt change order status", 404) };
+    return { data: true, err:''};
+  },
+  async getAllOrdersWithDefinedStatus(status,limit){
+    //find all users where cart has an entry with status = pending and return their cart's
+    
+  },
+  async getUserOrdersWithDefinedStatus(userId,status,limit){
+
+
+  },
+
 };
 module.exports = OrderService;
