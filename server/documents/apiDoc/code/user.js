@@ -21,37 +21,41 @@
  * @apiSuccess {String} email user email
  * @apiSuccess {String} name user name
  * @apiSuccess {String} phone user phone number
+ * @apiSuccess {Number} maxPage max pages available
  *
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
- [
-    {
-        "_id": "6089d14c3323d34078fba7d9",
-        "name": "Nada",
-        "email": "nada@gmail.com",
-        "address": {
-            "country": "egypt",
-            "city": "giza",
-            "street": "abdelzaher",
-            "buildingNo": 20,
-            "apartmentNo": 5
+ {
+    "users": [
+        {
+            "_id": "6089d14c3323d34078fba7d9",
+            "name": "Nada",
+            "email": "nada@gmail.com",
+            "address": {
+                "country": "egypt",
+                "city": "giza",
+                "street": "abdelzaher",
+                "buildingNo": 20,
+                "apartmentNo": 5
+            },
+            "phone": "01283176585"
         },
-        "phone": "01283176585"
-    },
-    {
-        "_id": "608d666e7ff51820a8cb248d",
-        "name": "hager",
-        "email": "hager@gmail.com",
-        "address": {
-            "country": "alexandria",
-            "city": "aboer",
-            "street": "seastreet",
-            "buildingNo": 5,
-            "apartmentNo": 6
-        },
-        "phone": "01165655744"
-    }
-]
+        {
+            "_id": "6093e0c547edeb70146b26a4",
+            "name": "Menna",
+            "email": "menna123mahmoud@gmail.com",
+            "address": {
+                "country": "egypt",
+                "city": "Cairo",
+                "street": "Elfostat",
+                "buildingNo": "83",
+                "apartmentNo": "43"
+            },
+            "phone": "01066761053"
+        }
+    ],
+    "maxPage": 3
+}
  */
 
 /**
@@ -278,28 +282,20 @@
  * @apiParam (BodyParameters) {String} orderType item type (plant or bouquetId)
  * @apiParam (BodyParameters) {String} category item category 
  *
+ * @apiSuccess {number} status when 0 the amount is too large on the requst if 1 the request succeded
  *
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
-{
-    "_id": "6099e46231a2c759a833803a",
-    "orders": {
-        "608fe3662947f108c0fcdb0c": {
-            "amount": 3,
-            "orderType": "plant",
-            "category": "herb"
-        }
-    },
-    "lastEdit": "2021-05-11T02:43:45.224Z",
-    "address": {
-        "country": "alex",
-        "city": "cairo",
-        "street": "aboear",
-        "buildingNo": 5,
-        "apartmentNo": 3
-    },
-    "status": "pending"
-}
+ * {
+ *   "status": 1,
+ *   "cartID": "609c100297a5162a543d22af"
+ * }
+ * @apiSuccessExample {json} Success-Response:
+ * HTTP/1.1 200 OK
+ * {
+ *  "status": 0,
+ *  "count": 9
+ * }
  */
 
 /**
@@ -358,32 +354,40 @@
  * @apiSuccessExample {json} Success-Response:
  * HTTP/1.1 200 OK
 {
-    "_id": "609c49726d4c4e2a789f6e32",
-    "orders": {
-        "608fe3662947f108c0fcdb0c": {
-            "amount": 2,
-            "orderType": "plant",
-            "category": "herb"
-        },
-        "6093f1545604aa1b3c911672": {
-            "amount": 2,
-            "orderType": "bouquet",
-            "category": "Tulips"
-        },
-        "6090043a8410d235d0097a21": {
-            "amount": 3,
-            "orderType": "plant",
-            "category": "herb"
+    "6090043a8410d235d0097a21": {
+        "amount": 18,
+        "orderType": "plant",
+        "category": "herb",
+        "name": "sunflower",
+        "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
+        "price": 1000,
+        "count": {
+            "sold": 0,
+            "available": 0
         }
     },
-    "status": "pending",
-    "address": {
-        "country": "alex",
-        "city": "cairo",
-        "street": "aboear",
-        "buildingNo": 5,
-        "apartmentNo": 3
+    "608fe99514f3af4878571a6a": {
+        "amount": 4,
+        "orderType": "plant",
+        "category": "herb",
+        "name": "bleeding heart",
+        "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
+        "price": 600,
+        "count": {
+            "sold": 0,
+            "available": 2
+        }
     },
-    "lastEdit": "2021-05-12T21:34:05.817Z"
-}
- */
+    "6093f1545604aa1b3c911672": {
+        "amount": 1,
+        "orderType": "bouquet",
+        "category": "Tulips",
+        "name": "Tuli",
+        "images": "Plant/e5f2a7a5-061f-492f-8e98-27d049cc9bf6.jpg",
+        "price": 100,
+        "count": {
+            "sold": 0,
+            "available": 1
+        }
+    }
+} */

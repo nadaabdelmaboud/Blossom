@@ -6,6 +6,7 @@
     <cardDescription v-if="showCardDescription" />
     <createCategoryPopup v-if="showCategoryPopup" />
     <createSpecialPopup v-if="showSpecialPopup" />
+    <checkoutForm v-if="checkoutFormPopup" />
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
@@ -32,6 +33,7 @@ import cardDescription from "../components/HomePage/cardDescription";
 import homeFooter from "../components/HomePage/homeFooter";
 import createCategoryPopup from "../components/CreatePopups/newCategoryPopup";
 import createSpecialPopup from "../components/CreatePopups/newSpecialPopup";
+import checkoutForm from "../components/Cart/checkoutForm";
 import { mapState } from "vuex";
 export default {
   name: "UserHome",
@@ -43,6 +45,7 @@ export default {
     createCategoryPopup,
     createSpecialPopup,
     navBar,
+    checkoutForm,
   },
   computed: {
     ...mapState({
@@ -51,6 +54,7 @@ export default {
       showCategoryPopup: (state) => state.popupsState.createCategoryPopup,
       showSpecialPopup: (state) => state.popupsState.createSpecialPopup,
       showCardDescription: (state) => state.popupsState.descriptionPopup,
+      checkoutFormPopup: (state) => state.popupsState.checkoutFormPopup,
     }),
   },
 };

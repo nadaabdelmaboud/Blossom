@@ -10,6 +10,10 @@ const Bouquet = {
         pageNumber = parseInt(pageNumber);
         pageSize = parseInt(pageSize);
         const bouquets = await BouquetModel.find(query).skip((pageNumber-1)*pageSize).limit(pageSize);
+        if(bouquets){
+            const Count = await BouquetModel.countDocuments(query);
+            return { bouquets:bouquets,MaxPage: Math.ceil(Count / pageSize) };
+        }
         return bouquets;
     },
     async getBouquetById(id){
@@ -58,49 +62,36 @@ const Bouquet = {
         }
 
     },
-    async getCategories(){
-        return categories;
-
-    },
-    async updateCategory(category,newCategory){
-        const index = categories.indexOf(category);
-        const newIndex = categories.indexOf(newCategory);
-        if(newIndex!=-1) return false;
-        categories[index]=newCategory;
-        return true;
-    },
-    async deleteCategory(category){
-        const index = categories.indexOf(category);
-        categories.splice(index, 1);
-        return true;
-    },
-    async getSentiments(){
-        return sentiments;
-
-    },
-    async updateSentiment(sentiment,newSentiment){
-        const index = sentiments.indexOf(sentiment);
-        const newIndex = sentiments.indexOf(newSentiment);
-        if(newIndex!=-1) return false;
-        sentiments[index]=newSentiment;
-        return true;
-    },
-    async deleteSentiment(sentiment){
-        const index = sentiments.indexOf(sentiment);
-        sentiments.splice(index, 1);
-        return true;
-    },
     async updateBouquetCount(operation, id, amount){
-        const BouquetData = await BouquetModel.findById(id);
+        const BouquetData = await BouquetModel.findById(id,{count:1});
         if (!BouquetData) return false;
         if (operation == 1)
-          if (amount <= BouquetData.count.available)
+          if (amount <= BouquetData.count.available){
             BouquetData.count.available -= amount;
-          else return false;
-        else if (operation == 0) BouquetData.count.available += amount;
+            BouquetData.count.sold += amount;
+            }
+          else return { status: 0, count: BouquetData.count.available };
+        else if (operation == 0) {
+            BouquetData.count.available += amount;
+            BouquetData.count.sold -= amount;
+        }
         const Result = await BouquetData.save();
-        if (Result) return true;
+        if (Result) return { status: 1};
         return false;
+    },
+    async fillData(orderObject){
+        const Bouquets = await BouquetModel.find(
+          { _id: { $in: orderObject.bouquetId } },
+          { name: 1, images: 1, price: 1, count: 1 }
+        );
+        if (!Bouquets || !Bouquets.length) return false;
+        for (var i = 0; i < Bouquets.length; i++) {
+          orderObject.UserData[Bouquets[i]._id].name = Bouquets[i].name;
+          orderObject.UserData[Bouquets[i]._id].images = Bouquets[i].images;
+          orderObject.UserData[Bouquets[i]._id].price = Bouquets[i].price;
+          orderObject.UserData[Bouquets[i]._id].count = Bouquets[i].count;
+        }
+        return true;
     }
    
    

@@ -8,8 +8,6 @@ router.get("/plant/:id", PlantController.getPlant);
 router.put("/plant/:id", AuthMiddleware,AdminMiddleware, PlantController.updatePlant);
 router.post("/plant/", AuthMiddleware,AdminMiddleware, PlantController.createPlant);
 router.delete("/plant/:id", AuthMiddleware,AdminMiddleware,PlantController.deletePlant);
-router.put("/plants/type/:type",AuthMiddleware,PlantController.addPlantType);
-router.delete("/plants/type/:type", AuthMiddleware, PlantController.deletePlantType);
-router.get("/plants/type",AuthMiddleware,PlantController.getAllPlantsTypes);
+
 
 module.exports = router;

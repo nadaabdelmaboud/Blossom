@@ -31,22 +31,6 @@ const PlantController = {
     if (data.data) return res.status(200).send(data.data);
     res.status(data.err.status).send(data.err.message);
   },
-  async addPlantType(req, res) {
-    const type = req.params.type;
-    const data = await PlantService.addPlantType(type);
-    if (data.data) return res.status(200).send(data.data);
-    res.status(data.err.status).send(data.err.message);
-  },
-  async deletePlantType(req, res) {
-    const type = req.params.type;
-    const data = await PlantService.deletePlantType(type);
-    if (data.data) return res.status(200).send(data.data);
-    res.status(data.err.status).send(data.err.message);
-  },
-  async getAllPlantsTypes(req,res){
-     const data = await PlantService.getAllPlantsTypes();
-     if (data.data) return res.status(200).send(data.data);
-     res.status(data.err.status).send(data.err.message);
-  }
+
 };
 module.exports = PlantController;

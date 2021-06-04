@@ -15,9 +15,10 @@ const OrderService = {
     if (!isUserFound)
       return { data: false, err: await error("Invalid User ID", 404) };
     const isOrderVaild = await OrderValidation.validateItem(item);
+    console.log(isOrderVaild);
     if (isOrderVaild.error)
       return { data: false, err: await error(isOrderVaild.error.message, 400) };
-    const idPlant = await Plant.getPlantById(item.bouquetId);
+    const idPlant = await Plant.getPlantById(item.bouquetId, 1);
     const idBouquet = await Bouquet.getBouquetById(item.bouquetId);
     if (!idPlant && !idBouquet) {
       return {
@@ -26,14 +27,25 @@ const OrderService = {
       };
     }
     if (item.orderType == "plant") {
-      const UpdatePlant = await Plant.updatePlantCount(1,item.bouquetId,item.amount);
+      const UpdatePlant = await Plant.updatePlantCount(
+        1,
+        item.bouquetId,
+        item.amount
+      );
       if (!UpdatePlant)
-        return {data: false,err: await error("Plant not available", 500),};
+        return { data: false, err: await error("Plant not available", 500) };
+      if (UpdatePlant.status == 0) return { data: UpdatePlant, err: "" };
     }
     if (item.orderType == "bouquet") {
-      const UpdateBouquet = await Bouquet.updateBouquetCount(1,item.bouquetId,item.amount);
+      const UpdateBouquet = await Bouquet.updateBouquetCount(
+        1,
+        item.bouquetId,
+        item.amount
+      );
       if (!UpdateBouquet)
         return { data: false, err: await error("Bouquet not available", 500) };
+      if (UpdateBouquet.status == 0)
+        return {data: UpdateBouquet, err: ""};
     }
     const userObject = await Order.addItem(userId, item);
     if (!userObject)
@@ -50,7 +62,24 @@ const OrderService = {
     const orderObject = await Order.getOrderItems(userId);
     if (!orderObject)
       return { data: false, err: await error("Problem Adding Item", 500) };
-    return { data: orderObject, err: "" };
+    if (orderObject.plantId.length != 0) {
+      const plantData = await Plant.fillData(orderObject);
+      if (!plantData)
+        return {
+          data: false,
+          err: await error("Problem Retrieving Plants", 500),
+        };
+    }
+    if (orderObject.bouquetId.length != 0) {
+      const bouquetData = await Bouquet.fillData(orderObject);
+      if (!bouquetData)
+        return {
+          data: false,
+          err: await error("Problem Retrieving Bouquet", 500),
+        };
+    }
+    const OrderItems = await Order.formateItems(orderObject.UserData);
+    return { data: OrderItems, err: "" };
   },
   async deleteItem(userId, itemId) {
     const isUserIdValid = await MongooseValidation.validateID(userId);
@@ -62,7 +91,7 @@ const OrderService = {
     const isUserFound = await User.findUserById(userId);
     if (!isUserFound)
       return { data: false, err: await error("User Not Found", 404) };
-    const idPlant = await Plant.getPlantById(itemId);
+    const idPlant = await Plant.getPlantById(itemId, 1);
     const idBouquet = await Bouquet.getBouquetById(itemId);
     if (!idPlant && !idBouquet) {
       return {
@@ -73,10 +102,21 @@ const OrderService = {
     const itemObject = await Order.deleteItem(userId, itemId);
     if (!itemObject)
       return { data: false, err: await error("Problem Deleting Item", 500) };
-    const UpdatePlant = await Plant.updatePlantCount(0,itemId,itemObject.amount);
-    const UpdateBouquet = await Bouquet.updateBouquetCount(0,itemId,itemObject.amount);
+    const UpdatePlant = await Plant.updatePlantCount(
+      0,
+      itemId,
+      itemObject.amount
+    );
+    const UpdateBouquet = await Bouquet.updateBouquetCount(
+      0,
+      itemId,
+      itemObject.amount
+    );
     if (!UpdatePlant && !UpdateBouquet)
-      return {data: false,err: await error("Problem Updating The Item Count", 500)};
+      return {
+        data: false,
+        err: await error("Problem Updating The Item Count", 500),
+      };
     return { data: itemObject.result, err: "" };
   },
 };

@@ -9,7 +9,7 @@ const BouquetService={
             const isValid =await BouquetValidation.getBouquets(query);
             if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
             const bouquets = await Bouquet.getBouquets(query.pageNumber,query.pageSize,query.category,query.sentiment);
-            if(!bouquets||bouquets.length==0){
+            if(!bouquets||bouquets.bouquets.length==0){
                 return {data:false,err:await error("No Bouquets found",404)}
             }
             return {data:bouquets,err:''}
@@ -20,6 +20,7 @@ const BouquetService={
             console.log(isVlidId,id)
             const bouquet = await Bouquet.getBouquetById(id);
             if(!bouquet) return {data:false,err:await error("No Bouquet found",404)}
+
             return {data:bouquet,err:''}
         },
         async createBouquet(bouquet){
@@ -27,6 +28,7 @@ const BouquetService={
             if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
             bouquet = await Bouquet.createBouquet(bouquet)
             if(!bouquet) return {data:false,err:await error("Error in creating new bouquet",403)}
+            
             return {data:true,err:''}
         },
         async updateBouquet(bouquet,id){
@@ -46,39 +48,6 @@ const BouquetService={
             if(!success) return {data:false,err:await error("Error in deleting bouquet",403)}
             return {data:true,err:''}
         },
-        async getCategories(){
-            return {data:await Bouquet.getCategories(),err:''}
-        },
-        async updateCategory(body){
-            const isValid = await BouquetValidation.updateCategory(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.updateCategory(body.category,body.newCategory)
-            if(!success) return {data:false,err:await error("Error in updating category",403)}
-            return {data:true,err:''}
-        },
-        async deleteCategory(body){
-            const isValid = await BouquetValidation.deleteCategory(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.deleteCategory(body.category)
-            if(!success) return {data:false,err:await error("Error in deleting category",403)}
-            return {data:true,err:''}
-        },
-        async getSentiments(){
-            return {data:await Bouquet.getSentiments(),err:''}
-        },
-        async updateSentiment(body){
-            const isValid = await BouquetValidation.updateSentiment(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.updateSentiment(body.category,body.newCategory)
-            if(!success) return {data:false,err:await error("Error in updating category",403)}
-            return {data:true,err:''}
-        },
-        async deleteSentiment(body){
-            const isValid = await BouquetValidation.deleteSentiment(body)
-            if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            const success = await Bouquet.deleteSentiment(body.category)
-            if(!success) return {data:false,err:await error("Error in deleting category",403)}
-            return {data:true,err:''}
-        }
+       
 }
 module.exports=BouquetService;

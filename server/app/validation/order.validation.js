@@ -1,10 +1,11 @@
 const Joi = require("joi");
-const { PlantModel, types } = require("../db/models/plants.model");
-const categories = require("../db/models/bouquet.model").categories;
-const allCategories = types.concat(categories);
+const Shop = require("../db/queries/shop.queries")
 
 const OrderValidation = {
   async validateItem(item) {
+    const PCat = await Shop.getAllPlantsTypes();
+    const BCat = await Shop.getBouquetCategories();
+    const allCategories = PCat.concat(BCat);
     const schema = Joi.object({
       bouquetId: Joi.string().required(),
       amount: Joi.number().required(),
