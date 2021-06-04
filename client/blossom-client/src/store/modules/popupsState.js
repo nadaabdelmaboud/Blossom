@@ -4,6 +4,7 @@ const state = {
   createCategoryPopup: false,
   createSpecialPopup: false,
   descriptionPopup: false,
+  checkoutFormPopup: false,
 };
 
 const mutations = {
@@ -21,6 +22,9 @@ const mutations = {
   },
   toggleDescriptionPopup(state) {
     state.descriptionPopup = !state.descriptionPopup;
+  },
+  toggleCheckoutFormPopup(state) {
+    state.checkoutFormPopup = !state.checkoutFormPopup;
   },
 };
 export default {

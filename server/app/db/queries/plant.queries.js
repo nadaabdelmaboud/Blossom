@@ -1,5 +1,5 @@
 const { array } = require("joi");
-const { PlantModel} = require("../models/plants.model");
+const { PlantModel } = require("../models/plants.model");
 const Plant = {
   async getAllPlants(query) {
     const pageSize = query.pageSize ? query.pageSize : 10;
@@ -11,10 +11,14 @@ const Plant = {
       filters.tips = { $exists: true, $ne: [] };
       fields.tips = 1;
     }
-    const plants = await PlantModel.find(filters, fields)
+    const Plants = await PlantModel.find(filters, fields)
       .skip((pageNumber - 1) * pageSize)
       .limit(pageSize);
-    return plants;
+    if (Plants) {
+      const Count = await PlantModel.countDocuments(filters);
+      return {Plants:Plants , MaxPage:Math.ceil(Count / pageSize)}
+    }
+    return Plants;
   },
   async deletePlant(id) {
     let plantObject;
@@ -74,9 +78,9 @@ const Plant = {
     const result = await plantData.save();
     return result;
   },
- 
+
   async updatePlantCount(operation, id, amount) {
-    const PlantData = await PlantModel.findById(id, { count :1});
+    const PlantData = await PlantModel.findById(id, { count: 1 });
     if (!PlantData) return false;
     if (operation == 1)
       if (amount <= PlantData.count.available) {
@@ -88,7 +92,7 @@ const Plant = {
       PlantData.count.sold -= amount;
     }
     const Result = await PlantData.save();
-    if (Result) return { status: 1};
+    if (Result) return { status: 1 };
     return false;
   },
   async fillData(orderObject) {
