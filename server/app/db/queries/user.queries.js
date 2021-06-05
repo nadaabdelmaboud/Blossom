@@ -32,10 +32,14 @@ const User = {
       Cart: [
         {
           orders: {},
-          status:"empty",
-          address:user.address
-        }
-      ]
+          status: "empty",
+          address: user.address,
+          feedback: {
+            rate: 0,
+            comment:""
+          },
+        },
+      ],
     });
     const userObject = await newUser.save();
     if (userObject) {

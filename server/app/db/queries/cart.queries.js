@@ -20,9 +20,11 @@ const Cart = {
     async createCart(user){
         if(user.Cart.length==0||user.Cart[user.Cart.length-1].status!="empty"){
                 user.Cart.push({
-                    orders: {},
-                    status:"empty",
-                    address:user.address
+                  orders: {},
+                  status: "empty",
+                  address: user.address,
+                  "feedback.rate":0,
+                  "feedback.comment":""
                 });
             user = await user.save();
         }

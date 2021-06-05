@@ -3,7 +3,9 @@ const Shop = require("../db/queries/shop.queries")
 
 const OrderValidation = {
   async validateItem(item) {
-    const allCategories = await Shop.getAllPlantsTypes().concat(await Shop.getBouquetCategories());
+    const PCat = await Shop.getAllPlantsTypes();
+    const BCat = await Shop.getBouquetCategories();
+    const allCategories = PCat.concat(BCat);
     const schema = Joi.object({
       bouquetId: Joi.string().required(),
       amount: Joi.number().required(),
