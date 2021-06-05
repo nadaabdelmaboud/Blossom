@@ -1,7 +1,7 @@
 <template>
   <div class="signup">
     <BlossomLogo />
-    <form class="form">
+    <form class="form" v-on:submit.prevent="signup">
       <i class="fa fa-times hoverGolden close" @click="close"></i>
       <h3>Welcome to Blossom</h3>
       <input
@@ -45,6 +45,8 @@
         placeholder="Phone Number"
         class="blossomInput"
         v-model="phoneNumber"
+        name="phone"
+        pattern="[0]{1}[1]{1}[0-2]{1}[0-9]{8}"
         required
       />
       <p class="addressLabel">Address</p>
@@ -95,7 +97,7 @@
           required
         />
       </div>
-      <button class="blossomButton" @submit="signup">Signup</button>
+      <button class="blossomButton">Signup</button>
       <div class="toSignup">
         Have an account?
         <span class="hoverGolden" @click="switchState">login</span>
@@ -120,7 +122,7 @@ export default {
       phoneNumber: "",
       address: {
         country: "egypt",
-        city: "City",
+        city: "Cairo",
         street: "",
         buildingNo: "",
         apartmentNo: "",
