@@ -7,6 +7,7 @@ import products from "./modules/products.js";
 import homePage from "./modules/homePage.js";
 import blossomUsers from "./modules/blossomUsers";
 import statistics from "./modules/statistics";
+import cart from "./modules/cart";
 
 Vue.use(Vuex);
 
@@ -19,5 +20,6 @@ export default new Vuex.Store({
     homePage,
     blossomUsers,
     statistics,
+    cart
   },
 });
