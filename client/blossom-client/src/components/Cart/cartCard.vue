@@ -9,7 +9,7 @@
       <div class="box" id="image">
         <img src="../../assets/flower.jpg" alt="BlossomFlower" />
       </div>
-      <div class="box" v-if="available">
+      <div class="box" v-if="available != 0">
         <div class="flowerName">
           <h3>Tulip</h3>
         </div>
@@ -17,14 +17,15 @@
           <h3>250 LE</h3>
         </div>
         <div class="amountButton">
-          <button class="blossomButton">
+          <!-- <button class="blossomButton">
             {{ amount }} bouquet
             <i class="fa fa-arrow-up" @click="increaseCount()"></i>
             <i class="fa fa-arrow-down" @click="decreaseCount()"></i>
-          </button>
+          </button> -->
+          Amount: {{orderAmount}}
         </div>
       </div>
-      <div class="box" v-if="!available">
+      <div class="box" v-if="available == 0">
         <div class="flowerName">
           <h3>Tulip</h3>
         </div>
@@ -120,19 +121,22 @@ i {
 <script>
 export default {
   name: "cartCard",
-  data: function () {
-    return {
-      amount: 1,
-      available: true,
-    };
-  },
-  methods: {
-    increaseCount() {
-      this.amount = this.amount + 1;
+  props: {
+    image:{
+      type: String
     },
-    decreaseCount() {
-      if (this.amount - 1 > 0) this.amount = this.amount - 1;
+    orderName:{
+      type: String
     },
+    orderPrice:{
+      type: String
+    },
+    orderAmount:{
+      type: String
+    },
+    available: {
+      type: Number
+    }
   },
 };
 </script>

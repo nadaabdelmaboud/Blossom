@@ -1,15 +1,29 @@
 <template>
   <div class="userCart">
-    <div class="container" v-if="!emptyCart">
-      <cartCard />
+    <!-- <div class="container" v-if="!emptyCart"> -->
+      <!-- /////////////////////////////////////DONOT forget to uncomment these commented lines////////////////// -->
+      <div class="container ">
+          <div class="gridContainer">
+      <cartCard
+        class="box"
+        v-for="card in cartCards"
+        :key="card"
+        :id="card"
+        :image="card.images"
+        :orderName="card.name"
+        :orderPrice="card.price"
+        :orderAmount="card.amount"
+        :available="card.count.available"
+      />
+    </div>
       <div class="totalPrice">
         <h3>Total Price: 2050 LE</h3>
       </div>
       <div class="checkoutForm">
-        <button class="blossomButton">Checkout</button>
+        <button class="blossomButton" @click="showCheckoutForm()">Checkout</button>
       </div>
     </div>
-    <div class="container" v-if="emptyCart">
+    <!-- <div class="container" v-if="emptyCart">
       <div class="empty">
         <h3>OOOOh! Your cart is empty right now</h3>
         <h6>Check our home page and search for your order</h6>
@@ -19,7 +33,7 @@
           Blossom Page
         </button>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -30,6 +44,24 @@
   width: 100%;
   padding-top: 30px;
   text-align: center;
+}
+.gridContainer {
+  position: relative;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-rows: minmax(auto, auto);
+  margin: auto;
+  padding: 20px;
+  margin-top: 30px;
+  grid-gap: 5px;
+}
+.gridContainer .box {
+  width: 95%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  justify-self: center;
 }
 .totalPrice {
   h3 {
@@ -58,11 +90,23 @@ h6 {
     font-weight: 500;
   }
 }
+@media screen and (max-width: 960px) {
+  .gridContainer {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 4px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .gridContainer {
+    padding: 0;
+  }
+}
 </style>
 
 <script>
 import cartCard from "../components/Cart/cartCard";
 import router from "@/router";
+import { mapState } from "vuex";
 export default {
   name: "userCart",
   components: {
@@ -73,10 +117,21 @@ export default {
       emptyCart: true,
     };
   },
+    computed: {
+    ...mapState({
+      cartCards: (state) => state.cart.cartCards,
+    }),
+  },
+  mounted(){
+    this.$store.dispatch("cart/callCartCards");
+  },
   methods: {
     routeToHomePage() {
       router.push("/");
     },
+    showCheckoutForm(){
+      this.$store.commit("popupsState/toggleCheckoutFormPopup");
+    }
   },
 };
 </script>

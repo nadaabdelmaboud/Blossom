@@ -1,6 +1,20 @@
 <template>
   <div class="cardsPagination">
-    <div class="container">
+    <div class="container" v-if="isFlower == true">
+      <homeCard
+        class="box"
+        v-for="card in homeCards.bouquets"
+        :key="card._id"
+        :id="card._id"
+        :image="card.images"
+        :name="card.name"
+        :price="card.price"
+        :flowerCateogry="card.bouquetCategory"
+        :isFlower="true"
+        :available="card.count.available"
+      />
+    </div>
+        <div class="container" v-else>
       <homeCard
         class="box"
         v-for="card in homeCards"
@@ -9,7 +23,9 @@
         :image="card.images"
         :name="card.name"
         :price="card.price"
+        :plantType="card.type"
         :available="card.count.available"
+        :isFlower="false"
       />
     </div>
     <div class="pagination">

@@ -24,10 +24,22 @@
           <span id="available"> available</span>
         </div>
         <div class="buttonDiv">
+          <div class="cartBlock">
+          <div class="chooseAmount" v-if="user == true">
+              {{cartAmount}}
+              <router-link to="/userCart">
+              <i class="fa fa-shopping-cart" id="cartIcon"></i>
+              </router-link>
+               <i class="fa fa-arrow-up" @click="increaseAmount()"></i>
+              <i class="fa fa-arrow-down" @click="decreaseAmount()"></i>
+          </div>
+
+          </div>
+          <div class="homeCardButtons">
           <button
             class="addToCart blossomButton"
             v-if="user == true"
-            @click="showToast('toastId')"
+            @click="addItemToCart()"
           >
             Add to Cart
           </button>
@@ -38,7 +50,12 @@
           >
             Edit Card
           </button>
+          </div>
+          
         </div>
+          <p id="errorMessage" v-if="notAvailable">only {{available}} Available</p>
+          <p id="errorMessage" v-if="errorDetected">only {{availableCount}} Available</p>
+          <p id="errorMessage" v-if="zeroAmount">choose amount first</p>
       </div>
     </div>
     <div class="toast" id="toastId">
@@ -46,6 +63,7 @@
       <div class="addedToCart">Added to Cart</div>
     </div>
   </div>
+  <!-- showToast('toastId'), -->
 </template>
 
 <style lang="scss" scoped>
@@ -149,24 +167,53 @@ img {
   font-size: 17px;
 }
 .buttonDiv {
-  float: right;
-  margin-right: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.chooseAmount{
+  padding: 10px;
+  color: $darkGolden;
+  i{
+    cursor: pointer;
+    padding: 5px;
+    font-size: 18px;
+  }
+}
+.cartBlock{
+  display: flex;
+  flex-direction: column;
+}
+#errorMessage{
+  color: red;
+  margin: 5px;
+  padding: 0;
+}
+#cartIcon{
+  color: $darkGolden;
+  padding-left: 0;
+}
+.homeCardButtons{
+ margin-right: 12px;
   margin-bottom: 6px;
 }
 .blossomButton {
   font-size: 15px;
-  height: 15%;
+  height: 50px;
 }
 </style>
 
 <script>
+import { mapState } from "vuex";
 import { default as showToast } from "../../mixins/toast";
 export default {
   name: "homeCard",
   data: function () {
     return {
-      admin: true,
-      user: false,
+      admin: false,
+      user: true,
+      cartAmount: 0,
+      notAvailable: false,
+      zeroAmount: false
     };
   },
   props: {
@@ -185,8 +232,23 @@ export default {
     available: {
       type: Number,
     },
+    flowerCateogry: {
+      type: String
+    },
+    isFlower: {
+      type: Boolean
+    },
+    plantType:{
+      type: String
+    }
   },
   mixins: [showToast],
+    computed: {
+    ...mapState({
+      availableCount: (state) => state.cart.availableCount,
+      errorDetected: (state) => state.cart.errorDetected,
+    }),
+  },
   methods: {
     toggleEditState() {
       this.$store.commit("popupsState/toggleEditCardPopup");
@@ -196,6 +258,45 @@ export default {
       this.$store.commit("homePage/setCardID", this.id);
       console.log(this.id);
     },
+    increaseAmount(){
+      this.zeroAmount = false;
+      if(this.cartAmount + 1 <= this.available)
+          this.cartAmount = this.cartAmount + 1;
+      else
+        this.notAvailable = true;
+    },
+    decreaseAmount(){
+      if(this.cartAmount - 1 >= 0){
+        this.cartAmount = this.cartAmount - 1;
+        this.notAvailable = false;
+      }
+    },
+    addItemToCart(){
+      //var toast = document.getElementById("toastId");
+      if(this.cartAmount == 0){
+        this.zeroAmount = true;
+      }
+      else{
+        this.zeroAmount = false;
+        this.showToast("toastId");
+      
+      if(this.isFlower == true)
+        this.$store.dispatch("cart/addToCart",{
+          bouquetId: this.id,
+          amount: this.cartAmount,
+          orderType: "bouquet",
+          category: this.flowerCateogry
+        });///return bouquet and cateogry
+      else
+        this.$store.dispatch("cart/addToCart",{
+          bouquetId: this.id,
+          amount: this.cartAmount,
+          orderType: "plant",
+          category: this.plantType
+        });//// return plant and type
+      this.cartAmount = 0;
+      }
+    }
   },
 };
 </script>
