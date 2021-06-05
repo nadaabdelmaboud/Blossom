@@ -2,7 +2,7 @@ import axios from "axios";
 const state = {
   cartCards: [],
   availableCount:0,
-  errorDetected: false
+  errorDetected: false,
 };
 
 const mutations = {
@@ -14,6 +14,12 @@ const mutations = {
   },
   setErrorDetected(state , error){
     state.errorDetected = error;
+  },
+  deletedItem(state, itemId){
+    var index = state.cartCards.findIndex((x) => x._id === itemId);
+    if (index !== -1) {
+      state.cartCards.splice(index, 1);
+    }
   }
 };
 const actions = {
@@ -42,6 +48,17 @@ const actions = {
         else{
           commit("setErrorDetected" , false);
         }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  deleteCardFromCart({ commit } , id) {
+    axios.defaults.headers.common["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGJiYzdmZjQwMWM2NzI4Njg4YjI3YjgiLCJ0eXBlIjoidXNlciIsImlhdCI6MTYyMjkxOTI5MiwiZXhwIjoxNjIzMDQyNzQ4fQ.aw32p1HYL_8mjbDQQYGv52pXNavODleXUJDjksNW4uU";
+    axios
+      .delete("users/cart/orders/" + id)
+      .then(() => {
+        commit("deletedItem", id);
       })
       .catch((error) => {
         console.log(error);

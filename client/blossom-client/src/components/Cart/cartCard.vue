@@ -2,7 +2,7 @@
   <div class="cartCard">
     <div class="container">
       <div class="box">
-        <div class="hoverGolden" id="deleteFlower">
+        <div class="hoverGolden" id="deleteFlower" @click="deleteCartCard()">
           <i class="fa fa-times"></i>
         </div>
       </div>
@@ -17,11 +17,6 @@
           <h3>{{orderPrice}} LE</h3>
         </div>
         <div class="amountButton">
-          <!-- <button class="blossomButton">
-            {{ amount }} bouquet
-            <i class="fa fa-arrow-up" @click="increaseCount()"></i>
-            <i class="fa fa-arrow-down" @click="decreaseCount()"></i>
-          </button> -->
           Amount: {{orderAmount}}
         </div>
       </div>
@@ -128,6 +123,9 @@ i {
 export default {
   name: "cartCard",
   props: {
+    id:{
+      type: String
+    },
     image:{
       type: String
     },
@@ -144,5 +142,10 @@ export default {
       type: Number
     }
   },
+  methods:{
+    deleteCartCard(){
+        this.$store.dispatch("cart/deleteCardFromCart",this.id);
+    }
+  }
 };
 </script>

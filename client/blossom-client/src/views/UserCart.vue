@@ -1,8 +1,6 @@
 <template>
   <div class="userCart">
-    <!-- <div class="container" v-if="!emptyCart"> -->
-      <!-- /////////////////////////////////////DONOT forget to uncomment these commented lines////////////////// -->
-      <div class="container ">
+    <div class="container" v-if="cartCards.length != 0">
           <div class="gridContainer">
       <cartCard
         class="box"
@@ -23,7 +21,7 @@
         <button class="blossomButton" @click="showCheckoutForm()">Checkout</button>
       </div>
     </div>
-    <!-- <div class="container" v-if="emptyCart">
+    <div class="container" v-if="cartCards.length == 0">
       <div class="empty">
         <h3>OOOOh! Your cart is empty right now</h3>
         <h6>Check our home page and search for your order</h6>
@@ -33,7 +31,7 @@
           Blossom Page
         </button>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -111,11 +109,6 @@ export default {
   name: "userCart",
   components: {
     cartCard,
-  },
-  data: function () {
-    return {
-      emptyCart: true,
-    };
   },
     computed: {
     ...mapState({
