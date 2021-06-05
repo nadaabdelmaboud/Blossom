@@ -80,6 +80,67 @@ const Cart = {
         await user.save();
         user = await this.createCart(user);
         return {items,totalPrice};
-    }
+    },
+    async changeUserCartStatus(user,orderId,status){
+        if(user.Cart.length==0){
+          return false;
+        }
+        let order=null;
+        let index=0;
+        for(let i=0;i<user.Cart.length;i++){
+          if(user.Cart[i]._id==orderId){
+            order = user.Cart[i];
+            index=i;
+            break;
+          }
+        }
+        if(!order) return false;
+        if(order.status!="pending" && order.status!="progress") return false;
+        if(order.status=="pending" && status!="progress") return false;
+        if(order.status=="progress" && status!="delivered") return false;
+        user.Cart[index].status = status;
+        user.Cart[index].lastEdit = new Date();
+        await user.save();
+        return true;
+      },
+      async getAllCartsWithDefinedStatus(users,status,limit){
+        let Carts=[];
+        users.forEach(user => {
+            for(let i=0;i<user.Cart.length;i++){
+                if(user.Cart[i].status==status){
+                  const cart={
+                      userId:user._id,
+                      lastEdit : user.Cart[i].lastEdit,
+                      order : user.Cart[i] 
+                  }
+                  Carts.push(cart)
+                }
+              }
+        });
+        Carts.sort(function(a,b){
+            return new Date(b.lastEdit) - new Date(a.lastEdit);
+          });
+        if(Carts.length<=limit) return Carts;
+        return Carts.slice(0,limit);
+      },
+      async getUserCartsWithDefinedStatus(user,status,limit){
+        let Carts=[];
+            for(let i=0;i<user.Cart.length;i++){
+                if(user.Cart[i].status==status){
+                  const cart={
+                      userId:user._id,
+                      lastEdit : user.Cart[i].lastEdit,
+                      order : user.Cart[i] 
+                  }
+                  Carts.push(cart)
+                }
+              }
+        
+        Carts.sort(function(a,b){
+            return new Date(b.lastEdit) - new Date(a.lastEdit);
+          });
+        if(Carts.length<=limit) return Carts;
+        return Carts.slice(0,limit);
+      }
 }
 module.exports = Cart
