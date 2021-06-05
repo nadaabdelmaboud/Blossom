@@ -69,7 +69,10 @@ const User = {
       phone: 1,
       Cart: 1,
     });
-    user[0].orders = Object.keys(user[0].Cart[0].orders).length;
+    if (user[0].Cart[0].orders)
+      user[0].orders = Object.keys(user[0].Cart[0].orders).length;
+    else 
+      user[0].orders=0;
     user[0].Cart = user[0].Cart.length;
     return user;
   },
