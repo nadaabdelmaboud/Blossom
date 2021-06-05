@@ -2022,3 +2022,7 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"level":"error","message":"Operation `Shop.find()` buffering timed out after 10000ms Operation `Shop.find()` buffering timed out after 10000ms","stack":"MongooseError: Operation `Shop.find()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (D:\\Blossom\\Blossom\\server\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:185:20)\n    at listOnTimeout (internal/timers.js:531:17)\n    at processTimers (internal/timers.js:475:7)"}

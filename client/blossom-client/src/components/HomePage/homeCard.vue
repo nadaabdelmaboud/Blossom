@@ -2,7 +2,8 @@
   <div class="homeCard">
     <div class="container">
       <div class="box">
-        <div class="flowerState" v-if="user == true">In Stock</div>
+        <div class="flowerState" v-if="user == true && available != 0">In Stock</div>
+        <div class="flowerState" v-if="user == true && available == 0">Out Stock</div>
         <div class="hoverGolden" id="deleteFlower" v-if="admin == true">
           <i class="fa fa-times"></i>
         </div>
@@ -24,7 +25,7 @@
           <span id="available"> available</span>
         </div>
         <div class="buttonDiv">
-          <div class="cartBlock">
+          <div class="cartBlock" v-if="available != 0">
           <div class="chooseAmount" v-if="user == true">
               {{cartAmount}}
               <router-link to="/userCart">
@@ -38,7 +39,7 @@
           <div class="homeCardButtons">
           <button
             class="addToCart blossomButton"
-            v-if="user == true"
+            v-if="user == true && available != 0"
             @click="addItemToCart()"
           >
             Add to Cart
