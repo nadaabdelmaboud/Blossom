@@ -11,10 +11,10 @@
       </div>
       <div class="box" v-if="available != 0">
         <div class="flowerName">
-          <h3>Tulip</h3>
+          <h3>{{orderName}}</h3>
         </div>
         <div class="flowerPrice">
-          <h3>250 LE</h3>
+          <h3>{{orderPrice}} LE</h3>
         </div>
         <div class="amountButton">
           <!-- <button class="blossomButton">
@@ -27,7 +27,7 @@
       </div>
       <div class="box" v-if="available == 0">
         <div class="flowerName">
-          <h3>Tulip</h3>
+          <h3>{{orderName}}</h3>
         </div>
         <div class="notAvailable">
           <h3>Not Available</h3>
@@ -97,6 +97,10 @@ h3 {
   font-size: 25px;
   text-align: center;
 }
+.flowerName{
+  color: $darkGolden;
+  text-decoration: underline;
+}
 .flowerPrice {
   h3 {
     font-size: 20px;
@@ -115,6 +119,8 @@ i {
 .amountButton {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 17px;
+  color: $darkGolden;
 }
 </style>
 
@@ -129,10 +135,10 @@ export default {
       type: String
     },
     orderPrice:{
-      type: String
+      type: Number
     },
     orderAmount:{
-      type: String
+      type: Number
     },
     available: {
       type: Number

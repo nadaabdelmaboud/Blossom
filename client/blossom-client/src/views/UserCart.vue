@@ -7,8 +7,8 @@
       <cartCard
         class="box"
         v-for="card in cartCards"
-        :key="card"
-        :id="card"
+        :key="card._id"
+        :id="card._id"
         :image="card.images"
         :orderName="card.name"
         :orderPrice="card.price"
