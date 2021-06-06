@@ -25,6 +25,7 @@ const OrderController = {
       return res.status(200).send(data.data);
     }
     res.status(data.err.status).send(data.err.message);
-  }
+  },
+ 
 };
 module.exports = OrderController;

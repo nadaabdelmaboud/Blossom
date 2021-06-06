@@ -21,4 +21,13 @@ router.delete('/me/cart',AuthMiddleware,CartController.emptyCart)
 //buy cart
 router.post('/me/cart',AuthMiddleware,CartController.buyCart)
 
+
+//change status
+router.put("/users/:userId/cart/:cartId",AuthMiddleware,AdminMiddleware,CartController.changeCartStatus);
+
+
+
+router.get("/users/carts/status",AuthMiddleware,AdminMiddleware,CartController.getAllCartsWithDefinedStatus);
+
+router.get("/users/:userId/carts/status",AuthMiddleware,AdminMiddleware,CartController.getUserCartsWithDefinedStatus);
 module.exports=router;

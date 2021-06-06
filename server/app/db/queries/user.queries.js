@@ -10,6 +10,10 @@ const User = {
     const user = await UserModel.findOne({ email: email }, projection);
     return user;
   },
+  async getUsers(projection = { _id: 1 }){
+    const users = await UserModel.find({}, projection);
+    return users;
+  },
   async comparePassword(user, password) {
     const checkUser = await user.comparePassword(password);
     if (checkUser) return true;
@@ -43,7 +47,7 @@ const User = {
     });
     const userObject = await newUser.save();
     if (userObject) {
-      return { _id: userObject._id };
+      return { _id: userObject._id ,type:"user"};
     }
     return false;
   },

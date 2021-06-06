@@ -14,4 +14,7 @@ router.delete('/bouquet/sentiments',AuthMiddleware,AdminMiddleware,ShopControlle
 router.post("/plants/type",AuthMiddleware,AdminMiddleware,ShopController.addPlantType);
 router.delete("/plants/type", AuthMiddleware,AdminMiddleware, ShopController.deletePlantType);
 router.get("/plants/type",ShopController.getAllPlantsTypes);
+router.get("/shop/sales",AuthMiddleware,AdminMiddleware,ShopController.getSalesMonth);
+router.get("/shop/top-users",AuthMiddleware,AdminMiddleware,ShopController.getTopUsers);
+
 module.exports=router;
