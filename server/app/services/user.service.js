@@ -32,11 +32,7 @@ const UserService = {
     }
     if (!userObject || userObject.length == 0)
       return { data: false, err: error("Invalid User ID", 404) };
-    if (type == "user") {
-      userObject[0].type = type;
-    } else {
-      userObject.type = type;
-    }
+    userObject.type = type;
     return { data: userObject, err: "" };
   },
   async updateUser(user, id) {

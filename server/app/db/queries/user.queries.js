@@ -78,7 +78,7 @@ const User = {
     else 
       user[0].orders=0;
     user[0].Cart = user[0].Cart.length;
-    return user;
+    return user[0];
   },
   async getAllUsersInfo(query) {
     const count = await UserModel.countDocuments();
