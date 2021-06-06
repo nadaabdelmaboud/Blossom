@@ -47,7 +47,7 @@ const User = {
     });
     const userObject = await newUser.save();
     if (userObject) {
-      return { _id: userObject._id };
+      return { _id: userObject._id ,type:"user"};
     }
     return false;
   },
@@ -73,6 +73,7 @@ const User = {
       phone: 1,
       Cart: 1,
     });
+    console.log(user[0])
     user[0].orders = Object.keys(user[0].Cart[0].orders).length;
     user[0].Cart = user[0].Cart.length;
     return user;
