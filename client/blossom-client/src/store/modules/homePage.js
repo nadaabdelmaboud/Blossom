@@ -9,6 +9,7 @@ const state = {
   cardId: "",
   cardName: "",
   cardDescription: "",
+  reviewCards:[]
 };
 
 const mutations = {
@@ -42,6 +43,9 @@ const mutations = {
   setCardDescription(state, value) {
     state.cardDescription = value;
   },
+  setReviewCards(state, cards){
+  state.reviewCards = cards;
+  }
 };
 
 const actions = {
@@ -101,6 +105,18 @@ const actions = {
       .then((response) => {
         commit("setCardName", response.data.name);
         commit("setCardDescription", response.data.info);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  getTopReviews({ commit }) {
+    axios.defaults.headers.common["Authorization"] = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGJiYzdmZjQwMWM2NzI4Njg4YjI3YjgiLCJ0eXBlIjoidXNlciIsImlhdCI6MTYyMjkxOTI5MiwiZXhwIjoxNjIzMDQyNzQ4fQ.aw32p1HYL_8mjbDQQYGv52pXNavODleXUJDjksNW4uU";
+    axios
+      .get("user/admin/cart/feedback/top")
+      .then((response) => {
+        commit("setReviewCards", response.data);
         console.log(response.data);
       })
       .catch((error) => {
