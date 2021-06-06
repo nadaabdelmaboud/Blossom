@@ -46,6 +46,12 @@ const mutations = {
   setReviewCards(state, cards) {
     state.reviewCards = cards;
   },
+  deleteCard(state, cardId) {
+    var index = state.homeCards.findIndex((x) => x._id === cardId);
+    if (index !== -1) {
+      state.homeCards.splice(index, 1);
+    }
+  },
 };
 
 const actions = {
@@ -64,7 +70,7 @@ const actions = {
       )
       .then((response) => {
         state.homeCards = [];
-        commit("setHomeCards", response.data);
+        commit("setHomeCards", response.data.bouquets);
         commit("setMaxPage", response.data.MaxPage);
         console.log(response.data);
       })
@@ -79,7 +85,7 @@ const actions = {
       .get("plant?" + typeVal + "pageSize=4&pageNumber=" + index)
       .then((response) => {
         state.homeCards = [];
-        commit("setHomeCards", response.data);
+        commit("setHomeCards", response.data.Plants);
         commit("setMaxPage", response.data.MaxPage);
         console.log(response.data);
       })
@@ -117,6 +123,26 @@ const actions = {
       .then((response) => {
         commit("setReviewCards", response.data);
         console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  deleteBouquetCard({ commit }, id) {
+    axios
+      .delete("bouquets/" + id)
+      .then(() => {
+        commit("deleteCard", id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  deletePlantCard({ commit }, id) {
+    axios
+      .delete("plant/" + id)
+      .then(() => {
+        commit("deleteCard", id);
       })
       .catch((error) => {
         console.log(error);
