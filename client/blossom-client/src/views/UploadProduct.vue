@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="upload blossomCard"
-  >
+  <div class="upload blossomCard">
     <img src="../assets/BlossomLogo_v7.png" alt="logo Image" class="logoImg" />
     <input
       style="display: none"
@@ -41,14 +39,22 @@
             :class="{
               optionChosen: categoryPlant != 'Choose Category',
             }"
-            @click="(showCategoryPlant = !showCategoryPlant), (showSpecials = false), (showCategoryBouquet = false)"
+            @click="
+              (showCategoryPlant = !showCategoryPlant),
+                (showSpecials = false),
+                (showCategoryBouquet = false)
+            "
           >
             {{ categoryPlant }}
 
             <i class="fa fa-chevron-right arrow" id="openArrow"></i>
           </div>
           <div class="blossomSelectList" v-if="showCategoryPlant">
-            <input type="text" v-model="searchCategoryPlant" placeholder="Search" />
+            <input
+              type="text"
+              v-model="searchCategoryPlant"
+              placeholder="Search"
+            />
             <div v-for="(c, i) in plantCategories" :key="i" class="options">
               <ul>
                 <li
@@ -72,14 +78,22 @@
             :class="{
               optionChosen: categoryBouquet != 'Choose Category',
             }"
-            @click=" (showCategoryBouquet = !showCategoryBouquet),(showCategoryPlant = false), (showSpecials = false)"
+            @click="
+              (showCategoryBouquet = !showCategoryBouquet),
+                (showCategoryPlant = false),
+                (showSpecials = false)
+            "
           >
             {{ categoryBouquet }}
 
             <i class="fa fa-chevron-right arrow" id="openArrow"></i>
           </div>
           <div class="blossomSelectList" v-if="showCategoryBouquet">
-            <input type="text" v-model="searchCategoryBouquet" placeholder="Search" />
+            <input
+              type="text"
+              v-model="searchCategoryBouquet"
+              placeholder="Search"
+            />
             <div v-for="(c, i) in bouquetCategories" :key="i" class="options">
               <ul>
                 <li
@@ -103,7 +117,11 @@
             :class="{
               optionChosen: specialityName != 'Choose Special',
             }"
-            @click="(showSpecials = !showSpecials), (showCategoryPlant = false), (showCategoryPlant = false)"
+            @click="
+              (showSpecials = !showSpecials),
+                (showCategoryPlant = false),
+                (showCategoryPlant = false)
+            "
           >
             {{ specialityName }}
 
@@ -127,8 +145,6 @@
             </div>
           </div>
         </div>
-
-
       </div>
       <div
         class="imageInput doubleBorder"
@@ -272,7 +288,7 @@
 </style>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 import { default as showToast } from "../mixins/toast";
 export default {
   name: "UploadProduct",
@@ -283,7 +299,7 @@ export default {
       title: "",
       description: "",
       searchCategoryPlant: "",
-      searchCategoryBouquet:"",
+      searchCategoryBouquet: "",
       searchSpecial: "",
       amount: "",
       price: "",
@@ -333,7 +349,7 @@ export default {
       this.$store.commit("popupsState/toggleCreateCategoryPopup");
       this.showCategoryPlant = false;
     },
-    createBouquet(){
+    createBouquet() {
       this.$store.commit("popupsState/toggleCreateBouquetPopup");
       this.showCategoryBouquet = false;
     },
@@ -364,17 +380,15 @@ export default {
   },
   computed: {
     ...mapState({
-     plantCategories: (state) => state.categories.plantCategories,
-     bouquetCategories: (state) => state.categories.bouquetCategories,
-     bouquetSentiments: (state) => state.sentiments.bouquetSentiments
-    })
-    
+      plantCategories: (state) => state.categories.plantCategories,
+      bouquetCategories: (state) => state.categories.bouquetCategories,
+      bouquetSentiments: (state) => state.sentiments.bouquetSentiments,
+    }),
   },
   async beforeCreate() {
     await this.$store.dispatch("categories/getPlantCategories");
     await this.$store.dispatch("categories/getBouquetCategories");
     await this.$store.dispatch("sentiments/getSentiments");
-
   },
 };
 </script>

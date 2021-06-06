@@ -1,5 +1,5 @@
 <template>
-    <div class="topReviews">
+  <div class="topReviews">
     <h6>What people say about us?</h6>
     <div class="container">
       <reviewCard
@@ -12,15 +12,15 @@
         :userRating="card.Cart[0].feedback.rate"
       />
     </div>
-    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @import "../../scss/_Colors";
-.topReviews{
-    width: 100%;
-    margin-top: 25px;
-    text-align: center;
+.topReviews {
+  width: 100%;
+  margin-top: 25px;
+  text-align: center;
 }
 .container {
   position: relative;
@@ -65,17 +65,17 @@ h6 {
 import reviewCard from "./reviewCard";
 import { mapState } from "vuex";
 export default {
-    name:"topReviews",
-    components: {
-    reviewCard, 
+  name: "topReviews",
+  components: {
+    reviewCard,
   },
   mounted() {
     this.$store.dispatch("homePage/getTopReviews");
   },
   computed: {
     ...mapState({
-      reviewCards: (state) => state.homePage.reviewCards
+      reviewCards: (state) => state.homePage.reviewCards,
     }),
   },
-}
+};
 </script>

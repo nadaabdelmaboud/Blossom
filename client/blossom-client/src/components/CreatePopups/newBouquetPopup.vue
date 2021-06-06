@@ -8,14 +8,14 @@
         class="logoImg"
       />
       <h3>Add new Bouquet Category? Intersting!</h3>
-    <form v-on:submit.prevent="addCategory" class="form">
-      <input
-        class="blossomInput"
-        v-model="categoryName"
-        placeholder="Category Name"
-      />
-      <button class="blossomButton" type="submit">Add Category</button>
-    </form>
+      <form v-on:submit.prevent="addCategory" class="form">
+        <input
+          class="blossomInput"
+          v-model="categoryName"
+          placeholder="Category Name"
+        />
+        <button class="blossomButton" type="submit">Add Category</button>
+      </form>
     </div>
   </div>
 </template>
@@ -76,9 +76,9 @@ export default {
   methods: {
     addCategory() {
       let payload = {
-         category:this.categoryName
-      }
-      this.$store.dispatch("categories/addBouquetCategories",payload);
+        category: this.categoryName,
+      };
+      this.$store.dispatch("categories/addBouquetCategories", payload);
     },
     close() {
       this.$store.commit("popupsState/toggleCreateBouquetPopup");

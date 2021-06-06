@@ -24,6 +24,6 @@ export default new Vuex.Store({
     statistics,
     cart,
     sentiments,
-    categories
+    categories,
   },
 });

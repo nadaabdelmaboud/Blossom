@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const state = {
-    bouquetSentiments:[],
+  bouquetSentiments: [],
 };
 
 const actions = {
@@ -15,11 +15,11 @@ const actions = {
       console.log(err);
     }
   },
-  async addSentiments({ state,commit },payload) {
+  async addSentiments({ state, commit }, payload) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.post("bouquet/sentiments",payload);
+      let data = await axios.post("bouquet/sentiments", payload);
       state.bouquetSentiments = data.data;
       commit("popupsState/toggleCreateSpecialPopup", null, { root: true });
     } catch (err) {

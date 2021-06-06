@@ -20,7 +20,7 @@ export default {
     cardsPagination,
     categories,
     whyUs,
-    topReviews
+    topReviews,
   },
   computed: {
     ...mapState({
