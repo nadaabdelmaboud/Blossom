@@ -14,6 +14,7 @@
           class="blossomInput"
           v-model="categoryName"
           placeholder="Category Name"
+          required
         />
         <button class="blossomButton" type="submit">Add Category</button>
       </form>

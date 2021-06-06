@@ -4,22 +4,26 @@ const state = {};
 
 const mutations = {};
 const actions = {
-  async uploadImg({ state }, { imageFile, imageData }) {
+  async upload({ state }, { imageFile, imageData, payload, type }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     console.log(state);
-
     try {
       let data = await axios.post("upload", imageData);
-      console.log(data);
       delete axios.defaults.headers.common["Authorization"];
       let url = data.data.url;
       let key = data.data.key;
-      console.log("key", key);
-      let response = await axios.put(url, imageFile, {
+      await axios.put(url, imageFile, {
         headers: { "Content-Type": imageFile.type },
       });
-      console.log("amazon res", response);
+      axios.defaults.headers.common["Authorization"] = token;
+      if (type == "Plant") {
+        payload.images = key;
+        await axios.post("plant", payload);
+      } else {
+        payload.image = key;
+        await axios.post("bouquets", payload);
+      }
     } catch (err) {
       console.log(err);
     }

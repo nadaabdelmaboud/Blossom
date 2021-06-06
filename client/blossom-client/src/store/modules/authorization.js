@@ -70,7 +70,7 @@ const actions = {
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.get("user/current");
-      commit("set_user", data.data);
+      commit("set_user", data.data[0]);
       commit("auth_success");
     } catch (err) {
       console.log(err);

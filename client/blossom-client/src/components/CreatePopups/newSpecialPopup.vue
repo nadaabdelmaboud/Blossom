@@ -13,6 +13,7 @@
           class="blossomInput"
           v-model="specialName"
           placeholder="Sentiment Name"
+          required
         />
         <button class="blossomButton" type="submit">Add Sentiment</button>
       </form>
