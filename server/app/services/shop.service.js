@@ -13,21 +13,21 @@ const ShopService={
         if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
         const success = await Shop.createBouquetCategory(body.category)
         if(!success) return {data:false,err:await error("Error in creating category",403)}
-        return {data:true,err:''}
+        return {data:success,err:''}
     },
     async updateBouquetCategory(body){
         const isValid = await ShopValidation.updateBouquetCategory(body)
         if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
         const success = await Shop.updateBouquetCategory(body.category,body.newCategory)
         if(!success) return {data:false,err:await error("Error in updating category",403)}
-        return {data:true,err:''}
+        return {data:success,err:''}
     },
     async deleteBouquetCategory(body){
         const isValid = await ShopValidation.deleteBouquetCategory(body)
         if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
         const success = await Shop.deleteBouquetCategory(body.category)
         if(!success) return {data:false,err:await error("Error in deleting category",403)}
-        return {data:true,err:''}
+        return {data:success,err:''}
     },
     async getBouquetSentiments(){
         return {data:await Shop.getBouquetSentiments(),err:''}
@@ -37,21 +37,21 @@ const ShopService={
         if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
         const success = await Shop.createBouquetSentiment(body.sentiment)
         if(!success) return {data:false,err:await error("Error in creating category",403)}
-        return {data:true,err:''}
+        return {data:success,err:''}
     },
     async updateBouquetSentiment(body){
         const isValid = await ShopValidation.updateBouquetSentiment(body)
         if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
         const success = await Shop.updateBouquetSentiment(body.sentiment,body.newSentiment)
         if(!success) return {data:false,err:await error("Error in updating category",403)}
-        return {data:true,err:''}
+        return {data:success,err:''}
     },
     async deleteBouquetSentiment(body){
         const isValid = await ShopValidation.deleteBouquetSentiment(body)
         if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
         const success = await Shop.deleteBouquetSentiment(body.sentiment)
         if(!success) return {data:false,err:await error("Error in deleting category",403)}
-        return {data:true,err:''}
+        return {data:success,err:''}
     },
     async addPlantType(type) {
         const isValid = await ShopValidation.vlalidatePlantType(type);

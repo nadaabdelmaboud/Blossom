@@ -1893,3 +1893,7 @@
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
 {"level":"error","message":"user is not defined user is not defined","stack":"ReferenceError: user is not defined\n    at Object.getTopUsers (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\services\\shop.service.js:121:27)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
