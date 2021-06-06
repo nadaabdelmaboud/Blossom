@@ -6,7 +6,7 @@ const state = {
   user: {
     name: "",
   },
-  isAdmin: Boolean,
+  isAdmin: false,
 };
 
 const mutations = {
@@ -27,6 +27,7 @@ const mutations = {
     state.status = "";
     state.token = "";
     state.user = {};
+    this.isAdmin= false;
   },
 };
 const actions = {

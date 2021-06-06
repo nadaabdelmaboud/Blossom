@@ -32,8 +32,8 @@ export default {
   },
   methods:{
     deleteTip(){
-      let id=5;
-      this.$store.dispatch("tips/deleteTip",id);
+
+      this.$store.dispatch("tips/deleteTip",{id:this.$route.params.plantId, tip:this.tip});
     }
   }
 };

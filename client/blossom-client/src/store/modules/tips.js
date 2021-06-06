@@ -20,17 +20,24 @@ const actions = {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.post("plant/"+id, payload);
+      let data = await axios.put("plant/"+id, payload);
       state.plantFull = data.data;
     } catch (err) {
       console.log(err);
     }
   },
-  async deleteTip({ state }, payload,id) {
+  async deleteTip({ state }, tip,id) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.post("plant/"+id, payload);
+        let payload={
+            tips:[]
+        }
+      for(i in state.plantFull.tips){
+          if(state.plantFull.tips[i] != tip)
+            payload.tips.push(state.plantFull.tips[i])
+      }
+      let data = await axios.put("plant/"+id, payload);
       state.plantFull = data.data;
     } catch (err) {
       console.log(err);
