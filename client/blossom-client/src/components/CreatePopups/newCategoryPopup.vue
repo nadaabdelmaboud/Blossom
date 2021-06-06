@@ -9,14 +9,15 @@
       />
       <h3>Add new plant? Intersting!</h3>
 
-         <form v-on:submit.prevent="addCategory" class="form">
-      <input
-        class="blossomInput"
-        v-model="categoryName"
-        placeholder="Category Name"
-      />
-      <button class="blossomButton" type="submit">Add Category</button>
-    </form>
+      <form v-on:submit.prevent="addCategory" class="form">
+        <input
+          class="blossomInput"
+          v-model="categoryName"
+          placeholder="Category Name"
+          required
+        />
+        <button class="blossomButton" type="submit">Add Category</button>
+      </form>
     </div>
   </div>
 </template>
@@ -77,9 +78,9 @@ export default {
   methods: {
     addCategory() {
       let payload = {
-         type:this.categoryName
-      }
-      this.$store.dispatch("categories/addPlantCategories",payload);
+        type: this.categoryName,
+      };
+      this.$store.dispatch("categories/addPlantCategories", payload);
     },
     close() {
       this.$store.commit("popupsState/toggleCreateCategoryPopup");

@@ -61,7 +61,7 @@ const actions = {
       .then((response) => {
         state.homeCards = [];
         commit("setHomeCards", response.data);
-        commit("setMaxPage" , response.data.MaxPage);
+        commit("setMaxPage", response.data.MaxPage);
         console.log(response.data);
       })
       .catch((error) => {
@@ -76,7 +76,7 @@ const actions = {
       .then((response) => {
         state.homeCards = [];
         commit("setHomeCards", response.data);
-        commit("setMaxPage" , response.data.MaxPage);
+        commit("setMaxPage", response.data.MaxPage);
         console.log(response.data);
       })
       .catch((error) => {

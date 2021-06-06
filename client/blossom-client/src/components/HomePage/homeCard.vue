@@ -2,8 +2,12 @@
   <div class="homeCard">
     <div class="container">
       <div class="box">
-        <div class="flowerState" v-if="user == true && available != 0">In Stock</div>
-        <div class="flowerState" v-if="user == true && available == 0">Out Stock</div>
+        <div class="flowerState" v-if="user == true && available != 0">
+          In Stock
+        </div>
+        <div class="flowerState" v-if="user == true && available == 0">
+          Out Stock
+        </div>
         <div class="hoverGolden" id="deleteFlower" v-if="admin == true">
           <i class="fa fa-times"></i>
         </div>
@@ -26,37 +30,39 @@
         </div>
         <div class="buttonDiv">
           <div class="cartBlock" v-if="available != 0">
-          <div class="chooseAmount" v-if="user == true">
-              {{cartAmount}}
+            <div class="chooseAmount" v-if="user == true">
+              {{ cartAmount }}
               <router-link to="/userCart">
-              <i class="fa fa-shopping-cart" id="cartIcon"></i>
+                <i class="fa fa-shopping-cart" id="cartIcon"></i>
               </router-link>
-               <i class="fa fa-arrow-up" @click="increaseAmount()"></i>
+              <i class="fa fa-arrow-up" @click="increaseAmount()"></i>
               <i class="fa fa-arrow-down" @click="decreaseAmount()"></i>
-          </div>
-
+            </div>
           </div>
           <div class="homeCardButtons">
-          <button
-            class="addToCart blossomButton"
-            v-if="user == true && available != 0"
-            @click="addItemToCart()"
-          >
-            Add to Cart
-          </button>
-          <button
-            class="editCardInfo blossomButton"
-            v-if="admin == true"
-            @click="toggleEditState()"
-          >
-            Edit Card
-          </button>
+            <button
+              class="addToCart blossomButton"
+              v-if="user == true && available != 0"
+              @click="addItemToCart()"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="editCardInfo blossomButton"
+              v-if="admin == true"
+              @click="toggleEditState()"
+            >
+              Edit Card
+            </button>
           </div>
-          
         </div>
-          <p id="errorMessage" v-if="notAvailable">only {{available}} Available</p>
-          <p id="errorMessage" v-if="errorDetected">only {{availableCount}} Available</p>
-          <p id="errorMessage" v-if="zeroAmount">choose amount first</p>
+        <p id="errorMessage" v-if="notAvailable">
+          only {{ available }} Available
+        </p>
+        <p id="errorMessage" v-if="errorDetected">
+          only {{ availableCount }} Available
+        </p>
+        <p id="errorMessage" v-if="zeroAmount">choose amount first</p>
       </div>
     </div>
     <div class="toast" id="toastId">
@@ -171,30 +177,30 @@ img {
   display: flex;
   justify-content: space-between;
 }
-.chooseAmount{
+.chooseAmount {
   padding: 10px;
   color: $darkGolden;
-  i{
+  i {
     cursor: pointer;
     padding: 5px;
     font-size: 18px;
   }
 }
-.cartBlock{
+.cartBlock {
   display: flex;
   flex-direction: column;
 }
-#errorMessage{
+#errorMessage {
   color: red;
   margin: 5px;
   padding: 0;
 }
-#cartIcon{
+#cartIcon {
   color: $darkGolden;
   padding-left: 0;
 }
-.homeCardButtons{
- margin-right: 12px;
+.homeCardButtons {
+  margin-right: 12px;
   margin-bottom: 6px;
 }
 .blossomButton {
@@ -214,7 +220,7 @@ export default {
       user: true,
       cartAmount: 0,
       notAvailable: false,
-      zeroAmount: false
+      zeroAmount: false,
     };
   },
   props: {
@@ -234,17 +240,17 @@ export default {
       type: Number,
     },
     flowerCateogry: {
-      type: String
+      type: String,
     },
     isFlower: {
-      type: Boolean
+      type: Boolean,
     },
-    plantType:{
-      type: String
-    }
+    plantType: {
+      type: String,
+    },
   },
   mixins: [showToast],
-    computed: {
+  computed: {
     ...mapState({
       availableCount: (state) => state.cart.availableCount,
       errorDetected: (state) => state.cart.errorDetected,
@@ -259,45 +265,44 @@ export default {
       this.$store.commit("homePage/setCardID", this.id);
       console.log(this.id);
     },
-    increaseAmount(){
+    increaseAmount() {
       this.zeroAmount = false;
-      if(this.cartAmount + 1 <= this.available)
-          this.cartAmount = this.cartAmount + 1;
-      else
-        this.notAvailable = true;
+      if (this.cartAmount + 1 <= this.available)
+        this.cartAmount = this.cartAmount + 1;
+      else this.notAvailable = true;
     },
-    decreaseAmount(){
-      if(this.cartAmount - 1 >= 0){
+    decreaseAmount() {
+      if (this.cartAmount - 1 >= 0) {
         this.cartAmount = this.cartAmount - 1;
         this.notAvailable = false;
       }
     },
-    addItemToCart(){
+    addItemToCart() {
       //var toast = document.getElementById("toastId");
-      if(this.cartAmount == 0){
+      if (this.cartAmount == 0) {
         this.zeroAmount = true;
-      }
-      else{
+      } else {
         this.zeroAmount = false;
         this.showToast("toastId");
-      
-      if(this.isFlower == true)
-        this.$store.dispatch("cart/addToCart",{
-          bouquetId: this.id,
-          amount: this.cartAmount,
-          orderType: "bouquet",
-          category: this.flowerCateogry
-        });///return bouquet and cateogry
-      else
-        this.$store.dispatch("cart/addToCart",{
-          bouquetId: this.id,
-          amount: this.cartAmount,
-          orderType: "plant",
-          category: this.plantType
-        });//// return plant and type
-      this.cartAmount = 0;
+
+        if (this.isFlower == true)
+          this.$store.dispatch("cart/addToCart", {
+            bouquetId: this.id,
+            amount: this.cartAmount,
+            orderType: "bouquet",
+            category: this.flowerCateogry,
+          });
+        ///return bouquet and cateogry
+        else
+          this.$store.dispatch("cart/addToCart", {
+            bouquetId: this.id,
+            amount: this.cartAmount,
+            orderType: "plant",
+            category: this.plantType,
+          }); //// return plant and type
+        this.cartAmount = 0;
       }
-    }
+    },
   },
 };
 </script>

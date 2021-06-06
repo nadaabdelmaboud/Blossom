@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const state = {
-    plantCategories:[],
-    bouquetCategories:[],
+  plantCategories: [],
+  bouquetCategories: [],
 };
 
 const actions = {
@@ -16,11 +16,11 @@ const actions = {
       console.log(err);
     }
   },
-  async addBouquetCategories({ state ,commit},payload) {
+  async addBouquetCategories({ state, commit }, payload) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.post("bouquet/categories",payload);
+      let data = await axios.post("bouquet/categories", payload);
       state.bouquetCategories = data.data;
       commit("popupsState/toggleCreateBouquetPopup", null, { root: true });
     } catch (err) {
@@ -36,15 +36,14 @@ const actions = {
     } catch (err) {
       console.log(err);
     }
-  },  
-  async addPlantCategories({ state ,commit},payload) {
+  },
+  async addPlantCategories({ state, commit }, payload) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.post("plants/type",payload);
+      let data = await axios.post("plants/type", payload);
       state.plantCategories = data.data;
       commit("popupsState/toggleCreateCategoryPopup", null, { root: true });
-
     } catch (err) {
       console.log(err);
     }

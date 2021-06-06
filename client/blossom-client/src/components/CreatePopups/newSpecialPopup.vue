@@ -8,14 +8,15 @@
         class="logoImg"
       />
       <h3>Add a new Special? Intersting!</h3>
-         <form v-on:submit.prevent="addSpecial" class="form">
-      <input
-        class="blossomInput"
-        v-model="specialName"
-        placeholder="Sentiment Name"
-      />
-      <button class="blossomButton" type="submit">Add Sentiment</button>
-    </form>
+      <form v-on:submit.prevent="addSpecial" class="form">
+        <input
+          class="blossomInput"
+          v-model="specialName"
+          placeholder="Sentiment Name"
+          required
+        />
+        <button class="blossomButton" type="submit">Add Sentiment</button>
+      </form>
     </div>
   </div>
 </template>
@@ -76,9 +77,9 @@ export default {
   methods: {
     addSpecial() {
       let payload = {
-         sentiment:this.specialName
-      }
-      this.$store.dispatch("sentiments/addSentiments",payload);
+        sentiment: this.specialName,
+      };
+      this.$store.dispatch("sentiments/addSentiments", payload);
     },
     close() {
       this.$store.commit("popupsState/toggleCreateSpecialPopup");

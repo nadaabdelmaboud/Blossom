@@ -11,18 +11,16 @@
       </div>
       <div class="box" v-if="available != 0">
         <div class="flowerName">
-          <h3>{{orderName}}</h3>
+          <h3>{{ orderName }}</h3>
         </div>
         <div class="flowerPrice">
-          <h3>{{orderPrice}} LE</h3>
+          <h3>{{ orderPrice }} LE</h3>
         </div>
-        <div class="amountButton">
-          Amount: {{orderAmount}}
-        </div>
+        <div class="amountButton">Amount: {{ orderAmount }}</div>
       </div>
       <div class="box" v-if="available == 0">
         <div class="flowerName">
-          <h3>{{orderName}}</h3>
+          <h3>{{ orderName }}</h3>
         </div>
         <div class="notAvailable">
           <h3>Not Available</h3>
@@ -92,7 +90,7 @@ h3 {
   font-size: 25px;
   text-align: center;
 }
-.flowerName{
+.flowerName {
   color: $darkGolden;
   text-decoration: underline;
 }
@@ -123,29 +121,29 @@ i {
 export default {
   name: "cartCard",
   props: {
-    id:{
-      type: String
+    id: {
+      type: String,
     },
-    image:{
-      type: String
+    image: {
+      type: String,
     },
-    orderName:{
-      type: String
+    orderName: {
+      type: String,
     },
-    orderPrice:{
-      type: Number
+    orderPrice: {
+      type: Number,
     },
-    orderAmount:{
-      type: Number
+    orderAmount: {
+      type: Number,
     },
     available: {
-      type: Number
-    }
+      type: Number,
+    },
   },
-  methods:{
-    deleteCartCard(){
-        this.$store.dispatch("cart/deleteCardFromCart",this.id);
-    }
-  }
+  methods: {
+    deleteCartCard() {
+      this.$store.dispatch("cart/deleteCardFromCart", this.id);
+    },
+  },
 };
 </script>
