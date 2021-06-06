@@ -73,6 +73,17 @@ const ShopController = {
          const data = await ShopService.getAllPlantsTypes();
          if (data.data) return res.status(200).send(data.data);
          res.status(data.err.status).send(data.err.message);
-      }
+      },
+      async getSalesMonth(req,res){
+        const data = await ShopService.getSalesPerMonth();
+        if (data.data) return res.status(200).send(data.data);
+        res.status(data.err.status).send(data.err.message);
+     },
+     async getTopUsers(req,res){
+
+      const data = await ShopService.getTopUsers(req.query.limit);
+      if (data.data) return res.status(200).send(data.data);
+      res.status(data.err.status).send(data.err.message);
+   }
 }
 module.exports = ShopController;

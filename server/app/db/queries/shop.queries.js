@@ -116,6 +116,7 @@ const Shop = {
         return shop[0].plantCategories;
 
         },
+     
 }
 
 module.exports=Shop
