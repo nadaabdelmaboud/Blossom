@@ -127,6 +127,7 @@ export default {
       this.$store.dispatch("homePage/callPlantCards", 1);
     }
     console.log(this.homeCards);
+    this.$store.commit("homePage/setCounter", 1);
   },
   computed: {
     ...mapState({

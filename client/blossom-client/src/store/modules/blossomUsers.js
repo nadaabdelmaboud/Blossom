@@ -25,7 +25,6 @@ const mutations = {
 
 const actions = {
   callBlossomUsers({ commit }, index) {
-    //to be deleted when token is ready
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     //////////////////////////////////////
@@ -33,7 +32,8 @@ const actions = {
       .get("users?pageSize=3&pageNumber=" + index)
       .then((response) => {
         state.users = [];
-        commit("setUsers", response.data);
+        commit("setUsers", response.data.users);
+        commit("setMaxPage", response.data.maxPage);
         console.log(response.data);
       })
       .catch((error) => {
@@ -41,7 +41,6 @@ const actions = {
       });
   },
   banUser({ commit }, id) {
-    //to be deleted when token is ready
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     //////////////////////////////////////
