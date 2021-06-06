@@ -41,6 +41,7 @@ const actions = {
     axios
       .post("users/cart/orders", param)
       .then((response) => {
+        console.log("error", response.data)
         if(response.data.status == 0){
           commit("setAvailableCount", response.data.count);
           commit("setErrorDetected" , true);

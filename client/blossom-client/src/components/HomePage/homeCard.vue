@@ -25,7 +25,7 @@
           <span id="available"> available</span>
         </div>
         <div class="buttonDiv">
-          <div class="cartBlock" v-if="available != 0">
+          <div class="cartBlock" v-if="available != 0 && getAll == false">
           <div class="chooseAmount" v-if="user == true">
               {{cartAmount}}
               <router-link to="/userCart">
@@ -39,7 +39,7 @@
           <div class="homeCardButtons">
           <button
             class="addToCart blossomButton"
-            v-if="user == true && available != 0"
+            v-if="user == true && available != 0 && getAll == false"
             @click="addItemToCart()"
           >
             Add to Cart
@@ -214,7 +214,8 @@ export default {
       user: true,
       cartAmount: 0,
       notAvailable: false,
-      zeroAmount: false
+      zeroAmount: false,
+      getAll: false
     };
   },
   props: {
@@ -273,7 +274,11 @@ export default {
       }
     },
     addItemToCart(){
-      //var toast = document.getElementById("toastId");
+      if(this.cartAmount == this.available){
+        this.getAll = true;
+        this.zeroAmount = false;
+        this.notAvailable = false;
+      }
       if(this.cartAmount == 0){
         this.zeroAmount = true;
       }
