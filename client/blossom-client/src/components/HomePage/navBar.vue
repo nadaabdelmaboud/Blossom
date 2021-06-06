@@ -35,7 +35,6 @@
           </router-link>
           <li v-if="noUser" @click="showLogin()">Login</li>
           <li v-if="noUser">Signup</li>
-          <li v-if="admin || user">Plant Tips</li>
           <li v-if="admin">Orders</li>
           <li v-if="user"><i class="fa fa-user"></i> Profile</li>
           <li v-if="user || admin">Logout</li>
@@ -59,7 +58,6 @@
         <router-link to="/">
           <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
         </router-link>
-        <li v-if="admin || user">Plant Tips</li>
         <li v-if="admin">Orders</li>
         <li v-if="user"><i class="fa fa-user"></i> Profile</li>
         <li v-if="user || admin">Logout</li>

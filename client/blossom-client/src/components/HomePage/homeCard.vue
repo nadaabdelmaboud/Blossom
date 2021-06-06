@@ -9,9 +9,17 @@
         </div>
       </div>
       <div class="box" id="flowerBox">
-        <div class="flowerImage">
+        <div class="flowerImage" v-if="isFlower == true">
+          <!-- if flower card -->
           <!--<img :src="image" />-->
-          <img src="../../assets/flower.jpg" alt="flower image" />
+          <img src="../../assets/flower.jpg" alt="Flower image" />
+        </div>
+        <div class="plantImage" v-if="isFlower == false" @click="routeToTipsPage()">
+          <!--<img :src="image" />-->
+          <!-- if plant card -->
+          <span data-toggle="tooltip" title="See this Plant Tips">
+          <img src="../../assets/flower.jpg" alt="Plant image" />
+          </span>
         </div>
       </div>
       <div class="box" id="flowerInfo">
@@ -107,6 +115,9 @@ img {
   margin-top: 5px;
   background-size: cover;
   object-fit: cover;
+}
+.plantImage{
+  cursor: pointer;
 }
 .flowerState {
   padding-right: 5px;
@@ -252,6 +263,9 @@ export default {
     }),
   },
   methods: {
+    routeToTipsPage(){
+      this.$router.push("tips/" + this.id);
+    },
     toggleEditState() {
       this.$store.commit("popupsState/toggleEditCardPopup");
     },
