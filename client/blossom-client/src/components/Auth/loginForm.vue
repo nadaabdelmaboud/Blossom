@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <BlossomLogo />
-    <form class="form">
+    <form class="form" v-on:submit.prevent="login">
       <i class="fa fa-times hoverGolden close" @click="close"></i>
       <h3>Welcome to Blossom</h3>
       <input
@@ -18,6 +18,7 @@
           id="passwordInput"
           type="password"
           v-model="password"
+          minlength="3"
           required
         />
         <i
@@ -36,7 +37,7 @@
       <div>
         <span class="hoverGolden floatRight">Forgot password?</span>
       </div>
-      <button class="blossomButton" @submit="login">Login</button>
+      <button class="blossomButton" type="submit">Login</button>
       <div class="toSignup">
         New to Blossom?
         <span class="hoverGolden" @click="switchState">Signup</span>
@@ -66,6 +67,7 @@ export default {
         email: this.email,
         password: this.password,
       };
+      console.log("gvasfdjs")
       this.$store.dispatch("authorization/login", user);
     },
     switchState() {

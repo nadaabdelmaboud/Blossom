@@ -53,7 +53,7 @@ const Shop = {
         if(index!=-1) return false;
         shop[0].bouquetCategories.push(category);
         await shop[0].save();
-        return true;
+        return shop[0].bouquetCategories;
     },
     async updateBouquetCategory(category,newCategory){
         const shop = await ShopModel.find({},{bouquetCategories:1});
@@ -62,14 +62,14 @@ const Shop = {
         if(newIndex!=-1) return false;
         shop[0].bouquetCategories.set(index,newCategory);
         await shop[0].save();
-        return true;
+        return shop[0].bouquetCategories;
     },
     async deleteBouquetCategory(category){
         const shop = await ShopModel.find({},{bouquetCategories:1});
         const index = shop[0].bouquetCategories.indexOf(category);
         shop[0].bouquetCategories.splice(index, 1);
         await shop[0].save();
-        return true;
+        return shop[0].bouquetCategories;
     },
     async createBouquetSentiment(sentiment){
         const shop = await ShopModel.find({},{bouquetSentiments:1});
@@ -77,7 +77,7 @@ const Shop = {
         if(index!=-1) return false;
         shop[0].bouquetSentiments.push(sentiment);
         await shop[0].save();
-        return true;
+        return shop[0].bouquetSentiments;
     },
     async updateBouquetSentiment(sentiment,newSentiment){
         const shop = await ShopModel.find({},{bouquetSentiments:1});
@@ -86,14 +86,14 @@ const Shop = {
         if(newIndex!=-1) return false;
         shop[0].bouquetSentiments.set(index,newSentiment);
         await shop[0].save().catch((err)=>{console.log(err)});
-        return true;
+        return shop[0].bouquetSentiments;
     },
     async deleteBouquetSentiment(sentiment){
         const shop = await ShopModel.find({},{bouquetSentiments:1});
         const index = shop[0].bouquetSentiments.indexOf(sentiment);
         shop[0].bouquetSentiments.splice(index, 1);
         await shop[0].save();
-        return true;
+        return shop[0].bouquetSentiments;
     },
     async addType(type) {
         const shop = await ShopModel.find({},{plantCategories:1});
@@ -116,6 +116,7 @@ const Shop = {
         return shop[0].plantCategories;
 
         },
+     
 }
 
 module.exports=Shop

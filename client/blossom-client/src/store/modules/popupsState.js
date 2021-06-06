@@ -2,6 +2,7 @@ const state = {
   authPopup: false,
   editCardPopup: false,
   createCategoryPopup: false,
+  createBouquetPopup: false,
   createSpecialPopup: false,
   descriptionPopup: false,
   checkoutFormPopup: false,
@@ -16,6 +17,9 @@ const mutations = {
   },
   toggleCreateCategoryPopup(state) {
     state.createCategoryPopup = !state.createCategoryPopup;
+  },
+  toggleCreateBouquetPopup(state) {
+    state.createBouquetPopup = !state.createBouquetPopup;
   },
   toggleCreateSpecialPopup(state) {
     state.createSpecialPopup = !state.createSpecialPopup;

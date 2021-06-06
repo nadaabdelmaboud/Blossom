@@ -3,7 +3,9 @@ import axios from "axios";
 const state = {
   status: "",
   token: localStorage.getItem("token") || "",
-  user: {},
+  user: {
+    name:"",
+  },
   isAdmin: Boolean,
 };
 
@@ -11,10 +13,12 @@ const mutations = {
   auth_request(state) {
     state.status = "loading";
   },
-  auth_success(state, { token, user }) {
+  auth_success(state) {
     state.status = "success";
-    state.token = token;
+  },
+  set_user(state,user) {
     state.user = user;
+    state.isAdmin = user.type != "user"
   },
   auth_error(state, err_msg) {
     state.status = err_msg;
@@ -31,10 +35,10 @@ const actions = {
     axios
       .post("sign", user)
       .then((response) => {
-        console.log("response ", response);
         const token = response.data.token;
         localStorage.setItem("token", token);
         axios.defaults.headers.common["Authorization"] = token;
+        commit("popupsState/toggleAuthPopup", null, { root: true });
         dispatch("get_user");
       })
       .catch((error) => {
@@ -51,6 +55,7 @@ const actions = {
         const token = response.data.token;
         localStorage.setItem("token", token);
         axios.defaults.headers.common["Authorization"] = token;
+        commit("popupsState/toggleAuthPopup", null, { root: true });
         dispatch("get_user");
       })
       .catch((error) => {
@@ -59,27 +64,38 @@ const actions = {
         localStorage.removeItem("token");
       });
   },
-  get_user({ commit }) {
+  async get_user({ commit }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
-    commit("popupsState/toggleAuthPopup", null, { root: true });
+    try {
+      let data = await axios.get("user/current");
+      commit("set_user", data.data);
+      commit("auth_success");
+    } catch (err) {
+      console.log(err);
+      commit("auth_error","error")
+    }
+  },
+  async update_user({ commit },payload) {
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
+    try {
+      let data = await axios.put("users",payload);
+      console.log("user data",data);
+      commit("set_user", data);
+    } catch (err) {
+      console.log(err);
+      commit("auth_error","error")
+    }
   },
   logout({ commit }) {
     commit("logout");
     localStorage.removeItem("token");
     delete axios.defaults.headers.common["Authorization"];
   },
-  // saveEdit({ }, user) {
-  //   axios
-  //     .put("", {
-  //       user
-  //     })
-  //     .then(() => {})
-  //     .catch(() => {});
-  // },
 };
 const getters = {
-  username: (state) => state.user.displayName,
+  username: (state) => state.user.name,
   getStatus: (state) => state.status,
   user: (state) => state.user,
   isAdmin: (state) => state.isAdmin,
