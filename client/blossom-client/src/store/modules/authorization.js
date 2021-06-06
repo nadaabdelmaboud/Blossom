@@ -27,7 +27,7 @@ const mutations = {
     state.status = "";
     state.token = "";
     state.user = {};
-    this.isAdmin= false;
+    state.isAdmin = false;
   },
 };
 const actions = {

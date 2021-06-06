@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="box" id="image">
-        <img src="../../assets/flower.jpg" alt="BlossomFlower" />
+        <img :src="getImage(image)" alt="BlossomFlower" />
       </div>
       <div class="box" v-if="available != 0">
         <div class="flowerName">
@@ -118,6 +118,7 @@ i {
 </style>
 
 <script>
+import { default as getImage } from "../../mixins/getImage";
 export default {
   name: "cartCard",
   props: {
@@ -140,6 +141,7 @@ export default {
       type: Number,
     },
   },
+  mixins: [getImage],
   methods: {
     deleteCartCard() {
       this.$store.dispatch("cart/deleteCardFromCart", this.id);

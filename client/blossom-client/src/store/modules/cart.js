@@ -24,8 +24,8 @@ const mutations = {
 };
 const actions = {
   callCartCards({ commit }) {
-    axios.defaults.headers.common["Authorization"] =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGJiYzdmZjQwMWM2NzI4Njg4YjI3YjgiLCJ0eXBlIjoidXNlciIsImlhdCI6MTYyMjkxOTI5MiwiZXhwIjoxNjIzMDQyNzQ4fQ.aw32p1HYL_8mjbDQQYGv52pXNavODleXUJDjksNW4uU";
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
     axios
       .get("users/cart/orders")
       .then((response) => {
@@ -37,12 +37,12 @@ const actions = {
       });
   },
   addToCart({ commit }, param) {
-    //const token = localStorage.getItem("token");
-    axios.defaults.headers.common["Authorization"] =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGJiYzdmZjQwMWM2NzI4Njg4YjI3YjgiLCJ0eXBlIjoidXNlciIsImlhdCI6MTYyMjkxOTI5MiwiZXhwIjoxNjIzMDQyNzQ4fQ.aw32p1HYL_8mjbDQQYGv52pXNavODleXUJDjksNW4uU";
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
     axios
       .post("users/cart/orders", param)
       .then((response) => {
+        console.log("error", response.data);
         if (response.data.status == 0) {
           commit("setAvailableCount", response.data.count);
           commit("setErrorDetected", true);
@@ -55,8 +55,8 @@ const actions = {
       });
   },
   deleteCardFromCart({ commit }, id) {
-    axios.defaults.headers.common["Authorization"] =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGJiYzdmZjQwMWM2NzI4Njg4YjI3YjgiLCJ0eXBlIjoidXNlciIsImlhdCI6MTYyMjkxOTI5MiwiZXhwIjoxNjIzMDQyNzQ4fQ.aw32p1HYL_8mjbDQQYGv52pXNavODleXUJDjksNW4uU";
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
     axios
       .delete("users/cart/orders/" + id)
       .then(() => {

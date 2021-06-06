@@ -1,11 +1,12 @@
 <template>
+<div class="tipsView">
   <div class="tips">
-   
     <tipsCard v-for="(t, i) in plantFull.tips" :key="i" :tip="t" :isAdmin="isAdmin" />
-    <div v-if="isAdmin">
-      <i class="fas fa-plus" @click="addTip"></i>
-    </div>
   </div>
+      <div v-if="isAdmin" class="add">
+      <i class="fa fa-plus hoverGolden" @click="addTip"></i>
+    </div>
+</div>
 </template>
 
 <script>
@@ -43,5 +44,25 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+.tipsView{
+  position: relative;;
+}
+.fa-plus{
+  position: absolute;
+  bottom: 15px;
+  font: 30px;
+  left:calc(50% - 7px) ;
+}
+.add{
+  width: 50px;
+height: 50px;
+position: absolute;
+background-color: black;
+  bottom: 0;
+  font: 30px;
+  left:calc(50%) ;
+  border-radius: 50px;
+cursor: pointer;
 }
 </style>

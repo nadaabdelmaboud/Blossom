@@ -4,9 +4,9 @@
       <div class="userImageBox">
         <img src="../../assets/user.svg" alt="userImage" />
       </div>
-      <div class="userName">{{userName}}</div>
+      <div class="userName">{{ userName }}</div>
       <div class="userReview">
-         {{userReview}}
+        {{ userReview }}
       </div>
       <div class="ratingStars">
         <ul>
@@ -23,7 +23,7 @@
 @import "../../scss/_Colors";
 .reviewCard {
   width: 100%;
-    -webkit-box-shadow: 0px 0px 10px 3px $lightGolden;
+  -webkit-box-shadow: 0px 0px 10px 3px $lightGolden;
   -moz-box-shadow: 0px 0px 10px 3px $lightGolden;
   box-shadow: 0px 0px 10px 3px $lightGolden;
 }
@@ -36,14 +36,14 @@
   justify-content: center;
   text-align: center;
 }
-.userImageBox{
-img {
-  border-radius: 50%;
-  width: 100px;
-  margin-top: 5px;
-  background-size: cover;
-  object-fit: cover;
-}
+.userImageBox {
+  img {
+    border-radius: 50%;
+    width: 100px;
+    margin-top: 5px;
+    background-size: cover;
+    object-fit: cover;
+  }
 }
 .userName {
   margin-top: 7px;
@@ -75,16 +75,16 @@ ul {
 <script>
 export default {
   name: "reviewCard",
-  props:{
-    userName:{
-      type: String
+  props: {
+    userName: {
+      type: String,
     },
-    userReview:{
-      type: String
+    userReview: {
+      type: String,
     },
-    userRating:{
-      type: Number
-    }
-  }
+    userRating: {
+      type: Number,
+    },
+  },
 };
 </script>

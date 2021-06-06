@@ -33,7 +33,7 @@ const actions = {
         let payload={
             tips:[]
         }
-      for(i in state.plantFull.tips){
+      for(let i in state.plantFull.tips){
           if(state.plantFull.tips[i] != tip)
             payload.tips.push(state.plantFull.tips[i])
       }
