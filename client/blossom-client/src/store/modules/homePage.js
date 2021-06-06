@@ -2,7 +2,7 @@ import axios from "axios";
 const state = {
   homeCards: [],
   counter: 1,
-  maxPages: 5,
+  maxPages: 0,
   isFlower: true,
   cateogry: "",
   sentiment: "",
@@ -61,6 +61,7 @@ const actions = {
       .then((response) => {
         state.homeCards = [];
         commit("setHomeCards", response.data);
+        commit("setMaxPage" , response.data.MaxPage);
         console.log(response.data);
       })
       .catch((error) => {
@@ -75,6 +76,7 @@ const actions = {
       .then((response) => {
         state.homeCards = [];
         commit("setHomeCards", response.data);
+        commit("setMaxPage" , response.data.MaxPage);
         console.log(response.data);
       })
       .catch((error) => {

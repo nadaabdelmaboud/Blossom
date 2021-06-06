@@ -2,31 +2,27 @@
   <div class="cartCard">
     <div class="container">
       <div class="box">
-        <div class="hoverGolden" id="deleteFlower">
+        <div class="hoverGolden" id="deleteFlower" @click="deleteCartCard()">
           <i class="fa fa-times"></i>
         </div>
       </div>
       <div class="box" id="image">
         <img src="../../assets/flower.jpg" alt="BlossomFlower" />
       </div>
-      <div class="box" v-if="available">
+      <div class="box" v-if="available != 0">
         <div class="flowerName">
-          <h3>Tulip</h3>
+          <h3>{{orderName}}</h3>
         </div>
         <div class="flowerPrice">
-          <h3>250 LE</h3>
+          <h3>{{orderPrice}} LE</h3>
         </div>
         <div class="amountButton">
-          <button class="blossomButton">
-            {{ amount }} bouquet
-            <i class="fa fa-arrow-up" @click="increaseCount()"></i>
-            <i class="fa fa-arrow-down" @click="decreaseCount()"></i>
-          </button>
+          Amount: {{orderAmount}}
         </div>
       </div>
-      <div class="box" v-if="!available">
+      <div class="box" v-if="available == 0">
         <div class="flowerName">
-          <h3>Tulip</h3>
+          <h3>{{orderName}}</h3>
         </div>
         <div class="notAvailable">
           <h3>Not Available</h3>
@@ -96,6 +92,10 @@ h3 {
   font-size: 25px;
   text-align: center;
 }
+.flowerName{
+  color: $darkGolden;
+  text-decoration: underline;
+}
 .flowerPrice {
   h3 {
     font-size: 20px;
@@ -114,25 +114,38 @@ i {
 .amountButton {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 17px;
+  color: $darkGolden;
 }
 </style>
 
 <script>
 export default {
   name: "cartCard",
-  data: function () {
-    return {
-      amount: 1,
-      available: true,
-    };
-  },
-  methods: {
-    increaseCount() {
-      this.amount = this.amount + 1;
+  props: {
+    id:{
+      type: String
     },
-    decreaseCount() {
-      if (this.amount - 1 > 0) this.amount = this.amount - 1;
+    image:{
+      type: String
     },
+    orderName:{
+      type: String
+    },
+    orderPrice:{
+      type: Number
+    },
+    orderAmount:{
+      type: Number
+    },
+    available: {
+      type: Number
+    }
   },
+  methods:{
+    deleteCartCard(){
+        this.$store.dispatch("cart/deleteCardFromCart",this.id);
+    }
+  }
 };
 </script>

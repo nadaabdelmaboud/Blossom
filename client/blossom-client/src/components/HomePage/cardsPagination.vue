@@ -1,16 +1,40 @@
 <template>
   <div class="cardsPagination">
-    <div class="container">
+    <div v-if="homeCards.length != 0">
+    <div class="container" v-if="isFlower == true">
       <homeCard
         class="box"
-        v-for="card in homeCards"
+        v-for="card in homeCards.bouquets"
         :key="card._id"
         :id="card._id"
         :image="card.images"
         :name="card.name"
         :price="card.price"
+        :flowerCateogry="card.bouquetCategory"
+        :isFlower="true"
         :available="card.count.available"
       />
+    </div>
+        <div class="container" v-else>
+      <homeCard
+        class="box"
+        v-for="card in homeCards.Plants"
+        :key="card._id"
+        :id="card._id"
+        :image="card.images"
+        :name="card.name"
+        :price="card.price"
+        :plantType="card.type"
+        :available="card.count.available"
+        :isFlower="false"
+      />
+    </div>
+    </div>
+    <div v-if="homeCards.length == 0">
+      <div class="emptyPage">
+            <img src="../../assets/flowers.svg" alt="noItemsFound">
+            <p><span> OOOPS!</span> No items found in this page</p>
+        </div>
     </div>
     <div class="pagination">
       <div><i class="fa fa-arrow-left" @click="previousPage()"></i></div>
@@ -56,6 +80,24 @@
 .counter {
   padding-left: 15px;
   padding-right: 15px;
+}
+.emptyPage{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    img{
+      width: 60px;
+      color: $darkGolden;
+    }
+    p{
+        color: $darkGolden;
+        font-size:25px;
+    }
+    span{
+        font-weight: 700;
+    }
 }
 @media screen and (max-width: 960px) {
   .container {

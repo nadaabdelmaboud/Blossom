@@ -214,7 +214,7 @@ export default {
     return {
       admin: false,
       user: true,
-      noUser: false,
+      noUser: true,
       count: 0,
       toggleList: false,
     };
