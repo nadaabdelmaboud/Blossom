@@ -14,28 +14,6 @@
       v-model="email"
       required
     />
-      <!-- <div class="passwordContainer">
-        <input
-          placeholder="Password"
-          class="blossomInput"
-          id="passwordInput"
-          type="password"
-          v-model="password"
-          required
-        />
-        <i
-          v-if="showPassword"
-          class="fa fa-eye-slash passwordIcon"
-          id="togglePassword"
-          @click="togglePasswordState"
-        ></i>
-        <i
-          v-else
-          class="fa fa-eye passwordIcon"
-          id="togglePassword"
-          @click="togglePasswordState"
-        ></i>
-      </div> -->
      <input
         placeholder="Phone Number"
         class="blossomInput"
@@ -97,7 +75,6 @@
 </template>
 
 <script>
-import { default as togglePasswordState } from "../mixins/togglePasswordState";
 import { mapState } from "vuex"
 export default {
   name: "UserProfile",
@@ -126,15 +103,12 @@ export default {
       showPassword: true,
     };
   },
-  mixins: [togglePasswordState],
   methods: {
     async saveChanges() {
       //send new user data to backend
       const user = {
         name: this.username,
         email: this.email,
-        //password: this.password,
-       // repeat_password: this.password,
         phone: this.phoneNumber,
         address: this.address,
       };

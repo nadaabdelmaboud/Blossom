@@ -7,14 +7,14 @@
         alt="logo Image"
         class="logoImg"
       />
-      <h3>Add a new Special? Intersting!</h3>
-         <form v-on:submit.prevent="addSpecial" class="form">
+      <h3>Add new Bouquet Category? Intersting!</h3>
+    <form v-on:submit.prevent="addCategory" class="form">
       <input
         class="blossomInput"
-        v-model="specialName"
-        placeholder="Sentiment Name"
+        v-model="categoryName"
+        placeholder="Category Name"
       />
-      <button class="blossomButton" type="submit">Add Sentiment</button>
+      <button class="blossomButton" type="submit">Add Category</button>
     </form>
     </div>
   </div>
@@ -67,21 +67,21 @@ h3 {
 
 <script>
 export default {
-  name: "CreateSpecial",
+  name: "CreateBouquetCategory",
   data: function () {
     return {
-      specialName: "",
+      categoryName: "",
     };
   },
   methods: {
-    addSpecial() {
+    addCategory() {
       let payload = {
-         sentiment:this.specialName
+         category:this.categoryName
       }
-      this.$store.dispatch("sentiments/addSentiments",payload);
+      this.$store.dispatch("categories/addBouquetCategories",payload);
     },
     close() {
-      this.$store.commit("popupsState/toggleCreateSpecialPopup");
+      this.$store.commit("popupsState/toggleCreateBouquetPopup");
     },
   },
 };

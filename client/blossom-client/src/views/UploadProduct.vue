@@ -1,9 +1,6 @@
 <template>
   <div
     class="upload blossomCard"
-    :class="{
-      marginDown: showCategory || showSpecials,
-    }"
   >
     <img src="../assets/BlossomLogo_v7.png" alt="logo Image" class="logoImg" />
     <input
@@ -38,27 +35,27 @@
           </label>
         </div>
 
-        <div class="blossomSelectComponent">
+        <div class="blossomSelectComponent" v-if="type && type == 'Plant'">
           <div
             class="blossomInput blossomSelect"
             :class="{
-              optionChosen: category != 'Choose Category',
+              optionChosen: categoryPlant != 'Choose Category',
             }"
-            @click="showCategoriesOptions"
+            @click="(showCategoryPlant = !showCategoryPlant), (showSpecials = false), (showCategoryBouquet = false)"
           >
-            {{ category }}
+            {{ categoryPlant }}
 
             <i class="fa fa-chevron-right arrow" id="openArrow"></i>
           </div>
-          <div class="blossomSelectList" v-if="showCategory">
-            <input type="text" v-model="searchCategory" placeholder="Search" />
-            <div v-for="(c, i) in categories" :key="i" class="options">
+          <div class="blossomSelectList" v-if="showCategoryPlant">
+            <input type="text" v-model="searchCategoryPlant" placeholder="Search" />
+            <div v-for="(c, i) in plantCategories" :key="i" class="options">
               <ul>
                 <li
-                  v-if="c.name.search(new RegExp(searchCategory, 'i')) != -1"
-                  @click="chooseCategory(c.name)"
+                  v-if="c.search(new RegExp(searchCategoryPlant, 'i')) != -1"
+                  @click="chooseCategoryPlant(c)"
                 >
-                  {{ c.name }}
+                  {{ c }}
                 </li>
               </ul>
             </div>
@@ -73,9 +70,40 @@
           <div
             class="blossomInput blossomSelect"
             :class="{
+              optionChosen: categoryBouquet != 'Choose Category',
+            }"
+            @click=" (showCategoryBouquet = !showCategoryBouquet),(showCategoryPlant = false), (showSpecials = false)"
+          >
+            {{ categoryBouquet }}
+
+            <i class="fa fa-chevron-right arrow" id="openArrow"></i>
+          </div>
+          <div class="blossomSelectList" v-if="showCategoryBouquet">
+            <input type="text" v-model="searchCategoryBouquet" placeholder="Search" />
+            <div v-for="(c, i) in bouquetCategories" :key="i" class="options">
+              <ul>
+                <li
+                  v-if="c.search(new RegExp(searchCategoryBouquet, 'i')) != -1"
+                  @click="chooseCategoryBouquet(c)"
+                >
+                  {{ c }}
+                </li>
+              </ul>
+            </div>
+            <div class="create" @click="createBouquet">
+              <strong>Create Bouquet Category</strong>
+              <i class="fa fa-plus globalIcons"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="blossomSelectComponent" v-if="type && type == 'Bouquet'">
+          <div
+            class="blossomInput blossomSelect"
+            :class="{
               optionChosen: specialityName != 'Choose Special',
             }"
-            @click="(showSpecials = !showSpecials), (showCategory = false)"
+            @click="(showSpecials = !showSpecials), (showCategoryPlant = false), (showCategoryPlant = false)"
           >
             {{ specialityName }}
 
@@ -83,13 +111,13 @@
           </div>
           <div class="blossomSelectList" v-if="showSpecials">
             <input type="text" v-model="searchSpecial" placeholder="Search" />
-            <div v-for="(s, i) in specialities" :key="i" class="options">
+            <div v-for="(s, i) in bouquetSentiments" :key="i" class="options">
               <ul>
                 <li
-                  v-if="s.name.search(new RegExp(searchSpecial, 'i')) != -1"
-                  @click="chooseSpecial(s.name)"
+                  v-if="s.search(new RegExp(searchSpecial, 'i')) != -1"
+                  @click="chooseSpecial(s)"
                 >
-                  {{ s.name }}
+                  {{ s }}
                 </li>
               </ul>
             </div>
@@ -99,6 +127,8 @@
             </div>
           </div>
         </div>
+
+
       </div>
       <div
         class="imageInput doubleBorder"
@@ -242,6 +272,7 @@
 </style>
 
 <script>
+import { mapState } from 'vuex';
 import { default as showToast } from "../mixins/toast";
 export default {
   name: "UploadProduct",
@@ -251,34 +282,21 @@ export default {
     return {
       title: "",
       description: "",
-      searchCategory: "",
+      searchCategoryPlant: "",
+      searchCategoryBouquet:"",
       searchSpecial: "",
       amount: "",
       price: "",
-      category: "Choose Category",
+      categoryPlant: "Choose Category",
+      categoryBouquet: "Choose Category",
       specialityName: "Choose Special",
       type: null,
-      showCategory: false,
+      showCategoryPlant: false,
+      showCategoryBouquet: false,
       showSpecials: false,
       imageFile: null,
       validate: false,
       imgExtention: "",
-      categories: [
-        {
-          name: "lillies",
-        },
-        {
-          name: "tulip",
-        },
-      ],
-      specialities: [
-        {
-          name: "I love you",
-        },
-        {
-          name: "happy birth day",
-        },
-      ],
       tips: [],
     };
   },
@@ -313,22 +331,22 @@ export default {
     },
     createCategory() {
       this.$store.commit("popupsState/toggleCreateCategoryPopup");
-      this.showCategory = false;
+      this.showCategoryPlant = false;
     },
-    chooseCategory(categoryName) {
-      this.category = categoryName;
-      this.showCategory = false;
+    createBouquet(){
+      this.$store.commit("popupsState/toggleCreateBouquetPopup");
+      this.showCategoryBouquet = false;
+    },
+    chooseCategoryPlant(categoryName) {
+      this.categoryPlant = categoryName;
+      this.showCategoryPlant = false;
+    },
+    chooseCategoryBouquet(categoryName) {
+      this.categoryBouquet = categoryName;
+      this.showCategoryBouquet = false;
     },
     chooseSpecial(specialityName) {
       this.specialityName = specialityName;
-      this.showSpecials = false;
-    },
-    showCategoriesOptions() {
-      if (!this.type) {
-        this.showToast("chooseType");
-        return;
-      }
-      this.showCategory = !this.showCategory;
       this.showSpecials = false;
     },
     upload() {
@@ -344,6 +362,19 @@ export default {
       this.$router.push("/");
     },
   },
-  computed: {},
+  computed: {
+    ...mapState({
+     plantCategories: (state) => state.categories.plantCategories,
+     bouquetCategories: (state) => state.categories.bouquetCategories,
+     bouquetSentiments: (state) => state.sentiments.bouquetSentiments
+    })
+    
+  },
+  async beforeCreate() {
+    await this.$store.dispatch("categories/getPlantCategories");
+    await this.$store.dispatch("categories/getBouquetCategories");
+    await this.$store.dispatch("sentiments/getSentiments");
+
+  },
 };
 </script>

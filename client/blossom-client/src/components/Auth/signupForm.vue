@@ -8,6 +8,7 @@
         placeholder="Username"
         class="blossomInput"
         v-model="username"
+        minlength="3"
         required
       />
       <input
@@ -25,6 +26,7 @@
           id="passwordInput"
           type="password"
           v-model="password"
+           minlength="3"
           required
         />
         <i
@@ -78,6 +80,7 @@
           placeholder="Street"
           class="blossomInput"
           v-model="address.street"
+          minlength="3"
           required
         />
         <input

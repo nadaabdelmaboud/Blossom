@@ -18,6 +18,7 @@
           id="passwordInput"
           type="password"
           v-model="password"
+          minlength="3"
           required
         />
         <i

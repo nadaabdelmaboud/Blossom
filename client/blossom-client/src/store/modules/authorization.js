@@ -3,7 +3,9 @@ import axios from "axios";
 const state = {
   status: "",
   token: localStorage.getItem("token") || "",
-  user: {},
+  user: {
+    name:"",
+  },
   isAdmin: Boolean,
 };
 
@@ -67,7 +69,7 @@ const actions = {
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.get("user/current");
-      commit("set_user", data.data[0]);
+      commit("set_user", data.data);
       commit("auth_success");
     } catch (err) {
       console.log(err);
