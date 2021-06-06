@@ -1,36 +1,38 @@
 <template>
   <div class="tips">
-    <tipsCard v-for="(t, i) in tips" :key="i" :tip="t" />
+   
+    <tipsCard v-for="(t, i) in plantFull.tips" :key="i" :tip="t" :isAdmin="isAdmin" />
+    <div v-if="isAdmin">
+      <i class="fas fa-plus" @click="addTip"></i>
+    </div>
   </div>
 </template>
 
 <script>
 import tipsCard from "../components/tipsCard";
+import {mapState } from "vuex";
 export default {
   data: function () {
     return {
-      tips: [
-        "awsomeeee plant",
-        "keeep in shadow and water every three days",
-        "give it love and care to have its flowers",
-        "awsomeeee plant",
-        "keeep in shadow and water every three days",
-        "give it love and care to have its flowers",
-        "awsomeeee plant",
-        "keeep in shadow and water every three days",
-        "give it love and care to have its flowers",
-        "awsomeeee plant",
-        "keeep in shadow and water every three days",
-        "give it love and care to have its flowers",
-      ],
     };
   },
   components: {
     tipsCard,
   },
-  methods: {},
-  computed: {},
-  created: function () {},
+  methods: {
+    addTip(){
+      //this.$store.dispatch("tips/deleteTip",id);
+    }
+  },
+   computed: {
+    ...mapState({
+      plantFull : (state) => state.tips.plantFull,
+      isAdmin : (state) => state.authorization.isAdmin
+    }),
+  },
+  async beforeCreate() {
+    await this.$store.dispatch("tips/getTips",this.$route.params.plantId);
+  },
 };
 </script>
 

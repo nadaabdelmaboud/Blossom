@@ -59,7 +59,14 @@ export default {
       showSpecialPopup: (state) => state.popupsState.createSpecialPopup,
       showCardDescription: (state) => state.popupsState.descriptionPopup,
       checkoutFormPopup: (state) => state.popupsState.checkoutFormPopup,
+      isAdmin : (state) => state.authorization.isAdmin
     }),
   },
+  created(){
+    setTimeout(()=>{
+       console.log("admin",this.isAdmin)
+    },2000)
+   
+  }
 };
 </script>

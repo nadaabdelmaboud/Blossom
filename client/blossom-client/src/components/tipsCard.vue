@@ -4,6 +4,7 @@
     id="tipColor"
     :style="{ 'background-color': colorRand[randNum] }"
   >
+   <i v-if="isAdmin" class="fa fa-times hoverGolden close" @click="deleteTip"></i>
     <i class="fa fa-thumb-tack" aria-hidden="true"></i>
     <p class="slogan">{{ tip }}</p>
   </div>
@@ -25,10 +26,16 @@ export default {
       randNum: 0,
     };
   },
-  props: ["tip"],
-  created: function () {
+  props: ["tip","isAdmin"],
+  created() {
     this.randNum = Math.floor(Math.random() * 7);
   },
+  methods:{
+    deleteTip(){
+      let id=5;
+      this.$store.dispatch("tips/deleteTip",id);
+    }
+  }
 };
 </script>
 
