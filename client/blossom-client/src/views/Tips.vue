@@ -1,17 +1,25 @@
 <template>
-  <div class="tipsView">
-    <img :src="getImage(plantFull.images)" />
-    <h1 class="slogan">{{ plantFull.name }}</h1>
-    <div class="tips">
-      <tipsCard
-        v-for="(t, i) in plantFull.tips"
-        :key="i"
-        :tip="t"
-        :isAdmin="isAdmin"
-      />
-    </div>
-    <div v-if="isAdmin" class="add" @click="addTip">
-      <i class="fa fa-plus hoverGolden"></i>
+  <div>
+    <div class="tipsView">
+      <img :src="getImage(plantFull.images)" />
+      <h1 class="slogan">{{ plantFull.name }}</h1>
+      <div v-if="!isAdmin && plantFull.tips.length == 0" class="slogan">
+        This plant has no tips yet.
+      </div>
+      <div v-if="isAdmin && plantFull.tips.length == 0" class="slogan">
+        This plant has no tips yet.Add more?
+      </div>
+      <div class="tips">
+        <tipsCard
+          v-for="(t, i) in plantFull.tips"
+          :key="i"
+          :tip="t"
+          :isAdmin="isAdmin"
+        />
+      </div>
+      <div v-if="isAdmin" class="add" @click="addTip">
+        <i class="fa fa-plus hoverGolden"></i>
+      </div>
     </div>
   </div>
 </template>
@@ -87,6 +95,7 @@ img {
   margin: auto;
   display: inherit;
   width: 200px;
+  height: 200px;
   border-radius: 50%;
   -webkit-box-shadow: 0px 0px 3px 3px $golden;
   -moz-box-shadow: 0px 0px 3px 3px $golden;
