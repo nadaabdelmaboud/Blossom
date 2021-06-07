@@ -5,7 +5,7 @@
       <typesCard />
     </div>
     <div class="showMore">
-      <button class="blossomButton">Show More</button>
+      <button class="blossomButton" @click="moreCategories()">Show More</button>
     </div>
   </div>
 </template>
@@ -40,5 +40,10 @@ export default {
   components: {
     typesCard,
   },
+  methods:{
+    moreCategories(){
+      this.$router.push("CategoriesPage");
+    }
+  }
 };
 </script>

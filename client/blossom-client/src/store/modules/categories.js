@@ -5,6 +5,21 @@ const state = {
   bouquetCategories: [],
 };
 
+const mutations = {
+  deletedBouquetsItem(state , item){
+    var index = state.bouquetCategories.findIndex((x) => x === item);
+    if (index !== -1) {
+      state.bouquetCategories.splice(index, 1);
+    }
+  },
+  deletedPlantsItem(state , item){
+    var index = state.plantCategories.findIndex((x) => x === item);
+    if (index !== -1) {
+      state.plantCategories.splice(index, 1);
+    }
+  }
+};
+
 const actions = {
   async getBouquetCategories({ state }) {
     const token = localStorage.getItem("token");
@@ -48,10 +63,35 @@ const actions = {
       console.log(err);
     }
   },
+  deleteBouquetsCategory({ commit }, category) {
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
+    axios
+    .delete("bouquet/categories" , { data: { category: category } })
+    .then(() => {
+      commit("deletedBouquetsItem", category);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  },
+  deletePlantsCategory({ commit }, plant) {
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
+    axios
+    .delete("plants/type" , { data: { type: plant } })
+    .then(() => {
+      commit("deletedPlantsItem", plant);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  },
 };
 
 export default {
   namespaced: true,
   state,
+  mutations,
   actions,
 };

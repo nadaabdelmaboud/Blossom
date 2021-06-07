@@ -8,6 +8,7 @@ import HomeBody from "../views/HomeBody.vue";
 import AdminStatistics from "../views/AdminStatistics.vue";
 import UserCart from "../views/UserCart.vue";
 import Tips from "../views/Tips.vue";
+import CategoriesPage from "../views/CategoriesPage.vue";
 
 Vue.use(VueRouter);
 
@@ -51,6 +52,11 @@ const routes = [
         path: "tips/:plantId",
         name: "tips",
         component: Tips,
+      },
+      {
+        path: "CategoriesPage",
+        name: "CategoriesPage",
+        component: CategoriesPage,
       },
     ],
   },

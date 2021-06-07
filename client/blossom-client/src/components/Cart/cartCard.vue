@@ -9,7 +9,7 @@
       <div class="box" id="image">
         <img :src="getImage(image)" alt="BlossomFlower" />
       </div>
-      <div class="box" v-if="available != 0">
+      <div class="box">
         <div class="flowerName">
           <h3>{{ orderName }}</h3>
         </div>
@@ -17,14 +17,6 @@
           <h3>{{ orderPrice }} LE</h3>
         </div>
         <div class="amountButton">Amount: {{ orderAmount }}</div>
-      </div>
-      <div class="box" v-if="available == 0">
-        <div class="flowerName">
-          <h3>{{ orderName }}</h3>
-        </div>
-        <div class="notAvailable">
-          <h3>Not Available</h3>
-        </div>
       </div>
     </div>
   </div>
@@ -84,8 +76,7 @@ h3 {
   color: $darkGolden;
 }
 .flowerName,
-.flowerPrice,
-.notAvailable {
+.flowerPrice{
   font-weight: 700;
   font-size: 25px;
   text-align: center;
@@ -99,12 +90,6 @@ h3 {
     font-size: 20px;
     font-weight: 700;
   }
-}
-.notAvailable {
-  h3 {
-    font-size: 19px;
-  }
-  margin-top: 20px;
 }
 i {
   padding-left: 5px;
@@ -135,9 +120,6 @@ export default {
       type: Number,
     },
     orderAmount: {
-      type: Number,
-    },
-    available: {
       type: Number,
     },
   },

@@ -11,7 +11,6 @@
           :orderName="card.name"
           :orderPrice="card.price"
           :orderAmount="card.amount"
-          :available="card.count.available"
         />
       </div>
       <div class="totalPrice">
