@@ -2,9 +2,10 @@ const CartValidation = require('../validation/cart.validation')
 const MongooseValidation = require('../validation/mongoose.validation')
 const Cart = require('../db/queries/cart.queries')
 const User = require('../db/queries/user.queries')
-const setTransaction = require('./paypal.service')
+const PayPal = require('./paypal.service')
 
 const error = require('../validation/error');
+const { paymentSuccess } = require('../controllers/cart.controller')
 
 const CartService={
     async getUserCart(userId){
@@ -47,8 +48,19 @@ const CartService={
         if(!paymentData) return {data:false,err:await error("Error in payment",400)};
         console.log(paymentData);
         if(paymentMethod=="cash")return {data:true,err:''};
-        const paymentLink = await setTransaction(paymentData.items,paymentData.totalPrice)
-        return {data:paymentLink,err:''};
+        const payment = await PayPal.setTransaction(paymentData.items,paymentData.totalPrice)
+        await Cart.setPaymentId(user,payment.id,paymentData.cartId);
+        return {data:payment.link,err:''};
+    },
+    async paymentSuccess(userId,paymentId,payerId){
+      const isValidId = await MongooseValidation.validateID(userId)
+      if(!isValidId) return {data:false,err:await error("Not Valid ID",400)}
+      const user = await User.findUserById(userId,{Cart:1});
+      if(!user)  return {data:false,err:await error("No such user",404)};
+      const amount = await Cart.getAmountFromPaymentId(user,paymentId);
+      const checkSuccess = await PayPal.success(payerId,paymentId,amount);
+      if(!checkSuccess) return {data:false,err: await error("Error in payment",400)}; 
+      return {data:true,err:''};
     },
     async changeUserCartStatus(userId,orderId,status){
         const isValidUserId = await MongooseValidation.validateID(userId);
