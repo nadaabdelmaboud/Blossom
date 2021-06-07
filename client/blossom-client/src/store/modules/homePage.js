@@ -87,7 +87,7 @@ const actions = {
   callPlantCards({ commit }, index) {
     let typeVal = "";
     if (state.type != "") typeVal = "type=" + state.type + "&";
-    console.log("type",typeVal);
+    console.log("type", typeVal);
     axios
       .get("plant?" + typeVal + "pageSize=4&pageNumber=" + index)
       .then((response) => {

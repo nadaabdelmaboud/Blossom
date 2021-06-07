@@ -76,7 +76,7 @@ h3 {
   color: $darkGolden;
 }
 .flowerName,
-.flowerPrice{
+.flowerPrice {
   font-weight: 700;
   font-size: 25px;
   text-align: center;

@@ -30,10 +30,9 @@ const actions = {
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.get("shop/sales");
-      commit("setSales",data.data);
+      commit("setSales", data.data);
       setTimeout(() => {
         commit("setSalsesLoaded", true);
-
       }, 1000);
     } catch (err) {
       console.log(err);
@@ -56,13 +55,12 @@ const actions = {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.get("shop/top-users")
-      state.topUsers = data.data
+      let data = await axios.get("shop/top-users");
+      state.topUsers = data.data;
     } catch (err) {
       console.log(err);
     }
   },
-
 };
 
 export default {
