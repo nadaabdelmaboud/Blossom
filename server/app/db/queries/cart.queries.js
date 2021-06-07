@@ -40,6 +40,7 @@ const Cart = {
         return true;
     },
     async buyCart(user,address){
+      console.log(user.Cart)
         if(user.Cart.length==0||user.Cart[user.Cart.length-1].status!="ordering"){
             return false;
         }
