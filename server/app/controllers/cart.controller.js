@@ -40,9 +40,21 @@ const CartController = {
     async buyCart(req,res){
         const data = await CartService.buyCart(req.user._id,req.query.address,req.query.paymentMethod);
         if (data.data) {
-            return res.redirect(data.data);
+            
+            return res.status(200).send(data.data);
         }
         res.status(data.err.status).send(data.err.message);
+    },
+    async paymentSuccess(req,res){
+      const payerId = req.query.PayerID;
+      const paymentId = req.query.paymentId;
+      const data = await CartService.paymentSuccess(req.user._id,paymentId,payerId);
+      if (data.data) {
+          
+          return res.status(200).send(data.data);
+      }
+      res.status(data.err.status).send(data.err.message);
+
     },
     async changeCartStatus(req,res){
         const userId = req.params.userId;

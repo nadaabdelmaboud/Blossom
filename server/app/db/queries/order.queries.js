@@ -60,6 +60,7 @@ const Order = {
     return result;
   },
   async formateItems(items) {
+    if(!items)return []
     var orderItems = [];
     Object.keys(items).forEach(function (item) {
       var obj = items[item];

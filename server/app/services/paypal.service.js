@@ -1,5 +1,7 @@
 var paypal = require('paypal-rest-sdk');
 const { promisify } = require('util');
+const Cart =require('../db/queries/cart.queries');
+exports.execute = promisify(paypal.payment.execute);
 exports.create = promisify(paypal.payment.create);
 paypal.configure({
     'mode': 'sandbox', 
@@ -41,7 +43,7 @@ function create(create_payment_json){
             }else{
                 for(let i=0;i<payment.links.length;i++){
                     if(payment.links[i].rel==='approval_url'){
-                        resolve(payment.links[i].href);
+                        resolve({link:payment.links[i].href,id:payment.id});
                     }
                 }
             }
@@ -50,5 +52,34 @@ function create(create_payment_json){
         })
 }
 
-module.exports=setTransaction;
+async function success(payerId,paymentId,amount){
+    
+    const execute_payment_json = {
+        "payer_id": payerId,
+        "transactions": [{
+            "amount": {
+                "currency": "USD",
+                "total": parseInt(amount)+".00"
+            }
+        }]
+      };
+      await execute(paymentId, execute_payment_json);
+   
+}
+
+function execute(paymentId, execute_payment_json){
+    return new Promise(function(resolve,reject){
+        paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(true);
+
+            }
+        }
+        )
+      })
+};
+
+module.exports={setTransaction,success};
 
