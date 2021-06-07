@@ -40,10 +40,12 @@ const Cart = {
         return true;
     },
     async buyCart(user,address){
+      console.log(user.Cart)
         if(user.Cart.length==0||user.Cart[user.Cart.length-1].status!="ordering"){
             return false;
         }
         let totalPrice =0;
+        let totalCashPrice=0;
         items=[]
         for(order in user.Cart[user.Cart.length-1].orders){
             let name,sku,price,quantity=''
@@ -56,6 +58,7 @@ const Cart = {
                 name=plant.name;
                 price=.064*plant.price;
                 totalPrice +=(orderObject.amount*price);
+                totalCashPrice+=(orderObject.amount*price);
             }
             else if(orderObject.orderType=='bouquet'){
                 let bouquet = await BouquetModel.findById(order,{price:1,name:1});
@@ -63,6 +66,8 @@ const Cart = {
                 name=bouquet.name;
                 price=.064*bouquet.price;
                 totalPrice +=(orderObject.amount*price);
+                totalCashPrice+=(orderObject.amount*price);
+
             }
             let item={
                 "name": name,
@@ -74,12 +79,13 @@ const Cart = {
             items.push(item)
         }
         user.Cart[user.Cart.length-1].status="pending";
+        user.Cart[user.Cart.length-1].price=totalCashPrice;
         if(address){
             user.Cart[user.Cart.length-1].address=address;
         }
         await user.save();
         user = await this.createCart(user);
-        return {items,totalPrice};
+        return {items,totalPrice,totalCashPrice};
     },
     async changeUserCartStatus(user,orderId,status){
         if(user.Cart.length==0){

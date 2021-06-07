@@ -13,6 +13,10 @@ const CartValidation = {
        });
        return schema.validate(query);
   
+      },
+      async validPayment(payment){
+        const schema = Joi.string().required().valid("cash","paypal");
+        return schema.validate(payment);
       }
 }
 module.exports = CartValidation;

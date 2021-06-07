@@ -9,6 +9,8 @@ import AdminStatistics from "../views/AdminStatistics.vue";
 import UserCart from "../views/UserCart.vue";
 import Tips from "../views/Tips.vue";
 import TrackOrders from "../views/TrackOrders";
+import CategoriesPage from "../views/CategoriesPage.vue";
+import RedirectToBlossom from "../views/RedirectToBlossom.vue";
 
 Vue.use(VueRouter);
 
@@ -57,6 +59,14 @@ const routes = [
         path: "trackOrders",
         name: "TrackOrders",
         component: TrackOrders,
+        path: "CategoriesPage",
+        name: "CategoriesPage",
+        component: CategoriesPage,
+      },
+      {
+        path: "payment",
+        name: "RedirectToBlossom",
+        component: RedirectToBlossom,
       },
     ],
   },

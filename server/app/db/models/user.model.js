@@ -44,6 +44,12 @@ const UserSchema = new mongoose.Schema({
         enum: ["empty","ordering","pending", "progress", "delivered"],
         required: true,
       },
+      paymentMethod:{
+        type:String,
+      },
+      price:{
+        type:Number
+      },
       address: {
         type: Address,
         required: true,

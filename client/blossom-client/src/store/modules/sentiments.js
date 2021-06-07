@@ -4,6 +4,15 @@ const state = {
   bouquetSentiments: [],
 };
 
+const mutations = {
+  deletedSentiments(state, item) {
+    var index = state.bouquetSentiments.findIndex((x) => x === item);
+    if (index !== -1) {
+      state.bouquetSentiments.splice(index, 1);
+    }
+  },
+};
+
 const actions = {
   async getSentiments({ state }) {
     const token = localStorage.getItem("token");
@@ -26,10 +35,23 @@ const actions = {
       console.log(err);
     }
   },
+  deleteSentiments({ commit }, sentiment) {
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
+    axios
+      .delete("bouquet/sentiments", { data: { sentiment: sentiment } })
+      .then(() => {
+        commit("deletedSentiments", sentiment);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 };
 
 export default {
   namespaced: true,
   state,
+  mutations,
   actions,
 };

@@ -5,6 +5,7 @@ const state = {
   maxPages: 0,
   isFlower: true,
   cateogry: "",
+  type: "",
   sentiment: "",
   cardId: "",
   cardName: "",
@@ -27,6 +28,9 @@ const mutations = {
   },
   setCateogry(state, type) {
     state.cateogry = type;
+  },
+  setType(state, type) {
+    state.type = type;
   },
   setSentiment(state, type) {
     state.sentiment = type;
@@ -72,6 +76,8 @@ const actions = {
         state.homeCards = [];
         commit("setHomeCards", response.data.bouquets);
         commit("setMaxPage", response.data.MaxPage);
+        commit("setCateogry", "");
+        commit("setSentiment", "");
         console.log(response.data);
       })
       .catch((error) => {
@@ -80,13 +86,15 @@ const actions = {
   },
   callPlantCards({ commit }, index) {
     let typeVal = "";
-    if (state.cateogry != "") typeVal = "type=" + state.cateogry;
+    if (state.type != "") typeVal = "type=" + state.type + "&";
+    console.log("type", typeVal);
     axios
       .get("plant?" + typeVal + "pageSize=4&pageNumber=" + index)
       .then((response) => {
         state.homeCards = [];
         commit("setHomeCards", response.data.Plants);
         commit("setMaxPage", response.data.MaxPage);
+        commit("setType", "");
         console.log(response.data);
       })
       .catch((error) => {

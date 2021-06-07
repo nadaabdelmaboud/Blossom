@@ -43,7 +43,7 @@
 h6 {
   font-family: "Dancing Script";
   font-weight: 700;
-  font-size: 30px;
+  font-size: 40px;
   color: $golden;
   margin-top: 20px;
   margin-bottom: 20px;
