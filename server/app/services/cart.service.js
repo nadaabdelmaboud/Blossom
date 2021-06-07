@@ -35,13 +35,17 @@ const CartService={
         if(!empty) return {data:false,err:await error("Error in payment",400)};
         return {data:empty,err:''};
     },
-    async buyCart(userId,address){
+    async buyCart(userId,address,paymentMethod){
         const isValidId = await MongooseValidation.validateID(userId)
         if(!isValidId) return {data:false,err:await error("Not Valid ID",400)}
+        const isValidBuyData =await CartValidation.validPayment(paymentMethod);
+        if (isValidBuyData.error)
+        return { data: false, err: await error(isValidBuyData.error.message, 400) };
         const user = await User.findUserById(userId,{Cart:1,address:1});
         if(!user)  return {data:false,err:await error("No such user",404)};
-        const paymentData = await Cart.buyCart(user,address);
+        const paymentData = await Cart.buyCart(user,address,paymentMethod);
         if(!paymentData) return {data:false,err:await error("Error in payment",400)};
+        if(paymentMethod=="cash")return {data:true,err:''};
         const paymentLink = await setTransaction(paymentData.items,paymentData.totalPrice)
         return {data:paymentLink,err:''};
     },
