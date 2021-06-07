@@ -11,6 +11,8 @@ const state = {
   cardName: "",
   cardDescription: "",
   reviewCards: [],
+  editCardId:"",
+  editImage:"",
 };
 
 const mutations = {
@@ -56,6 +58,21 @@ const mutations = {
       state.homeCards.splice(index, 1);
     }
   },
+  setEditImage(state , image){
+    state.editImage = image;
+  },
+  setEditCardId(state , id){
+    state.editCardId = id;
+  },
+  //not updated at once (donot forget to fix it).
+  editCard(state , id , updatedObejct){
+    var index = state.homeCards.findIndex((x) => x._id === id);
+    if(index !== -1){
+      updatedObejct.forEach(item => {
+        state.homeCards[index][item] = updatedObejct[item];
+      })
+    }
+  }
 };
 
 const actions = {
@@ -151,6 +168,26 @@ const actions = {
       .delete("plant/" + id)
       .then(() => {
         commit("deleteCard", id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  editBouquetsCard({ commit }, {id , payload} ) {
+    axios
+      .put("bouquets/" + id , payload)
+      .then(() => {
+        commit("editCard", id , payload);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  editPlantsCard({ commit }, {id , payload} ) {
+    axios
+      .put("plant/" + id , payload)
+      .then(() => {
+        commit("editCard", id , payload);
       })
       .catch((error) => {
         console.log(error);
