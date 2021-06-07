@@ -10,8 +10,7 @@
 <style lang="scss" scoped>
 @import "../../scss/_Colors";
 .typesCard {
-  width: 250px;
-  //height: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin: 15px;
@@ -24,6 +23,7 @@
 }
 .typeImage {
   width: 100%;
+  height: 98%;
   img {
     width: 100%;
     background-size: cover;
@@ -32,6 +32,7 @@
 }
 
 .typeName {
+  width: 100%;
   text-align: center;
   font-size: 22px;
   font-weight: 700;

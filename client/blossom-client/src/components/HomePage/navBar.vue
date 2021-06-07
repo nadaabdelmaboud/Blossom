@@ -32,8 +32,7 @@
           <router-link to="/">
             <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
           </router-link>
-          <li v-if="status == ''" @click="showLogin()">Login</li>
-          <li v-if="status == ''">Signup</li>
+          <li v-if="status == ''" @click="showLogin()">Signin</li>
           <li v-if="isAdmin == true">Orders</li>
           <li v-if="status == 'success' && isAdmin == false">
             <i class="fa fa-user"></i> Profile
@@ -54,8 +53,7 @@
     </div>
     <div id="showMyList">
       <ul>
-        <li v-if="status == ''" @click="showLogin()">Login</li>
-        <li v-if="status == ''">Signup</li>
+        <li v-if="status == ''" @click="showLogin()">Signin</li>
         <router-link to="/">
           <li @click="callFlowers()">
             <i class="fa fa-pagelines"></i> Flowers

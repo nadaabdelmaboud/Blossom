@@ -14,110 +14,110 @@
               Error pick address first
             </p>
             <div class="blossomRadio">
-              <div>
-              <h3>Choose where to deliver order?</h3>
+              <div class="title">
+                <h3>Choose where to deliver order?</h3>
               </div>
               <div class="choose">
-              <label class="container labelContainer"
-                ><p>Saved Address</p>
-                <input
-                  type="radio"
-                  name="addressType"
-                  value="Saved Address"
-                  v-model="addressType"
-                  @click="fadeSurpriseAddress()"
-                />
-                <span class="checkmark"></span>
-              </label>
-              <label class="container labelContainer"
-                ><p>Surprise Address</p>
-                <input
-                  type="radio"
-                  name="addressType"
-                  value="Surprise Address"
-                  v-model="addressType"
-                  @click="showSurpriseAddress()"
-                />
-                <span class="checkmark"></span>
-              </label>
-            </div>
-          </div>
-          <div class="box surpriseAddress" v-if="surprise">
-            <div class="chooseCity">
-               <label class="container labelContainer"
-                ><p>Cairo</p>
-                <input
-                  type="radio"
-                  name="addressType"
-                  value="cairo"
-                  v-model="city"
-                />
-                <span class="checkmark"></span>
-              </label>
                 <label class="container labelContainer"
-                ><p>Giza</p>
-                <input
-                  type="radio"
-                  name="addressType"
-                  value="giza"
-                  v-model="city"
-                />
-                <span class="checkmark"></span>
-              </label>
+                  ><p>Saved Address</p>
+                  <input
+                    type="radio"
+                    name="addressType"
+                    value="Saved Address"
+                    v-model="addressType"
+                    @click="fadeSurpriseAddress()"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container labelContainer"
+                  ><p>Surprise Address</p>
+                  <input
+                    type="radio"
+                    name="addressType"
+                    value="Surprise Address"
+                    v-model="addressType"
+                    @click="showSurpriseAddress()"
+                  />
+                  <span class="checkmark"></span>
+                </label>
               </div>
-             <input
-              placeholder="Street"
-              class="blossomInput"
-              type="text"
-              v-model="surpriseAddress"
-            />
-             <input
-              placeholder="Building Number"
-              class="blossomInput"
-              type="number"
-              v-model="buildingNo"
-            />
-             <input
-              placeholder="Apartment Number"
-              class="blossomInput"
-              type="number"
-              v-model="apartmentNo"
-            />
-          </div>
+            </div>
+            <div class="box blossomRadio" v-if="surprise">
+              <div class="chooseCity">
+                <label class="container labelContainer"
+                  ><p>Cairo</p>
+                  <input
+                    type="radio"
+                    name="addressCity"
+                    value="cairo"
+                    v-model="city"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container labelContainer"
+                  ><p>Giza</p>
+                  <input
+                    type="radio"
+                    name="addressCity"
+                    value="giza"
+                    v-model="city"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <input
+                placeholder="Street"
+                class="blossomInput"
+                type="text"
+                v-model="surpriseAddress"
+              />
+              <input
+                placeholder="Building Number"
+                class="blossomInput"
+                type="number"
+                v-model="buildingNo"
+              />
+              <input
+                placeholder="Apartment Number"
+                class="blossomInput"
+                type="number"
+                v-model="apartmentNo"
+              />
+            </div>
           </div>
           <div class="box choosePayment">
             <p v-if="errorPayment" id="errorMessage">
               Error pick way of payment first
             </p>
             <div class="blossomRadio">
-              <div>
-              <h3>Choose way of payment?</h3>
+              <div class="title">
+                <h3>Choose way of payment?</h3>
               </div>
               <div class="choose">
-              <label class="container labelContainer"
-                ><p>Cash</p>
-                <input
-                  type="radio"
-                  name="paymentType"
-                  value="cash"
-                  v-model="payment"
-                  @click="showCashMoney()"
-                />
-                <span class="checkmark"></span>
-              </label>
-              <label class="container labelContainer"
-                ><p>Paypal</p>
-                <input
-                  type="radio"
-                  name="paymentType"
-                  value="paypal"
-                  v-model="payment"
-                  @click="showPaypal()"
-                />
-                <span class="checkmark"></span>
-              </label>
+                <label class="container labelContainer"
+                  ><p>Cash</p>
+                  <input
+                    type="radio"
+                    name="paymentType"
+                    value="cash"
+                    v-model="payment"
+                    @click="showCashMoney()"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container labelContainer"
+                  ><p>Paypal</p>
+                  <input
+                    type="radio"
+                    name="paymentType"
+                    value="paypal"
+                    v-model="payment"
+                    @click="showPaypal()"
+                  />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
             </div>
-          </div>
           </div>
           <div class="box cashMoney" v-if="cashPayment">
             <h2 id="totalPrice">Total Price: 2500 LE</h2>
@@ -185,7 +185,7 @@
   display: flex;
   flex-direction: column;
 }
-.choose{
+.choose {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
@@ -211,14 +211,18 @@
 .blossomButton {
   width: 50%;
 }
-h3{
+h3 {
   font-weight: 700;
   color: $darkGolden;
   margin: 7px;
 }
-.chooseCity{
+.chooseCity {
   display: flex;
   flex-direction: row;
+}
+.title {
+  display: flex;
+  justify-content: flex-start;
 }
 @media screen and (max-width: 993px) {
   .container {
@@ -247,9 +251,9 @@ export default {
       currentAddress: "",
       surpriseAddress: "",
       addressType: "",
-      city:"",
-      apartmentNo:"",
-      buildingNo:"",
+      city: "",
+      apartmentNo: "",
+      buildingNo: "",
       surprise: false,
       payment: "",
       cashPayment: false,
@@ -282,23 +286,35 @@ export default {
     },
     confirm() {
       if (this.addressType == "") this.errorAddress = true;
-      if(this.surprise == true && (this.city == "" || this.surpriseAddress == "" || this.buildingNo == "" || this.apartmentNo == ""))
+      if (
+        this.surprise == true &&
+        (this.city == "" ||
+          this.surpriseAddress == "" ||
+          this.buildingNo == "" ||
+          this.apartmentNo == "")
+      )
         this.errorAddress = true;
       if (this.payment == "") this.errorPayment = true;
-      if(this.errorAddress == false && this.errorPayment == false){
-      let address = {
-        address:{
-            country:"egypt",
-            city:this.city,
-            street:this.surpriseAddress,
-            buildingNo:parseInt(this.buildingNo),
-            apartmentNo:parseInt(this.apartmentNo)
-        }
-      }
-      if(this.surprise == true)
-        this.$store.dispatch("cart/buyCart" , {address: address, payment: this.payment});
-      else
-        this.$store.dispatch("cart/buyCart" , {address: null, payment: this.payment});
+      if (this.errorAddress == false && this.errorPayment == false) {
+        let address = {
+          address: {
+            country: "egypt",
+            city: this.city,
+            street: this.surpriseAddress,
+            buildingNo: parseInt(this.buildingNo),
+            apartmentNo: parseInt(this.apartmentNo),
+          },
+        };
+        if (this.surprise == true)
+          this.$store.dispatch("cart/buyCart", {
+            address: address,
+            payment: this.payment,
+          });
+        else
+          this.$store.dispatch("cart/buyCart", {
+            address: null,
+            payment: this.payment,
+          });
       }
     },
   },

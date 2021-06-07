@@ -60,10 +60,10 @@ const routes = [
         component: CategoriesPage,
       },
       {
-        path:"payment",
-        name:"RedirectToBlossom",
+        path: "payment",
+        name: "RedirectToBlossom",
         component: RedirectToBlossom,
-      }
+      },
     ],
   },
 ];

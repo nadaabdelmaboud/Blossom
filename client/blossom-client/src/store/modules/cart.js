@@ -3,7 +3,7 @@ const state = {
   cartCards: [],
   availableCount: 0,
   errorDetected: false,
-  checkoutDone: false
+  checkoutDone: false,
 };
 
 const mutations = {
@@ -22,9 +22,9 @@ const mutations = {
       state.cartCards.splice(index, 1);
     }
   },
-  checkoutIsDone(state, check){
+  checkoutIsDone(state, check) {
     state.checkoutDone = check;
-  }
+  },
 };
 const actions = {
   callCartCards({ commit }) {
@@ -70,11 +70,11 @@ const actions = {
         console.log(error);
       });
   },
-  buyCart({ commit }, {address,payment}) {
+  buyCart({ commit }, { address, payment }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
-    console.log("address",address);
-    console.log("payment",payment);
+    console.log("address", address);
+    console.log("payment", payment);
     axios
       .post("me/cart?paymentMethod=" + payment + "&address=" + address)
       .then(() => {
