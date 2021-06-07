@@ -1,2 +1,78 @@
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"operationTime":"6971152037929025542","ok":0,"code":40234,"codeName":"Location40234","$clusterTime":{"clusterTime":"6971152037929025542","signature":{"hash":"sdn1lXfjtr/3msNuDAH2dQPjcQc=","keyId":"6955375446229778435"}},"name":"MongoError","level":"error","message":"The field 'rate' must be an accumulator object The field 'rate' must be an accumulator object","stack":"MongoError: The field 'rate' must be an accumulator object\n    at MessageStream.messageHandler (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\connection.js:268:20)\n    at MessageStream.emit (events.js:198:13)\n    at MessageStream.EventEmitter.emit (domain.js:448:20)\n    at processIncomingData (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:144:12)\n    at MessageStream._write (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:42:5)\n    at doWrite (_stream_writable.js:415:12)\n    at writeOrBuffer (_stream_writable.js:399:5)\n    at MessageStream.Writable.write (_stream_writable.js:299:11)\n    at TLSSocket.ondata (_stream_readable.js:709:20)\n    at TLSSocket.emit (events.js:198:13)\n    at TLSSocket.EventEmitter.emit (domain.js:448:20)\n    at addChunk (_stream_readable.js:288:12)\n    at readableAddChunk (_stream_readable.js:269:11)\n    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n    at TLSWrap.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"operationTime":"6971152128123338754","ok":0,"code":40234,"codeName":"Location40234","$clusterTime":{"clusterTime":"6971152128123338754","signature":{"hash":"ZvgxVDUk6PBBY314k48olXAbXqk=","keyId":"6955375446229778435"}},"name":"MongoError","level":"error","message":"The field 'rate' must be an accumulator object The field 'rate' must be an accumulator object","stack":"MongoError: The field 'rate' must be an accumulator object\n    at MessageStream.messageHandler (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\connection.js:268:20)\n    at MessageStream.emit (events.js:198:13)\n    at MessageStream.EventEmitter.emit (domain.js:448:20)\n    at processIncomingData (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:144:12)\n    at MessageStream._write (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:42:5)\n    at doWrite (_stream_writable.js:415:12)\n    at writeOrBuffer (_stream_writable.js:399:5)\n    at MessageStream.Writable.write (_stream_writable.js:299:11)\n    at TLSSocket.ondata (_stream_readable.js:709:20)\n    at TLSSocket.emit (events.js:198:13)\n    at TLSSocket.EventEmitter.emit (domain.js:448:20)\n    at addChunk (_stream_readable.js:288:12)\n    at readableAddChunk (_stream_readable.js:269:11)\n    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n    at TLSWrap.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"operationTime":"6971154116693196806","ok":0,"code":40234,"codeName":"Location40234","$clusterTime":{"clusterTime":"6971154116693196806","signature":{"hash":"kGUmGSJ9GRVoW9zVHOJvG5HjGSg=","keyId":"6955375446229778435"}},"name":"MongoError","level":"error","message":"The field 'rate' must be an accumulator object The field 'rate' must be an accumulator object","stack":"MongoError: The field 'rate' must be an accumulator object\n    at MessageStream.messageHandler (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\connection.js:268:20)\n    at MessageStream.emit (events.js:198:13)\n    at MessageStream.EventEmitter.emit (domain.js:448:20)\n    at processIncomingData (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:144:12)\n    at MessageStream._write (D:\\college\\third year\\arch\\Blossom\\server\\node_modules\\mongodb\\lib\\cmap\\message_stream.js:42:5)\n    at doWrite (_stream_writable.js:415:12)\n    at writeOrBuffer (_stream_writable.js:399:5)\n    at MessageStream.Writable.write (_stream_writable.js:299:11)\n    at TLSSocket.ondata (_stream_readable.js:709:20)\n    at TLSSocket.emit (events.js:198:13)\n    at TLSSocket.EventEmitter.emit (domain.js:448:20)\n    at addChunk (_stream_readable.js:288:12)\n    at readableAddChunk (_stream_readable.js:269:11)\n    at TLSSocket.Readable.push (_stream_readable.js:224:10)\n    at TLSWrap.onStreamRead [as onread] (internal/stream_base_commons.js:94:17)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '4' of undefined Cannot read property '4' of undefined","stack":"TypeError: Cannot read property '4' of undefined\n    at Object.addCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:24:32)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '4' of undefined Cannot read property '4' of undefined","stack":"TypeError: Cannot read property '4' of undefined\n    at Object.addCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:24:32)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"shop.save is not a function shop.save is not a function","stack":"TypeError: shop.save is not a function\n    at Object.addCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:25:18)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"UserData is not defined UserData is not defined","stack":"ReferenceError: UserData is not defined\n    at Object.addCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:25:7)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"shop.markModified is not a function shop.markModified is not a function","stack":"TypeError: shop.markModified is not a function\n    at Object.addCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:25:12)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"querySrv","hostname":"_mongodb._tcp.cluster0.fztyp.mongodb.net","level":"error","message":"Could not connect to the database. Exiting now... querySrv ETIMEOUT _mongodb._tcp.cluster0.fztyp.mongodb.net","stack":"Error: querySrv ETIMEOUT _mongodb._tcp.cluster0.fztyp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:196:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"ShopModel is not defined ShopModel is not defined","stack":"ReferenceError: ShopModel is not defined\n    at Object.createUser (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:50:20)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'Cart' of undefined Cannot read property 'Cart' of undefined","stack":"TypeError: Cannot read property 'Cart' of undefined\n    at Object.deleteCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:40:15)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'Cart' of undefined Cannot read property 'Cart' of undefined","stack":"TypeError: Cannot read property 'Cart' of undefined\n    at Object.deleteCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:40:15)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'Cart' of undefined Cannot read property 'Cart' of undefined","stack":"TypeError: Cannot read property 'Cart' of undefined\n    at Object.deleteCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:41:15)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

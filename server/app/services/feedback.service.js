@@ -15,7 +15,7 @@ const FeedBackService = {
     if(isValid.error)
       return { data: false, err: await error(isValid.error.message, 404) };
     const FeedBackObject = await FeedBack.addCurrentUserFeedback(cartId, userId,feedback);
-    if (!FeedBackObject)
+    if (!FeedBackObject|| FeedBackObject.length==0)
       return { data: false, err: await error("Error Finding Cart", 404) };
     return { data: FeedBackObject, err: "" };
   },
@@ -30,7 +30,7 @@ const FeedBackService = {
     if (!isUserFound)
       return { data: false, err: await error("Invalid User ID", 404) };
     const FeedBackObject = await FeedBack.deleteCurrentUserFeedback(cartId, userId,feedback);
-    if (!FeedBackObject)
+    if (!FeedBackObject || FeedBackObject.length==0)
       return { data: false, err: await error("Error Finding Cart", 404) };
     return { data: FeedBackObject, err: "" };
   },
@@ -39,6 +39,6 @@ const FeedBackService = {
     if (!FeedBackObject)
       return { data: false, err: await error("no feedback found", 404) };
     return { data: FeedBackObject, err: "" };
-  },
+  }
 };
 module.exports = FeedBackService;
