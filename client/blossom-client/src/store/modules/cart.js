@@ -66,6 +66,18 @@ const actions = {
         console.log(error);
       });
   },
+  // buyCart({ commit }, id) {
+  //   const token = localStorage.getItem("token");
+  //   axios.defaults.headers.common["Authorization"] = token;
+  //   axios
+  //     .post("me/cart" + id)
+  //     .then(() => {
+  //       commit("deletedItem", id);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // },
 };
 
 export default {
