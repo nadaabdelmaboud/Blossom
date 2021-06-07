@@ -8,6 +8,7 @@ import HomeBody from "../views/HomeBody.vue";
 import AdminStatistics from "../views/AdminStatistics.vue";
 import UserCart from "../views/UserCart.vue";
 import Tips from "../views/Tips.vue";
+import TrackOrders from "../views/TrackOrders";
 
 Vue.use(VueRouter);
 
@@ -51,6 +52,11 @@ const routes = [
         path: "tips/:plantId",
         name: "tips",
         component: Tips,
+      },
+      {
+        path: "trackOrders",
+        name: "TrackOrders",
+        component: TrackOrders,
       },
     ],
   },
