@@ -60,6 +60,12 @@ const UserSchema = new mongoose.Schema({
       lastEdit: {
         type: Date,
       },
+      paymentId:{
+        type:String
+      },
+      paypalPrice:{
+        type:Number
+      },
       feedback: {
         comment: String,
         rate: Number,

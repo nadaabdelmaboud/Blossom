@@ -66,3 +66,32 @@
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"level":"error","message":"Operation `users.aggregate()` buffering timed out after 10000ms Operation `users.aggregate()` buffering timed out after 10000ms","stack":"MongooseError: Operation `users.aggregate()` buffering timed out after 10000ms\n    at Timeout.setTimeout (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:185:20)\n    at ontimeout (timers.js:436:11)\n    at tryOnTimeout (timers.js:300:5)\n    at listOnTimeout (timers.js:263:5)\n    at Timer.processTimers (timers.js:223:10)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"errno":"ETIMEOUT","code":"ETIMEOUT","syscall":"queryTxt","hostname":"cluster0.fztyp.mongodb.net","level":"error","message":"Could not connect to the database. Exiting now... queryTxt ETIMEOUT cluster0.fztyp.mongodb.net","stack":"Error: queryTxt ETIMEOUT cluster0.fztyp.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (dns.js:196:19)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

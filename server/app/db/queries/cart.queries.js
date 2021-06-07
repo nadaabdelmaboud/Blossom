@@ -60,14 +60,14 @@ const Cart = {
                 if(!plant) return false;
                 name=plant.name;
                 price=.064*plant.price;
-                totalCashPrice+=(orderObject.amount*price);
+                totalCashPrice+=(orderObject.amount*plant.price);
             }
             else if(orderObject.orderType=='bouquet'){
                 let bouquet = await BouquetModel.findById(order,{price:1,name:1});
                 if(!bouquet) return false;
                 name=bouquet.name;
                 price=.064*bouquet.price;
-                totalCashPrice+=(orderObject.amount*price);
+                totalCashPrice+=(orderObject.amount*bouquet.price);
 
             }
             let item={
@@ -80,14 +80,34 @@ const Cart = {
             totalPrice +=(orderObject.amount*parseInt(price));
             items.push(item)
         }
+        if(!user.Cart[user.Cart.length-1].paymentId) user.Cart[user.Cart.length-1].paymentId='';
+        if(!user.Cart[user.Cart.length-1].paypalPrice) user.Cart[user.Cart.length-1].paypalPrice=totalPrice;
         user.Cart[user.Cart.length-1].status="pending";
         user.Cart[user.Cart.length-1].price=totalCashPrice;
         if(address){
             user.Cart[user.Cart.length-1].address=address;
         }
         await user.save();
+        const cartId =  user.Cart[user.Cart.length-1]._id;
         user = await this.createCart(user);
-        return {items,totalPrice,totalCashPrice};
+        return {items,totalPrice,totalCashPrice,cartId};
+    },
+    async setPaymentId(user,paymentId,cartId){
+      for(let i=user.Cart.length;i>=0;i--){
+        if(user.Cart[i]._id==cartId){
+          user.Cart[i].paymentId=paymentId;
+          break;
+        }
+      }
+      return true;
+    },
+    async getAmountFromPaymentId(user,paymentId){
+      for(let i=user.Cart.length;i>=0;i--){
+        if(user.Cart[i].paymentId==paymentId){
+          return user.Cart[i].paypalPrice;
+        }
+      }
+      return 0;
     },
     async changeUserCartStatus(user,orderId,status){
         if(user.Cart.length==0){
