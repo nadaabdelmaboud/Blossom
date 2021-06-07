@@ -2,16 +2,41 @@
   <div class="homeCard">
     <div class="container">
       <div class="box">
-        <div class="flowerState" v-if="user == true && available != 0">In Stock</div>
-        <div class="flowerState" v-if="user == true && available == 0">Out Stock</div>
-        <div class="hoverGolden" id="deleteFlower" v-if="admin == true">
+        <div
+          class="flowerState"
+          v-if="status == 'success' && isAdmin == false && available != 0"
+        >
+          In Stock
+        </div>
+        <div
+          class="flowerState"
+          v-if="status == 'success' && isAdmin == false && available == 0"
+        >
+          Out Stock
+        </div>
+        <div
+          class="hoverGolden"
+          id="deleteFlower"
+          v-if="isAdmin == true"
+          @click="deleteCard()"
+        >
           <i class="fa fa-times"></i>
         </div>
       </div>
       <div class="box" id="flowerBox">
-        <div class="flowerImage">
-          <!--<img :src="image" />-->
-          <img src="../../assets/flower.jpg" alt="flower image" />
+        <div class="flowerImage" v-if="isFlower == true">
+          <!-- if flower card -->
+          <img :src="getImage(image)" alt="Flower image" />
+        </div>
+        <div
+          class="plantImage"
+          v-if="isFlower == false"
+          @click="routeToTipsPage()"
+        >
+          <!-- if plant card -->
+          <span data-toggle="tooltip" title="See this Plant Tips">
+            <img :src="getImage(image)" alt="Plant image" />
+          </span>
         </div>
       </div>
       <div class="box" id="flowerInfo">
@@ -20,43 +45,53 @@
           See Description
         </div>
         <div class="price">{{ price }} EG</div>
-        <div class="flowersCount" v-if="admin == true">
+        <div class="flowersCount" v-if="isAdmin == true">
           <span id="counter">{{ available }} </span>
           <span id="available"> available</span>
         </div>
         <div class="buttonDiv">
-          <div class="cartBlock" v-if="available != 0">
-          <div class="chooseAmount" v-if="user == true">
-              {{cartAmount}}
+          <div class="cartBlock" v-if="available != 0 && getAll == false">
+            <div
+              class="chooseAmount"
+              v-if="status == 'success' && isAdmin == false"
+            >
+              {{ cartAmount }}
               <router-link to="/userCart">
-              <i class="fa fa-shopping-cart" id="cartIcon"></i>
+                <i class="fa fa-shopping-cart" id="cartIcon"></i>
               </router-link>
-               <i class="fa fa-arrow-up" @click="increaseAmount()"></i>
+              <i class="fa fa-arrow-up" @click="increaseAmount()"></i>
               <i class="fa fa-arrow-down" @click="decreaseAmount()"></i>
-          </div>
-
+            </div>
           </div>
           <div class="homeCardButtons">
-          <button
-            class="addToCart blossomButton"
-            v-if="user == true && available != 0"
-            @click="addItemToCart()"
-          >
-            Add to Cart
-          </button>
-          <button
-            class="editCardInfo blossomButton"
-            v-if="admin == true"
-            @click="toggleEditState()"
-          >
-            Edit Card
-          </button>
+            <button
+              class="addToCart blossomButton"
+              v-if="
+                status == 'success' &&
+                isAdmin == false &&
+                available != 0 &&
+                getAll == false
+              "
+              @click="addItemToCart()"
+            >
+              Add to Cart
+            </button>
+            <button
+              class="editCardInfo blossomButton"
+              v-if="isAdmin == true"
+              @click="toggleEditState()"
+            >
+              Edit Card
+            </button>
           </div>
-          
         </div>
-          <p id="errorMessage" v-if="notAvailable">only {{available}} Available</p>
-          <p id="errorMessage" v-if="errorDetected">only {{availableCount}} Available</p>
-          <p id="errorMessage" v-if="zeroAmount">choose amount first</p>
+        <p id="errorMessage" v-if="notAvailable">
+          only {{ available }} Available
+        </p>
+        <p id="errorMessage" v-if="errorDetected">
+          only {{ availableCount }} Available
+        </p>
+        <p id="errorMessage" v-if="zeroAmount">choose amount first</p>
       </div>
     </div>
     <div class="toast" id="toastId">
@@ -78,7 +113,7 @@
 .container {
   width: 100%;
   height: auto;
-  box-shadow: 0 3px 3px 3px rgba(10, 10, 10, 0.06);
+  box-shadow: 0 0 10px 3px rgba(10, 10, 10, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,6 +142,9 @@ img {
   margin-top: 5px;
   background-size: cover;
   object-fit: cover;
+}
+.plantImage {
+  cursor: pointer;
 }
 .flowerState {
   padding-right: 5px;
@@ -171,30 +209,30 @@ img {
   display: flex;
   justify-content: space-between;
 }
-.chooseAmount{
+.chooseAmount {
   padding: 10px;
   color: $darkGolden;
-  i{
+  i {
     cursor: pointer;
     padding: 5px;
     font-size: 18px;
   }
 }
-.cartBlock{
+.cartBlock {
   display: flex;
   flex-direction: column;
 }
-#errorMessage{
+#errorMessage {
   color: red;
   margin: 5px;
   padding: 0;
 }
-#cartIcon{
+#cartIcon {
   color: $darkGolden;
   padding-left: 0;
 }
-.homeCardButtons{
- margin-right: 12px;
+.homeCardButtons {
+  margin-right: 12px;
   margin-bottom: 6px;
 }
 .blossomButton {
@@ -206,15 +244,15 @@ img {
 <script>
 import { mapState } from "vuex";
 import { default as showToast } from "../../mixins/toast";
+import { default as getImage } from "../../mixins/getImage";
 export default {
   name: "homeCard",
   data: function () {
     return {
-      admin: false,
-      user: true,
       cartAmount: 0,
       notAvailable: false,
-      zeroAmount: false
+      zeroAmount: false,
+      getAll: false,
     };
   },
   props: {
@@ -234,23 +272,35 @@ export default {
       type: Number,
     },
     flowerCateogry: {
-      type: String
+      type: String,
     },
     isFlower: {
-      type: Boolean
+      type: Boolean,
     },
-    plantType:{
-      type: String
-    }
+    plantType: {
+      type: String,
+    },
   },
-  mixins: [showToast],
-    computed: {
+  mixins: [showToast, getImage],
+  computed: {
     ...mapState({
       availableCount: (state) => state.cart.availableCount,
       errorDetected: (state) => state.cart.errorDetected,
+      isAdmin: (state) => state.authorization.isAdmin,
+      status: (state) => state.authorization.status,
     }),
   },
   methods: {
+    routeToTipsPage() {
+      this.$router.push("tips/" + this.id);
+    },
+    deleteCard() {
+      if (this.isFlower == true) {
+        this.$store.dispatch("homePage/deleteBouquetCard", this.id);
+      } else {
+        this.$store.dispatch("homePage/deletePlantCard", this.id);
+      }
+    },
     toggleEditState() {
       this.$store.commit("popupsState/toggleEditCardPopup");
     },
@@ -259,45 +309,48 @@ export default {
       this.$store.commit("homePage/setCardID", this.id);
       console.log(this.id);
     },
-    increaseAmount(){
+    increaseAmount() {
       this.zeroAmount = false;
-      if(this.cartAmount + 1 <= this.available)
-          this.cartAmount = this.cartAmount + 1;
-      else
-        this.notAvailable = true;
+      if (this.cartAmount + 1 <= this.available)
+        this.cartAmount = this.cartAmount + 1;
+      else this.notAvailable = true;
     },
-    decreaseAmount(){
-      if(this.cartAmount - 1 >= 0){
+    decreaseAmount() {
+      if (this.cartAmount - 1 >= 0) {
         this.cartAmount = this.cartAmount - 1;
         this.notAvailable = false;
       }
     },
-    addItemToCart(){
-      //var toast = document.getElementById("toastId");
-      if(this.cartAmount == 0){
-        this.zeroAmount = true;
+    addItemToCart() {
+      if (this.cartAmount == this.available) {
+        this.getAll = true;
+        this.zeroAmount = false;
+        this.notAvailable = false;
       }
-      else{
+      if (this.cartAmount == 0) {
+        this.zeroAmount = true;
+      } else {
         this.zeroAmount = false;
         this.showToast("toastId");
-      
-      if(this.isFlower == true)
-        this.$store.dispatch("cart/addToCart",{
-          bouquetId: this.id,
-          amount: this.cartAmount,
-          orderType: "bouquet",
-          category: this.flowerCateogry
-        });///return bouquet and cateogry
-      else
-        this.$store.dispatch("cart/addToCart",{
-          bouquetId: this.id,
-          amount: this.cartAmount,
-          orderType: "plant",
-          category: this.plantType
-        });//// return plant and type
-      this.cartAmount = 0;
+
+        if (this.isFlower == true)
+          this.$store.dispatch("cart/addToCart", {
+            bouquetId: this.id,
+            amount: this.cartAmount,
+            orderType: "bouquet",
+            category: this.flowerCateogry,
+          });
+        ///return bouquet and cateogry
+        else
+          this.$store.dispatch("cart/addToCart", {
+            bouquetId: this.id,
+            amount: this.cartAmount,
+            orderType: "plant",
+            category: this.plantType,
+          }); //// return plant and type
+        this.cartAmount = 0;
       }
-    }
+    },
   },
 };
 </script>

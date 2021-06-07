@@ -7,16 +7,15 @@
         alt="logo Image"
         class="logoImg"
       />
-      <h3>Add new plant? Intersting!</h3>
-
-      <form v-on:submit.prevent="addCategory" class="form">
+      <h3>Add new Bouquet Category? Intersting!</h3>
+      <form v-on:submit.prevent="addTip" class="form">
         <input
           class="blossomInput"
-          v-model="categoryName"
-          placeholder="Category Name"
+          v-model="tip"
+          placeholder="New Tip"
           required
         />
-        <button class="blossomButton" type="submit">Add Category</button>
+        <button class="blossomButton" type="submit">Add Tip</button>
       </form>
     </div>
   </div>
@@ -69,21 +68,19 @@ h3 {
 
 <script>
 export default {
-  name: "CreateCategory",
+  name: "CreateBouquetTip",
   data: function () {
     return {
-      categoryName: "",
+      tip: "",
     };
   },
   methods: {
-    addCategory() {
-      let payload = {
-        type: this.categoryName,
-      };
-      this.$store.dispatch("categories/addPlantCategories", payload);
+    addTip() {
+      let tip = this.tip;
+      this.$store.dispatch("tips/addTip", tip);
     },
     close() {
-      this.$store.commit("popupsState/toggleCreateCategoryPopup");
+      this.$store.commit("popupsState/toggleAddTipPopup");
     },
   },
 };

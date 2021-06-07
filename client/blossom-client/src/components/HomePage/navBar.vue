@@ -2,14 +2,13 @@
   <div class="navBar">
     <div class="firstNav">
       <ul>
-        <li v-if="admin">Upload</li>
-        <li v-if="admin">Reviews</li>
-        <router-link v-if="admin" to="/statistics">
+        <li v-if="isAdmin == true" @click="toUploadPage()">Upload</li>
+        <router-link v-if="isAdmin == true" to="/statistics">
           <li>Statistics</li>
         </router-link>
-        <li v-if="user">Track Orders</li>
+        <li v-if="status == 'success' && isAdmin == false">Track Orders</li>
         <router-link to="/blossomUsers">
-          <li v-if="admin">Users</li>
+          <li v-if="isAdmin == true">Users</li>
         </router-link>
       </ul>
     </div>
@@ -33,15 +32,21 @@
           <router-link to="/">
             <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
           </router-link>
-          <li v-if="noUser" @click="showLogin()">Login</li>
-          <li v-if="noUser">Signup</li>
-          <li v-if="admin || user">Plant Tips</li>
-          <li v-if="admin">Orders</li>
-          <li v-if="user"><i class="fa fa-user"></i> Profile</li>
-          <li v-if="user || admin">Logout</li>
+          <li v-if="status == ''" @click="showLogin()">Login</li>
+          <li v-if="status == ''">Signup</li>
+          <li v-if="isAdmin == true">Orders</li>
+          <li v-if="status == 'success' && isAdmin == false">
+            <i class="fa fa-user"></i> Profile
+          </li>
+          <li
+            v-if="status == 'success' && (isAdmin == false || isAdmin == true)"
+            @click="logOut()"
+          >
+            Logout
+          </li>
         </ul>
         <router-link to="/userCart">
-          <div v-if="user" id="cart">
+          <div v-if="status == 'success' && isAdmin == false" id="cart">
             <i class="fa fa-shopping-cart"></i> {{ count }}
           </div>
         </router-link>
@@ -49,8 +54,8 @@
     </div>
     <div id="showMyList">
       <ul>
-        <li v-if="noUser" @click="showLogin()">Login</li>
-        <li v-if="noUser">Signup</li>
+        <li v-if="status == ''" @click="showLogin()">Login</li>
+        <li v-if="status == ''">Signup</li>
         <router-link to="/">
           <li @click="callFlowers()">
             <i class="fa fa-pagelines"></i> Flowers
@@ -59,10 +64,16 @@
         <router-link to="/">
           <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
         </router-link>
-        <li v-if="admin || user">Plant Tips</li>
-        <li v-if="admin">Orders</li>
-        <li v-if="user"><i class="fa fa-user"></i> Profile</li>
-        <li v-if="user || admin">Logout</li>
+        <li v-if="isAdmin == true">Orders</li>
+        <li v-if="status == 'success' && isAdmin == false">
+          <i class="fa fa-user"></i> Profile
+        </li>
+        <li
+          v-if="status == 'success' && (isAdmin == false || isAdmin == true)"
+          @click="logOut()"
+        >
+          Logout
+        </li>
       </ul>
     </div>
   </div>
@@ -208,18 +219,18 @@ button:focus {
 </style>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "navBar",
   data: function () {
     return {
-      admin: false,
-      user: true,
-      noUser: true,
       count: 0,
       toggleList: false,
     };
   },
   mounted() {
+    console.log("admin", this.isAdmin);
+
     var navId = document.getElementById("stickyNav");
     var navList = document.getElementById("showMyList");
     window.onscroll = function () {
@@ -232,6 +243,12 @@ export default {
         navList.style = "default";
       }
     };
+  },
+  computed: {
+    ...mapState({
+      isAdmin: (state) => state.authorization.isAdmin,
+      status: (state) => state.authorization.status,
+    }),
   },
   methods: {
     showlist() {
@@ -253,6 +270,12 @@ export default {
       this.$store.commit("homePage/setCateogry", "");
       this.$store.commit("homePage/setCounter", 1);
       this.$store.dispatch("homePage/callPlantCards", 1);
+    },
+    logOut() {
+      this.$store.dispatch("authorization/logout");
+    },
+    toUploadPage() {
+      this.$router.push("uploadProduct");
     },
   },
 };

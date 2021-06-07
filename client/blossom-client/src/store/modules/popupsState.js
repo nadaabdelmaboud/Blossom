@@ -2,9 +2,11 @@ const state = {
   authPopup: false,
   editCardPopup: false,
   createCategoryPopup: false,
+  createBouquetPopup: false,
   createSpecialPopup: false,
   descriptionPopup: false,
   checkoutFormPopup: false,
+  addTipPopup: false,
 };
 
 const mutations = {
@@ -17,6 +19,9 @@ const mutations = {
   toggleCreateCategoryPopup(state) {
     state.createCategoryPopup = !state.createCategoryPopup;
   },
+  toggleCreateBouquetPopup(state) {
+    state.createBouquetPopup = !state.createBouquetPopup;
+  },
   toggleCreateSpecialPopup(state) {
     state.createSpecialPopup = !state.createSpecialPopup;
   },
@@ -25,6 +30,9 @@ const mutations = {
   },
   toggleCheckoutFormPopup(state) {
     state.checkoutFormPopup = !state.checkoutFormPopup;
+  },
+  toggleAddTipPopup(state) {
+    state.addTipPopup = !state.addTipPopup;
   },
 };
 export default {

@@ -7,26 +7,16 @@
         </div>
       </div>
       <div class="box" id="image">
-        <img src="../../assets/flower.jpg" alt="BlossomFlower" />
+        <img :src="getImage(image)" alt="BlossomFlower" />
       </div>
-      <div class="box" v-if="available != 0">
+      <div class="box">
         <div class="flowerName">
-          <h3>{{orderName}}</h3>
+          <h3>{{ orderName }}</h3>
         </div>
         <div class="flowerPrice">
-          <h3>{{orderPrice}} LE</h3>
+          <h3>{{ orderPrice }} LE</h3>
         </div>
-        <div class="amountButton">
-          Amount: {{orderAmount}}
-        </div>
-      </div>
-      <div class="box" v-if="available == 0">
-        <div class="flowerName">
-          <h3>{{orderName}}</h3>
-        </div>
-        <div class="notAvailable">
-          <h3>Not Available</h3>
-        </div>
+        <div class="amountButton">Amount: {{ orderAmount }}</div>
       </div>
     </div>
   </div>
@@ -86,13 +76,12 @@ h3 {
   color: $darkGolden;
 }
 .flowerName,
-.flowerPrice,
-.notAvailable {
+.flowerPrice {
   font-weight: 700;
   font-size: 25px;
   text-align: center;
 }
-.flowerName{
+.flowerName {
   color: $darkGolden;
   text-decoration: underline;
 }
@@ -101,12 +90,6 @@ h3 {
     font-size: 20px;
     font-weight: 700;
   }
-}
-.notAvailable {
-  h3 {
-    font-size: 19px;
-  }
-  margin-top: 20px;
 }
 i {
   padding-left: 5px;
@@ -120,32 +103,31 @@ i {
 </style>
 
 <script>
+import { default as getImage } from "../../mixins/getImage";
 export default {
   name: "cartCard",
   props: {
-    id:{
-      type: String
+    id: {
+      type: String,
     },
-    image:{
-      type: String
+    image: {
+      type: String,
     },
-    orderName:{
-      type: String
+    orderName: {
+      type: String,
     },
-    orderPrice:{
-      type: Number
+    orderPrice: {
+      type: Number,
     },
-    orderAmount:{
-      type: Number
+    orderAmount: {
+      type: Number,
     },
-    available: {
-      type: Number
-    }
   },
-  methods:{
-    deleteCartCard(){
-        this.$store.dispatch("cart/deleteCardFromCart",this.id);
-    }
-  }
+  mixins: [getImage],
+  methods: {
+    deleteCartCard() {
+      this.$store.dispatch("cart/deleteCardFromCart", this.id);
+    },
+  },
 };
 </script>

@@ -18,6 +18,7 @@
           id="passwordInput"
           type="password"
           v-model="password"
+          minlength="3"
           required
         />
         <i
@@ -66,7 +67,7 @@ export default {
         email: this.email,
         password: this.password,
       };
-      console.log("gvasfdjs")
+      console.log("gvasfdjs");
       this.$store.dispatch("authorization/login", user);
     },
     switchState() {

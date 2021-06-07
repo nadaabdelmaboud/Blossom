@@ -2,20 +2,17 @@
   <div class="reviewCard">
     <div class="container">
       <div class="userImageBox">
-        <img src="../../assets/anime.jpg" alt="userImage" />
+        <img src="../../assets/user.svg" alt="userImage" />
       </div>
-      <div class="userName">Nihal Mansour</div>
+      <div class="userName">{{ userName }}</div>
       <div class="userReview">
-        this website is really awesome contains lots of wonderful flowers and
-        the service here is great
+        {{ userReview }}
       </div>
       <div class="ratingStars">
         <ul>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
-          <li><i class="fa fa-star"></i></li>
+          <li v-for="index in userRating" :key="index">
+            <i class="fa fa-star"></i>
+          </li>
         </ul>
       </div>
     </div>
@@ -25,35 +22,42 @@
 <style lang="scss" scoped>
 @import "../../scss/_Colors";
 .reviewCard {
-  margin-top: 30px;
-  width: 18%;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 10px 3px $lightGolden;
+  -moz-box-shadow: 0px 0px 10px 3px $lightGolden;
+  box-shadow: 0px 0px 10px 3px $lightGolden;
 }
 .container {
   padding: 15px;
-  width: 100%;
-  height: 30%;
-  box-shadow: 0 3px 3px 3px rgba(10, 10, 10, 0.06);
+  width: 96%;
+  height: 100%;
+  margin-top: 20px;
+  //box-shadow: 0 3px 3px 3px rgba(7, 7, 7, 0.06);
   justify-content: center;
   text-align: center;
 }
-img {
-  border-radius: 50%;
-  width: 60%;
-  margin-top: 5px;
-  background-size: cover;
-  object-fit: cover;
+.userImageBox {
+  img {
+    border-radius: 50%;
+    width: 95px;
+    margin-top: 5px;
+    background-size: cover;
+    object-fit: cover;
+    border: 2px solid $darkGolden;
+  }
 }
 .userName {
   margin-top: 7px;
   margin-bottom: 7px;
   color: $darkGolden;
-  font-size: 18px;
+  text-decoration: underline;
+  font-size: 25px;
   font-weight: 700;
 }
 .userReview {
-  margin-top: 7px;
+  margin-top: 15px;
   margin-bottom: 7px;
-  font-size: 13px;
+  font-size: 20px;
 }
 ul {
   display: flex;
@@ -64,7 +68,7 @@ ul {
     margin-left: 5px;
     list-style: none;
     color: $lightGolden;
-    font-size: 20px;
+    font-size: 30px;
   }
 }
 </style>
@@ -72,5 +76,16 @@ ul {
 <script>
 export default {
   name: "reviewCard",
+  props: {
+    userName: {
+      type: String,
+    },
+    userReview: {
+      type: String,
+    },
+    userRating: {
+      type: Number,
+    },
+  },
 };
 </script>

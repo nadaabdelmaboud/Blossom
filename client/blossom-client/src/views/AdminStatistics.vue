@@ -18,7 +18,9 @@
       <br />
       <div class="users">
         <h3 class="slogan">Top Users</h3>
-        <p v-for="(u, i) in topUsers" :key="i" class="slogan names">{{ u }}</p>
+        <p v-for="(u, i) in topUsers" :key="i" class="slogan names">
+          {{ u.name }}
+        </p>
       </div>
     </div>
   </div>
@@ -92,15 +94,16 @@ export default {
       let month = d.getMonth();
       let year = d.getFullYear();
       this.chartdataSales.datasets[0].label = this.monthNames[month] + " Sales";
-      this.chartdataSales.datasets[0].data = this.sales;
+      this.chartdataSales.datasets[0].data = [];
       let monthDays = new Date(year, month + 1, 0).getDate();
-      for (let i = 0; i < monthDays; i++)
+      for (let i = 0; i < monthDays; i++) {
         this.chartdataSales.labels.push(i + 1);
-      this.$store.dispatch("statistics/getSales");
+        this.chartdataSales.datasets[0].data.push(this.sales[i]);
+      }
+      console.log(this.chartdataSales.datasets[0].data);
     },
-    setRate() {
+    async setRate() {
       this.chartdataRate.datasets[0].data = this.rating;
-      this.$store.dispatch("statistics/getRating");
     },
   },
   computed: {
@@ -112,7 +115,11 @@ export default {
       topUsers: (state) => state.statistics.topUsers,
     }),
   },
-  created: function () {
+  async created() {
+    await this.$store.dispatch("statistics/getSales");
+    await this.$store.dispatch("statistics/getTopUsers");
+    this.$store.dispatch("statistics/getRating");
+
     this.setSales();
     this.setRate();
   },

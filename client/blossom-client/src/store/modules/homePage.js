@@ -5,10 +5,12 @@ const state = {
   maxPages: 0,
   isFlower: true,
   cateogry: "",
+  type: "",
   sentiment: "",
   cardId: "",
   cardName: "",
   cardDescription: "",
+  reviewCards: [],
 };
 
 const mutations = {
@@ -27,6 +29,9 @@ const mutations = {
   setCateogry(state, type) {
     state.cateogry = type;
   },
+  setType(state, type) {
+    state.type = type;
+  },
   setSentiment(state, type) {
     state.sentiment = type;
   },
@@ -41,6 +46,15 @@ const mutations = {
   },
   setCardDescription(state, value) {
     state.cardDescription = value;
+  },
+  setReviewCards(state, cards) {
+    state.reviewCards = cards;
+  },
+  deleteCard(state, cardId) {
+    var index = state.homeCards.findIndex((x) => x._id === cardId);
+    if (index !== -1) {
+      state.homeCards.splice(index, 1);
+    }
   },
 };
 
@@ -60,8 +74,10 @@ const actions = {
       )
       .then((response) => {
         state.homeCards = [];
-        commit("setHomeCards", response.data);
-        commit("setMaxPage" , response.data.MaxPage);
+        commit("setHomeCards", response.data.bouquets);
+        commit("setMaxPage", response.data.MaxPage);
+        commit("setCateogry", "");
+        commit("setSentiment", "");
         console.log(response.data);
       })
       .catch((error) => {
@@ -70,13 +86,15 @@ const actions = {
   },
   callPlantCards({ commit }, index) {
     let typeVal = "";
-    if (state.cateogry != "") typeVal = "type=" + state.cateogry;
+    if (state.type != "") typeVal = "type=" + state.type + "&";
+    console.log("type", typeVal);
     axios
       .get("plant?" + typeVal + "pageSize=4&pageNumber=" + index)
       .then((response) => {
         state.homeCards = [];
-        commit("setHomeCards", response.data);
-        commit("setMaxPage" , response.data.MaxPage);
+        commit("setHomeCards", response.data.Plants);
+        commit("setMaxPage", response.data.MaxPage);
+        commit("setType", "");
         console.log(response.data);
       })
       .catch((error) => {
@@ -102,6 +120,37 @@ const actions = {
         commit("setCardName", response.data.name);
         commit("setCardDescription", response.data.info);
         console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  getTopReviews({ commit }) {
+    axios
+      .get("user/admin/cart/feedback/top")
+      .then((response) => {
+        commit("setReviewCards", response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  deleteBouquetCard({ commit }, id) {
+    axios
+      .delete("bouquets/" + id)
+      .then(() => {
+        commit("deleteCard", id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  deletePlantCard({ commit }, id) {
+    axios
+      .delete("plant/" + id)
+      .then(() => {
+        commit("deleteCard", id);
       })
       .catch((error) => {
         console.log(error);

@@ -1,42 +1,21 @@
 <template>
   <div class="userProfile blossomCard">
     <img src="../assets/BlossomLogo_v7.png" alt="logo Image" />
-     <form class="form" v-on:submit.prevent="saveChanges">
-    <input 
-     placeholder="Username"
-     class="blossomInput" 
-     v-model="username" 
-     required/>
-    <input
-      placeholder="Email"
-      type="email"
-      class="blossomInput"
-      v-model="email"
-      required
-    />
-      <!-- <div class="passwordContainer">
-        <input
-          placeholder="Password"
-          class="blossomInput"
-          id="passwordInput"
-          type="password"
-          v-model="password"
-          required
-        />
-        <i
-          v-if="showPassword"
-          class="fa fa-eye-slash passwordIcon"
-          id="togglePassword"
-          @click="togglePasswordState"
-        ></i>
-        <i
-          v-else
-          class="fa fa-eye passwordIcon"
-          id="togglePassword"
-          @click="togglePasswordState"
-        ></i>
-      </div> -->
-     <input
+    <form class="form" v-on:submit.prevent="saveChanges">
+      <input
+        placeholder="Username"
+        class="blossomInput"
+        v-model="username"
+        required
+      />
+      <input
+        placeholder="Email"
+        type="email"
+        class="blossomInput"
+        v-model="email"
+        required
+      />
+      <input
         placeholder="Phone Number"
         class="blossomInput"
         v-model="phoneNumber"
@@ -44,61 +23,58 @@
         pattern="[0]{1}[1]{1}[0-2]{1}[0-9]{8}"
         required
       />
-        <div class="blossomSelectComponent">
-          <div
-            class="blossomInput blossomSelect"
-            :class="{
-              optionChosen: address.city != 'City',
-            }"
-            @click="showCity = !showCity"
-          >
-            {{ address.city }}
+      <div class="blossomSelectComponent">
+        <div
+          class="blossomInput blossomSelect"
+          :class="{
+            optionChosen: address.city != 'City',
+          }"
+          @click="showCity = !showCity"
+        >
+          {{ address.city }}
 
-            <i class="fa fa-chevron-right arrow" id="openArrow"></i>
-          </div>
-          <div class="blossomSelectList" v-if="showCity">
-            <div v-for="(c, i) in cities" :key="i" class="options">
-              <ul>
-                <li @click="(address.city = c.name), (showCity = false)">
-                  {{ c.name }}
-                </li>
-              </ul>
-            </div>
+          <i class="fa fa-chevron-right arrow" id="openArrow"></i>
+        </div>
+        <div class="blossomSelectList" v-if="showCity">
+          <div v-for="(c, i) in cities" :key="i" class="options">
+            <ul>
+              <li @click="(address.city = c.name), (showCity = false)">
+                {{ c.name }}
+              </li>
+            </ul>
           </div>
         </div>
-        <input
-          placeholder="Street"
-          class="blossomInput"
-          v-model="address.street"
-          required
-        />
-        <input
-          placeholder="building Number"
-          type="number"
-          class="blossomInput"
-          min="0"
-          v-model="address.buildingNo"
-          required
-        />
-        <input
-          placeholder="apartment Number"
-          type="number"
-          class="blossomInput"
-          min="0"
-          v-model="address.apartmentNo"
-          required
-        />
+      </div>
+      <input
+        placeholder="Street"
+        class="blossomInput"
+        v-model="address.street"
+        required
+      />
+      <input
+        placeholder="building Number"
+        type="number"
+        class="blossomInput"
+        min="0"
+        v-model="address.buildingNo"
+        required
+      />
+      <input
+        placeholder="apartment Number"
+        type="number"
+        class="blossomInput"
+        min="0"
+        v-model="address.apartmentNo"
+        required
+      />
 
-
-    <button type="submit" class="blossomButton">Save Changes</button>
-   </form>
-
+      <button type="submit" class="blossomButton">Save Changes</button>
+    </form>
   </div>
 </template>
 
 <script>
-import { default as togglePasswordState } from "../mixins/togglePasswordState";
-import { mapState } from "vuex"
+import { mapState } from "vuex";
 export default {
   name: "UserProfile",
   data: function () {
@@ -126,15 +102,12 @@ export default {
       showPassword: true,
     };
   },
-  mixins: [togglePasswordState],
   methods: {
     async saveChanges() {
       //send new user data to backend
       const user = {
         name: this.username,
         email: this.email,
-        //password: this.password,
-       // repeat_password: this.password,
         phone: this.phoneNumber,
         address: this.address,
       };
@@ -145,22 +118,20 @@ export default {
   computed: {
     //map user state to the v-model
     ...mapState({
-        curUser: (state) => state.authorization.user
-    })
+      curUser: (state) => state.authorization.user,
+    }),
   },
-  created() {
+  created() {},
+  async mounted() {
+    await this.$store.dispatch("authorization/get_user");
+    this.username = this.curUser.name;
+    this.email = this.curUser.email;
+    this.phoneNumber = this.curUser.phone;
+    this.address.city = this.curUser.address.city;
+    this.address.street = this.curUser.address.street;
+    this.address.buildingNo = this.curUser.address.buildingNo;
+    this.address.apartmentNo = this.curUser.address.apartmentNo;
   },
-  async mounted(){
-      await this.$store.dispatch("authorization/get_user");
-      this.username = this.curUser.name;
-      this.email = this.curUser.email;
-      this.phoneNumber = this.curUser.phone;
-      this.address.city = this.curUser.address.city;
-      this.address.street = this.curUser.address.street;
-      this.address.buildingNo = this.curUser.address.buildingNo;
-      this.address.apartmentNo = this.curUser.address.apartmentNo;
-  }
-
 };
 </script>
 
@@ -187,9 +158,9 @@ export default {
   margin: 0 calc(25%);
 }
 .passwordContainer {
-    position: relative;
-    margin: auto;
-width: 50%;
+  position: relative;
+  margin: auto;
+  width: 50%;
 }
 .form {
   display: flex;
@@ -198,7 +169,7 @@ width: 50%;
   flex-direction: column;
   padding: 0px 40px;
 }
-img{
+img {
   width: 250px;
   margin: auto;
 }

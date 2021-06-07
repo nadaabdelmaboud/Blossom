@@ -1,8 +1,8 @@
 <template>
   <div class="typesCard">
-    <div class="typeName">Tuilp</div>
+    <div class="typeName">{{ name }}</div>
     <div class="typeImage">
-      <img src="../../assets/Roses.jpg" alt="flower" />
+      <img :src="image" alt="flower" />
     </div>
   </div>
 </template>
@@ -10,8 +10,7 @@
 <style lang="scss" scoped>
 @import "../../scss/_Colors";
 .typesCard {
-  width: 200px;
-  height: 180px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   margin: 15px;
@@ -24,10 +23,8 @@
 }
 .typeImage {
   width: 100%;
-  height: 88%;
   img {
     width: 100%;
-    height: 97%;
     background-size: cover;
     object-fit: cover;
   }
@@ -35,7 +32,7 @@
 
 .typeName {
   text-align: center;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 700;
   padding-top: 5px;
   color: $golden;
@@ -45,5 +42,13 @@
 <script>
 export default {
   name: "typesCard",
+  props: {
+    name: {
+      type: String,
+    },
+    image: {
+      type: String,
+    },
+  },
 };
 </script>

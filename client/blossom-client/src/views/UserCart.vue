@@ -1,24 +1,25 @@
 <template>
   <div class="userCart">
     <div class="container" v-if="cartCards.length != 0">
-          <div class="gridContainer">
-      <cartCard
-        class="box"
-        v-for="card in cartCards"
-        :key="card._id"
-        :id="card._id"
-        :image="card.images"
-        :orderName="card.name"
-        :orderPrice="card.price"
-        :orderAmount="card.amount"
-        :available="card.count.available"
-      />
-    </div>
+      <div class="gridContainer">
+        <cartCard
+          class="box"
+          v-for="card in cartCards"
+          :key="card._id"
+          :id="card._id"
+          :image="card.images"
+          :orderName="card.name"
+          :orderPrice="card.price"
+          :orderAmount="card.amount"
+        />
+      </div>
       <div class="totalPrice">
         <h3>Total Price: 2050 LE</h3>
       </div>
       <div class="checkoutForm">
-        <button class="blossomButton" @click="showCheckoutForm()">Checkout</button>
+        <button class="blossomButton" @click="showCheckoutForm()">
+          Checkout
+        </button>
       </div>
     </div>
     <div class="container" v-if="cartCards.length == 0">
@@ -110,21 +111,21 @@ export default {
   components: {
     cartCard,
   },
-    computed: {
+  computed: {
     ...mapState({
       cartCards: (state) => state.cart.cartCards,
     }),
   },
-  mounted(){
+  mounted() {
     this.$store.dispatch("cart/callCartCards");
   },
   methods: {
     routeToHomePage() {
       router.push("/");
     },
-    showCheckoutForm(){
+    showCheckoutForm() {
       this.$store.commit("popupsState/toggleCheckoutFormPopup");
-    }
+    },
   },
 };
 </script>

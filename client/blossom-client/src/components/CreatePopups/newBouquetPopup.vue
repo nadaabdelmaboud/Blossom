@@ -7,8 +7,7 @@
         alt="logo Image"
         class="logoImg"
       />
-      <h3>Add new plant? Intersting!</h3>
-
+      <h3>Add new Bouquet Category? Intersting!</h3>
       <form v-on:submit.prevent="addCategory" class="form">
         <input
           class="blossomInput"
@@ -69,7 +68,7 @@ h3 {
 
 <script>
 export default {
-  name: "CreateCategory",
+  name: "CreateBouquetCategory",
   data: function () {
     return {
       categoryName: "",
@@ -78,12 +77,12 @@ export default {
   methods: {
     addCategory() {
       let payload = {
-        type: this.categoryName,
+        category: this.categoryName,
       };
-      this.$store.dispatch("categories/addPlantCategories", payload);
+      this.$store.dispatch("categories/addBouquetCategories", payload);
     },
     close() {
-      this.$store.commit("popupsState/toggleCreateCategoryPopup");
+      this.$store.commit("popupsState/toggleCreateBouquetPopup");
     },
   },
 };

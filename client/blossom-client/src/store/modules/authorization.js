@@ -1,10 +1,13 @@
 import axios from "axios";
+import router from "../../router/index";
 
 const state = {
   status: "",
   token: localStorage.getItem("token") || "",
-  user: {},
-  isAdmin: Boolean,
+  user: {
+    name: "",
+  },
+  isAdmin: false,
 };
 
 const mutations = {
@@ -14,9 +17,9 @@ const mutations = {
   auth_success(state) {
     state.status = "success";
   },
-  set_user(state,user) {
+  set_user(state, user) {
     state.user = user;
-    state.isAdmin = user.type != "user"
+    state.isAdmin = user.type != "user";
   },
   auth_error(state, err_msg) {
     state.status = err_msg;
@@ -25,6 +28,7 @@ const mutations = {
     state.status = "";
     state.token = "";
     state.user = {};
+    state.isAdmin = false;
   },
 };
 const actions = {
@@ -67,29 +71,30 @@ const actions = {
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.get("user/current");
-      commit("set_user", data.data[0]);
+      commit("set_user", data.data);
       commit("auth_success");
     } catch (err) {
       console.log(err);
-      commit("auth_error","error")
+      commit("auth_error", "error");
     }
   },
-  async update_user({ commit },payload) {
+  async update_user({ commit }, payload) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.put("users",payload);
-      console.log("user data",data);
+      let data = await axios.put("users", payload);
+      console.log("user data", data);
       commit("set_user", data);
     } catch (err) {
       console.log(err);
-      commit("auth_error","error")
+      commit("auth_error", "error");
     }
   },
   logout({ commit }) {
     commit("logout");
     localStorage.removeItem("token");
     delete axios.defaults.headers.common["Authorization"];
+    if (router.history.current.path != "/") router.replace("/");
   },
 };
 const getters = {
