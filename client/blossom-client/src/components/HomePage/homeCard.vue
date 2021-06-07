@@ -49,20 +49,20 @@
           <span id="counter">{{ available }} </span>
           <span id="available"> available</span>
         </div>
-        <div class="buttonDiv">
-          <div class="cartBlock" v-if="available != 0 && getAll == false">
-            <div
-              class="chooseAmount"
-              v-if="status == 'success' && isAdmin == false"
-            >
-              {{ cartAmount }}
-              <router-link to="/userCart">
-                <i class="fa fa-shopping-cart" id="cartIcon"></i>
-              </router-link>
-              <i class="fa fa-arrow-up" @click="increaseAmount()"></i>
-              <i class="fa fa-arrow-down" @click="decreaseAmount()"></i>
-            </div>
+        <div class="cartBlock" v-if="available != 0 && getAll == false">
+          <div
+            class="chooseAmount"
+            v-if="status == 'success' && isAdmin == false"
+          >
+            {{ cartAmount }}
+            <router-link to="/userCart">
+              <i class="fa fa-shopping-cart" id="cartIcon"></i>
+            </router-link>
+            <i class="fa fa-arrow-up" @click="increaseAmount()"></i>
+            <i class="fa fa-arrow-down" @click="decreaseAmount()"></i>
           </div>
+        </div>
+        <div class="buttonDiv">
           <div class="homeCardButtons">
             <button
               class="addToCart blossomButton"
@@ -99,7 +99,6 @@
       <div class="addedToCart">Added to Cart</div>
     </div>
   </div>
-  <!-- showToast('toastId'), -->
 </template>
 
 <style lang="scss" scoped>
@@ -137,9 +136,13 @@
   margin-right: auto;
   margin-left: auto;
 }
+.flowerImage,
+.plantImage {
+  height: 380px;
+}
 img {
   width: 100%;
-  height: 100%;
+  height: 98%;
   margin-top: 5px;
   background-size: cover;
   object-fit: cover;
@@ -195,6 +198,7 @@ img {
 .flowersCount {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   color: $darkGolden;
   font-size: 20px;
   font-weight: 600;
@@ -208,7 +212,8 @@ img {
 }
 .buttonDiv {
   display: flex;
-  justify-content: space-between;
+  //justify-content: space-between;
+  justify-content: center;
 }
 .chooseAmount {
   padding: 10px;
@@ -222,6 +227,7 @@ img {
 .cartBlock {
   display: flex;
   flex-direction: column;
+  //justify-content: space-between;
 }
 #errorMessage {
   color: red;
@@ -233,12 +239,14 @@ img {
   padding-left: 0;
 }
 .homeCardButtons {
+  width: 70%;
   margin-right: 12px;
   margin-bottom: 6px;
 }
 .blossomButton {
   font-size: 15px;
   height: 50px;
+  width: 100%;
 }
 </style>
 
