@@ -11,6 +11,7 @@ import cart from "./modules/cart";
 import sentiments from "./modules/sentiments";
 import categories from "./modules/categories";
 import tips from "./modules/tips";
+import orders from "./modules/orders";
 
 Vue.use(Vuex);
 
@@ -27,5 +28,6 @@ export default new Vuex.Store({
     sentiments,
     categories,
     tips,
+    orders,
   },
 });

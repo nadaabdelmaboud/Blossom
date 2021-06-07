@@ -59,6 +59,8 @@ const routes = [
         path: "trackOrders",
         name: "TrackOrders",
         component: TrackOrders,
+      },
+      {
         path: "CategoriesPage",
         name: "CategoriesPage",
         component: CategoriesPage,

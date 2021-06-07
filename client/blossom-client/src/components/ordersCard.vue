@@ -90,6 +90,7 @@ export default {
   mixins: [getImage],
   props: [
     "userId",
+    "cartId",
     "Index",
     "orderId",
     "isAdmin",
@@ -114,6 +115,14 @@ export default {
     },
     confirmRate() {
       //send req
+      let payload = {
+        rate: this.cardRating,
+      };
+      if (this.cardComment != "") payload.comment;
+      this.$store.dispatch("orders/addFeedback", {
+        cardId: this.cardId,
+        payload,
+      });
       this.hideToastRating();
       this.confirmRating = false;
     },
@@ -130,6 +139,12 @@ export default {
     },
     confirmStatus() {
       //send req
+      let payload = {
+        orderId: this.orderId,
+        userId: this.userId,
+        status: this.cartStatus,
+      };
+      this.$store.dispatch("orders/changeStatusAdmin", payload);
       this.hideToastStatus();
     },
     cancelStatus() {

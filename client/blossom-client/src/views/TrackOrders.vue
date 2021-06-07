@@ -1,17 +1,16 @@
 <template>
   <div>
     <ordersCard
-      :Index="1"
-      :imageId="'Bouquet/d9a0f89e-7660-4640-b323-a59bf5d78c83.image/jpeg'"
-      :price="200"
-      :Items="[
-        ['abb', { name: 'venom', price: 8 }],
-        ['jj', { name: 'veee', price: 9 }],
-      ]"
-      :isAdmin="true"
-      :status="'pending'"
-      :rating="1"
-      :comment="''"
+      v-for="(v, i) in orders"
+      :key="i"
+      :Index="i + 1"
+      :imageId="v.image"
+      :price="v.price"
+      :Items="v.orders"
+      :isAdmin="isAdmin"
+      :status="v.status"
+      :rating="v.feedback.rating"
+      :comment="v.feedback.comment"
     />
   </div>
 </template>
@@ -26,19 +25,17 @@ export default {
   components: {
     ordersCard,
   },
-  methods: {
-    addTip() {
-      // this.$store.commit("popupsState/toggleAddTipPopup");
-    },
-  },
+  methods: {},
   computed: {
     ...mapState({
       isAdmin: (state) => state.authorization.isAdmin,
+      orders: (state) => state.orders.orders,
     }),
   },
-  //async
-  beforeCreate() {
-    //await this.$store.dispatch("tips/getTips", this.$route.params.plantId);
+  async beforeCreate() {
+    await this.$store.dispatch("authorization/get_user");
+    if (this.isAdmin) await this.$store.dispatch("orders/getOrdersAdmin");
+    else await this.$store.dispatch("orders/getOrdersUser");
   },
 };
 </script>

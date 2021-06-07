@@ -5,14 +5,15 @@ const state = {
 };
 
 const actions = {
-  async addFeedback({ state }, { id, payload }) {
+  async addFeedback({ state }, { cartId, payload }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.post("/user/me/cart/" + id + "/feedback", payload);
+      let data = await axios.post(
+        "user/me/cart/" + cartId + "/feedback",
+        payload
+      );
       state.orders = data.data;
-      //update orders
-      // close popup
     } catch (err) {
       console.log(err);
     }
@@ -21,7 +22,7 @@ const actions = {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.get("carts?limit=1000");
+      let data = await axios.get("me/carts?limit=1000");
       state.orders = data.data;
     } catch (err) {
       console.log(err);
