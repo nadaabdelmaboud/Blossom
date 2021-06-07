@@ -45,6 +45,7 @@ const CartService={
         if(!user)  return {data:false,err:await error("No such user",404)};
         const paymentData = await Cart.buyCart(user,address,paymentMethod);
         if(!paymentData) return {data:false,err:await error("Error in payment",400)};
+        console.log(paymentData);
         if(paymentMethod=="cash")return {data:true,err:''};
         const paymentLink = await setTransaction(paymentData.items,paymentData.totalPrice)
         return {data:paymentLink,err:''};

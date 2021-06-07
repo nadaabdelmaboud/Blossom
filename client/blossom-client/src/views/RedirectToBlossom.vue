@@ -1,6 +1,6 @@
 <template>
     <div class="redirectToBlossom">
-        <h1>Directed after payment</h1>
+        <h1>Thanks For Your Time</h1>
     </div>
 </template>
 

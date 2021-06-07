@@ -9,6 +9,7 @@ import AdminStatistics from "../views/AdminStatistics.vue";
 import UserCart from "../views/UserCart.vue";
 import Tips from "../views/Tips.vue";
 import CategoriesPage from "../views/CategoriesPage.vue";
+import RedirectToBlossom from "../views/RedirectToBlossom.vue";
 
 Vue.use(VueRouter);
 
@@ -58,6 +59,11 @@ const routes = [
         name: "CategoriesPage",
         component: CategoriesPage,
       },
+      {
+        path:"payment",
+        name:"RedirectToBlossom",
+        component: RedirectToBlossom,
+      }
     ],
   },
 ];

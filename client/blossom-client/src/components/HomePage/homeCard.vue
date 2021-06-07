@@ -112,7 +112,7 @@
 }
 .container {
   width: 100%;
-  height: auto;
+  height: 100%;
   box-shadow: 0 0 10px 3px rgba(10, 10, 10, 0.3);
   display: flex;
   flex-direction: column;
@@ -133,6 +133,7 @@
 #flowerBox,
 #flowerInfo {
   width: 90%;
+  height: 100%;
   margin-right: auto;
   margin-left: auto;
 }

@@ -14,6 +14,10 @@
               Error pick address first
             </p>
             <div class="blossomRadio">
+              <div>
+              <h3>Choose where to deliver order?</h3>
+              </div>
+              <div class="choose">
               <label class="container labelContainer"
                 ><p>Saved Address</p>
                 <input
@@ -39,41 +43,63 @@
             </div>
           </div>
           <div class="box surpriseAddress" v-if="surprise">
-            <input
-              placeholder="The Surprise Address"
+            <div class="chooseCity">
+               <label class="container labelContainer"
+                ><p>Cairo</p>
+                <input
+                  type="radio"
+                  name="addressType"
+                  value="cairo"
+                  v-model="city"
+                />
+                <span class="checkmark"></span>
+              </label>
+                <label class="container labelContainer"
+                ><p>Giza</p>
+                <input
+                  type="radio"
+                  name="addressType"
+                  value="giza"
+                  v-model="city"
+                />
+                <span class="checkmark"></span>
+              </label>
+              </div>
+             <input
+              placeholder="Street"
               class="blossomInput"
               type="text"
               v-model="surpriseAddress"
             />
+             <input
+              placeholder="Building Number"
+              class="blossomInput"
+              type="number"
+              v-model="buildingNo"
+            />
+             <input
+              placeholder="Apartment Number"
+              class="blossomInput"
+              type="number"
+              v-model="apartmentNo"
+            />
           </div>
-          <div class="box orderDate">
-            <h2 id="deliveryTime">Delivery Time</h2>
-            <p id="selectDate">Select date with in next five days</p>
-            <div class="selectDeliveryTime">
-              <div class="dayBox">
-                {{ today }}
-                <i class="fa fa-arrow-up" @click="increaseDay()"></i>
-                <i class="fa fa-arrow-down" @click="decreaseDay()"></i>
-              </div>
-              <div class="monthBox">{{ month }}/{{ year }}</div>
-              <div class="chooseHour">
-                /{{ deliveryHour }}:00 PM
-                <i class="fa fa-arrow-up" @click="increaseHour()"></i>
-                <i class="fa fa-arrow-down" @click="decreaseHour()"></i>
-              </div>
-            </div>
           </div>
           <div class="box choosePayment">
             <p v-if="errorPayment" id="errorMessage">
               Error pick way of payment first
             </p>
             <div class="blossomRadio">
+              <div>
+              <h3>Choose way of payment?</h3>
+              </div>
+              <div class="choose">
               <label class="container labelContainer"
                 ><p>Cash</p>
                 <input
                   type="radio"
                   name="paymentType"
-                  value="Cash"
+                  value="cash"
                   v-model="payment"
                   @click="showCashMoney()"
                 />
@@ -84,7 +110,7 @@
                 <input
                   type="radio"
                   name="paymentType"
-                  value="Paypal"
+                  value="paypal"
                   v-model="payment"
                   @click="showPaypal()"
                 />
@@ -92,11 +118,9 @@
               </label>
             </div>
           </div>
+          </div>
           <div class="box cashMoney" v-if="cashPayment">
             <h2 id="totalPrice">Total Price: 2500 LE</h2>
-          </div>
-          <div class="box paypal" v-if="paypalPayment">
-            <button class="paypalButton">Paypal</button>
           </div>
           <div class="box confirm">
             <button class="blossomButton" @click="confirm()">Confirm</button>
@@ -127,7 +151,7 @@
     font-size: 27px;
     font-weight: 700;
     margin-top: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 0;
   }
 }
 .block {
@@ -159,44 +183,20 @@
 }
 .blossomRadio {
   display: flex;
+  flex-direction: column;
+}
+.choose{
+  display: flex;
   justify-content: space-between;
+  margin-top: 15px;
 }
 .blossomInput {
   width: 90%;
-}
-#deliveryTime {
-  color: $darkGolden;
-  font-size: 25px;
-  font-weight: 700;
-  margin-bottom: 0;
 }
 #errorMessage {
   color: red;
   margin-top: 7px;
   margin-bottom: 3px;
-}
-.selectDeliveryTime {
-  display: flex;
-  padding: 12px;
-  .dayBox,
-  .monthBox,
-  .chooseHour {
-    color: $darkGolden;
-    font-size: 20px;
-    padding: 7px;
-    i {
-      cursor: pointer;
-      padding: 3px;
-    }
-  }
-  .monthBox {
-    padding-top: 10px;
-  }
-  .chooseHour {
-    i {
-      padding: 3px;
-    }
-  }
 }
 .cashMoney,
 .paypal,
@@ -211,29 +211,14 @@
 .blossomButton {
   width: 50%;
 }
-.paypalButton {
-  background-color: transparent;
-  border-color: $darkGolden;
-  box-shadow: none;
+h3{
+  font-weight: 700;
   color: $darkGolden;
-  border: 2px solid $darkGolden;
-  width: 50%;
-  font-size: 20px;
-  padding: 10px 20px;
-  &:hover {
-    cursor: pointer;
-  }
-  &:focus {
-    outline: none;
-  }
-  &:active {
-    transform: scale(0.98);
-  }
+  margin: 7px;
 }
-#selectDate {
-  margin: 0;
-  margin-top: 5px;
-  color: $darkGolden;
+.chooseCity{
+  display: flex;
+  flex-direction: row;
 }
 @media screen and (max-width: 993px) {
   .container {
@@ -251,9 +236,6 @@
     margin: 50px auto;
     width: 80%;
   }
-  .selectDeliveryTime {
-    flex-wrap: wrap;
-  }
 }
 </style>
 
@@ -265,24 +247,15 @@ export default {
       currentAddress: "",
       surpriseAddress: "",
       addressType: "",
+      city:"",
+      apartmentNo:"",
+      buildingNo:"",
       surprise: false,
-      date: "",
-      time: "",
-      formattedDate: "",
-      formattedTime: "",
       payment: "",
       cashPayment: false,
       paypalPayment: false,
       errorAddress: false,
       errorPayment: false,
-      today: 0,
-      month: 0,
-      year: 0,
-      currentDay: 0,
-      currentMonth: 0,
-      deliveryHour: 1,
-      monthDays: 0,
-      counter: 4,
     };
   },
   methods: {
@@ -307,58 +280,27 @@ export default {
       this.paypalPayment = true;
       this.errorPayment = false;
     },
-    clearDate() {
-      this.date = "";
-      this.formattedDate = "";
-      console.log("cleared");
-    },
-    clearTime() {
-      this.time = "";
-      this.formattedTime = "";
-      console.log("cleared");
-    },
-    increaseDay() {
-      if (this.counter > 0) {
-        if (this.today + 1 == this.monthDays) {
-          this.today = 1;
-          this.month = this.month + 1;
-          this.counter = this.counter - 1;
-        } else {
-          this.today = this.today + 1;
-          this.counter = this.counter - 1;
-        }
-      }
-    },
-    decreaseDay() {
-      if (this.today - 1 >= this.currentDay) {
-        this.today = this.today - 1;
-        this.counter = this.counter + 1;
-      }
-    },
-    increaseHour() {
-      if (this.deliveryHour + 1 <= 5) this.deliveryHour = this.deliveryHour + 1;
-    },
-    decreaseHour() {
-      if (this.deliveryHour - 1 >= 1) this.deliveryHour = this.deliveryHour - 1;
-    },
-    //donot forget to check if paypal is done correctly before confirmation
     confirm() {
       if (this.addressType == "") this.errorAddress = true;
+      if(this.surprise == true && (this.city == "" || this.surpriseAddress == "" || this.buildingNo == "" || this.apartmentNo == ""))
+        this.errorAddress = true;
       if (this.payment == "") this.errorPayment = true;
+      if(this.errorAddress == false && this.errorPayment == false){
+      let address = {
+        address:{
+            country:"egypt",
+            city:this.city,
+            street:this.surpriseAddress,
+            buildingNo:parseInt(this.buildingNo),
+            apartmentNo:parseInt(this.apartmentNo)
+        }
+      }
+      if(this.surprise == true)
+        this.$store.dispatch("cart/buyCart" , {address: address, payment: this.payment});
+      else
+        this.$store.dispatch("cart/buyCart" , {address: null, payment: this.payment});
+      }
     },
-  },
-  mounted() {
-    var currentDate = new Date();
-    this.today = parseInt(currentDate.getDate() + 1);
-    this.currentDay = this.today;
-    this.month = parseInt(currentDate.getMonth() + 1);
-    this.currentMonth = this.month;
-    this.year = parseInt(currentDate.getFullYear());
-
-    let d = new Date();
-    let month = d.getMonth();
-    let year = d.getFullYear();
-    this.monthDays = new Date(year, month + 1, 0).getDate();
   },
 };
 </script>

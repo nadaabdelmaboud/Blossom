@@ -11,6 +11,7 @@
 @import "../../scss/_Colors";
 .typesCard {
   width: 250px;
+  //height: 60%;
   display: flex;
   flex-direction: column;
   margin: 15px;
