@@ -33,6 +33,7 @@ module.exports = function (app, winston) {
 
   //error handler
   app.use((err, req, res, next) => {
+    
     winston.error(err.message, err);
     if (!err.status) {
       process.exit(0);

@@ -3,7 +3,7 @@ const state = {
   cartCards: [],
   availableCount: 0,
   errorDetected: false,
-  checkoutDone: false
+  checkoutDone: ''
 };
 
 const mutations = {
@@ -77,8 +77,9 @@ const actions = {
     console.log("payment",payment);
     axios
       .post("me/cart?paymentMethod=" + payment + "&address=" + address)
-      .then(() => {
-        commit("checkoutIsDone", true);
+      .then((response) => {
+        location.replace(response.data);
+        commit("checkoutIsDone", response.data);
       })
       .catch((error) => {
         console.log(error);
