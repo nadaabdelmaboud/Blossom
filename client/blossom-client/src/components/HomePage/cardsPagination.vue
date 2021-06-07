@@ -4,7 +4,7 @@
       <div class="container" v-if="isFlower == true">
         <homeCard
           class="box"
-          v-for="card in homeCards.bouquets"
+          v-for="card in homeCards"
           :key="card._id"
           :id="card._id"
           :image="card.images"
@@ -18,7 +18,7 @@
       <div class="container" v-else>
         <homeCard
           class="box"
-          v-for="card in homeCards.Plants"
+          v-for="card in homeCards"
           :key="card._id"
           :id="card._id"
           :image="card.images"
@@ -127,6 +127,7 @@ export default {
       this.$store.dispatch("homePage/callPlantCards", 1);
     }
     console.log(this.homeCards);
+    this.$store.commit("homePage/setCounter", 1);
   },
   computed: {
     ...mapState({

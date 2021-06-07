@@ -2,7 +2,7 @@
   <div class="navBar">
     <div class="firstNav">
       <ul>
-        <li v-if="isAdmin == true">Upload</li>
+        <li v-if="isAdmin == true" @click="toUploadPage()">Upload</li>
         <router-link v-if="isAdmin == true" to="/statistics">
           <li>Statistics</li>
         </router-link>
@@ -273,6 +273,9 @@ export default {
     },
     logOut() {
       this.$store.dispatch("authorization/logout");
+    },
+    toUploadPage() {
+      this.$router.push("uploadProduct");
     },
   },
 };

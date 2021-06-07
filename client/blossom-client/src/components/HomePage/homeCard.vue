@@ -14,7 +14,12 @@
         >
           Out Stock
         </div>
-        <div class="hoverGolden" id="deleteFlower" v-if="isAdmin == true">
+        <div
+          class="hoverGolden"
+          id="deleteFlower"
+          v-if="isAdmin == true"
+          @click="deleteCard()"
+        >
           <i class="fa fa-times"></i>
         </div>
       </div>
@@ -108,7 +113,7 @@
 .container {
   width: 100%;
   height: auto;
-  box-shadow: 0 3px 3px 3px rgba(10, 10, 10, 0.06);
+  box-shadow: 0 0 10px 3px rgba(10, 10, 10, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -288,6 +293,13 @@ export default {
   methods: {
     routeToTipsPage() {
       this.$router.push("tips/" + this.id);
+    },
+    deleteCard() {
+      if (this.isFlower == true) {
+        this.$store.dispatch("homePage/deleteBouquetCard", this.id);
+      } else {
+        this.$store.dispatch("homePage/deletePlantCard", this.id);
+      }
     },
     toggleEditState() {
       this.$store.commit("popupsState/toggleEditCardPopup");

@@ -39,10 +39,11 @@
 .userImageBox {
   img {
     border-radius: 50%;
-    width: 100px;
+    width: 95px;
     margin-top: 5px;
     background-size: cover;
     object-fit: cover;
+    border: 2px solid $darkGolden;
   }
 }
 .userName {

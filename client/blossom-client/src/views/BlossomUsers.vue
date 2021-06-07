@@ -11,6 +11,12 @@
       :city="card.address.city"
       :street="card.address.street"
     />
+    <div v-if="users.length == 0">
+      <div class="emptyPage">
+        <img src="../assets/noUser.svg" alt="noItemsFound" />
+        <p><span> OOOPS!</span> No user found in this page</p>
+      </div>
+    </div>
     <div class="pagination">
       <div><i class="fa fa-arrow-left" @click="previousPage()"></i></div>
       <div class="counter">{{ counter }}</div>
@@ -45,6 +51,25 @@
   padding-left: 15px;
   padding-right: 15px;
 }
+.emptyPage {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  img {
+    width: 60px;
+    color: $darkGolden;
+  }
+  p {
+    color: $darkGolden;
+    font-size: 25px;
+  }
+  span {
+    font-weight: 700;
+    padding-left: 7px;
+  }
+}
 @media screen and (max-width: 700px) {
   .blossomUsers {
     width: 90%;
@@ -71,6 +96,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("blossomUsers/callBlossomUsers", 1);
+    this.$store.commit("blossomUsers/setCounter", 1);
   },
   methods: {
     nextPage() {
