@@ -1801,3 +1801,8 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"version":23,"modifiedPaths":["tips"],"level":"error","message":"No matching document found for id \"60bcf8bcc92a6607a6a632fd\" version 23 modifiedPaths \"tips\" No matching document found for id \"60bcf8bcc92a6607a6a632fd\" version 23 modifiedPaths \"tips\"","stack":"VersionError: No matching document found for id \"60bcf8bcc92a6607a6a632fd\" version 23 modifiedPaths \"tips\"\n    at generateVersionError (/home/menna/Downloads/Blossom/server/node_modules/mongoose/lib/model.js:421:10)\n    at model.Model.save (/home/menna/Downloads/Blossom/server/node_modules/mongoose/lib/model.js:478:28)\n    at Object.updatePlant (/home/menna/Downloads/Blossom/server/app/db/queries/plant.queries.js:78:36)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

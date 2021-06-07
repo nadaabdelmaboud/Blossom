@@ -6,6 +6,7 @@ const state = {
   createSpecialPopup: false,
   descriptionPopup: false,
   checkoutFormPopup: false,
+  addTipPopup: false,
 };
 
 const mutations = {
@@ -29,6 +30,9 @@ const mutations = {
   },
   toggleCheckoutFormPopup(state) {
     state.checkoutFormPopup = !state.checkoutFormPopup;
+  },
+  toggleAddTipPopup(state) {
+    state.addTipPopup = !state.addTipPopup;
   },
 };
 export default {
