@@ -1,4 +1,5 @@
 import axios from "axios";
+import router from "../../router/index";
 
 const state = {
   status: "",
@@ -6,7 +7,7 @@ const state = {
   user: {
     name: "",
   },
-  isAdmin: Boolean,
+  isAdmin: false,
 };
 
 const mutations = {
@@ -93,6 +94,7 @@ const actions = {
     commit("logout");
     localStorage.removeItem("token");
     delete axios.defaults.headers.common["Authorization"];
+    if (router.history.current.path != "/") router.replace("/");
   },
 };
 const getters = {

@@ -19,17 +19,14 @@ export default {
     const token = localStorage.getItem("token");
     if (token) {
       await this.$store.dispatch("authorization/get_user");
-      console.log("1");
       var status = this.isLoggedIn;
       if (status == "error") {
         //token is expired
-        console.log("2");
         this.$store.dispatch("authorization/logout");
         this.$router.replace("/");
         this.$store.commit("popupsState/toggleAuthPopup");
       }
     } else {
-      console.log("3");
       this.$store.dispatch("authorization/logout");
       if (this.$router.history.current.path != "/") this.$router.replace("/");
       this.$store.commit("popupsState/toggleAuthPopup");
