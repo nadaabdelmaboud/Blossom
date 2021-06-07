@@ -25,7 +25,6 @@
 @import "../../scss/BlossomButton";
 .catogries {
   width: 100%;
-  height: 60%;
   text-align: center;
   background-color: $goldenBackground;
   margin-top: 20px;

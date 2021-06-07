@@ -60,7 +60,7 @@
 .container .box {
   width: 95%;
   display: grid;
-  place-items: center;
+  place-items: start;
   text-align: center;
   justify-self: center;
 }

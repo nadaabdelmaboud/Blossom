@@ -98,7 +98,7 @@ export default {
       let monthDays = new Date(year, month + 1, 0).getDate();
       for (let i = 0; i < monthDays; i++) {
         this.chartdataSales.labels.push(i + 1);
-        this.chartdataSales.datasets[0].data.push(this.sales[i]);
+        this.chartdataSales.datasets[0].data.push(this.sales[i + 1]);
       }
       console.log(this.chartdataSales.datasets[0].data);
     },

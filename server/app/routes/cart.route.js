@@ -21,7 +21,7 @@ router.delete('/me/cart',AuthMiddleware,CartController.emptyCart)
 //buy cart
 router.post('/me/cart',AuthMiddleware,CartController.buyCart)
 
-
+router.get('/me/cart/success',AuthMiddleware,CartController.paymentSuccess)
 //change status
 router.put("/users/:userId/cart/:cartId",AuthMiddleware,AdminMiddleware,CartController.changeCartStatus);
 

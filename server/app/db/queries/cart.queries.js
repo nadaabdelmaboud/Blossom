@@ -25,7 +25,8 @@ const Cart = {
                   status: "empty",
                   address: user.address,
                   "feedback.rate":0,
-                  "feedback.comment":""
+                  "feedback.comment":"",
+                  price:0
                 });
             user = await user.save();
 
@@ -42,6 +43,7 @@ const Cart = {
         }
         user.Cart[user.Cart.length-1].orders={};
         user.Cart[user.Cart.length-1].status="empty";
+        user.Cart[user.Cart.length-1].price=0;
         await user.save();
         return true;
     },
@@ -54,7 +56,8 @@ const Cart = {
         let totalCashPrice=0;
         items=[]
         for(order in user.Cart[user.Cart.length-1].orders){
-            let name,sku,price,quantity=''
+            let name,sku,quantity=''
+            let price=0;
             let orderObject = user.Cart[user.Cart.length-1].orders[order];
             sku=order;
             quantity=orderObject.amount;
@@ -63,16 +66,14 @@ const Cart = {
                 if(!plant) return false;
                 name=plant.name;
                 price=.064*plant.price;
-                totalPrice +=(orderObject.amount*price);
-                totalCashPrice+=(orderObject.amount*price);
+                totalCashPrice+=(orderObject.amount*plant.price);
             }
             else if(orderObject.orderType=='bouquet'){
                 let bouquet = await BouquetModel.findById(order,{price:1,name:1});
                 if(!bouquet) return false;
                 name=bouquet.name;
                 price=.064*bouquet.price;
-                totalPrice +=(orderObject.amount*price);
-                totalCashPrice+=(orderObject.amount*price);
+                totalCashPrice+=(orderObject.amount*bouquet.price);
 
             }
             let item={
@@ -82,16 +83,37 @@ const Cart = {
                 "currency": "USD",
                 "quantity": quantity
             }
+            totalPrice +=(orderObject.amount*parseInt(price));
             items.push(item)
         }
+        if(!user.Cart[user.Cart.length-1].paymentId) user.Cart[user.Cart.length-1].paymentId='';
+        if(!user.Cart[user.Cart.length-1].paypalPrice) user.Cart[user.Cart.length-1].paypalPrice=totalPrice;
         user.Cart[user.Cart.length-1].status="pending";
         user.Cart[user.Cart.length-1].price=totalCashPrice;
         if(address){
             user.Cart[user.Cart.length-1].address=address;
         }
         await user.save();
+        const cartId =  user.Cart[user.Cart.length-1]._id;
         user = await this.createCart(user);
-        return {items,totalPrice,totalCashPrice};
+        return {items,totalPrice,totalCashPrice,cartId};
+    },
+    async setPaymentId(user,paymentId,cartId){
+      for(let i=user.Cart.length;i>=0;i--){
+        if(user.Cart[i]._id==cartId){
+          user.Cart[i].paymentId=paymentId;
+          break;
+        }
+      }
+      return true;
+    },
+    async getAmountFromPaymentId(user,paymentId){
+      for(let i=user.Cart.length;i>=0;i--){
+        if(user.Cart[i].paymentId==paymentId){
+          return user.Cart[i].paypalPrice;
+        }
+      }
+      return 0;
     },
     async changeUserCartStatus(user,orderId,status){
         if(user.Cart.length==0){
@@ -117,13 +139,28 @@ const Cart = {
       },
       async getAllCartsWithDefinedStatus(users,status,limit){
         let Carts=[];
-        users.forEach(user => {
+        users.forEach(async (user) => {
             for(let i=0;i<user.Cart.length;i++){
                 if(user.Cart[i].status==status){
+                  if(!user.Cart[i].price){
+                    let orders = Object.values(user.Cart[i].orders);
+                    user.Cart[i].price=0;
+                    for(let j=0;j<orders.length;j++){
+                      user.Cart[i].price+=(orders[j].amount*orders[j].price);
+                    }
+                    await user.save();
+                  }
+                  const firstOrderKey = Object.keys(user.Cart[i].orders)[0];
+                  const cartImage = user.Cart[i].orders[firstOrderKey].image;
                   const cart={
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
-                      order : user.Cart[i] 
+                      orders : Object.entries(user.Cart[i].orders),
+                      price:user.Cart[i].price,
+                      orderNumber:i,
+                      feedback:user.Cart[i].feedback,
+                      address:user.Cart[i].address,
+                      image:cartImage,
                   }
                   Carts.push(cart)
                 }
@@ -139,10 +176,25 @@ const Cart = {
         let Carts=[];
             for(let i=0;i<user.Cart.length;i++){
                 if(user.Cart[i].status==status){
+                  if(!user.Cart[i].price){
+                    let orders = Object.values(user.Cart[i].orders);
+                    user.Cart[i].price=0;
+                    for(let j=0;j<orders.length;j++){
+                      user.Cart[i].price+=(orders[j].amount*orders[j].price);
+                    }
+                    await user.save();
+                  }
+                  const firstOrderKey = Object.keys(user.Cart[i].orders)[0];
+                  const cartImage = user.Cart[i].orders[firstOrderKey].image;
                   const cart={
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
-                      order : user.Cart[i] 
+                      orders : Object.entries(user.Cart[i].orders),
+                      price:user.Cart[i].price,
+                      orderNumber:i,
+                      feedback:user.Cart[i].feedback,
+                      address:user.Cart[i].address,
+                      image:cartImage,
                   }
                   Carts.push(cart)
                 }
@@ -156,3 +208,4 @@ const Cart = {
       }
 }
 module.exports = Cart
+
