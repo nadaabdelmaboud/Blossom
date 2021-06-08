@@ -296,6 +296,7 @@ u {
   }
 }
 input {
-  margin: 10px;
+  margin: 10px auto;
+  display: block
 }
 </style>
