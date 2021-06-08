@@ -6,7 +6,7 @@ const Shop = require('../db/queries/shop.queries')
 
 const ShopService={
     async getBouquetCategories(){
-        return {data:await Shop.getBouquetCategories(),err:''}
+        return {data:await Shop.getBouquetCategoriesImages(),err:''}
     },
     async createBouquetCategory(body){
         const isValid = await ShopValidation.createBouquetCategory(body)
@@ -30,7 +30,7 @@ const ShopService={
         return {data:success,err:''}
     },
     async getBouquetSentiments(){
-        return {data:await Shop.getBouquetSentiments(),err:''}
+        return {data:await Shop.getBouquetSentimentsImages(),err:''}
     },
     async createBouquetSentiment(body){
         const isValid = await ShopValidation.createBouquetSentiment(body)
@@ -76,7 +76,7 @@ const ShopService={
         return { data: typeObject, err: "" };
       },
       async getAllPlantsTypes(){
-        const types = await Shop.getAllPlantsTypes();
+        const types = await Shop.getPlantCategoriesImages();
         return { data: types, err: "" };
       },
       async getSalesPerMonth(){

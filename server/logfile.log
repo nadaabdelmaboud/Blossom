@@ -117,3 +117,47 @@
 {"message":"Successfully connected to the database","level":"info"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Converting circular structure to JSON Converting circular structure to JSON","stack":"TypeError: Converting circular structure to JSON\n    at JSON.stringify (<anonymous>)\n    at stringify (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:1123:12)\n    at ServerResponse.json (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:260:14)\n    at ServerResponse.send (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:158:21)\n    at getCategories (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\controllers\\shop.controller.js:7:30)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Converting circular structure to JSON Converting circular structure to JSON","stack":"TypeError: Converting circular structure to JSON\n    at JSON.stringify (<anonymous>)\n    at stringify (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:1123:12)\n    at ServerResponse.json (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:260:14)\n    at ServerResponse.send (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\node_modules\\express\\lib\\response.js:158:21)\n    at getCategories (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\controllers\\shop.controller.js:8:30)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'images' of undefined Cannot read property 'images' of undefined","stack":"TypeError: Cannot read property 'images' of undefined\n    at Object.getBouquetCategories (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\db\\queries\\shop.queries.js:51:24)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"images is not defined images is not defined","stack":"ReferenceError: images is not defined\n    at Object.getBouquetCategories (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\db\\queries\\shop.queries.js:51:7)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"categories is not defined categories is not defined","stack":"ReferenceError: categories is not defined\n    at Object.getBouquetSentimentsImages (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\db\\queries\\shop.queries.js:74:61)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"BouquetModel.find is not a function BouquetModel.find is not a function","stack":"TypeError: BouquetModel.find is not a function\n    at Object.getBouquetCategoriesImages (D:\\CMP 3rd Year\\Second Sem\\apt\\project\\Blossom\\server\\app\\db\\queries\\shop.queries.js:54:40)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

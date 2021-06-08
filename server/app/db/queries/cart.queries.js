@@ -85,11 +85,11 @@ const Cart = {
             let item={
                 "name": name,
                 "sku": sku,
-                "price": parseInt(price)+".00",
+                "price": Math.ceil(price)+".00",
                 "currency": "USD",
                 "quantity": quantity
             }
-            totalPrice +=(orderObject.amount*parseInt(price));
+            totalPrice +=(orderObject.amount*Math.ceil(price));
             items.push(item)
         }
         if(!user.Cart[user.Cart.length-1].paymentId) user.Cart[user.Cart.length-1].paymentId='';
