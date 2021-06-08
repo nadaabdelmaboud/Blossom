@@ -4,6 +4,7 @@
     <form class="form" v-on:submit.prevent="login">
       <i class="fa fa-times hoverGolden close" @click="close"></i>
       <h3>Welcome to Blossom</h3>
+      <p v-if="status != '' && status != 'success'" class="perr">Sorry there was an error! Try again.</p>
       <input
         placeholder="Email"
         class="blossomInput"
@@ -49,6 +50,7 @@
 <script>
 import BlossomLogo from "./blossomLogo";
 import { default as togglePasswordState } from "../../mixins/togglePasswordState";
+import {mapState} from "vuex"
 export default {
   components: {
     BlossomLogo,
@@ -76,7 +78,11 @@ export default {
       this.$store.commit("popupsState/toggleAuthPopup");
     },
   },
-  computed: {},
+  computed: {
+    ...mapState({
+      status :(state) => state.authorization.status
+    })
+  },
   created: function () {},
 };
 </script>
@@ -108,5 +114,8 @@ export default {
   position: relative;
   float: right;
   margin: 10px 0px;
+}
+.perr{
+  color: red;
 }
 </style>

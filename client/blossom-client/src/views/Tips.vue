@@ -59,7 +59,7 @@ export default {
 .tips {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 0 100px;
 }
 .tipsView {
