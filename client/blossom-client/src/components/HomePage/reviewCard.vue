@@ -46,7 +46,7 @@
   }
 }
 .userName {
-  word-break: break-all;
+  word-break: break-word;
   margin-top: 7px;
   margin-bottom: 7px;
   color: $darkGolden;
@@ -55,7 +55,7 @@
   font-weight: 700;
 }
 .userReview {
-  word-break: break-all;
+  word-break: break-word;
   margin-top: 15px;
   margin-bottom: 7px;
   font-size: 20px;

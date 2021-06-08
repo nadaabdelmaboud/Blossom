@@ -37,9 +37,5 @@
 <script>
 export default {
   name: "loading",
-  data: function () {
-    return {};
-  },
-  methods: {},
 };
 </script>

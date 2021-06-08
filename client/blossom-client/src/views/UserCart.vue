@@ -1,6 +1,7 @@
 <template>
   <div class="userCart">
     <loading v-if="isLoading" />
+    <loadingScreen v-if="isScreenLoading" />
     <div class="container" v-if="cartCards.length != 0 && isLoading == false">
       <div class="gridContainer">
         <cartCard
@@ -97,17 +98,20 @@ h6 {
 import cartCard from "../components/Cart/cartCard";
 import router from "@/router";
 import loading from "../components/loading";
+import loadingScreen from "../components/loadingScreen";
 import { mapState } from "vuex";
 export default {
   name: "userCart",
   components: {
     cartCard,
     loading,
+    loadingScreen,
   },
   computed: {
     ...mapState({
       cartCards: (state) => state.cart.cartCards,
       isLoading: (state) => state.cart.isLoading,
+      isScreenLoading: (state) => state.cart.isScreenLoading,
     }),
   },
   mounted() {

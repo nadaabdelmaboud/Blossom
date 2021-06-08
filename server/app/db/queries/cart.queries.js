@@ -48,7 +48,6 @@ const Cart = {
         return true;
     },
     async buyCart(user,address){
-      console.log(user.Cart)
         if(user.Cart.length==0||user.Cart[user.Cart.length-1].status!="ordering"){
             return false;
         }
@@ -91,7 +90,6 @@ const Cart = {
         user.Cart[user.Cart.length-1].status="pending";
         user.Cart[user.Cart.length-1].price=totalCashPrice;
         if(address){
-          console.log(address)
             user.Cart[user.Cart.length-1].address=address;
         }
         await user.save();
