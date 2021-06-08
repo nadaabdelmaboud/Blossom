@@ -34,11 +34,12 @@ const BouquetService={
         async updateBouquet(bouquet,id){
             const isValidId = await MongooseValidation.validateID(id)
             if(!isValidId) return {data:false,err:await error("Not Valid ID",400)}
-            const isValid = await BouquetValidation.updateBouquet(bouquet)
+            var filteredBouquet = await BouquetValidation.filterBouquet(bouquet);
+            const isValid = await BouquetValidation.updateBouquet(filteredBouquet)
             if(isValid.error) return {data:false,err:await error(isValid.error.message,400)}
-            bouquet = await Bouquet.updateBouquet(bouquet,id)
-            if(!bouquet) return {data:false,err:await error("Error in updating bouquet",403)}
-            return {data:bouquet,err:''}
+            filteredBouquet = await Bouquet.updateBouquet(filteredBouquet, id);
+            if(!filteredBouquet) return {data:false,err:await error("Error in updating bouquet",403)}
+            return { data: filteredBouquet, err: "" };
 
         },
         async deleteBouquet(bouquetId){

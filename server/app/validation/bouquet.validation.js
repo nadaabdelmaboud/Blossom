@@ -42,6 +42,18 @@ const BouquetValidation = {
       image:Joi.string()
     });
     return schema.validate(bouquet)
+  },async filterBouquet(bouquet){
+    var newBouquet={};
+    if (bouquet.bouquetCategory && bouquet.bouquetCategory != "")
+      newBouquet.bouquetCategory = bouquet.bouquetCategory;
+    if (bouquet.bouquetSentiment && bouquet.bouquetSentiment != "")
+      newBouquet.bouquetSentiment = bouquet.bouquetSentiment;
+    if (bouquet.price && bouquet.price != "") newBouquet.price = bouquet.price;
+    if (bouquet.count && bouquet.count != "") newBouquet.count = bouquet.count;
+    if (bouquet.name && bouquet.name != "") newBouquet.name = bouquet.name;
+    if (bouquet.info && bouquet.info != "") newBouquet.info = bouquet.info;
+    if (bouquet.image && bouquet.image != "") newBouquet.image = bouquet.image;
+    return newBouquet;
   }
 };
 module.exports = BouquetValidation;
