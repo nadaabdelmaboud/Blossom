@@ -135,7 +135,7 @@ const actions = {
     if (state.type != "") typeVal = "type=" + state.type + "&";
     console.log("type", typeVal);
     axios
-      .get("plant?" + typeVal + "pageSize=4&pageNumber=" + index)
+      .get("plant?" + typeVal + "pageSize=12&pageNumber=" + index)
       .then((response) => {
         state.homeCards = [];
         commit("setHomeCards", response.data.Plants);
