@@ -7,7 +7,7 @@
         alt="logo Image"
         class="logoImg"
       />
-      <h3>Add new Bouquet Category? Intersting!</h3>
+      <h3>Add new Tip? Intersting!</h3>
       <form v-on:submit.prevent="addTip" class="form">
         <input
           class="blossomInput"
