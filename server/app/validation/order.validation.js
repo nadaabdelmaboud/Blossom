@@ -9,7 +9,7 @@ const OrderValidation = {
     const schema = Joi.object({
       bouquetId: Joi.string().required(),
       amount: Joi.number().required(),
-      orderType: Joi.string().required(),
+      orderType: Joi.string().required().valid("plant", "bouquet"),
       category: Joi.string()
         .required()
         .valid(...allCategories),
