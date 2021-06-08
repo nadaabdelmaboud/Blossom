@@ -9,7 +9,7 @@
     <createSpecialPopup v-if="showSpecialPopup" />
     <checkoutForm v-if="checkoutFormPopup" />
     <addTipPopup v-if="addTipPopup" />
-    <loading v-if="loadingPopup"/>
+    <loading v-if="loadingPopup" />
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
@@ -23,8 +23,8 @@
 .content {
   min-height: calc(100vh - 400px);
 }
-#upload{
-    -webkit-box-shadow: 0px 0px 3px 3px $golden;
+#upload {
+  -webkit-box-shadow: 0px 0px 3px 3px $golden;
   -moz-box-shadow: 0px 0px 3px 3px $golden;
   box-shadow: 0px 0px 3px 3px $golden;
 }
@@ -56,7 +56,7 @@ export default {
     navBar,
     checkoutForm,
     addTipPopup,
-    loading
+    loading,
   },
   computed: {
     ...mapState({

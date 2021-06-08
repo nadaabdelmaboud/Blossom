@@ -7,7 +7,7 @@ const state = {
   descriptionPopup: false,
   checkoutFormPopup: false,
   addTipPopup: false,
-  loadingPopup:false
+  loadingPopup: false,
 };
 
 const mutations = {
