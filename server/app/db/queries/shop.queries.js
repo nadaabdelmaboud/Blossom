@@ -119,7 +119,7 @@ async getPlantCategoriesImages(){
     if (index != -1) return false;
     shop[0].bouquetCategories.push(category);
     await shop[0].save();
-    return shop[0].bouquetCategories;
+    return await getBouquetCategoriesImages();
   },
   async updateBouquetCategory(category, newCategory) {
     const shop = await ShopModel.find({}, { bouquetCategories: 1 });
@@ -143,7 +143,7 @@ async getPlantCategoriesImages(){
     if (index != -1) return false;
     shop[0].bouquetSentiments.push(sentiment);
     await shop[0].save();
-    return shop[0].bouquetSentiments;
+    return await getBouquetSentimentsImages();
   },
   async updateBouquetSentiment(sentiment, newSentiment) {
     const shop = await ShopModel.find({}, { bouquetSentiments: 1 });
@@ -169,7 +169,7 @@ async getPlantCategoriesImages(){
     if (index != -1) return false;
     shop[0].plantCategories.push(type);
     await shop[0].save();
-    return shop[0].plantCategories;
+    return await getPlantCategoriesImages();
   },
   async deleteType(type) {
     const shop = await ShopModel.find({}, { plantCategories: 1 });
