@@ -53,7 +53,6 @@ function create(create_payment_json){
 }
 
 async function success(payerId,paymentId,amount){
-    console.log(amount,payerId,paymentId)
     const execute_payment_json = {
         "payer_id": payerId,
         "transactions": [{

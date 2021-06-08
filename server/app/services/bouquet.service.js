@@ -17,7 +17,6 @@ const BouquetService={
         async getBouquetById(id){
             const isVlidId = await MongooseValidation.validateID(id);
             if(!isVlidId) return {data:false,err:await error("Not Valid ID",400)}
-            console.log(isVlidId,id)
             const bouquet = await Bouquet.getBouquetById(id);
             if(!bouquet) return {data:false,err:await error("No Bouquet found",404)}
 

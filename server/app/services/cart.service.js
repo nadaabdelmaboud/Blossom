@@ -31,7 +31,6 @@ const CartService={
         if(!isValidId) return {data:false,err:await error("Not Valid ID",400)}
         const user = await User.findUserById(userId,{Cart:1});
         if(!user)  return {data:false,err:await error("No such user",404)};
-        console.log(user)
         const empty = await Cart.emptyCart(user);
         if(!empty) return {data:false,err:await error("Error in payment",400)};
         return {data:empty,err:''};
@@ -46,7 +45,6 @@ const CartService={
         if(!user)  return {data:false,err:await error("No such user",404)};
         const paymentData = await Cart.buyCart(user,address,paymentMethod);
         if(!paymentData) return {data:false,err:await error("Error in payment",400)};
-        console.log(paymentData);
         if(paymentMethod=="cash")return {data:true,err:''};
         const payment = await PayPal.setTransaction(paymentData.items,paymentData.totalPrice)
         await Cart.setPaymentId(user,payment.id,paymentData.cartId);
@@ -75,7 +73,6 @@ const CartService={
         const user = await User.findUserById(userId,{Cart:1});
         if(!user)
           return { data: false, err: await error("No such user", 404) };
-        console.log(orderId);
         const isChanged = await Cart.changeUserCartStatus(user,orderId,status);
         if(!isChanged)
           return { data: false, err: await error("Couldnt change order status", 404) };

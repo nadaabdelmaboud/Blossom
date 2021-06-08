@@ -73,7 +73,6 @@ const CartController = {
         const status = req.query.status;
         const userId = req.user._id;
         const data = await CartService.getUserCarts(userId,limit);
-        console.log(limit)
         if (data.data) {
           return res.status(200).send(data.data);
         }
