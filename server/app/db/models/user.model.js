@@ -29,11 +29,6 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  creditCard: {
-    cardNumber: Number,
-    ccNumber: Number,
-    expireDate: Date,
-  },
   Cart: [
     {
       orders: {

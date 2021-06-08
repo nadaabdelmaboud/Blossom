@@ -6,7 +6,7 @@ const state = {
 
 const mutations = {
   deletedSentiments(state, item) {
-    var index = state.bouquetSentiments.findIndex((x) => x === item);
+    var index = state.bouquetSentiments.findIndex((x) => x.name === item);
     if (index !== -1) {
       state.bouquetSentiments.splice(index, 1);
     }
@@ -26,11 +26,13 @@ const actions = {
   },
   async addSentiments({ state, commit }, payload) {
     const token = localStorage.getItem("token");
+    commit("popupsState/toggleCreateSpecialPopup", null, { root: true });
+    commit("popupsState/toggleLoadingPopup", null, { root: true });
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.post("bouquet/sentiments", payload);
       state.bouquetSentiments = data.data;
-      commit("popupsState/toggleCreateSpecialPopup", null, { root: true });
+      commit("popupsState/toggleLoadingPopup", null, { root: true });
     } catch (err) {
       console.log(err);
     }

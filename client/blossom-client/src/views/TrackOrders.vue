@@ -3,11 +3,11 @@
     <loading v-if="loadingOrders"/>
   <div class="orderView" v-else>
     <div v-if="isAdmin && orders.length == 0" class="slogan">
-        The shop has no orders yet.
-      </div>
-      <div v-if="!isAdmin && orders.length == 0" class="slogan">
-        Order from Blossom, then track your order here.
-      </div>
+      The shop has no orders yet.
+    </div>
+    <div v-if="!isAdmin && orders.length == 0" class="slogan">
+      Order from Blossom, then track your order here.
+    </div>
     <ordersCard
       v-for="(v, i) in orders"
       :key="i"
@@ -36,7 +36,7 @@ export default {
   },
   components: {
     ordersCard,
-    loading
+    loading,
   },
   methods: {},
   computed: {
@@ -58,10 +58,10 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/Colors";
 @import "../scss/General";
-.orderView{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.orderView {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 .slogan {
   font-size: 55px;

@@ -17,8 +17,15 @@
           }"
         ></i>
       </div>
-      <input v-if="confirmRating && cartStatus == 'delivered'" v-model="cardComment" />
-      <p v-if="!confirmRating && cardComment != '' && cartStatus == 'delivered'">{{ cardComment }}</p>
+      <input
+        v-if="confirmRating && cartStatus == 'delivered'"
+        v-model="cardComment"
+      />
+      <p
+        v-if="!confirmRating && cardComment != '' && cartStatus == 'delivered'"
+      >
+        {{ cardComment }}
+      </p>
 
       <div class="stars">
         <i
@@ -52,20 +59,19 @@
       <p>{{ cartStatus }}</p>
     </div>
 
-    <div class="toast" :id="'rating'+Index">
+    <div class="toast" :id="'rating' + Index">
       <img class="toastimage" :src="getImage(imageId)" />
       <div class="addedToCart">Confirm rating?</div>
       <button @click="confirmRate">confirm</button>
       <button @click="cancelRate">cancel</button>
     </div>
-    <div class="toast" :id="'status'+Index">
+    <div class="toast" :id="'status' + Index">
       <img class="toastimage" :src="getImage(imageId)" />
       <div class="addedToCart">Confirm {{ cartStatus }} status?</div>
       <button @click="confirmStatus">confirm</button>
       <button @click="cancelStatus">cancel</button>
     </div>
-    <div class="toast v" 
-    :id="'viewOrder'+Index">
+    <div class="toast v" :id="'viewOrder' + Index">
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
         {{ it[1].name }} : {{ it[1].price }}
       </p>
@@ -145,7 +151,7 @@ export default {
         userId: this.userId,
         status: this.cartStatus,
       };
-      console.log("p",payload)
+      console.log("p", payload);
       this.$store.dispatch("orders/changeStatusAdmin", payload);
       this.hideToastStatus();
     },
@@ -154,27 +160,27 @@ export default {
       this.cartStatus = this.status;
     },
     viewOrder() {
-      var mytoast = document.getElementById("viewOrder"+this.Index);
+      var mytoast = document.getElementById("viewOrder" + this.Index);
       mytoast.className = "toast v toast--visible";
     },
     hideOrder() {
-      var mytoast = document.getElementById("viewOrder"+this.Index);
+      var mytoast = document.getElementById("viewOrder" + this.Index);
       mytoast.classList.remove("toast--visible");
     },
     showToastRating() {
-      var mytoast = document.getElementById('rating'+this.Index);
+      var mytoast = document.getElementById("rating" + this.Index);
       mytoast.className = "toast toast--visible";
     },
     showToastStatus() {
-      var mytoast = document.getElementById("status"+this.Index);
+      var mytoast = document.getElementById("status" + this.Index);
       mytoast.className = "toast toast--visible";
     },
     hideToastRating() {
-      var mytoast = document.getElementById('rating'+this.Index);
+      var mytoast = document.getElementById("rating" + this.Index);
       mytoast.classList.remove("toast--visible");
     },
     hideToastStatus() {
-      var mytoast = document.getElementById("status"+this.Index);
+      var mytoast = document.getElementById("status" + this.Index);
       mytoast.classList.remove("toast--visible");
     },
   },
@@ -212,7 +218,7 @@ export default {
   height: 80px;
   padding: 5px;
   border-radius: 0;
-    -webkit-box-shadow: 0px 0px 3px 3px $golden;
+  -webkit-box-shadow: 0px 0px 3px 3px $golden;
   -moz-box-shadow: 0px 0px 3px 3px $golden;
   box-shadow: 0px 0px 3px 3px $golden;
   .addedToCart {

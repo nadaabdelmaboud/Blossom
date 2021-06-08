@@ -1,7 +1,9 @@
 <template>
-  <div class="userProfile blossomCard">
+<div>
+  <loading v-if="loadingUser"/>
+  <div class="userProfile blossomCard" v-else>
     <img src="../assets/BlossomLogo_v7.png" alt="logo Image" />
-    <form class="form" v-on:submit.prevent="saveChanges">
+    <form class="form" v-on:submit.prevent="saveChanges" >
       <input
         placeholder="Username"
         class="blossomInput"
@@ -71,11 +73,14 @@
       <button type="submit" class="blossomButton">Save Changes</button>
     </form>
   </div>
+  </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import loading from '../components/loading.vue';
 export default {
+  components: { loading },
   name: "UserProfile",
   data: function () {
     return {
@@ -100,6 +105,7 @@ export default {
         },
       ],
       showPassword: true,
+      loadingUser:false
     };
   },
   methods: {
@@ -123,6 +129,7 @@ export default {
   },
   created() {},
   async mounted() {
+    this.loadingUser =true
     await this.$store.dispatch("authorization/get_user");
     this.username = this.curUser.name;
     this.email = this.curUser.email;
@@ -131,6 +138,7 @@ export default {
     this.address.street = this.curUser.address.street;
     this.address.buildingNo = this.curUser.address.buildingNo;
     this.address.apartmentNo = this.curUser.address.apartmentNo;
+    this.loadingUser=false
   },
 };
 </script>

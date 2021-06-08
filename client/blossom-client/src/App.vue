@@ -19,7 +19,8 @@ export default {
     const token = localStorage.getItem("token");
     if (token) {
       await this.$store.dispatch("authorization/get_user");
-      this.$store.dispatch("authorization/currentUserCart");
+      if (this.isAdmin == false)
+        this.$store.dispatch("authorization/currentUserCart");
       var status = this.isLoggedIn;
       if (status == "error") {
         //token is expired
@@ -42,6 +43,7 @@ export default {
   computed: {
     ...mapState({
       status: (state) => state.authorization.getStatus,
+      isAdmin: (state) => state.authorization.isAdmin,
     }),
   },
 };
