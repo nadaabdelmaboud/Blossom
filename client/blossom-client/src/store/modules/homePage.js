@@ -13,6 +13,7 @@ const state = {
   reviewCards: [],
   editCardId: "",
   editImage: "",
+  editType: "",
 };
 
 const mutations = {
@@ -51,6 +52,9 @@ const mutations = {
   },
   setReviewCards(state, cards) {
     state.reviewCards = cards;
+  },
+  setEditType(state, type) {
+    state.editType = type;
   },
   deleteCard(state, cardId) {
     var index = state.homeCards.findIndex((x) => x._id === cardId);

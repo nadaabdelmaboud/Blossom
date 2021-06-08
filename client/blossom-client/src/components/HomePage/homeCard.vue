@@ -315,6 +315,7 @@ export default {
     toggleEditState() {
       this.$store.commit("homePage/setEditImage", this.image);
       this.$store.commit("homePage/setEditCardId", this.id);
+      this.$store.commit("homePage/setEditType", this.isFlower);
       this.$store.commit("popupsState/toggleEditCardPopup");
     },
     showDescriptionPopup() {

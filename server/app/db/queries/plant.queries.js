@@ -16,7 +16,7 @@ const Plant = {
       .limit(pageSize);
     if (Plants) {
       const Count = await PlantModel.countDocuments(filters);
-      return {Plants:Plants , MaxPage:Math.ceil(Count / pageSize)}
+      return { Plants: Plants, MaxPage: Math.ceil(Count / pageSize) };
     }
     return Plants;
   },
@@ -34,8 +34,7 @@ const Plant = {
     const plant = await PlantModel.find({ name: name }, { _id: 1 });
     return plant;
   },
-  async getPlantById(id, idOnly = 0) {
-    const projection = idOnly == 1 ? { _id: 1 } : {};
+  async getPlantById(id, projection = {}) {
     const plant = await PlantModel.findById(id, projection);
     return plant;
   },
@@ -94,20 +93,6 @@ const Plant = {
     const Result = await PlantData.save();
     if (Result) return { status: 1 };
     return false;
-  },
-  async fillData(orderObject) {
-    const Plants = await PlantModel.find(
-      { _id: { $in: orderObject.plantId } },
-      { name: 1, images: 1, price: 1, count: 1 }
-    );
-    if (!Plants || !Plants.length) return false;
-    for (var i = 0; i < Plants.length; i++) {
-      orderObject.UserData[Plants[i]._id].name = Plants[i].name;
-      orderObject.UserData[Plants[i]._id].images = Plants[i].images;
-      orderObject.UserData[Plants[i]._id].price = Plants[i].price;
-      orderObject.UserData[Plants[i]._id].count = Plants[i].count;
-    }
-    return true;
-  },
+  }
 };
 module.exports = Plant;

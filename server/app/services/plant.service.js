@@ -23,20 +23,16 @@ const PlantService = {
   },
   async updatePlant(plant, id) {
     const isValid = await MongooseValidation.validateID(id);
-    if (!isValid)
-      return { data: false, err: await error("Invalid Plant ID", 404) };
-    const isPlantFound = await Plant.getPlantById(id);
-    if (!isPlantFound)
-      return { data: false, err: await error("Invalid Plant ID", 404) };
-    if (plant.constructor === Object && Object.keys(plant).length === 0)
+    if (!isValid) return { data: false, err: await error("Invalid Plant ID", 404) };
+    const isPlantFound = await Plant.getPlantById(id, { _id: 1 });
+    if (!isPlantFound) return { data: false, err: await error("Invalid Plant ID", 404) };
+    const filteredPlant = await PlantValidation.filterPlant(plant);
+    if (filteredPlant.constructor === Object && Object.keys(filteredPlant).length === 0)
       return { data: false, err: await error("Data Is Missing", 400) };
-    const isPlantValid = await PlantValidation.validateUpdatePlant(plant);
+    const isPlantValid = await PlantValidation.validateUpdatePlant(filteredPlant);
     if (isPlantValid.error)
-      return {
-        data: false,
-        err: await error(isPlantValid.error.message, 400),
-      };
-    const plantObject = await Plant.updatePlant(plant, id);
+      return {data: false,err: await error(isPlantValid.error.message, 400),};
+    const plantObject = await Plant.updatePlant(filteredPlant, id);
     if (!plantObject || plantObject.length == 0)
       return { data: false, err: await error("Error Updating plant", 500) };
     return { data: plantObject, err: "" };

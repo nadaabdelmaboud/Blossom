@@ -39,7 +39,6 @@ const FeedBack = {
     );
     if(!User || User.length == 0)
       return User;
-    console.log(User);
     if (feedback.comment) {
       User[0].Cart[0].feedback.comment = "";
       User[0].Cart[0].feedback.feedbackDate = Today;

@@ -44,35 +44,7 @@
                     type="number"
                     min="0"
                   />
-
-                  <div class="blossomRadio">
-                    <p>Type</p>
-                    <label class="container"
-                      >Plant
-                      <input
-                        type="radio"
-                        name="type"
-                        value="Plant"
-                        v-model="type"
-                      />
-                      <span class="checkmark"></span>
-                    </label>
-                    <label class="container"
-                      >Bouquet
-                      <input
-                        type="radio"
-                        name="type"
-                        value="Bouquet"
-                        v-model="type"
-                      />
-                      <span class="checkmark"></span>
-                    </label>
-                  </div>
-
-                  <div
-                    class="blossomSelectComponent"
-                    v-if="type && type == 'Plant'"
-                  >
+                  <div class="blossomSelectComponent" v-if="editType == false">
                     <div
                       class="blossomInput blossomSelect"
                       :class="{
@@ -118,10 +90,7 @@
                     </div>
                   </div>
 
-                  <div
-                    class="blossomSelectComponent"
-                    v-if="type && type == 'Bouquet'"
-                  >
+                  <div class="blossomSelectComponent" v-if="editType == true">
                     <div
                       class="blossomInput blossomSelect"
                       :class="{
@@ -168,10 +137,7 @@
                     </div>
                   </div>
 
-                  <div
-                    class="blossomSelectComponent"
-                    v-if="type && type == 'Bouquet'"
-                  >
+                  <div class="blossomSelectComponent" v-if="editType == true">
                     <div
                       class="blossomInput blossomSelect"
                       :class="{
@@ -367,7 +333,6 @@ export default {
       categoryPlant: "Choose Category",
       categoryBouquet: "Choose Category",
       specialityName: "Choose Special",
-      type: null,
       showCategoryPlant: false,
       showCategoryBouquet: false,
       showSpecials: false,
@@ -404,14 +369,16 @@ export default {
     },
     editCard() {
       //true if card type is flower & false if plant
-      if (this.type == "Plant") {
+      if (this.editType == false) {
         if (this.categoryPlant == "Choose Category") this.categoryPlant = "";
+        let amountNum = this.amount != "" ? parseInt(this.amount) : "";
+        let priceNum = this.price != "" ? parseInt(this.price) : "";
         let payload = {
           name: this.title,
           type: this.categoryPlant,
-          price: parseInt(this.price),
+          price: priceNum,
           count: {
-            available: parseInt(this.amount),
+            available: amountNum,
           },
           info: this.description,
         };
@@ -424,12 +391,14 @@ export default {
         if (this.categoryBouquet == "Choose Category")
           this.categoryBouquet = "";
         if (this.specialityName == "Choose Special") this.specialityName = "";
+        let amountNum = this.amount != "" ? parseInt(this.amount) : "";
+        let priceNum = this.price != "" ? parseInt(this.price) : "";
         let payload = {
           name: this.title,
           bouquetCategory: this.categoryBouquet,
           bouquetSentiment: this.specialityName,
-          price: parseInt(this.price),
-          count: parseInt(this.amount),
+          price: priceNum,
+          count: amountNum,
           info: this.description,
         };
         console.log("payload", payload);
@@ -448,6 +417,7 @@ export default {
       bouquetSentiments: (state) => state.sentiments.bouquetSentiments,
       editCardId: (state) => state.homePage.editCardId,
       editImage: (state) => state.homePage.editImage,
+      editType: (state) => state.homePage.editType,
     }),
   },
   async beforeCreate() {
