@@ -9,11 +9,14 @@ const OrderRoutes = require("../routes/order.route");
 const CartRoutes  = require("../routes/cart.route");
 const ShopRoutes  = require("../routes/shop.route");
 const FeedBackRoutes = require("../routes/feedback.route");
-
+const serveStatic = require('serve-static')
+const path = require('path')
 module.exports = function (app, winston) {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(cors());
+  // app.use('/', serveStatic(path.join(__dirname, '../dist')))
+
 
   app.use("/api", ShopRoutes);
   app.use("/api", AuthRoutes);
@@ -24,6 +27,14 @@ module.exports = function (app, winston) {
   app.use("/api", OrderRoutes);
   app.use("/api", CartRoutes);
   app.use("/api", FeedBackRoutes);
+
+  // // this * route is to serve project on different page routes except root `/`
+  // app.get(/.*/, function (req, res) {
+  //   res.sendFile(path.join(__dirname, '../dist/index.html'))
+  // })
+
+
+
   // 404 handler
   app.use("*", (req, res, next) => {
     error = new Error("API_NOT_FOUND");
@@ -40,4 +51,7 @@ module.exports = function (app, winston) {
     }
     res.status(err.status).json({ message: err.message, status: err.status });
   });
+
+  
+    
 };
