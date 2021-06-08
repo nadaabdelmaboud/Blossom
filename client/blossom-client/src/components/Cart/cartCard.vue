@@ -84,8 +84,8 @@ h3 {
 .flowerName {
   color: $darkGolden;
   text-decoration: underline;
-  h3{
-  overflow-wrap: break-word;
+  h3 {
+    overflow-wrap: break-word;
   }
 }
 .flowerPrice {
@@ -128,9 +128,9 @@ export default {
     },
   },
   mixins: [getImage],
-    computed: {
+  computed: {
     ...mapState({
-      orders: (state) => state.authorization.orders
+      orders: (state) => state.authorization.orders,
     }),
   },
   methods: {

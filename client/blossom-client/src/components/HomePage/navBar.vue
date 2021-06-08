@@ -6,7 +6,12 @@
         <router-link v-if="isAdmin == true" to="/statistics">
           <li>Statistics</li>
         </router-link>
-        <li v-if="status == 'success' && isAdmin == false" @click="toTrackOrders()">Track Orders</li>
+        <li
+          v-if="status == 'success' && isAdmin == false"
+          @click="toTrackOrders()"
+        >
+          Track Orders
+        </li>
         <router-link to="/blossomUsers">
           <li v-if="isAdmin == true">Users</li>
         </router-link>
@@ -34,7 +39,10 @@
           </router-link>
           <li v-if="status == ''" @click="showLogin()">Signin</li>
           <li v-if="isAdmin == true" @click="toTrackOrders()">Orders</li>
-          <li v-if="status == 'success' && isAdmin == false" @click="toProfile()">
+          <li
+            v-if="status == 'success' && isAdmin == false"
+            @click="toProfile()"
+          >
             <i class="fa fa-user"></i> Profile
           </li>
           <li
@@ -245,7 +253,7 @@ export default {
     ...mapState({
       isAdmin: (state) => state.authorization.isAdmin,
       status: (state) => state.authorization.status,
-      orders: (state) => state.authorization.orders
+      orders: (state) => state.authorization.orders,
     }),
   },
   methods: {
@@ -275,12 +283,12 @@ export default {
     toUploadPage() {
       this.$router.push("uploadProduct");
     },
-    toTrackOrders(){
+    toTrackOrders() {
       this.$router.push("trackOrders");
     },
-    toProfile(){
+    toProfile() {
       this.$router.push("myprofile");
-    }
+    },
   },
 };
 </script>

@@ -298,7 +298,7 @@ export default {
       errorDetected: (state) => state.cart.errorDetected,
       isAdmin: (state) => state.authorization.isAdmin,
       status: (state) => state.authorization.status,
-      orders: (state) => state.authorization.orders
+      orders: (state) => state.authorization.orders,
     }),
   },
   methods: {

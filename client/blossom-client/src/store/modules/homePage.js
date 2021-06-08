@@ -11,8 +11,8 @@ const state = {
   cardName: "",
   cardDescription: "",
   reviewCards: [],
-  editCardId:"",
-  editImage:"",
+  editCardId: "",
+  editImage: "",
 };
 
 const mutations = {
@@ -58,22 +58,46 @@ const mutations = {
       state.homeCards.splice(index, 1);
     }
   },
-  setEditImage(state , image){
+  setEditImage(state, image) {
     state.editImage = image;
   },
-  setEditCardId(state , id){
+  setEditCardId(state, id) {
     state.editCardId = id;
   },
   //not updated at once (donot forget to fix it).
-  editCard(state , {id , updatedObejct}){
+  editFlowerCard(state, { id, payload }) {
     var index = state.homeCards.findIndex((x) => x._id === id);
-    if(index !== -1){
-      updatedObejct.forEach(item => {
-        state.homeCards[index][item] = updatedObejct[item];
-      })
-    }
-    console.log("edited object" , state.homeCards[index]);
-  }
+    var objectCard = state.homeCards.find((x) => x._id === id);
+    let item = objectCard;
+    item.name = payload.name != "" ? payload.name : objectCard.name;
+    item.info = payload.info != "" ? payload.info : objectCard.info;
+    item.count.available =
+      payload.count != "" ? payload.count : objectCard.count.available;
+    item.price = payload.price != "" ? payload.price : objectCard.price;
+    item.bouquetSentiment =
+      payload.bouquetSentiment != ""
+        ? payload.bouquetSentiment
+        : objectCard.bouquetSentiment;
+    item.bouquetCategory =
+      payload.bouquetCategory != ""
+        ? payload.bouquetCategory
+        : objectCard.bouquetCategory;
+    state.homeCards.splice(index, 1, item);
+  },
+  editPlantCard(state, { id, payload }) {
+    var index = state.homeCards.findIndex((x) => x._id === id);
+    var objectCard = state.homeCards.find((x) => x._id === id);
+    let item = objectCard;
+    item.name = payload.name != "" ? payload.name : objectCard.name;
+    item.info = payload.info != "" ? payload.info : objectCard.info;
+    item.count.available =
+      payload.count.available != ""
+        ? payload.count.available
+        : objectCard.count.available;
+    item.price = payload.price != "" ? payload.price : objectCard.price;
+    item.type = payload.type != "" ? payload.type : objectCard.type;
+    state.homeCards.splice(index, 1, item);
+  },
 };
 
 const actions = {
@@ -174,21 +198,21 @@ const actions = {
         console.log(error);
       });
   },
-  editBouquetsCard({ commit }, {id , payload} ) {
+  editBouquetsCard({ commit }, { id, payload }) {
     axios
-      .put("bouquets/" + id , payload)
+      .put("bouquets/" + id, payload)
       .then(() => {
-        commit("editCard", {id , payload});
+        commit("editFlowerCard", { id: id, payload: payload });
       })
       .catch((error) => {
         console.log(error);
       });
   },
-  editPlantsCard({ commit }, {id , payload} ) {
+  editPlantsCard({ commit }, { id, payload }) {
     axios
-      .put("plant/" + id , payload)
+      .put("plant/" + id, payload)
       .then(() => {
-        commit("editCard", {id , payload});
+        commit("editPlantCard", { id: id, payload: payload });
       })
       .catch((error) => {
         console.log(error);

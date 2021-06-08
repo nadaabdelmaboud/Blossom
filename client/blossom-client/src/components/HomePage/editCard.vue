@@ -6,11 +6,11 @@
           <i class="fa fa-times" @click="toggleEditState()"></i>
         </div>
         <div class="logo">
-           <img
-        src="../../assets/BlossomLogo_v7.png"
-        alt="logo Image"
-        class="logoImg"
-      />
+          <img
+            src="../../assets/BlossomLogo_v7.png"
+            alt="logo Image"
+            class="logoImg"
+          />
         </div>
         <div class="containerDiv">
           <div class="box" id="imageBox">
@@ -18,183 +18,217 @@
           </div>
           <div class="box" id="editInfo">
             <form v-on:submit.prevent="editCard" class="form">
-      <div class="editForm">
-        <div class="formData">
-          <input
-            placeholder="Title"
-            class="blossomInput"
-            v-model="title"
-          />
-          <input
-            placeholder="Description"
-            class="blossomInput"
-            v-model="description"
-          />
-          <input
-            placeholder="Amount"
-            class="blossomInput"
-            v-model="amount"
-            type="number"
-            min="0"
-          />
-          <input
-            placeholder="Price"
-            class="blossomInput"
-            v-model="price"
-            type="number"
-            min="0"
-          />
+              <div class="editForm">
+                <div class="formData">
+                  <input
+                    placeholder="Title"
+                    class="blossomInput"
+                    v-model="title"
+                  />
+                  <input
+                    placeholder="Description"
+                    class="blossomInput"
+                    v-model="description"
+                  />
+                  <input
+                    placeholder="Amount"
+                    class="blossomInput"
+                    v-model="amount"
+                    type="number"
+                    min="0"
+                  />
+                  <input
+                    placeholder="Price"
+                    class="blossomInput"
+                    v-model="price"
+                    type="number"
+                    min="0"
+                  />
 
-          <div class="blossomRadio">
-            <p>Type</p>
-            <label class="container"
-              >Plant
-              <input
-                type="radio"
-                name="type"
-                value="Plant"
-                v-model="type"
-              />
-              <span class="checkmark"></span>
-            </label>
-            <label class="container"
-              >Bouquet
-              <input
-                type="radio"
-                name="type"
-                value="Bouquet"
-                v-model="type"
-              />
-              <span class="checkmark"></span>
-            </label>
-          </div>
+                  <div class="blossomRadio">
+                    <p>Type</p>
+                    <label class="container"
+                      >Plant
+                      <input
+                        type="radio"
+                        name="type"
+                        value="Plant"
+                        v-model="type"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container"
+                      >Bouquet
+                      <input
+                        type="radio"
+                        name="type"
+                        value="Bouquet"
+                        v-model="type"
+                      />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
 
-          <div class="blossomSelectComponent" v-if="type && type == 'Plant'">
-            <div
-              class="blossomInput blossomSelect"
-              :class="{
-                optionChosen: categoryPlant != 'Choose Category',
-              }"
-              @click="
-                (showCategoryPlant = !showCategoryPlant),
-                  (showSpecials = false),
-                  (showCategoryBouquet = false)
-              "
-            >
-              {{ categoryPlant }}
-
-              <i class="fa fa-chevron-right arrow" id="openArrow"></i>
-            </div>
-            <div class="blossomSelectList" v-if="showCategoryPlant">
-              <input
-                type="text"
-                v-model="searchCategoryPlant"
-                placeholder="Search"
-              />
-              <div v-for="(c, i) in plantCategories" :key="i" class="options">
-                <ul>
-                  <li
-                    v-if="c.search(new RegExp(searchCategoryPlant, 'i')) != -1"
-                    @click="chooseCategoryPlant(c)"
+                  <div
+                    class="blossomSelectComponent"
+                    v-if="type && type == 'Plant'"
                   >
-                    {{ c }}
-                  </li>
-                </ul>
-              </div>
-              <div class="create" @click="createCategory">
-                <strong>Create Category</strong>
-                <i class="fa fa-plus globalIcons"></i>
-              </div>
-            </div>
-          </div>
+                    <div
+                      class="blossomInput blossomSelect"
+                      :class="{
+                        optionChosen: categoryPlant != 'Choose Category',
+                      }"
+                      @click="
+                        (showCategoryPlant = !showCategoryPlant),
+                          (showSpecials = false),
+                          (showCategoryBouquet = false)
+                      "
+                    >
+                      {{ categoryPlant }}
 
-          <div class="blossomSelectComponent" v-if="type && type == 'Bouquet'">
-            <div
-              class="blossomInput blossomSelect"
-              :class="{
-                optionChosen: categoryBouquet != 'Choose Category',
-              }"
-              @click="
-                (showCategoryBouquet = !showCategoryBouquet),
-                  (showCategoryPlant = false),
-                  (showSpecials = false)
-              "
-            >
-              {{ categoryBouquet }}
+                      <i class="fa fa-chevron-right arrow" id="openArrow"></i>
+                    </div>
+                    <div class="blossomSelectList" v-if="showCategoryPlant">
+                      <input
+                        type="text"
+                        v-model="searchCategoryPlant"
+                        placeholder="Search"
+                      />
+                      <div
+                        v-for="(c, i) in plantCategories"
+                        :key="i"
+                        class="options"
+                      >
+                        <ul>
+                          <li
+                            v-if="
+                              c.search(new RegExp(searchCategoryPlant, 'i')) !=
+                              -1
+                            "
+                            @click="chooseCategoryPlant(c)"
+                          >
+                            {{ c }}
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="create" @click="createCategory">
+                        <strong>Create Category</strong>
+                        <i class="fa fa-plus globalIcons"></i>
+                      </div>
+                    </div>
+                  </div>
 
-              <i class="fa fa-chevron-right arrow" id="openArrow"></i>
-            </div>
-            <div class="blossomSelectList" v-if="showCategoryBouquet">
-              <input
-                type="text"
-                v-model="searchCategoryBouquet"
-                placeholder="Search"
-              />
-              <div v-for="(c, i) in bouquetCategories" :key="i" class="options">
-                <ul>
-                  <li
-                    v-if="
-                      c.search(new RegExp(searchCategoryBouquet, 'i')) != -1
-                    "
-                    @click="chooseCategoryBouquet(c)"
+                  <div
+                    class="blossomSelectComponent"
+                    v-if="type && type == 'Bouquet'"
                   >
-                    {{ c }}
-                  </li>
-                </ul>
-              </div>
-              <div class="create" @click="createBouquet">
-                <strong>Create Bouquet Category</strong>
-                <i class="fa fa-plus globalIcons"></i>
-              </div>
-            </div>
-          </div>
+                    <div
+                      class="blossomInput blossomSelect"
+                      :class="{
+                        optionChosen: categoryBouquet != 'Choose Category',
+                      }"
+                      @click="
+                        (showCategoryBouquet = !showCategoryBouquet),
+                          (showCategoryPlant = false),
+                          (showSpecials = false)
+                      "
+                    >
+                      {{ categoryBouquet }}
 
-          <div class="blossomSelectComponent" v-if="type && type == 'Bouquet'">
-            <div
-              class="blossomInput blossomSelect"
-              :class="{
-                optionChosen: specialityName != 'Choose Special',
-              }"
-              @click="
-                (showSpecials = !showSpecials),
-                  (showCategoryPlant = false),
-                  (showCategoryPlant = false)
-              "
-            >
-              {{ specialityName }}
+                      <i class="fa fa-chevron-right arrow" id="openArrow"></i>
+                    </div>
+                    <div class="blossomSelectList" v-if="showCategoryBouquet">
+                      <input
+                        type="text"
+                        v-model="searchCategoryBouquet"
+                        placeholder="Search"
+                      />
+                      <div
+                        v-for="(c, i) in bouquetCategories"
+                        :key="i"
+                        class="options"
+                      >
+                        <ul>
+                          <li
+                            v-if="
+                              c.search(
+                                new RegExp(searchCategoryBouquet, 'i')
+                              ) != -1
+                            "
+                            @click="chooseCategoryBouquet(c)"
+                          >
+                            {{ c }}
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="create" @click="createBouquet">
+                        <strong>Create Bouquet Category</strong>
+                        <i class="fa fa-plus globalIcons"></i>
+                      </div>
+                    </div>
+                  </div>
 
-              <i class="fa fa-chevron-right arrow" id="openArrow"></i>
-            </div>
-            <div class="blossomSelectList" v-if="showSpecials">
-              <input type="text" v-model="searchSpecial" placeholder="Search" />
-              <div v-for="(s, i) in bouquetSentiments" :key="i" class="options">
-                <ul>
-                  <li
-                    v-if="s.search(new RegExp(searchSpecial, 'i')) != -1"
-                    @click="chooseSpecial(s)"
+                  <div
+                    class="blossomSelectComponent"
+                    v-if="type && type == 'Bouquet'"
                   >
-                    {{ s }}
-                  </li>
-                </ul>
+                    <div
+                      class="blossomInput blossomSelect"
+                      :class="{
+                        optionChosen: specialityName != 'Choose Special',
+                      }"
+                      @click="
+                        (showSpecials = !showSpecials),
+                          (showCategoryPlant = false),
+                          (showCategoryPlant = false)
+                      "
+                    >
+                      {{ specialityName }}
+
+                      <i class="fa fa-chevron-right arrow" id="openArrow"></i>
+                    </div>
+                    <div class="blossomSelectList" v-if="showSpecials">
+                      <input
+                        type="text"
+                        v-model="searchSpecial"
+                        placeholder="Search"
+                      />
+                      <div
+                        v-for="(s, i) in bouquetSentiments"
+                        :key="i"
+                        class="options"
+                      >
+                        <ul>
+                          <li
+                            v-if="
+                              s.search(new RegExp(searchSpecial, 'i')) != -1
+                            "
+                            @click="chooseSpecial(s)"
+                          >
+                            {{ s }}
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="create" @click="createSpeciality">
+                        <strong>Create Special</strong>
+                        <i class="fa fa-plus globalIcons"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="create" @click="createSpeciality">
-                <strong>Create Special</strong>
-                <i class="fa fa-plus globalIcons"></i>
+              <div class="editButton">
+                <button class="blossomButton" type="submit">
+                  Save Changes
+                </button>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-         <div class="editButton">
-              <button class="blossomButton" type="submit">Save Changes</button>
-            </div>
-    </form>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-</template> 
+</template>
 
 <style lang="scss" scoped>
 @import "../../scss/GlobalPopup";
@@ -212,16 +246,16 @@
   justify-content: flex-end;
   font-size: 25px;
 }
-.popupBody{
+.popupBody {
   width: 800px;
 }
 .logo {
   text-align: center;
   .logoImg {
-  display: flex;
-  justify-self: center;
-  width: 150px;
-}
+    display: flex;
+    justify-self: center;
+    width: 150px;
+  }
 }
 .containerDiv {
   width: 100%;
@@ -288,17 +322,17 @@
   }
 }
 @media screen and (max-width: 650px) {
-.blossomSelectList {
-  width: 90%;
-}
+  .blossomSelectList {
+    width: 90%;
+  }
 
-.form {
-  display: flex;
-  flex-grow: 1;
-  align-content: center;
-  flex-direction: column;
-  padding: 0px;
-}
+  .form {
+    display: flex;
+    flex-grow: 1;
+    align-content: center;
+    flex-direction: column;
+    padding: 0px;
+  }
 }
 @media screen and (max-width: 600px) {
   .popupBody {
@@ -307,12 +341,12 @@
   }
 }
 @media screen and (max-width: 300px) {
-.containerDiv{
-  width: 95%;
-}
-.blossomButton{
-  height: 50px;
-}
+  .containerDiv {
+    width: 95%;
+  }
+  .blossomButton {
+    height: 50px;
+  }
 }
 </style>
 
@@ -368,51 +402,55 @@ export default {
       this.specialityName = specialityName;
       this.showSpecials = false;
     },
-    editCard(){
+    editCard() {
       //true if card type is flower & false if plant
-      if(this.type == "Plant"){
-        if(this.categoryPlant == "Choose Category")
-          this.categoryPlant = "";
+      if (this.type == "Plant") {
+        if (this.categoryPlant == "Choose Category") this.categoryPlant = "";
         let payload = {
           name: this.title,
           type: this.categoryPlant,
-          price: this.price,
-          count:{
-            available: this.amount
+          price: parseInt(this.price),
+          count: {
+            available: parseInt(this.amount),
           },
-          info: this.description
-        }
-        console.log("payload",payload);
-        this.$store.dispatch("homePage/editPlantsCard" , {id:this.editCardId , payload:payload});
-      }else{
-        if(this.categoryBouquet == "Choose Category")
+          info: this.description,
+        };
+        console.log("payload", payload);
+        this.$store.dispatch("homePage/editPlantsCard", {
+          id: this.editCardId,
+          payload: payload,
+        });
+      } else {
+        if (this.categoryBouquet == "Choose Category")
           this.categoryBouquet = "";
-        if(this.specialityName == "Choose Special")
-          this.specialityName = "";
+        if (this.specialityName == "Choose Special") this.specialityName = "";
         let payload = {
           name: this.title,
           bouquetCategory: this.categoryBouquet,
           bouquetSentiment: this.specialityName,
-          price: this.price,
-          count: this.amount,
-          info: this.description
-        }
-        console.log("payload",payload);
-        this.$store.dispatch("homePage/editBouquetsCard" , {id:this.editCardId , payload:payload});
+          price: parseInt(this.price),
+          count: parseInt(this.amount),
+          info: this.description,
+        };
+        console.log("payload", payload);
+        this.$store.dispatch("homePage/editBouquetsCard", {
+          id: this.editCardId,
+          payload: payload,
+        });
       }
-       this.$store.commit("popupsState/toggleEditCardPopup");
-    }
+      this.$store.commit("popupsState/toggleEditCardPopup");
+    },
   },
-    computed: {
+  computed: {
     ...mapState({
       plantCategories: (state) => state.categories.plantCategories,
       bouquetCategories: (state) => state.categories.bouquetCategories,
       bouquetSentiments: (state) => state.sentiments.bouquetSentiments,
       editCardId: (state) => state.homePage.editCardId,
-      editImage: (state) => state.homePage.editImage
+      editImage: (state) => state.homePage.editImage,
     }),
   },
-    async beforeCreate() {
+  async beforeCreate() {
     await this.$store.dispatch("categories/getPlantCategories");
     await this.$store.dispatch("categories/getBouquetCategories");
     await this.$store.dispatch("sentiments/getSentiments");

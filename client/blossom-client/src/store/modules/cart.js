@@ -4,7 +4,7 @@ const state = {
   availableCount: 0,
   errorDetected: false,
   checkoutDone: false,
-  totalPrice:0
+  totalPrice: 0,
 };
 
 const mutations = {
@@ -26,14 +26,14 @@ const mutations = {
   checkoutIsDone(state, check) {
     state.checkoutDone = check;
   },
-  setTotalPrice(state , num){
+  setTotalPrice(state, num) {
     state.totalPrice = num;
   },
-  getTotalPrice(){
-    for(let i =0 ; i<state.cartCards.length ; i++){
+  getTotalPrice() {
+    for (let i = 0; i < state.cartCards.length; i++) {
       state.totalPrice = state.totalPrice + state.cartCards[i].price;
     }
-  }
+  },
 };
 const actions = {
   callCartCards({ commit }) {
@@ -89,7 +89,7 @@ const actions = {
       .then((response) => {
         location.replace(response.data);
         commit("checkoutIsDone", true);
-        commit("setTotalPrice" , 0);
+        commit("setTotalPrice", 0);
       })
       .catch((error) => {
         console.log(error);
@@ -102,13 +102,12 @@ const actions = {
       .get("me/cart/success?paymentId=" + paymentId + "&PayerID=" + PayerID)
       .then(() => {
         commit("checkoutIsDone", true);
-        commit("setTotalPrice" , 0);
+        commit("setTotalPrice", 0);
       })
       .catch((error) => {
         console.log(error);
       });
   },
-  
 };
 
 export default {

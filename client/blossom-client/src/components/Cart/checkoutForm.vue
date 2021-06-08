@@ -120,7 +120,7 @@
             </div>
           </div>
           <div class="box cashMoney" v-if="cashPayment">
-            <h2 id="totalPrice">Total Price: {{totalPrice}} LE</h2>
+            <h2 id="totalPrice">Total Price: {{ totalPrice }} LE</h2>
           </div>
           <div class="box confirm">
             <button class="blossomButton" @click="confirm()">Confirm</button>
@@ -263,7 +263,7 @@ export default {
       errorPayment: false,
     };
   },
-    computed: {
+  computed: {
     ...mapState({
       totalPrice: (state) => state.cart.totalPrice,
     }),
@@ -271,7 +271,7 @@ export default {
   methods: {
     toggleCheckoutState() {
       this.$store.commit("popupsState/toggleCheckoutFormPopup");
-      this.$store.commit("cart/setTotalPrice" , 0);
+      this.$store.commit("cart/setTotalPrice", 0);
     },
     showSurpriseAddress() {
       this.surprise = true;
