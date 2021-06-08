@@ -37,9 +37,9 @@
           @click="togglePasswordState"
         ></i>
       </div>
-      <div>
+      <!-- <div>
         <span class="hoverGolden floatRight">Forgot password?</span>
-      </div>
+      </div> -->
       <button class="blossomButton" type="submit">Login</button>
       <div class="toSignup">
         New to Blossom?

@@ -5,7 +5,7 @@
       <p>Order#{{ Index }}</p>
       <u @click="viewOrder">View Order</u>
       <br />
-      <div class="stars">
+      <div class="stars" v-if="cartStatus == 'delivered'">
         <i
           v-for="s in stars"
           :key="s"
@@ -17,8 +17,8 @@
           }"
         ></i>
       </div>
-      <input v-if="confirmRating" v-model="cardComment" />
-      <p v-if="!confirmRating && cardComment != ''">{{ cardComment }}</p>
+      <input v-if="confirmRating && cartStatus == 'delivered'" v-model="cardComment" />
+      <p v-if="!confirmRating && cardComment != '' && cartStatus == 'delivered'">{{ cardComment }}</p>
 
       <div class="stars">
         <i
@@ -64,7 +64,8 @@
       <button @click="confirmStatus">confirm</button>
       <button @click="cancelStatus">cancel</button>
     </div>
-    <div class="toast v" :id="'viewOrder' + Index">
+    <div class="toast v" 
+    :id="'viewOrder'+Index">
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
         {{ it[1].name }} : {{ it[1].price }}
       </p>
@@ -153,8 +154,8 @@ export default {
       this.cartStatus = this.status;
     },
     viewOrder() {
-      var mytoast = document.getElementById("viewOrder" + this.Index);
-      mytoast.className = "toast toast--visible";
+      var mytoast = document.getElementById("viewOrder"+this.Index);
+      mytoast.className = "toast v toast--visible";
     },
     hideOrder() {
       var mytoast = document.getElementById("viewOrder" + this.Index);
