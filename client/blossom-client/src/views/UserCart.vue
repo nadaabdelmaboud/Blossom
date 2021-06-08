@@ -1,6 +1,7 @@
 <template>
   <div class="userCart">
-    <div class="container" v-if="cartCards.length != 0">
+    <loading v-if="isLoading" />
+    <div class="container" v-if="cartCards.length != 0 && isLoading == false">
       <div class="gridContainer">
         <cartCard
           class="box"
@@ -19,7 +20,7 @@
         </button>
       </div>
     </div>
-    <div class="container" v-if="cartCards.length == 0">
+    <div class="container" v-if="cartCards.length == 0 && isLoading == false">
       <div class="empty">
         <h3>OOOOh! Your cart is empty right now</h3>
         <h6>Check our home page and search for your order</h6>
@@ -95,15 +96,18 @@ h6 {
 <script>
 import cartCard from "../components/Cart/cartCard";
 import router from "@/router";
+import loading from "../components/loading";
 import { mapState } from "vuex";
 export default {
   name: "userCart",
   components: {
     cartCard,
+    loading,
   },
   computed: {
     ...mapState({
       cartCards: (state) => state.cart.cartCards,
+      isLoading: (state) => state.cart.isLoading,
     }),
   },
   mounted() {

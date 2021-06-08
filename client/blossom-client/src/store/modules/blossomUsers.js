@@ -3,6 +3,7 @@ const state = {
   users: [],
   counter: 1,
   maxPages: 5,
+  isLoading: false,
 };
 
 const mutations = {
@@ -24,13 +25,15 @@ const mutations = {
 };
 
 const actions = {
-  callBlossomUsers({ commit }, index) {
+  callBlossomUsers({ commit, state }, index) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
+    state.isLoading = true;
     //////////////////////////////////////
     axios
       .get("users?pageSize=3&pageNumber=" + index)
       .then((response) => {
+        state.isLoading = false;
         state.users = [];
         commit("setUsers", response.data.users);
         commit("setMaxPage", response.data.maxPage);

@@ -4,12 +4,14 @@
   </div>
 </template>
 <style lang="scss" scoped>
+.loading {
+  display: flex;
+  justify-content: center;
+}
 .image {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  left: calc(50% - 100px);
-  margin: 0px 0 0 0px;
+  width: 100px;
+  height: 100px;
+  margin: 0;
   -webkit-animation: spin 4s linear infinite;
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;

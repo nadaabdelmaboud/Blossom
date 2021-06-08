@@ -40,6 +40,7 @@ const state = {
       name: "Tullips",
     },
   ],
+  isLoading: false,
 };
 
 const mutations = {
@@ -59,11 +60,13 @@ const mutations = {
 
 const actions = {
   async getBouquetCategories({ state }) {
+    state.isLoading = true;
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.get("bouquet/categories");
       state.bouquetCategories = data.data;
+      state.isLoading = false;
     } catch (err) {
       console.log(err);
     }

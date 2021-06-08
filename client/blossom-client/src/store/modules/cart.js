@@ -6,6 +6,7 @@ const state = {
   errorDetected: false,
   checkoutDone: "",
   totalPrice: 0,
+  isLoading: false,
 };
 
 const mutations = {
@@ -37,14 +38,15 @@ const mutations = {
   },
 };
 const actions = {
-  callCartCards({ commit }) {
+  callCartCards({ commit, state }) {
+    state.isLoading = true;
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     axios
       .get("users/cart/orders")
       .then((response) => {
         commit("setCartCards", response.data);
-        console.log("Cart", response.data);
+        state.isLoading = false;
       })
       .catch((error) => {
         console.log(error);

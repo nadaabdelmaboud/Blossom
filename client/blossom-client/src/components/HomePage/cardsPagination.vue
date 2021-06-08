@@ -1,6 +1,7 @@
 <template>
   <div class="cardsPagination">
-    <div v-if="homeCards.length != 0">
+    <loading v-if="isLoading" />
+    <div v-if="homeCards.length != 0 && isLoading == false">
       <div class="container" v-if="isFlower == true">
         <homeCard
           class="box"
@@ -30,13 +31,13 @@
         />
       </div>
     </div>
-    <div v-if="homeCards.length == 0">
+    <div v-if="homeCards.length == 0 && isLoading == false">
       <div class="emptyPage">
         <img src="../../assets/flowers.svg" alt="noItemsFound" />
         <p><span> OOOPS!</span> No items found in this page</p>
       </div>
     </div>
-    <div class="pagination">
+    <div class="pagination" v-if="isLoading == false">
       <div><i class="fa fa-arrow-left" @click="previousPage()"></i></div>
       <div class="counter">{{ counter }}</div>
       <div><i class="fa fa-arrow-right" @click="nextPage()"></i></div>
@@ -116,10 +117,12 @@
 <script>
 import { mapState } from "vuex";
 import homeCard from "./homeCard";
+import loading from "../loading";
 export default {
   name: "cardsPagination",
   components: {
     homeCard,
+    loading,
   },
   mounted() {
     if (this.isFlower == true) {
@@ -136,6 +139,7 @@ export default {
       counter: (state) => state.homePage.counter,
       maxPages: (state) => state.homePage.maxPages,
       isFlower: (state) => state.homePage.isFlower,
+      isLoading: (state) => state.homePage.isLoading,
     }),
   },
   methods: {

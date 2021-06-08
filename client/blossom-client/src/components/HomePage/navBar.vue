@@ -18,7 +18,7 @@
       </ul>
     </div>
     <div class="Logo">
-      <img src="../../assets/BlossomLogo_v7.png" alt="Logo" />
+      <img src="../../assets/BlossomLogo_v7.png" class="logoImg" alt="Logo" />
     </div>
     <div class="navContent" id="stickyNav">
       <div class="blossom">
@@ -102,6 +102,10 @@ img {
   text-align: center;
   display: block;
   margin: auto;
+}
+.logoImg {
+  width: 150px;
+  height: 150px;
 }
 .firstNav {
   width: 100%;

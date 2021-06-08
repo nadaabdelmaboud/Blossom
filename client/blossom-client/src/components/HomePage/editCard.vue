@@ -238,13 +238,12 @@
 }
 #imageBox {
   width: 50%;
-  -webkit-box-shadow: 0px 0px 10px 3px $lightGolden;
-  -moz-box-shadow: 0px 0px 10px 3px $lightGolden;
-  box-shadow: 0px 0px 10px 3px $lightGolden;
+  -webkit-box-shadow: 0px 0px 15px 3px $lightGolden;
+  -moz-box-shadow: 0px 0px 15px 3px $lightGolden;
+  box-shadow: 0px 0px 15px 3px $lightGolden;
   img {
     width: 100%;
-    height: 98%;
-    margin-top: 5px;
+    height: 100%;
     background-size: cover;
     object-fit: cover;
   }
