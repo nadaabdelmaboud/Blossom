@@ -3,9 +3,6 @@ const PlantModel = require('../models/plants.model').PlantModel;
 const BouquetModel = require('../models/bouquet.model').BouquetModel;
 const ShopModel = require("../models/shop.model");
 
-//categories-sentiments-types images
-//test menna orders after hager updates
-//ceil price not floor
 //test from client
 
 
@@ -97,6 +94,7 @@ const Cart = {
         user.Cart[user.Cart.length-1].status="pending";
         user.Cart[user.Cart.length-1].price=totalCashPrice;
         if(address){
+          console.log(address)
             user.Cart[user.Cart.length-1].address=address;
         }
         await user.save();
@@ -163,6 +161,7 @@ const Cart = {
                   const firstOrderKey = Object.keys(user.Cart[i].orders)[0];
                   const cartImage = user.Cart[i].orders[firstOrderKey].images;
                   const cart={
+                      id: user.Cart[i]._id,
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
                       status : user.Cart[i].status,
@@ -202,6 +201,7 @@ const Cart = {
                   const firstOrderKey = Object.keys(user.Cart[i].orders)[0];
                   const cartImage = user.Cart[i].orders[firstOrderKey].images;
                   const cart={
+                    id: user.Cart[i]._id,
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
                       status : user.Cart[i].status,
