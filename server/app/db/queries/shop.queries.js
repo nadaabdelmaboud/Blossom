@@ -1,4 +1,3 @@
-const client = require("../db.caching");
 const bcrypt = require("bcrypt");
 const ShopModel = require("../models/shop.model");
 const PlantModel = require('../models/plants.model').PlantModel;

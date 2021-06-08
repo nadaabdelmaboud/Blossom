@@ -1,7 +1,6 @@
 const BouquetModel = require('../models/bouquet.model').BouquetModel;
 const categories = require('../models/bouquet.model').categories;
 const sentiments = require('../models/bouquet.model').sentiments;
-const client = require('../db.caching');
 const  Mongoose  = require('mongoose');
 const Bouquet = {
     async getBouquets(pageNumber,pageSize,category='',sentiment=''){

@@ -3,10 +3,7 @@ const PlantModel = require('../models/plants.model').PlantModel;
 const BouquetModel = require('../models/bouquet.model').BouquetModel;
 const ShopModel = require("../models/shop.model");
 
-//test from client
 
-
-const client = require('../db.caching');
 const  Mongoose  = require('mongoose');
 const Cart = {
     async getUserCart(user){
