@@ -38,7 +38,7 @@ const CartController = {
         res.status(data.err.status).send(data.err.message);
     },
     async buyCart(req,res){
-        const data = await CartService.buyCart(req.user._id,req.query.address,req.query.paymentMethod);
+        const data = await CartService.buyCart(req.user._id,req.body.address,req.body.paymentMethod);
         if (data.data) {
             
             return res.status(200).send(data.data);

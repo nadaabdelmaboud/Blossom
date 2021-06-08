@@ -84,8 +84,9 @@ const actions = {
     axios.defaults.headers.common["Authorization"] = token;
     console.log("address", address);
     console.log("payment", payment);
+    const cartAddress = address?address.address:address;
     axios
-      .post("me/cart?paymentMethod=" + payment + "&address=" + address)
+      .post("me/cart",{address:cartAddress,paymentMethod:payment})
       .then((response) => {
         location.replace(response.data);
         commit("checkoutIsDone", true);
