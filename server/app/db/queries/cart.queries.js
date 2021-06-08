@@ -2,6 +2,12 @@ const UserModel = require('../models/user.model');
 const PlantModel = require('../models/plants.model').PlantModel;
 const BouquetModel = require('../models/bouquet.model').BouquetModel;
 
+//categories-sentiments-types images
+//test menna orders after hager updates
+//ceil price not floor
+//test from client
+
+
 const client = require('../db.caching');
 const  Mongoose  = require('mongoose');
 const Cart = {
@@ -93,7 +99,7 @@ const Cart = {
         return {items,totalPrice,totalCashPrice,cartId};
     },
     async setPaymentId(user,paymentId,cartId){
-      for(let i=user.Cart.length;i>=0;i--){
+      for(let i=user.Cart.length-1;i>=0;i--){
         if(user.Cart[i]._id==cartId){
           user.Cart[i].paymentId=paymentId;
           break;
@@ -149,6 +155,7 @@ const Cart = {
                   const cart={
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
+                      status : user.Cart[i].status,
                       orders : Object.entries(user.Cart[i].orders),
                       price:user.Cart[i].price,
                       orderNumber:i,
@@ -183,6 +190,7 @@ const Cart = {
                   const cart={
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
+                      status : user.Cart[i].status,
                       orders : Object.entries(user.Cart[i].orders),
                       price:user.Cart[i].price,
                       orderNumber:i,
