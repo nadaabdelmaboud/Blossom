@@ -13,7 +13,7 @@
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
-    <router-view class="content" />
+    <router-view class="content"  @click.native="scrollToTop"/>
     <homeFooter />
   </div>
 </template>
@@ -71,6 +71,12 @@ export default {
       loadingPopup: (state) => state.popupsState.loadingPopup,
       isAdmin: (state) => state.authorization.isAdmin,
     }),
+  },
+  methods: { 
+    scrollToTop() {
+      console.log("invoked")
+        window.scrollTo(0,0);
+    }
   },
   created() {
     setTimeout(() => {
