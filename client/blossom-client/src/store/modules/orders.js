@@ -9,12 +9,9 @@ const actions = {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      await axios.post(
-        "user/me/cart/" + cardId + "/feedback",
-        payload
-      );
-     //state.orders = data.data;
-    console.log(state)
+      await axios.post("user/me/cart/" + cardId + "/feedback", payload);
+      //state.orders = data.data;
+      console.log(state);
     } catch (err) {
       console.log(err);
     }
@@ -23,9 +20,9 @@ const actions = {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data =await axios.get("me/carts?limit=1000");
-    state.orders = data.data;
-    console.log(state)
+      let data = await axios.get("me/carts?limit=1000");
+      state.orders = data.data;
+      console.log(state);
     } catch (err) {
       console.log(err);
     }
@@ -33,42 +30,40 @@ const actions = {
   async getOrdersAdmin({ state }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
-    let orders =[]
+    let orders = [];
     try {
       let dataPending = await axios.get(
         "users/carts/status?status=pending&limit=1000"
       );
       orders = dataPending.data;
-      console.log("o  ",orders)
+      console.log("o  ", orders);
     } catch (err) {
-        console.log(err);
+      console.log(err);
     }
-    try{
-        let dataProgress = await axios.get(
-            "users/carts/status?status=progress&limit=1000"
-          );
-        orders = orders.concat(dataProgress.data)
+    try {
+      let dataProgress = await axios.get(
+        "users/carts/status?status=progress&limit=1000"
+      );
+      orders = orders.concat(dataProgress.data);
+    } catch (err) {
+      console.log(err);
     }
-    catch(err){
-        console.log(err)
-    }
-    try{
-        let dataDelivered = await axios.get(
-            "users/carts/status?status=delivered&limit=1000"
-        );
-        orders = orders.concat(dataDelivered.data);
-    }catch(err){
-        console.log(err)
+    try {
+      let dataDelivered = await axios.get(
+        "users/carts/status?status=delivered&limit=1000"
+      );
+      orders = orders.concat(dataDelivered.data);
+    } catch (err) {
+      console.log(err);
     }
 
     state.orders = orders;
-    console.log("state ",state.orders)
-
+    console.log("state ", state.orders);
   },
   async changeStatusAdmin({ state }, payload) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
-    console.log("kk",payload)
+    console.log("kk", payload);
     try {
       await axios.put(
         "users/" +
@@ -78,8 +73,8 @@ const actions = {
           "?status=" +
           payload.status
       );
-      console.log(state)
-     // state.orders = data.data;
+      console.log(state);
+      // state.orders = data.data;
     } catch (err) {
       console.log(err);
     }

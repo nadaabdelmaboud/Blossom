@@ -1,5 +1,12 @@
 <template>
   <div class="orderView">
+      <loading/>
+    <div v-if="isAdmin && orders.length == 0" class="slogan">
+        The shop has no orders yet.
+      </div>
+      <div v-if="!isAdmin && orders.length == 0" class="slogan">
+        Order from Blossom, then track your order here.
+      </div>
     <ordersCard
       v-for="(v, i) in orders"
       :key="i"
@@ -19,6 +26,7 @@
 
 <script>
 import ordersCard from "../components/ordersCard.vue";
+import loading from "../components/loading.vue";
 import { mapState } from "vuex";
 export default {
   data: function () {
@@ -26,6 +34,7 @@ export default {
   },
   components: {
     ordersCard,
+    loading
   },
   methods: {},
   computed: {
@@ -45,9 +54,12 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/Colors";
 @import "../scss/General";
-.orderView{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.orderView {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.slogan {
+  font-size: 55px;
 }
 </style>

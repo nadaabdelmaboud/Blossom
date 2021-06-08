@@ -9,6 +9,7 @@
     <createSpecialPopup v-if="showSpecialPopup" />
     <checkoutForm v-if="checkoutFormPopup" />
     <addTipPopup v-if="addTipPopup" />
+    <loading v-if="loadingPopup"/>
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
@@ -40,6 +41,7 @@ import createBouquetPopup from "../components/CreatePopups/newBouquetPopup.vue";
 import createSpecialPopup from "../components/CreatePopups/newSpecialPopup";
 import addTipPopup from "../components/CreatePopups/addTip.vue";
 import checkoutForm from "../components/Cart/checkoutForm";
+import loading from "../components/loadingScreen.vue";
 import { mapState } from "vuex";
 export default {
   name: "UserHome",
@@ -54,6 +56,7 @@ export default {
     navBar,
     checkoutForm,
     addTipPopup,
+    loading
   },
   computed: {
     ...mapState({
@@ -65,6 +68,7 @@ export default {
       showCardDescription: (state) => state.popupsState.descriptionPopup,
       checkoutFormPopup: (state) => state.popupsState.checkoutFormPopup,
       addTipPopup: (state) => state.popupsState.addTipPopup,
+      loadingPopup: (state) => state.popupsState.loadingPopup,
       isAdmin: (state) => state.authorization.isAdmin,
     }),
   },

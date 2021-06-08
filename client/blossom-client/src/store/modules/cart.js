@@ -85,17 +85,16 @@ const actions = {
     axios.defaults.headers.common["Authorization"] = token;
     console.log("address", address);
     console.log("payment", payment);
-    const cartAddress = address?address.address:address;
+    const cartAddress = address ? address.address : address;
     axios
-      .post("me/cart",{address:cartAddress,paymentMethod:payment})
+      .post("me/cart", { address: cartAddress, paymentMethod: payment })
       .then((response) => {
-        if(payment == "paypal"){
+        if (payment == "paypal") {
           commit("checkoutIsDone", "paypal");
           location.replace(response.data);
-        }
-        else{
-        commit("checkoutIsDone", "cash");
-        router.push("payment");
+        } else {
+          commit("checkoutIsDone", "cash");
+          router.push("payment");
         }
         commit("setTotalPrice", 0);
       })

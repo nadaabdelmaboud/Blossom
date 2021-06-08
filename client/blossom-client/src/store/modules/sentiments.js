@@ -6,7 +6,7 @@ const state = {
 
 const mutations = {
   deletedSentiments(state, item) {
-    var index = state.bouquetSentiments.findIndex((x) => x === item);
+    var index = state.bouquetSentiments.findIndex((x) => x.name === item);
     if (index !== -1) {
       state.bouquetSentiments.splice(index, 1);
     }

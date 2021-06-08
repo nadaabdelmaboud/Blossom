@@ -94,7 +94,7 @@
         <p id="errorMessage" v-if="zeroAmount">choose amount first</p>
       </div>
     </div>
-    <div class="toast" :id="'toastId'+this.id">
+    <div class="toast" :id="'toastId' + this.id">
       <img class="toastimage" :src="getImage(image)" />
       <div class="addedToCart">Added to Cart</div>
     </div>
