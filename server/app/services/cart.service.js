@@ -75,6 +75,7 @@ const CartService={
         const user = await User.findUserById(userId,{Cart:1});
         if(!user)
           return { data: false, err: await error("No such user", 404) };
+        console.log(orderId);
         const isChanged = await Cart.changeUserCartStatus(user,orderId,status);
         if(!isChanged)
           return { data: false, err: await error("Couldnt change order status", 404) };

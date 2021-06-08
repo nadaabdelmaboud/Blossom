@@ -70,7 +70,7 @@ const actions = {
       let data = await axios.put(
         "users/" +
           payload.userId +
-          "/order/" +
+          "/cart/" +
           payload.orderId +
           "?status=" +
           payload.status
