@@ -94,7 +94,6 @@ const actions = {
       .then((response) => {
         if (payment == "paypal") {
           commit("checkoutIsDone", "paypal");
-          state.isScreenLoading = false;
           location.replace(response.data);
         } else {
           commit("checkoutIsDone", "cash");
@@ -108,6 +107,7 @@ const actions = {
       });
   },
   finishPayment({ commit }, { paymentId, PayerID }) {
+    state.isScreenLoading = false;
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     axios
