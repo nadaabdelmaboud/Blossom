@@ -64,12 +64,12 @@
       <button @click="confirmStatus">confirm</button>
       <button @click="cancelStatus">cancel</button>
     </div>
-    <div class="toast" id="viewOrder">
+    <!-- <div class="toast" id="viewOrder">
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
         {{ it[1].name }} : {{ it[1].price }}
       </p>
       <button @click="hideOrder">close</button>
-    </div>
+    </div> -->
   </div>
 </template>
 

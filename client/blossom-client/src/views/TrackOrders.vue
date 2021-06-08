@@ -1,6 +1,5 @@
 <template>
   <div class="orderView">
-    <!-- "orderId", -->
     <ordersCard
       v-for="(v, i) in orders"
       :key="i"
