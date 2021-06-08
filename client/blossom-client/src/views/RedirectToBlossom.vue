@@ -24,6 +24,17 @@
 import router from "@/router";
 export default {
   name: "redirectToBlossom",
+  props:{
+    paymentId:{
+      type: String
+    },
+    PayerID:{
+      type: String
+    }
+  },
+  mounted(){
+    this.$store.dispatch("cart/finishPayment", {paymentId:this.$route.query.paymentId , PayerID:this.$route.query.PayerID});
+  },
   methods: {
     moveToHomePage() {
       router.push("/");

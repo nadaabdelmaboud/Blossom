@@ -3,6 +3,12 @@ const PlantModel = require('../models/plants.model').PlantModel;
 const BouquetModel = require('../models/bouquet.model').BouquetModel;
 const ShopModel = require("../models/shop.model");
 
+//categories-sentiments-types images
+//test menna orders after hager updates
+//ceil price not floor
+//test from client
+
+
 const client = require('../db.caching');
 const  Mongoose  = require('mongoose');
 const Cart = {
@@ -99,16 +105,17 @@ const Cart = {
         return {items,totalPrice,totalCashPrice,cartId};
     },
     async setPaymentId(user,paymentId,cartId){
-      for(let i=user.Cart.length;i>=0;i--){
+      for(let i=user.Cart.length-1;i>=0;i--){
         if(user.Cart[i]._id==cartId){
           user.Cart[i].paymentId=paymentId;
+          await user.save();
           break;
         }
       }
       return true;
     },
     async getAmountFromPaymentId(user,paymentId){
-      for(let i=user.Cart.length;i>=0;i--){
+      for(let i=user.Cart.length-1;i>=0;i--){
         if(user.Cart[i].paymentId==paymentId){
           return user.Cart[i].paypalPrice;
         }
@@ -155,6 +162,7 @@ const Cart = {
                   const cart={
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
+                      status : user.Cart[i].status,
                       orders : Object.entries(user.Cart[i].orders),
                       price:user.Cart[i].price,
                       orderNumber:i,
@@ -189,6 +197,7 @@ const Cart = {
                   const cart={
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
+                      status : user.Cart[i].status,
                       orders : Object.entries(user.Cart[i].orders),
                       price:user.Cart[i].price,
                       orderNumber:i,

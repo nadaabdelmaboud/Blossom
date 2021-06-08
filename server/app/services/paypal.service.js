@@ -5,8 +5,8 @@ exports.execute = promisify(paypal.payment.execute);
 exports.create = promisify(paypal.payment.create);
 paypal.configure({
     'mode': 'sandbox', 
-    'client_id': 'ARfrnof-70w9ZqJoYN6RiXqabFe-tqFm4wc7hhjokwCOROMOdS5iT3PwDmmKpgnnTA_l_utXkPx3JMIk',
-    'client_secret': 'EDOUMa_0M4amZD-P17PXCzHQZHJgZ3T4JMcOwc8_P2xd4TY8XqZaBCCR7WhCmH8zd4DFiSPSL3b3Q9nA'
+    'client_id': 'AVUi40Vs_wK-a7D7amhmkXp1AEoBxqKSWLl-d6t7BwCcnDZwUkRrwS4zyxVpDlXClRVML96JcTISWY6z',
+    'client_secret': 'ELAsvSk-3TTvP0Wqs6zBD9DxB76KWCv5aTLGMmYxnzf3-np50YQTLPKWvYQ8_qJDJVAnyUv87TpsWBYn'
   });
 const return_url="http://localhost:8080/payment"
 const cancel_url="http://localhost:8080/cancel_payment"
@@ -53,7 +53,7 @@ function create(create_payment_json){
 }
 
 async function success(payerId,paymentId,amount){
-    
+    console.log(amount,payerId,paymentId)
     const execute_payment_json = {
         "payer_id": payerId,
         "transactions": [{

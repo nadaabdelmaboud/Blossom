@@ -68,7 +68,11 @@ const routes = [
       {
         path: "payment",
         name: "RedirectToBlossom",
-        component: RedirectToBlossom,
+        component: RedirectToBlossom,    
+        props: route => ({
+          paymentId: route.query.paymentId,
+          PayerID: route.query.PayerID
+        })
       },
     ],
   },
