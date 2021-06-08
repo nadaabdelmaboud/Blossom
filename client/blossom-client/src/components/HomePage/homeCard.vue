@@ -95,7 +95,7 @@
       </div>
     </div>
     <div class="toast" id="toastId">
-      <img class="toastimage" src="../../assets/flower.jpg" />
+      <img class="toastimage" :src="getImage(image)" />
       <div class="addedToCart">Added to Cart</div>
     </div>
   </div>

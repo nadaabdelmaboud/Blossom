@@ -1,9 +1,10 @@
 import axios from "axios";
+import router from "@/router";
 const state = {
   cartCards: [],
   availableCount: 0,
   errorDetected: false,
-  checkoutDone: false,
+  checkoutDone: "",
   totalPrice: 0,
 };
 
@@ -88,8 +89,14 @@ const actions = {
     axios
       .post("me/cart",{address:cartAddress,paymentMethod:payment})
       .then((response) => {
-        location.replace(response.data);
-        commit("checkoutIsDone", true);
+        if(payment == "paypal"){
+          commit("checkoutIsDone", "paypal");
+          location.replace(response.data);
+        }
+        else{
+        commit("checkoutIsDone", "cash");
+        router.push("payment");
+        }
         commit("setTotalPrice", 0);
       })
       .catch((error) => {

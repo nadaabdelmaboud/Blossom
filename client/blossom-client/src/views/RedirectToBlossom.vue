@@ -21,6 +21,7 @@
 </style>
 
 <script>
+import { mapState } from "vuex";
 import router from "@/router";
 export default {
   name: "redirectToBlossom",
@@ -32,11 +33,19 @@ export default {
       type: String,
     },
   },
+    computed: {
+    ...mapState({
+      checkoutDone: (state) => state.cart.checkoutDone,
+    }),
+  },
   mounted() {
-    this.$store.dispatch("cart/finishPayment", {
-      paymentId: this.$route.query.paymentId,
-      PayerID: this.$route.query.PayerID,
-    });
+    if(this.checkoutDone == "paypal"){
+      this.$store.dispatch("cart/finishPayment", {
+        paymentId: this.$route.query.paymentId,
+        PayerID: this.$route.query.PayerID,
+      });
+    }
+    this.$store.commit("authorization/setOrders", 0);
   },
   methods: {
     moveToHomePage() {

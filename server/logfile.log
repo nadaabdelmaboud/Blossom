@@ -1,0 +1,7 @@
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"response":{"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"c9d8ea3eae85c","httpStatusCode":404},"httpStatusCode":404,"level":"error","message":"Response Status : 404 Response Status : 404","stack":"Error: Response Status : 404\n    at IncomingMessage.<anonymous> (D:\\Blossom_new\\Blossom\\server\\node_modules\\paypal-rest-sdk\\lib\\client.js:130:23)\n    at IncomingMessage.emit (events.js:215:7)\n    at IncomingMessage.EventEmitter.emit (domain.js:476:20)\n    at endReadableNT (_stream_readable.js:1183:12)\n    at processTicksAndRejections (internal/process/task_queues.js:80:21)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
