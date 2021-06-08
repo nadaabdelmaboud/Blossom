@@ -236,7 +236,8 @@ button {
 }
 .orderCard {
   width: 240px;
-  height: 370px;
+  //height: 370px;
+  height: calc(100% - 90px);
   margin: 20px;
   padding: 30px;
   -webkit-box-shadow: 0px 0px 3px 3px $golden;
@@ -256,6 +257,7 @@ button {
 p {
   text-align: center;
   font-size: 16px;
+  overflow-wrap: break-word;
 }
 u {
   display: block;

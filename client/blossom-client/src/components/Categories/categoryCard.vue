@@ -128,6 +128,7 @@ export default {
         this.$store.commit("homePage/setType", this.name);
         this.$store.commit("homePage/setIsFlower", false);
       }
+      window.scrollTo(0,0);
       this.$router.push("/");
     },
   },

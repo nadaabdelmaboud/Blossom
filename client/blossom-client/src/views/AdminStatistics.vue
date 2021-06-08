@@ -98,7 +98,7 @@ export default {
       let year = d.getFullYear();
       this.chartdataSales.datasets[0].label = this.monthNames[month] + " Sales";
       this.chartdataSales.datasets[0].data = [];
-      let monthDays = new Date(year, month + 1, 0).getDate();
+      let monthDays = new Date(year, month +1 , 0).getDate();
       for (let i = 0; i < monthDays; i++) {
         this.chartdataSales.labels.push(i + 1);
         this.chartdataSales.datasets[0].data.push(this.sales[i + 1]);

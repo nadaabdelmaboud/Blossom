@@ -73,9 +73,6 @@ export default {
     }),
   },
   created() {
-    setTimeout(() => {
-      console.log("admin", this.isAdmin);
-    }, 2000);
   },
 };
 </script>
