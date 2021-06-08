@@ -84,6 +84,9 @@ h3 {
 .flowerName {
   color: $darkGolden;
   text-decoration: underline;
+  h3 {
+    overflow-wrap: break-word;
+  }
 }
 .flowerPrice {
   h3 {
@@ -103,6 +106,7 @@ i {
 </style>
 
 <script>
+import { mapState } from "vuex";
 import { default as getImage } from "../../mixins/getImage";
 export default {
   name: "cartCard",
@@ -124,9 +128,16 @@ export default {
     },
   },
   mixins: [getImage],
+  computed: {
+    ...mapState({
+      orders: (state) => state.authorization.orders,
+    }),
+  },
   methods: {
     deleteCartCard() {
       this.$store.dispatch("cart/deleteCardFromCart", this.id);
+      this.$store.commit("authorization/setOrders", this.orders - 1);
+      this.$store.commit("authorization/deleteCartName", this.orderName);
     },
   },
 };

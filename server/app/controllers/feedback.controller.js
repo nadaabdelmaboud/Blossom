@@ -10,6 +10,7 @@ const FeedBackController = {
     res.status(data.err.status).send(data.err.message);
   },
   async addCurrentUserFeedback(req, res) {
+    console.log("req ",req.params.cart_id);
     const cartId = req.params.cart_id;
     const userId = req.user._id;
     const feedback = req.body;

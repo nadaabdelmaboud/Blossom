@@ -3,6 +3,7 @@ const ShopService = require('../services/shop.service');
 const ShopController = {
   async getCategories(req, res) {
     const data = await ShopService.getBouquetCategories();
+    console.log(data)
     if (data.data) {
       return res.status(200).send(data.data);
     }

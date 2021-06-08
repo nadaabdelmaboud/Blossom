@@ -10,7 +10,7 @@
     <div class="bar">
       <div class="rating">
         <barChart
-          v-if="salesLoaded"
+          v-if="ratingLoaded"
           :chartdata="chartdataRate"
           :options="options"
         />
@@ -118,7 +118,7 @@ export default {
   async created() {
     await this.$store.dispatch("statistics/getSales");
     await this.$store.dispatch("statistics/getTopUsers");
-    this.$store.dispatch("statistics/getRating");
+    await this.$store.dispatch("statistics/getRating");
 
     this.setSales();
     this.setRate();

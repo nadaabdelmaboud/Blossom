@@ -21,19 +21,31 @@
 </style>
 
 <script>
+import { mapState } from "vuex";
 import router from "@/router";
 export default {
   name: "redirectToBlossom",
-  props:{
-    paymentId:{
-      type: String
+  props: {
+    paymentId: {
+      type: String,
     },
-    PayerID:{
-      type: String
-    }
+    PayerID: {
+      type: String,
+    },
   },
-  mounted(){
-    this.$store.dispatch("cart/finishPayment", {paymentId:this.$route.query.paymentId , PayerID:this.$route.query.PayerID});
+    computed: {
+    ...mapState({
+      checkoutDone: (state) => state.cart.checkoutDone,
+    }),
+  },
+  mounted() {
+    if(this.checkoutDone == "paypal"){
+      this.$store.dispatch("cart/finishPayment", {
+        paymentId: this.$route.query.paymentId,
+        PayerID: this.$route.query.PayerID,
+      });
+    }
+    this.$store.commit("authorization/setOrders", 0);
   },
   methods: {
     moveToHomePage() {

@@ -1,9 +1,11 @@
 import axios from "axios";
+import router from "@/router";
 const state = {
   cartCards: [],
   availableCount: 0,
   errorDetected: false,
-  checkoutDone: false
+  checkoutDone: "",
+  totalPrice: 0,
 };
 
 const mutations = {
@@ -24,6 +26,14 @@ const mutations = {
   },
   checkoutIsDone(state, check) {
     state.checkoutDone = check;
+  },
+  setTotalPrice(state, num) {
+    state.totalPrice = num;
+  },
+  getTotalPrice() {
+    for (let i = 0; i < state.cartCards.length; i++) {
+      state.totalPrice = state.totalPrice + state.cartCards[i].price;
+    }
   },
 };
 const actions = {
@@ -75,11 +85,19 @@ const actions = {
     axios.defaults.headers.common["Authorization"] = token;
     console.log("address", address);
     console.log("payment", payment);
+    const cartAddress = address?address.address:address;
     axios
-      .post("me/cart?paymentMethod=" + payment + "&address=" + address)
+      .post("me/cart",{address:cartAddress,paymentMethod:payment})
       .then((response) => {
-        location.replace(response.data);
-        commit("checkoutIsDone", true);
+        if(payment == "paypal"){
+          commit("checkoutIsDone", "paypal");
+          location.replace(response.data);
+        }
+        else{
+        commit("checkoutIsDone", "cash");
+        router.push("payment");
+        }
+        commit("setTotalPrice", 0);
       })
       .catch((error) => {
         console.log(error);
@@ -92,12 +110,12 @@ const actions = {
       .get("me/cart/success?paymentId=" + paymentId + "&PayerID=" + PayerID)
       .then(() => {
         commit("checkoutIsDone", true);
+        commit("setTotalPrice", 0);
       })
       .catch((error) => {
         console.log(error);
       });
   },
-  
 };
 
 export default {

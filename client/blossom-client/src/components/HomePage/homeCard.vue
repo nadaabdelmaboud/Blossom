@@ -94,8 +94,8 @@
         <p id="errorMessage" v-if="zeroAmount">choose amount first</p>
       </div>
     </div>
-    <div class="toast" id="toastId">
-      <img class="toastimage" src="../../assets/flower.jpg" />
+    <div class="toast" :id="'toastId'+this.id">
+      <img class="toastimage" :src="getImage(image)" />
       <div class="addedToCart">Added to Cart</div>
     </div>
   </div>
@@ -169,6 +169,7 @@ img {
 }
 .title {
   margin-top: 7px;
+  overflow-wrap: break-word;
   //margin-bottom: 7px;
   color: $darkGolden;
   font-size: 25px;
@@ -313,6 +314,7 @@ export default {
     toggleEditState() {
       this.$store.commit("homePage/setEditImage", this.image);
       this.$store.commit("homePage/setEditCardId", this.id);
+      this.$store.commit("homePage/setEditType", this.isFlower);
       this.$store.commit("popupsState/toggleEditCardPopup");
     },
     showDescriptionPopup() {
@@ -342,7 +344,8 @@ export default {
         this.zeroAmount = true;
       } else {
         this.zeroAmount = false;
-        this.showToast("toastId");
+        this.showToast("toastId" + this.id);
+        this.$store.commit("authorization/updateOrdersNum", this.name);
 
         if (this.isFlower == true)
           this.$store.dispatch("cart/addToCart", {

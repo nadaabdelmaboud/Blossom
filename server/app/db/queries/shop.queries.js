@@ -1,6 +1,9 @@
 const client = require("../db.caching");
 const bcrypt = require("bcrypt");
 const ShopModel = require("../models/shop.model");
+const PlantModel = require('../models/plants.model').PlantModel;
+const BouquetModel = require('../models/bouquet.model').BouquetModel;
+
 const Shop = {
   async findAdminById(id) {
     const shop = await ShopModel.find({}, { admin: 1 }).lean();
@@ -43,6 +46,69 @@ const Shop = {
     const shop = await ShopModel.find({}, { bouquetCategories: 1 }).lean();
     return shop[0].bouquetCategories;
   },
+  async getBouquetCategoriesImages(){
+      const shop = await ShopModel.find({}, { bouquetCategories: 1 }).lean();
+      const categories = shop[0].bouquetCategories;
+      const bouquetCategories=[];
+      for(let i=0;i<categories.length;i++){
+        let image = await BouquetModel.find({bouquetCategory:categories[i]},{images:1}).limit(1);
+        if(image.length>0){
+          image = image[0].images;
+        }
+        else{
+          image='';
+        }
+        const category = {
+          name: categories[i],
+          image:image
+        }
+        bouquetCategories.push(category);
+      }
+      return bouquetCategories
+  },
+  async getBouquetSentimentsImages(){
+    const shop = await ShopModel.find({}, { bouquetSentiments: 1 }).lean();
+    const sentiments = shop[0].bouquetSentiments;
+    const bouquetSentiments=[];
+    for(let i=0;i<sentiments.length;i++){
+      let image = await BouquetModel.find({bouquetSentiment:sentiments[i]},{images:1}).limit(2);
+      if(image.length>1){
+        image = image[1].images;
+      }
+      else if(image.length>0){
+        image = image[0].images;
+      }
+      else{
+        image='';
+      }
+      const sentiment = {
+        name: sentiments[i],
+        image:image
+      }
+      bouquetSentiments.push(sentiment);
+    }
+    return bouquetSentiments
+},
+async getPlantCategoriesImages(){
+  const shop = await ShopModel.find({}, { plantCategories: 1 }).lean();
+  const categories = shop[0].plantCategories;
+  const plantCategories=[];
+  for(let i=0;i<categories.length;i++){
+    let image = await PlantModel.find({type:categories[i]},{images:1}).limit(1);
+    if(image.length>0){
+      image = image[0].images;
+    }
+    else{
+      image='';
+    }
+    const category = {
+      name: categories[i],
+      image:image
+    }
+    plantCategories.push(category);
+  }
+  return plantCategories
+},
   async getBouquetSentiments() {
     const shop = await ShopModel.find({}, { bouquetSentiments: 1 }).lean();
     return shop[0].bouquetSentiments;

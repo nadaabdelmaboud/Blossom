@@ -6,7 +6,12 @@
         <router-link v-if="isAdmin == true" to="/statistics">
           <li>Statistics</li>
         </router-link>
-        <li v-if="status == 'success' && isAdmin == false">Track Orders</li>
+        <li
+          v-if="status == 'success' && isAdmin == false"
+          @click="toTrackOrders()"
+        >
+          Track Orders
+        </li>
         <router-link to="/blossomUsers">
           <li v-if="isAdmin == true">Users</li>
         </router-link>
@@ -33,8 +38,11 @@
             <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
           </router-link>
           <li v-if="status == ''" @click="showLogin()">Signin</li>
-          <li v-if="isAdmin == true">Orders</li>
-          <li v-if="status == 'success' && isAdmin == false">
+          <li v-if="isAdmin == true" @click="toTrackOrders()">Orders</li>
+          <li
+            v-if="status == 'success' && isAdmin == false"
+            @click="toProfile()"
+          >
             <i class="fa fa-user"></i> Profile
           </li>
           <li
@@ -46,7 +54,7 @@
         </ul>
         <router-link to="/userCart">
           <div v-if="status == 'success' && isAdmin == false" id="cart">
-            <i class="fa fa-shopping-cart"></i> {{ count }}
+            <i class="fa fa-shopping-cart"></i> {{ orders }}
           </div>
         </router-link>
       </div>
@@ -62,8 +70,8 @@
         <router-link to="/">
           <li @click="callPlants()"><i class="fa fa-leaf"></i> Plants</li>
         </router-link>
-        <li v-if="isAdmin == true">Orders</li>
-        <li v-if="status == 'success' && isAdmin == false">
+        <li v-if="isAdmin == true" @click="toTrackOrders()">Orders</li>
+        <li v-if="status == 'success' && isAdmin == false" @click="toProfile()">
           <i class="fa fa-user"></i> Profile
         </li>
         <li
@@ -222,7 +230,6 @@ export default {
   name: "navBar",
   data: function () {
     return {
-      count: 0,
       toggleList: false,
     };
   },
@@ -246,6 +253,7 @@ export default {
     ...mapState({
       isAdmin: (state) => state.authorization.isAdmin,
       status: (state) => state.authorization.status,
+      orders: (state) => state.authorization.orders,
     }),
   },
   methods: {
@@ -274,6 +282,12 @@ export default {
     },
     toUploadPage() {
       this.$router.push("uploadProduct");
+    },
+    toTrackOrders() {
+      this.$router.push("trackOrders");
+    },
+    toProfile() {
+      this.$router.push("myprofile");
     },
   },
 };

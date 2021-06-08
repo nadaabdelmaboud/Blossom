@@ -3,9 +3,6 @@ const PlantModel = require('../models/plants.model').PlantModel;
 const BouquetModel = require('../models/bouquet.model').BouquetModel;
 const ShopModel = require("../models/shop.model");
 
-//categories-sentiments-types images
-//test menna orders after hager updates
-//ceil price not floor
 //test from client
 
 
@@ -85,11 +82,11 @@ const Cart = {
             let item={
                 "name": name,
                 "sku": sku,
-                "price": parseInt(price)+".00",
+                "price": Math.ceil(price)+".00",
                 "currency": "USD",
                 "quantity": quantity
             }
-            totalPrice +=(orderObject.amount*parseInt(price));
+            totalPrice +=(orderObject.amount*Math.ceil(price));
             items.push(item)
         }
         if(!user.Cart[user.Cart.length-1].paymentId) user.Cart[user.Cart.length-1].paymentId='';
@@ -97,6 +94,7 @@ const Cart = {
         user.Cart[user.Cart.length-1].status="pending";
         user.Cart[user.Cart.length-1].price=totalCashPrice;
         if(address){
+          console.log(address)
             user.Cart[user.Cart.length-1].address=address;
         }
         await user.save();
@@ -136,9 +134,7 @@ const Cart = {
           }
         }
         if(!order) return false;
-        if(order.status!="pending" && order.status!="progress") return false;
-        if(order.status=="pending" && status!="progress") return false;
-        if(order.status=="progress" && status!="delivered") return false;
+
         user.Cart[index].status = status;
         user.Cart[index].lastEdit = new Date();
         await user.save();
@@ -153,13 +149,17 @@ const Cart = {
                     let orders = Object.values(user.Cart[i].orders);
                     user.Cart[i].price=0;
                     for(let j=0;j<orders.length;j++){
+                      if(!orders[j].price){
+                        orders[j].price=0;
+                      }
                       user.Cart[i].price+=(orders[j].amount*orders[j].price);
                     }
                     await user.save();
                   }
                   const firstOrderKey = Object.keys(user.Cart[i].orders)[0];
-                  const cartImage = user.Cart[i].orders[firstOrderKey].image;
+                  const cartImage = user.Cart[i].orders[firstOrderKey].images;
                   const cart={
+                      id: user.Cart[i]._id,
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
                       status : user.Cart[i].status,
@@ -180,21 +180,26 @@ const Cart = {
         if(Carts.length<=limit) return Carts;
         return Carts.slice(0,limit);
       },
-      async getUserCartsWithDefinedStatus(user,status,limit){
+      async getUserCarts(user,limit){
         let Carts=[];
             for(let i=0;i<user.Cart.length;i++){
-                if(user.Cart[i].status==status){
+                if(user.Cart[i].status=="pending"||user.Cart[i].status=="delivered"||user.Cart[i].status=="progress"){
                   if(!user.Cart[i].price){
                     let orders = Object.values(user.Cart[i].orders);
                     user.Cart[i].price=0;
+                    
                     for(let j=0;j<orders.length;j++){
+                      if(!orders[j].price){
+                        orders[j].price=0;
+                      }
                       user.Cart[i].price+=(orders[j].amount*orders[j].price);
                     }
                     await user.save();
                   }
                   const firstOrderKey = Object.keys(user.Cart[i].orders)[0];
-                  const cartImage = user.Cart[i].orders[firstOrderKey].image;
+                  const cartImage = user.Cart[i].orders[firstOrderKey].images;
                   const cart={
+                    id: user.Cart[i]._id,
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
                       status : user.Cart[i].status,

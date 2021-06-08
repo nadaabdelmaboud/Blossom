@@ -47,6 +47,7 @@
   }
 }
 .userName {
+  overflow-wrap: break-word;
   margin-top: 7px;
   margin-bottom: 7px;
   color: $darkGolden;
@@ -55,6 +56,7 @@
   font-weight: 700;
 }
 .userReview {
+  overflow-wrap: break-word;
   margin-top: 15px;
   margin-bottom: 7px;
   font-size: 20px;
