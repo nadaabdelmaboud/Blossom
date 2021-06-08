@@ -93,17 +93,17 @@ const CartService={
         return { data: carts, err:''};
 
       },
-      async getUserCartsWithDefinedStatus(userId,status,limit){
+      async getUserCarts(userId,limit){
         const isValidUserId = await MongooseValidation.validateID(userId);
         if (!isValidUserId)
           return { data: false, err: await error("Invalid User ID", 400) };
-        const isValidStatus = await CartValidation.validateStatusLimit({status,limit});
-        if (isValidStatus.error)
-        return { data: false, err: await error(isValidStatus.error.message, 400) };
+        const isValidLimit = await CartValidation.validateLimit({limit});
+        if (isValidLimit.error)
+        return { data: false, err: await error(isValidLimit.error.message, 400) };
         const user = await User.findUserById(userId,{Cart:1,_id:1});
         if(!user)
         return { data: false, err: await error("No users found", 404) };
-        const carts = await Cart.getUserCartsWithDefinedStatus(user,status,limit);
+        const carts = await Cart.getUserCarts(user,limit);
         if(!carts ||carts.length==0)
         return { data: false, err: await error("No carts found", 404) };
         return { data: carts, err:''};
