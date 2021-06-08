@@ -72,10 +72,6 @@ export default {
       isAdmin: (state) => state.authorization.isAdmin,
     }),
   },
-  created() {
-    setTimeout(() => {
-      console.log("admin", this.isAdmin);
-    }, 2000);
-  },
+  created() {},
 };
 </script>

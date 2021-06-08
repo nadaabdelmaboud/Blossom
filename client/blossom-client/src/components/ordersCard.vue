@@ -73,7 +73,7 @@
     </div>
     <div class="toast v" :id="'viewOrder' + Index">
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
-        {{ it[1].name }} : {{ it[1].price }}
+        {{ it[1].name }} : {{ it[1].price }} LE
       </p>
       <button @click="hideOrder">close</button>
     </div>
@@ -82,7 +82,6 @@
 
 <script>
 import { default as getImage } from "../mixins/getImage";
-//import { mapSatate } from "vuex";
 export default {
   data: function () {
     return {
@@ -236,7 +235,7 @@ button {
 }
 .orderCard {
   width: 240px;
-  height: 370px;
+  height: calc(100% - 90px);
   margin: 20px;
   padding: 30px;
   -webkit-box-shadow: 0px 0px 3px 3px $golden;
@@ -256,6 +255,7 @@ button {
 p {
   text-align: center;
   font-size: 16px;
+  overflow-wrap: break-word;
 }
 u {
   display: block;
@@ -294,6 +294,7 @@ u {
   }
 }
 input {
-  margin: 10px;
+  margin: 10px auto;
+  display: block;
 }
 </style>

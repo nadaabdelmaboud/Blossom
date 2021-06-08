@@ -1,39 +1,42 @@
 <template>
   <div class="categoriesPage">
-    <h1>Bouquets</h1>
-    <div class="container">
-      <categoryCard
-        class="box"
-        v-for="card in bouquetCategories"
-        :key="card.name"
-        :image="card.image"
-        :name="card.name"
-        :cardType="'bouquets'"
-      />
-    </div>
-    <div class="line"></div>
-    <h1>Plants</h1>
-    <div class="container">
-      <categoryCard
-        class="box"
-        v-for="card in plantCategories"
-        :key="card.name"
-        :image="card.image"
-        :name="card.name"
-        :cardType="'plant'"
-      />
-    </div>
-    <div class="line"></div>
-    <h1>Bouquets for what reason?</h1>
-    <div class="container">
-      <categoryCard
-        class="box"
-        v-for="card in bouquetSentiments"
-        :key="card.name"
-        :image="card.image"
-        :name="card.name"
-        :cardType="'sentiment'"
-      />
+    <loading v-if="isLoading" />
+    <div v-if="isLoading == false">
+      <h1>Bouquets</h1>
+      <div class="container">
+        <categoryCard
+          class="box"
+          v-for="card in bouquetCategories"
+          :key="card.name"
+          :image="card.image"
+          :name="card.name"
+          :cardType="'bouquets'"
+        />
+      </div>
+      <div class="line"></div>
+      <h1>Plants</h1>
+      <div class="container">
+        <categoryCard
+          class="box"
+          v-for="card in plantCategories"
+          :key="card.name"
+          :image="card.image"
+          :name="card.name"
+          :cardType="'plant'"
+        />
+      </div>
+      <div class="line"></div>
+      <h1>Bouquets for what reason?</h1>
+      <div class="container">
+        <categoryCard
+          class="box"
+          v-for="card in bouquetSentiments"
+          :key="card.name"
+          :image="card.image"
+          :name="card.name"
+          :cardType="'sentiment'"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -70,7 +73,13 @@ h1 {
   text-align: center;
   justify-self: center;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1100px) {
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 4px;
+  }
+}
+@media screen and (max-width: 990px) {
   .container {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 4px;
@@ -87,16 +96,19 @@ h1 {
 <script>
 import { mapState } from "vuex";
 import categoryCard from "../components/Categories/categoryCard";
+import loading from "../components/loading";
 export default {
   name: "categoriesPage",
   components: {
     categoryCard,
+    loading,
   },
   computed: {
     ...mapState({
       bouquetCategories: (state) => state.categories.bouquetCategories,
       plantCategories: (state) => state.categories.plantCategories,
       bouquetSentiments: (state) => state.sentiments.bouquetSentiments,
+      isLoading: (state) => state.categories.isLoading,
     }),
   },
   mounted() {

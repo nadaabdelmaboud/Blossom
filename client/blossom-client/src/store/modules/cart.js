@@ -6,6 +6,7 @@ const state = {
   errorDetected: false,
   checkoutDone: "",
   totalPrice: 0,
+  isLoading: false,
 };
 
 const mutations = {
@@ -37,14 +38,15 @@ const mutations = {
   },
 };
 const actions = {
-  callCartCards({ commit }) {
+  callCartCards({ commit, state }) {
+    state.isLoading = true;
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     axios
       .get("users/cart/orders")
       .then((response) => {
         commit("setCartCards", response.data);
-        console.log("Cart", response.data);
+        state.isLoading = false;
       })
       .catch((error) => {
         console.log(error);
@@ -56,7 +58,6 @@ const actions = {
     axios
       .post("users/cart/orders", param)
       .then((response) => {
-        console.log("error", response.data);
         if (response.data.status == 0) {
           commit("setAvailableCount", response.data.count);
           commit("setErrorDetected", true);
@@ -83,8 +84,6 @@ const actions = {
   buyCart({ commit }, { address, payment }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
-    console.log("address", address);
-    console.log("payment", payment);
     const cartAddress = address ? address.address : address;
     axios
       .post("me/cart", { address: cartAddress, paymentMethod: payment })

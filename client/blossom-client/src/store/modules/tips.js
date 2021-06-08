@@ -2,19 +2,19 @@ import axios from "axios";
 
 const state = {
   plantFull: {},
-  loading:false
+  loading: false,
 };
 
 const actions = {
   async getTips({ state }, id) {
     state.loading = true;
-    state.plantFull.tips =[];
+    state.plantFull.tips = [];
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.get("plant/" + id);
       state.plantFull = data.data;
-      state.loading = false
+      state.loading = false;
     } catch (err) {
       console.log(err);
     }
@@ -31,13 +31,12 @@ const actions = {
       };
       let data = await axios.put("plant/" + state.plantFull._id, payload);
       state.plantFull = data.data;
-      
     } catch (err) {
       console.log(err);
     }
     commit("popupsState/toggleLoadingPopup", null, { root: true });
   },
-  async deleteTip({ state ,commit}, tip) {
+  async deleteTip({ state, commit }, tip) {
     commit("popupsState/toggleLoadingPopup", null, { root: true });
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;

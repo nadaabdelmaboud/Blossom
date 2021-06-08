@@ -22,12 +22,12 @@ const state = {
     {
       id: 4,
       image: require("../../assets/lilies.jpg"),
-      name: "lilies",
+      name: "cherry",
     },
     {
       id: 5,
       image: require("../../assets/Spider.jpg"),
-      name: "Spider",
+      name: "bluebell",
     },
     {
       id: 6,
@@ -40,6 +40,7 @@ const state = {
       name: "Tullips",
     },
   ],
+  isLoading: false,
 };
 
 const mutations = {
@@ -59,11 +60,13 @@ const mutations = {
 
 const actions = {
   async getBouquetCategories({ state }) {
+    state.isLoading = true;
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.get("bouquet/categories");
       state.bouquetCategories = data.data;
+      state.isLoading = false;
     } catch (err) {
       console.log(err);
     }

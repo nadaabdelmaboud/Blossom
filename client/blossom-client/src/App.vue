@@ -19,7 +19,7 @@ export default {
     const token = localStorage.getItem("token");
     if (token) {
       await this.$store.dispatch("authorization/get_user");
-      if (this.isAdmin == false)
+      if (this.status == "success" && this.isAdmin == false)
         this.$store.dispatch("authorization/currentUserCart");
       var status = this.isLoggedIn;
       if (status == "error") {

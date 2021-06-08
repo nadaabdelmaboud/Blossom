@@ -46,7 +46,7 @@
   height: 380px;
   img {
     width: 100%;
-    height: 99%;
+    height: 100%;
     background-size: cover;
     object-fit: cover;
   }
@@ -73,7 +73,7 @@
   font-size: 22px;
   font-weight: 700;
   padding-top: 5px;
-  //padding-bottom: 10px;
+  padding-bottom: 10px;
   color: $golden;
 }
 </style>
@@ -128,6 +128,7 @@ export default {
         this.$store.commit("homePage/setType", this.name);
         this.$store.commit("homePage/setIsFlower", false);
       }
+      window.scrollTo(0, 0);
       this.$router.push("/");
     },
   },

@@ -14,6 +14,7 @@ const state = {
   editCardId: "",
   editImage: "",
   editType: "",
+  isLoading: false,
 };
 
 const mutations = {
@@ -68,7 +69,6 @@ const mutations = {
   setEditCardId(state, id) {
     state.editCardId = id;
   },
-  //not updated at once (donot forget to fix it).
   editFlowerCard(state, { id, payload }) {
     var index = state.homeCards.findIndex((x) => x._id === id);
     var objectCard = state.homeCards.find((x) => x._id === id);
@@ -105,7 +105,8 @@ const mutations = {
 };
 
 const actions = {
-  callFlowerCards({ commit }, index) {
+  callFlowerCards({ commit, state }, index) {
+    state.isLoading = true;
     let cateogryVal = "";
     let sentimentVal = "";
     if (state.cateogry != "") cateogryVal = "category=" + state.cateogry;
@@ -119,29 +120,29 @@ const actions = {
           index
       )
       .then((response) => {
+        state.isLoading = false;
         state.homeCards = [];
         commit("setHomeCards", response.data.bouquets);
         commit("setMaxPage", response.data.MaxPage);
         commit("setCateogry", "");
         commit("setSentiment", "");
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   },
-  callPlantCards({ commit }, index) {
+  callPlantCards({ commit, state }, index) {
+    state.isLoading = true;
     let typeVal = "";
     if (state.type != "") typeVal = "type=" + state.type + "&";
-    console.log("type", typeVal);
     axios
       .get("plant?" + typeVal + "pageSize=12&pageNumber=" + index)
       .then((response) => {
+        state.isLoading = false;
         state.homeCards = [];
         commit("setHomeCards", response.data.Plants);
         commit("setMaxPage", response.data.MaxPage);
         commit("setType", "");
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -153,7 +154,6 @@ const actions = {
       .then((response) => {
         commit("setCardName", response.data.name);
         commit("setCardDescription", response.data.info);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -165,7 +165,6 @@ const actions = {
       .then((response) => {
         commit("setCardName", response.data.name);
         commit("setCardDescription", response.data.info);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -176,7 +175,6 @@ const actions = {
       .get("user/admin/cart/feedback/top")
       .then((response) => {
         commit("setReviewCards", response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

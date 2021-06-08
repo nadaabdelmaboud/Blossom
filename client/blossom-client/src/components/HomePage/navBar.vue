@@ -18,7 +18,7 @@
       </ul>
     </div>
     <div class="Logo">
-      <img src="../../assets/BlossomLogo_v7.png" alt="Logo" />
+      <img src="../../assets/BlossomLogo_v7.png" class="logoImg" alt="Logo" />
     </div>
     <div class="navContent" id="stickyNav">
       <div class="blossom">
@@ -91,7 +91,6 @@
   background-color: black;
   margin-bottom: 30px;
   width: 100%;
-  //height: 210px;
   height: 40%;
   z-index: 10;
   display: flex;
@@ -102,6 +101,10 @@ img {
   text-align: center;
   display: block;
   margin: auto;
+}
+.logoImg {
+  width: 150px;
+  height: 150px;
 }
 .firstNav {
   width: 100%;
@@ -169,7 +172,6 @@ li:focus {
 }
 #cart {
   float: right;
-  //width: 45px;
   padding: 7px;
   padding-top: 2px;
   padding-bottom: 2px;
@@ -183,7 +185,6 @@ li:focus {
   display: none;
   float: right;
   margin-left: 5px;
-  //margin-bottom: 1px;
   margin-top: 3px;
   margin-right: 10px;
   font-size: 25px;
@@ -262,9 +263,11 @@ export default {
       list.classList.toggle("show");
     },
     showLogin() {
+      window.scrollTo(0, 0);
       this.$store.commit("popupsState/toggleAuthPopup");
     },
     callFlowers() {
+      window.scrollTo(0, 0);
       this.$store.commit("homePage/setIsFlower", true);
       this.$store.commit("homePage/setCateogry", "");
       this.$store.commit("homePage/setSentiment", "");
@@ -272,21 +275,26 @@ export default {
       this.$store.dispatch("homePage/callFlowerCards", 1);
     },
     callPlants() {
+      window.scrollTo(0, 0);
       this.$store.commit("homePage/setIsFlower", false);
       this.$store.commit("homePage/setCateogry", "");
       this.$store.commit("homePage/setCounter", 1);
       this.$store.dispatch("homePage/callPlantCards", 1);
     },
     logOut() {
+      window.scrollTo(0, 0);
       this.$store.dispatch("authorization/logout");
     },
     toUploadPage() {
+      window.scrollTo(0, 0);
       this.$router.push("/uploadProduct");
     },
     toTrackOrders() {
+      window.scrollTo(0, 0);
       this.$router.push("/trackOrders");
     },
     toProfile() {
+      window.scrollTo(0, 0);
       this.$router.push("/myprofile");
     },
   },

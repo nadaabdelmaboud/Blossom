@@ -1,6 +1,6 @@
 <template>
   <div class="statistics">
-    <loading v-if="!ratingLoaded || !salesLoaded"/>
+    <loading v-if="!ratingLoaded || !salesLoaded" />
     <div class="sales" v-if="ratingLoaded && salesLoaded">
       <lineChart
         v-if="salesLoaded"
@@ -17,27 +17,27 @@
         />
       </div>
       <br />
-      <div class="users" >
+      <div class="users">
         <h3 class="slogan">Top Users</h3>
         <p v-for="(u, i) in topUsers" :key="i" class="slogan names">
           {{ u.name }}
         </p>
       </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
 import lineChart from "../components/Statistics/lineChart";
 import barChart from "../components/Statistics/barChart";
-import loading from "../components/loading.vue"
+import loading from "../components/loading.vue";
 import { mapState } from "vuex";
 export default {
   name: "statistics",
   components: {
     lineChart,
     barChart,
-    loading
+    loading,
   },
   data: function () {
     return {

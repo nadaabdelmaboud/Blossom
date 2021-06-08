@@ -2,29 +2,26 @@ import axios from "axios";
 
 const state = {
   orders: [],
-  loading:false
+  loading: false,
 };
 
 const actions = {
-  flushOrder({state}){
-    state.orders=[]
-    state.loading=true;
+  flushOrder({ state }) {
+    state.orders = [];
+    state.loading = true;
   },
   async addFeedback({ state }, { cardId, payload }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      await axios.post(
-        "user/me/cart/" + cardId + "/feedback",
-        payload
-      );
-    console.log(state)
+      await axios.post("user/me/cart/" + cardId + "/feedback", payload);
+      console.log(state);
     } catch (err) {
       console.log(err);
     }
   },
   async getOrdersUser({ state }) {
-    state.orders =[]
+    state.orders = [];
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     state.loading = true;
@@ -35,16 +32,15 @@ const actions = {
       console.log(state);
     } catch (err) {
       console.log(err);
-
     }
     state.loading = false;
   },
   async getOrdersAdmin({ state }) {
-    state.orders =[]
+    state.orders = [];
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
-    state.loading=true;
-    let orders = []
+    state.loading = true;
+    let orders = [];
     try {
       let dataPending = await axios.get(
         "users/carts/status?status=pending&limit=1000"
@@ -71,7 +67,7 @@ const actions = {
     }
 
     state.orders = orders;
-    state.loading=false;
+    state.loading = false;
   },
   async changeStatusAdmin({ state }, payload) {
     const token = localStorage.getItem("token");
@@ -85,7 +81,7 @@ const actions = {
           "?status=" +
           payload.status
       );
-      console.log(state)
+      console.log(state);
     } catch (err) {
       console.log(err);
     }

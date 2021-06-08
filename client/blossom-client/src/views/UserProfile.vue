@@ -1,84 +1,84 @@
 <template>
-<div>
-  <loading v-if="loadingUser"/>
-  <div class="userProfile blossomCard" v-else>
-    <img src="../assets/BlossomLogo_v7.png" alt="logo Image" />
-    <form class="form" v-on:submit.prevent="saveChanges" >
-      <input
-        placeholder="Username"
-        class="blossomInput"
-        v-model="username"
-        required
-      />
-      <input
-        placeholder="Email"
-        type="email"
-        class="blossomInput"
-        v-model="email"
-        required
-      />
-      <input
-        placeholder="Phone Number"
-        class="blossomInput"
-        v-model="phoneNumber"
-        name="phone"
-        pattern="[0]{1}[1]{1}[0-2]{1}[0-9]{8}"
-        required
-      />
-      <div class="blossomSelectComponent">
-        <div
-          class="blossomInput blossomSelect"
-          :class="{
-            optionChosen: address.city != 'City',
-          }"
-          @click="showCity = !showCity"
-        >
-          {{ address.city }}
+  <div>
+    <loading v-if="loadingUser" />
+    <div class="userProfile blossomCard" v-else>
+      <img src="../assets/BlossomLogo_v7.png" alt="logo Image" />
+      <form class="form" v-on:submit.prevent="saveChanges">
+        <input
+          placeholder="Username"
+          class="blossomInput"
+          v-model="username"
+          required
+        />
+        <input
+          placeholder="Email"
+          type="email"
+          class="blossomInput"
+          v-model="email"
+          required
+        />
+        <input
+          placeholder="Phone Number"
+          class="blossomInput"
+          v-model="phoneNumber"
+          name="phone"
+          pattern="[0]{1}[1]{1}[0-2]{1}[0-9]{8}"
+          required
+        />
+        <div class="blossomSelectComponent">
+          <div
+            class="blossomInput blossomSelect"
+            :class="{
+              optionChosen: address.city != 'City',
+            }"
+            @click="showCity = !showCity"
+          >
+            {{ address.city }}
 
-          <i class="fa fa-chevron-right arrow" id="openArrow"></i>
-        </div>
-        <div class="blossomSelectList" v-if="showCity">
-          <div v-for="(c, i) in cities" :key="i" class="options">
-            <ul>
-              <li @click="(address.city = c.name), (showCity = false)">
-                {{ c.name }}
-              </li>
-            </ul>
+            <i class="fa fa-chevron-right arrow" id="openArrow"></i>
+          </div>
+          <div class="blossomSelectList" v-if="showCity">
+            <div v-for="(c, i) in cities" :key="i" class="options">
+              <ul>
+                <li @click="(address.city = c.name), (showCity = false)">
+                  {{ c.name }}
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <input
-        placeholder="Street"
-        class="blossomInput"
-        v-model="address.street"
-        required
-      />
-      <input
-        placeholder="building Number"
-        type="number"
-        class="blossomInput"
-        min="0"
-        v-model="address.buildingNo"
-        required
-      />
-      <input
-        placeholder="apartment Number"
-        type="number"
-        class="blossomInput"
-        min="0"
-        v-model="address.apartmentNo"
-        required
-      />
+        <input
+          placeholder="Street"
+          class="blossomInput"
+          v-model="address.street"
+          required
+        />
+        <input
+          placeholder="building Number"
+          type="number"
+          class="blossomInput"
+          min="0"
+          v-model="address.buildingNo"
+          required
+        />
+        <input
+          placeholder="apartment Number"
+          type="number"
+          class="blossomInput"
+          min="0"
+          v-model="address.apartmentNo"
+          required
+        />
 
-      <button type="submit" class="blossomButton">Save Changes</button>
-    </form>
-  </div>
+        <button type="submit" class="blossomButton">Save Changes</button>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import loading from '../components/loading.vue';
+import loading from "../components/loading.vue";
 export default {
   components: { loading },
   name: "UserProfile",
@@ -105,7 +105,7 @@ export default {
         },
       ],
       showPassword: true,
-      loadingUser:false
+      loadingUser: false,
     };
   },
   methods: {
@@ -129,7 +129,7 @@ export default {
   },
   created() {},
   async mounted() {
-    this.loadingUser =true
+    this.loadingUser = true;
     await this.$store.dispatch("authorization/get_user");
     this.username = this.curUser.name;
     this.email = this.curUser.email;
@@ -138,7 +138,7 @@ export default {
     this.address.street = this.curUser.address.street;
     this.address.buildingNo = this.curUser.address.buildingNo;
     this.address.apartmentNo = this.curUser.address.apartmentNo;
-    this.loadingUser=false
+    this.loadingUser = false;
   },
 };
 </script>
