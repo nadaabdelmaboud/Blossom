@@ -65,13 +65,14 @@ const actions = {
   async changeStatusAdmin({ state }, payload) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
+    console.log("kk",payload)
     try {
       let data = await axios.put(
         "users/" +
           payload.userId +
           "/order/" +
           payload.orderId +
-          "/status?" +
+          "?status=" +
           payload.status
       );
       state.orders = data.data;
