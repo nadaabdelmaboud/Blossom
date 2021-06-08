@@ -5,7 +5,7 @@
       <p>Order#{{ Index }}</p>
       <u @click="viewOrder">View Order</u>
       <br />
-      <div class="stars">
+      <div class="stars" v-if="cartStatus == 'delivered'">
         <i
           v-for="s in stars"
           :key="s"
@@ -17,8 +17,8 @@
           }"
         ></i>
       </div>
-      <input v-if="confirmRating" v-model="cardComment" />
-      <p v-if="!confirmRating && cardComment != ''">{{ cardComment }}</p>
+      <input v-if="confirmRating && cartStatus == 'delivered'" v-model="cardComment" />
+      <p v-if="!confirmRating && cardComment != '' && cartStatus == 'delivered'">{{ cardComment }}</p>
 
       <div class="stars">
         <i
