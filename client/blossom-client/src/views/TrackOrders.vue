@@ -1,6 +1,5 @@
 <template>
   <div class="orderView">
-    <!-- "orderId", -->
     <ordersCard
       v-for="(v, i) in orders"
       :key="i"
@@ -12,7 +11,7 @@
       :Items="v.orders"
       :isAdmin="isAdmin"
       :status="v.status"
-      :rating="v.feedback.rating"
+      :rating="v.feedback.rate"
       :comment="v.feedback.comment"
     />
   </div>
