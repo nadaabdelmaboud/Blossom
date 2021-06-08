@@ -136,6 +136,12 @@ const ShopService={
      if(!limit)limit=10;
      if(limit>outUsers.length)limit=outUsers.length;
      return {data:outUsers.slice(0,limit),err:""};
-    }
+    },
+    async getTopRatings(){
+      const RatingObject = await Shop.getTopRatings();
+      if (!RatingObject)
+        return { data: false, err: await error("no ratings found", 404) };
+      return { data: RatingObject, err: "" };
+    } 
 }
 module.exports = ShopService;

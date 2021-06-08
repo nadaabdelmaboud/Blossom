@@ -27,7 +27,8 @@ const ShopSchema = new mongoose.Schema({
     },
     plantCategories: [],
     bouquetCategories:[],
-    bouquetSentiments:[]
+    bouquetSentiments:[],
+    topRatings:{type:[Number] , default:[0,0,0,0,0,0]}
 },{collection:"Shop"});
 
 const ShopModel = mongoose.model('Shop',ShopSchema);

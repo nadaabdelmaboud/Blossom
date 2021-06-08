@@ -1,6 +1,7 @@
 const UserModel = require('../models/user.model');
 const PlantModel = require('../models/plants.model').PlantModel;
 const BouquetModel = require('../models/bouquet.model').BouquetModel;
+const ShopModel = require("../models/shop.model");
 
 //categories-sentiments-types images
 //test menna orders after hager updates
@@ -34,6 +35,11 @@ const Cart = {
                   price:0
                 });
             user = await user.save();
+
+            const shop = await ShopModel.find({}, { topRatings: 1 });
+            shop[0].topRatings[0] += 1;
+            shop[0].markModified("topRatings");
+            await shop[0].save();
         }
         return user;
     },
@@ -108,7 +114,7 @@ const Cart = {
       return true;
     },
     async getAmountFromPaymentId(user,paymentId){
-      for(let i=user.Cart.length;i>=0;i--){
+      for(let i=user.Cart.length-1;i>=0;i--){
         if(user.Cart[i].paymentId==paymentId){
           return user.Cart[i].paypalPrice;
         }

@@ -3,7 +3,7 @@ const state = {
   cartCards: [],
   availableCount: 0,
   errorDetected: false,
-  checkoutDone: ''
+  checkoutDone: false
 };
 
 const mutations = {
@@ -79,12 +79,25 @@ const actions = {
       .post("me/cart?paymentMethod=" + payment + "&address=" + address)
       .then((response) => {
         location.replace(response.data);
-        commit("checkoutIsDone", response.data);
+        commit("checkoutIsDone", true);
       })
       .catch((error) => {
         console.log(error);
       });
   },
+  finishPayment({ commit }, { paymentId, PayerID }) {
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
+    axios
+      .get("me/cart/success?paymentId=" + paymentId + "&PayerID=" + PayerID)
+      .then(() => {
+        commit("checkoutIsDone", true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
+  
 };
 
 export default {
