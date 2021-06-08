@@ -1,13 +1,14 @@
 <template>
   <div class="statistics">
-    <div class="sales">
+    <loading v-if="!ratingLoaded || !salesLoaded" />
+    <div class="sales" v-if="ratingLoaded && salesLoaded">
       <lineChart
         v-if="salesLoaded"
         :chartdata="chartdataSales"
         :options="options"
       />
     </div>
-    <div class="bar">
+    <div class="bar" v-if="ratingLoaded && salesLoaded">
       <div class="rating">
         <barChart
           v-if="ratingLoaded"
@@ -29,12 +30,14 @@
 <script>
 import lineChart from "../components/Statistics/lineChart";
 import barChart from "../components/Statistics/barChart";
+import loading from "../components/loading.vue";
 import { mapState } from "vuex";
 export default {
   name: "statistics",
   components: {
     lineChart,
     barChart,
+    loading,
   },
   data: function () {
     return {

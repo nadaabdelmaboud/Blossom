@@ -437,6 +437,7 @@ export default {
         ContentType: this.imageFile.type,
         Type: this.type,
       };
+      this.$store.commit("popupsState/toggleLoadingPopup");
       let payload;
       if (this.type == "Plant") {
         payload = {
@@ -465,7 +466,7 @@ export default {
         payload,
         type: this.type,
       });
-
+      this.$store.commit("popupsState/toggleLoadingPopup");
       this.showToast("upload");
       this.$router.push("/");
     },

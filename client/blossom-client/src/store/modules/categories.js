@@ -72,12 +72,14 @@ const actions = {
     }
   },
   async addBouquetCategories({ state, commit }, payload) {
+    commit("popupsState/toggleCreateBouquetPopup", null, { root: true });
+    commit("popupsState/toggleLoadingPopup", null, { root: true });
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.post("bouquet/categories", payload);
       state.bouquetCategories = data.data;
-      commit("popupsState/toggleCreateBouquetPopup", null, { root: true });
+      commit("popupsState/toggleLoadingPopup", null, { root: true });
     } catch (err) {
       console.log(err);
     }
@@ -93,12 +95,14 @@ const actions = {
     }
   },
   async addPlantCategories({ state, commit }, payload) {
+    commit("popupsState/toggleCreateCategoryPopup", null, { root: true });
+    commit("popupsState/toggleLoadingPopup", null, { root: true });
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.post("plants/type", payload);
       state.plantCategories = data.data;
-      commit("popupsState/toggleCreateCategoryPopup", null, { root: true });
+      commit("popupsState/toggleLoadingPopup", null, { root: true });
     } catch (err) {
       console.log(err);
     }

@@ -7,7 +7,7 @@
 @import "../scss/Colors";
 @import "../scss/General";
 .loading {
-  background-color: rgba(1, 1, 1, 0.1);
+  background-color: rgba(1, 1, 1, 0.3);
   position: fixed;
   z-index: 12;
   top: 0;
