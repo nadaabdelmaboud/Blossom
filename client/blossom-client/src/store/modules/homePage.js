@@ -65,7 +65,7 @@ const mutations = {
     state.editCardId = id;
   },
   //not updated at once (donot forget to fix it).
-  editCard(state , id , updatedObejct){
+  editCard(state , {id , updatedObejct}){
     var index = state.homeCards.findIndex((x) => x._id === id);
     if(index !== -1){
       updatedObejct.forEach(item => {
@@ -178,7 +178,7 @@ const actions = {
     axios
       .put("bouquets/" + id , payload)
       .then(() => {
-        commit("editCard", id , payload);
+        commit("editCard", {id , payload});
       })
       .catch((error) => {
         console.log(error);
@@ -188,7 +188,7 @@ const actions = {
     axios
       .put("plant/" + id , payload)
       .then(() => {
-        commit("editCard", id , payload);
+        commit("editCard", {id , payload});
       })
       .catch((error) => {
         console.log(error);

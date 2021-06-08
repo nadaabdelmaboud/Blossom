@@ -169,6 +169,7 @@ img {
 }
 .title {
   margin-top: 7px;
+  overflow-wrap: break-word;
   //margin-bottom: 7px;
   color: $darkGolden;
   font-size: 25px;
@@ -297,6 +298,7 @@ export default {
       errorDetected: (state) => state.cart.errorDetected,
       isAdmin: (state) => state.authorization.isAdmin,
       status: (state) => state.authorization.status,
+      orders: (state) => state.authorization.orders
     }),
   },
   methods: {
@@ -343,6 +345,7 @@ export default {
       } else {
         this.zeroAmount = false;
         this.showToast("toastId");
+        this.$store.commit("authorization/setOrders", this.orders + 1);
 
         if (this.isFlower == true)
           this.$store.dispatch("cart/addToCart", {

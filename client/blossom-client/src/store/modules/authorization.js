@@ -8,6 +8,7 @@ const state = {
     name: "",
   },
   isAdmin: false,
+  orders:0
 };
 
 const mutations = {
@@ -30,6 +31,9 @@ const mutations = {
     state.user = {};
     state.isAdmin = false;
   },
+  setOrders(state , num){
+    state.orders = num;
+  }
 };
 const actions = {
   signup({ commit, dispatch }, user) {
@@ -73,6 +77,7 @@ const actions = {
       let data = await axios.get("user/current");
       commit("set_user", data.data);
       commit("auth_success");
+      commit("setOrders" , data.data.orders);
     } catch (err) {
       console.log(err);
       commit("auth_error", "error");

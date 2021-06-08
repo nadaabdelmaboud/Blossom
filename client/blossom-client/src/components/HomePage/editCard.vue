@@ -6,7 +6,11 @@
           <i class="fa fa-times" @click="toggleEditState()"></i>
         </div>
         <div class="logo">
-          <p>Blossom</p>
+           <img
+        src="../../assets/BlossomLogo_v7.png"
+        alt="logo Image"
+        class="logoImg"
+      />
         </div>
         <div class="containerDiv">
           <div class="box" id="imageBox">
@@ -213,13 +217,11 @@
 }
 .logo {
   text-align: center;
-  p {
-    color: $golden;
-    font-size: 25px;
-    font-weight: 700;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+  .logoImg {
+  display: flex;
+  justify-self: center;
+  width: 150px;
+}
 }
 .containerDiv {
   width: 100%;

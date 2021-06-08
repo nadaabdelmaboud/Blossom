@@ -13,9 +13,6 @@
           :orderAmount="card.amount"
         />
       </div>
-      <div class="totalPrice">
-        <h3>Total Price: 2050 LE</h3>
-      </div>
       <div class="checkoutForm">
         <button class="blossomButton" @click="showCheckoutForm()">
           Checkout
@@ -41,7 +38,6 @@
 @import "../scss/BlossomButton";
 .container {
   width: 100%;
-  padding-top: 30px;
   text-align: center;
 }
 .gridContainer {
@@ -62,15 +58,9 @@
   text-align: center;
   justify-self: center;
 }
-.totalPrice {
-  h3 {
-    font-size: 25px;
-    font-weight: 700;
-    color: $darkGolden;
-  }
-}
 .blossomButton {
   width: 200px;
+  margin-top: 30px;
 }
 h3,
 h6 {
@@ -124,6 +114,7 @@ export default {
       router.push("/");
     },
     showCheckoutForm() {
+      this.$store.commit("cart/getTotalPrice");
       this.$store.commit("popupsState/toggleCheckoutFormPopup");
     },
   },

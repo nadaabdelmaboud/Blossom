@@ -120,7 +120,7 @@
             </div>
           </div>
           <div class="box cashMoney" v-if="cashPayment">
-            <h2 id="totalPrice">Total Price: 2500 LE</h2>
+            <h2 id="totalPrice">Total Price: {{totalPrice}} LE</h2>
           </div>
           <div class="box confirm">
             <button class="blossomButton" @click="confirm()">Confirm</button>
@@ -244,6 +244,7 @@ h3 {
 </style>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "checkoutForm",
   data: function () {
@@ -262,9 +263,15 @@ export default {
       errorPayment: false,
     };
   },
+    computed: {
+    ...mapState({
+      totalPrice: (state) => state.cart.totalPrice,
+    }),
+  },
   methods: {
     toggleCheckoutState() {
       this.$store.commit("popupsState/toggleCheckoutFormPopup");
+      this.$store.commit("cart/setTotalPrice" , 0);
     },
     showSurpriseAddress() {
       this.surprise = true;
