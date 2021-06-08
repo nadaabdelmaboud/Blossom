@@ -52,24 +52,24 @@
       <p>{{ cartStatus }}</p>
     </div>
 
-    <div class="toast" id="rating">
+    <div class="toast" :id="'rating'+Index">
       <img class="toastimage" :src="getImage(imageId)" />
       <div class="addedToCart">Confirm rating?</div>
       <button @click="confirmRate">confirm</button>
       <button @click="cancelRate">cancel</button>
     </div>
-    <div class="toast" id="status">
+    <div class="toast" :id="'status'+Index">
       <img class="toastimage" :src="getImage(imageId)" />
       <div class="addedToCart">Confirm {{ cartStatus }} status?</div>
       <button @click="confirmStatus">confirm</button>
       <button @click="cancelStatus">cancel</button>
     </div>
-    <!-- <div class="toast" id="viewOrder">
+    <div class="toast v" :id="'viewOrder'+Index">
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
         {{ it[1].name }} : {{ it[1].price }}
       </p>
       <button @click="hideOrder">close</button>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -117,11 +117,12 @@ export default {
       let payload = {
         rate: this.cardRating,
       };
-      if (this.cardComment != "") payload.comment;
+      if (this.cardComment != "") payload.comment = this.cardComment;
       this.$store.dispatch("orders/addFeedback", {
-        cardId: this.cardId,
+        cardId: this.orderId,
         payload,
       });
+
       this.hideToastRating();
       this.confirmRating = false;
     },
@@ -143,6 +144,7 @@ export default {
         userId: this.userId,
         status: this.cartStatus,
       };
+      console.log("p",payload)
       this.$store.dispatch("orders/changeStatusAdmin", payload);
       this.hideToastStatus();
     },
@@ -151,27 +153,27 @@ export default {
       this.cartStatus = this.status;
     },
     viewOrder() {
-      var mytoast = document.getElementById("viewOrder");
+      var mytoast = document.getElementById("viewOrder"+this.Index);
       mytoast.className = "toast toast--visible";
     },
     hideOrder() {
-      var mytoast = document.getElementById("viewOrder");
+      var mytoast = document.getElementById("viewOrder"+this.Index);
       mytoast.classList.remove("toast--visible");
     },
     showToastRating() {
-      var mytoast = document.getElementById("rating");
+      var mytoast = document.getElementById('rating'+this.Index);
       mytoast.className = "toast toast--visible";
     },
     showToastStatus() {
-      var mytoast = document.getElementById("status");
+      var mytoast = document.getElementById("status"+this.Index);
       mytoast.className = "toast toast--visible";
     },
     hideToastRating() {
-      var mytoast = document.getElementById("rating");
+      var mytoast = document.getElementById('rating'+this.Index);
       mytoast.classList.remove("toast--visible");
     },
     hideToastStatus() {
-      var mytoast = document.getElementById("status");
+      var mytoast = document.getElementById("status"+this.Index);
       mytoast.classList.remove("toast--visible");
     },
   },
@@ -266,7 +268,7 @@ u {
 .cursorP {
   cursor: pointer;
 }
-#viewOrder {
+.v {
   display: flex;
   flex-direction: column;
   align-content: center;

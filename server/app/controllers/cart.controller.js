@@ -16,13 +16,6 @@ const CartController = {
         }
         res.status(data.err.status).send(data.err.message);
     },
-    async getCurrentUserAllCarts(req,res){
-        const data = await CartService.getUserAllCarts(req.user._id,req.query.limit);
-        if (data.data) {
-            return res.status(200).send(data.data);
-        }
-        res.status(data.err.status).send(data.err.message);
-    },
     async getUserAllCarts(req,res){
         const data = await CartService.getUserAllCarts(req.params.userId,req.query.limit);
         if (data.data) {
@@ -75,11 +68,12 @@ const CartController = {
         }
         res.status(data.err.status).send(data.err.message);
       },
-      async getUserCartsWithDefinedStatus(req,res){
+      async getUserCarts(req,res){
         const limit = req.query.limit;
         const status = req.query.status;
-        const userId = req.params.userId;
-        const data = await CartService.getUserCartsWithDefinedStatus(userId,status,limit);
+        const userId = req.user._id;
+        const data = await CartService.getUserCarts(userId,limit);
+        console.log(limit)
         if (data.data) {
           return res.status(200).send(data.data);
         }
