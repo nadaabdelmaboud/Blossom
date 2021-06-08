@@ -7,3 +7,5 @@
 {"level":"error","message":"Unexpected token : in JSON at position 18 Unexpected token : in JSON at position 18","stack":"SyntaxError: Unexpected token : in JSON at position 18\n    at JSON.parse (<anonymous>)\n    at Object.getBouquets (D:\\Blossom_new\\Blossom\\server\\app\\db\\queries\\bouquet.queries.js:9:22)\n    at Object.getBouquets (D:\\Blossom_new\\Blossom\\server\\app\\services\\bouquet.service.js:11:44)\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)\n    at async getBouquets (D:\\Blossom_new\\Blossom\\server\\app\\controllers\\bouquet.controller.js:7:18)"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
