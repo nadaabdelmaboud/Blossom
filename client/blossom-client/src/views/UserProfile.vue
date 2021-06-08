@@ -118,6 +118,7 @@ export default {
         address: this.address,
       };
       await this.$store.dispatch("authorization/update_user", user);
+      window.scrollTo(0, 0);
       this.$router.push("/");
     },
   },
