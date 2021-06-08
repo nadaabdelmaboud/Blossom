@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="tipsView">
+    <loading v-if="loadingTips"/>
+    <div class="tipsView" v-else>
       <img :src="getImage(plantFull.images)" />
       <h1 class="slogan">{{ plantFull.name }}</h1>
       <div v-if="!isAdmin && plantFull.tips.length == 0" class="slogan">
@@ -26,15 +27,18 @@
 
 <script>
 import tipsCard from "../components/tipsCard";
+import loading from "../components/loading.vue"
 import { default as getImage } from "../mixins/getImage";
 import { mapState } from "vuex";
 export default {
   data: function () {
-    return {};
+    return {
+    };
   },
   mixins: [getImage],
   components: {
     tipsCard,
+    loading
   },
   methods: {
     addTip() {
@@ -44,6 +48,7 @@ export default {
   computed: {
     ...mapState({
       plantFull: (state) => state.tips.plantFull,
+      loadingTips:  (state) => state.tips.loading,
       isAdmin: (state) => state.authorization.isAdmin,
     }),
   },

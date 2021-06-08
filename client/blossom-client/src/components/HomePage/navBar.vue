@@ -281,13 +281,13 @@ export default {
       this.$store.dispatch("authorization/logout");
     },
     toUploadPage() {
-      this.$router.push("uploadProduct");
+      this.$router.push("/uploadProduct");
     },
     toTrackOrders() {
-      this.$router.push("trackOrders");
+      this.$router.push("/trackOrders");
     },
     toProfile() {
-      this.$router.push("myprofile");
+      this.$router.push("/myprofile");
     },
   },
 };

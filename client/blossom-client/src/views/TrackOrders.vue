@@ -1,6 +1,7 @@
 <template>
-  <div class="orderView">
-      <loading/>
+<div>
+    <loading v-if="loadingOrders"/>
+  <div class="orderView" v-else>
     <div v-if="isAdmin && orders.length == 0" class="slogan">
         The shop has no orders yet.
       </div>
@@ -22,6 +23,7 @@
       :comment="v.feedback.comment"
     />
   </div>
+</div>
 </template>
 
 <script>
@@ -41,9 +43,11 @@ export default {
     ...mapState({
       isAdmin: (state) => state.authorization.isAdmin,
       orders: (state) => state.orders.orders,
+      loadingOrders: (state) => state.orders.loading,
     }),
   },
   async beforeCreate() {
+    this.$store.dispatch("orders/flushOrder");
     await this.$store.dispatch("authorization/get_user");
     if (this.isAdmin) await this.$store.dispatch("orders/getOrdersAdmin");
     else await this.$store.dispatch("orders/getOrdersUser");

@@ -2,15 +2,19 @@ import axios from "axios";
 
 const state = {
   plantFull: {},
+  loading:false
 };
 
 const actions = {
   async getTips({ state }, id) {
+    state.loading = true;
+    state.plantFull.tips =[];
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.get("plant/" + id);
       state.plantFull = data.data;
+      state.loading = false
     } catch (err) {
       console.log(err);
     }

@@ -2,9 +2,14 @@ import axios from "axios";
 
 const state = {
   orders: [],
+  loading:false
 };
 
 const actions = {
+  flushOrder({state}){
+    state.orders=[]
+    state.loading=true;
+  },
   async addFeedback({ state }, { cardId, payload }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
@@ -13,33 +18,36 @@ const actions = {
         "user/me/cart/" + cardId + "/feedback",
         payload
       );
-     //state.orders = data.data;
     console.log(state)
     } catch (err) {
       console.log(err);
     }
   },
   async getOrdersUser({ state }) {
+    state.orders =[]
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
+    state.loading = true;
+
     try {
       let data =await axios.get("me/carts?limit=1000");
-    state.orders = data.data;
-    console.log(state)
+      state.orders = data.data;
+      state.loading = false;
     } catch (err) {
       console.log(err);
     }
   },
   async getOrdersAdmin({ state }) {
+    state.orders =[]
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
+    state.loading=true;
     let orders =[]
     try {
       let dataPending = await axios.get(
         "users/carts/status?status=pending&limit=1000"
       );
       orders = dataPending.data;
-      console.log("o  ",orders)
     } catch (err) {
         console.log(err);
     }
@@ -62,13 +70,11 @@ const actions = {
     }
 
     state.orders = orders;
-    console.log("state ",state.orders)
-
+    state.loading=false;
   },
   async changeStatusAdmin({ state }, payload) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
-    console.log("kk",payload)
     try {
       await axios.put(
         "users/" +
@@ -79,7 +85,6 @@ const actions = {
           payload.status
       );
       console.log(state)
-     // state.orders = data.data;
     } catch (err) {
       console.log(err);
     }
