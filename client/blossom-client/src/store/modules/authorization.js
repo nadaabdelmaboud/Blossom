@@ -9,7 +9,7 @@ const state = {
   },
   isAdmin: false,
   orders: 0,
-  cartOrdersName:[],
+  cartOrdersName: [],
 };
 
 const mutations = {
@@ -35,31 +35,31 @@ const mutations = {
   setOrders(state, num) {
     state.orders = num;
   },
-  updateCartOrders(state , cards){
-    for(let i=0 ;i<cards.length ; i++){
+  updateCartOrders(state, cards) {
+    for (let i = 0; i < cards.length; i++) {
       state.cartOrdersName.push(cards[i].name);
     }
   },
-  updateOrdersNum(state , name){
+  updateOrdersNum(state, name) {
     let found = false;
-    for(let i=0 ; i<state.cartOrdersName.length ; i++){
-      if(state.cartOrdersName[i] === name){
+    for (let i = 0; i < state.cartOrdersName.length; i++) {
+      if (state.cartOrdersName[i] === name) {
         found = true;
         break;
       }
     }
-    if(found == false){
-        state.orders = state.orders + 1;
-        state.cartOrdersName.push(name);
+    if (found == false) {
+      state.orders = state.orders + 1;
+      state.cartOrdersName.push(name);
     }
   },
-  deleteCartName(state , name){
+  deleteCartName(state, name) {
     var index = state.cartOrdersName.findIndex((x) => x === name);
     if (index !== -1) {
       state.cartOrdersName.splice(index, 1);
     }
-    console.log("deleted now" ,state.cartOrdersName )
-  }
+    console.log("deleted now", state.cartOrdersName);
+  },
 };
 const actions = {
   signup({ commit, dispatch }, user) {

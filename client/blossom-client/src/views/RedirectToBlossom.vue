@@ -33,13 +33,13 @@ export default {
       type: String,
     },
   },
-    computed: {
+  computed: {
     ...mapState({
       checkoutDone: (state) => state.cart.checkoutDone,
     }),
   },
   mounted() {
-    if(this.checkoutDone == "paypal"){
+    if (this.checkoutDone == "paypal") {
       this.$store.dispatch("cart/finishPayment", {
         paymentId: this.$route.query.paymentId,
         PayerID: this.$route.query.PayerID,

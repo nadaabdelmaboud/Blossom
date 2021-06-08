@@ -45,9 +45,9 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/Colors";
 @import "../scss/General";
-.orderView{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+.orderView {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 </style>

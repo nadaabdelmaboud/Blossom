@@ -44,13 +44,13 @@ const state = {
 
 const mutations = {
   deletedBouquetsItem(state, item) {
-    var index = state.bouquetCategories.findIndex((x) => x === item);
+    var index = state.bouquetCategories.findIndex((x) => x.name === item);
     if (index !== -1) {
       state.bouquetCategories.splice(index, 1);
     }
   },
   deletedPlantsItem(state, item) {
-    var index = state.plantCategories.findIndex((x) => x === item);
+    var index = state.plantCategories.findIndex((x) => x.name === item);
     if (index !== -1) {
       state.plantCategories.splice(index, 1);
     }
