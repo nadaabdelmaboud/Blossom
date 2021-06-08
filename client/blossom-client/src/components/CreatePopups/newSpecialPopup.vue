@@ -7,7 +7,7 @@
         alt="logo Image"
         class="logoImg"
       />
-      <h3>Add a new Special? Intersting!</h3>
+      <h3>Add a new Sentiment? Intersting!</h3>
       <form v-on:submit.prevent="addSpecial" class="form">
         <input
           class="blossomInput"
