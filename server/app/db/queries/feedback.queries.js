@@ -9,7 +9,6 @@ const FeedBack = {
     return result;
   },
   async addCurrentUserFeedback(cartId, userId, feedback) {
-    console.log("card id",cartId);
     const Today = new Date();
     const User = await UserModel.find(
       { _id: userId },
@@ -75,6 +74,19 @@ const FeedBack = {
         "Cart.feedback.feedbackDate": -1,
       })
       .limit(4);
+    if (!Users) return Users;
+
+    for (let i = 0; i < Users.length; i++) {
+      await Users[i].Cart.sort((a, b) =>
+        a.feedback.rate < b.feedback.rate
+          ? 1
+          : a.feedback.rate == b.feedback.rate
+          ? a.feedback.feedbackDate > b.feedback.feedbackDate
+            ? 1
+            : -1
+          : -1
+      );
+    }
     return Users;
   },
 };
