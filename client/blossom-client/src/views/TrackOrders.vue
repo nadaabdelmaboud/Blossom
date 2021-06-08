@@ -11,7 +11,7 @@
       :Items="v.orders"
       :isAdmin="isAdmin"
       :status="v.status"
-      :rating="v.feedback.rating"
+      :rating="v.feedback.rate"
       :comment="v.feedback.comment"
     />
   </div>

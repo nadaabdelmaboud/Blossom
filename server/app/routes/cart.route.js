@@ -10,7 +10,7 @@ router.get('/me/cart',AuthMiddleware,CartController.getCurrentUserCart)
 router.get('/users/:userId/cart',AuthMiddleware,AdminMiddleware,CartController.getUserCart)
 
 //get current user past carts -Require Only User Authorization -
-router.get('/me/carts',AuthMiddleware,CartController.getCurrentUserAllCarts)
+router.get('/me/carts',AuthMiddleware,CartController.getUserCarts)
 
 //get another user past carts -Require Admin Authorization -
 router.get('/users/:userId/carts',AuthMiddleware,AdminMiddleware,CartController.getUserAllCarts)
@@ -29,5 +29,4 @@ router.put("/users/:userId/cart/:cartId",AuthMiddleware,AdminMiddleware,CartCont
 
 router.get("/users/carts/status",AuthMiddleware,AdminMiddleware,CartController.getAllCartsWithDefinedStatus);
 
-router.get("/users/:userId/carts/status",AuthMiddleware,AdminMiddleware,CartController.getUserCartsWithDefinedStatus);
 module.exports=router;

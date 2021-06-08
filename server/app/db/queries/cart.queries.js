@@ -182,10 +182,10 @@ const Cart = {
         if(Carts.length<=limit) return Carts;
         return Carts.slice(0,limit);
       },
-      async getUserCartsWithDefinedStatus(user,status,limit){
+      async getUserCarts(user,limit){
         let Carts=[];
             for(let i=0;i<user.Cart.length;i++){
-                if(user.Cart[i].status==status){
+                if(user.Cart[i].status=="pending"||user.Cart[i].status=="delivered"||user.Cart[i].status=="progress"){
                   if(!user.Cart[i].price){
                     let orders = Object.values(user.Cart[i].orders);
                     user.Cart[i].price=0;

@@ -5,15 +5,16 @@ const state = {
 };
 
 const actions = {
-  async addFeedback({ state }, { cartId, payload }) {
+  async addFeedback({ state }, { cardId, payload }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.post(
-        "user/me/cart/" + cartId + "/feedback",
+      await axios.post(
+        "user/me/cart/" + cardId + "/feedback",
         payload
       );
-      state.orders = data.data;
+     //state.orders = data.data;
+    console.log(state)
     } catch (err) {
       console.log(err);
     }
@@ -22,8 +23,9 @@ const actions = {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     try {
-      let data = await axios.get("me/carts?limit=1000");
-      state.orders = data.data;
+      let data =await axios.get("me/carts?limit=1000");
+    state.orders = data.data;
+    console.log(state)
     } catch (err) {
       console.log(err);
     }
@@ -45,7 +47,7 @@ const actions = {
         let dataProgress = await axios.get(
             "users/carts/status?status=progress&limit=1000"
           );
-        orders = orders.concat(dataProgress)
+        orders = orders.concat(dataProgress.data)
     }
     catch(err){
         console.log(err)
@@ -54,12 +56,13 @@ const actions = {
         let dataDelivered = await axios.get(
             "users/carts/status?status=delivered&limit=1000"
         );
-        orders = state.orders.concat(dataDelivered.data);
+        orders = orders.concat(dataDelivered.data);
     }catch(err){
         console.log(err)
     }
 
     state.orders = orders;
+    console.log("state ",state.orders)
 
   },
   async changeStatusAdmin({ state }, payload) {
@@ -67,15 +70,16 @@ const actions = {
     axios.defaults.headers.common["Authorization"] = token;
     console.log("kk",payload)
     try {
-      let data = await axios.put(
+      await axios.put(
         "users/" +
           payload.userId +
-          "/order/" +
+          "/cart/" +
           payload.orderId +
           "?status=" +
           payload.status
       );
-      state.orders = data.data;
+      console.log(state)
+     // state.orders = data.data;
     } catch (err) {
       console.log(err);
     }
