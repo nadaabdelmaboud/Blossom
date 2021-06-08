@@ -112,7 +112,6 @@ const actions = {
     axios.defaults.headers.common["Authorization"] = token;
     try {
       let data = await axios.put("users", payload);
-      console.log("user data", data);
       commit("set_user", data);
     } catch (err) {
       console.log(err);
@@ -132,7 +131,6 @@ const actions = {
       .get("users/cart/orders")
       .then((response) => {
         commit("updateCartOrders", response.data);
-        console.log("Cart", response.data);
       })
       .catch((error) => {
         console.log(error);

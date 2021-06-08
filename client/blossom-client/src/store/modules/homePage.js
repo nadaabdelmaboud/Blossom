@@ -69,7 +69,6 @@ const mutations = {
   setEditCardId(state, id) {
     state.editCardId = id;
   },
-  //not updated at once (donot forget to fix it).
   editFlowerCard(state, { id, payload }) {
     var index = state.homeCards.findIndex((x) => x._id === id);
     var objectCard = state.homeCards.find((x) => x._id === id);
@@ -136,7 +135,6 @@ const actions = {
     state.isLoading = true;
     let typeVal = "";
     if (state.type != "") typeVal = "type=" + state.type + "&";
-    console.log("type", typeVal);
     axios
       .get("plant?" + typeVal + "pageSize=12&pageNumber=" + index)
       .then((response) => {
@@ -156,7 +154,6 @@ const actions = {
       .then((response) => {
         commit("setCardName", response.data.name);
         commit("setCardDescription", response.data.info);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -168,7 +165,6 @@ const actions = {
       .then((response) => {
         commit("setCardName", response.data.name);
         commit("setCardDescription", response.data.info);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

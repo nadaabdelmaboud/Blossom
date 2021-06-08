@@ -75,7 +75,5 @@ i {
 p {
   max-width: 200px;
   overflow-wrap: break-word;
-
- // word-break: break-all;
 }
 </style>

@@ -72,7 +72,6 @@ export default {
       isAdmin: (state) => state.authorization.isAdmin,
     }),
   },
-  created() {
-  },
+  created() {},
 };
 </script>
