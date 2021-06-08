@@ -108,6 +108,7 @@ const Cart = {
       for(let i=user.Cart.length-1;i>=0;i--){
         if(user.Cart[i]._id==cartId){
           user.Cart[i].paymentId=paymentId;
+          await user.save();
           break;
         }
       }
