@@ -3,7 +3,7 @@ const Joi = require("joi");
 const CartValidation = {
 
     async validateStatus(status){
-        const schema = Joi.string().required().valid("progress","delivered");
+        const schema = Joi.string().required().valid("pending","progress","delivered");
         return schema.validate(status);
       },
       async validateStatusLimit(query){

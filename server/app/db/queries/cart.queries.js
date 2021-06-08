@@ -134,9 +134,7 @@ const Cart = {
           }
         }
         if(!order) return false;
-        if(order.status!="pending" && order.status!="progress") return false;
-        if(order.status=="pending" && status!="progress") return false;
-        if(order.status=="progress" && status!="delivered") return false;
+
         user.Cart[index].status = status;
         user.Cart[index].lastEdit = new Date();
         await user.save();
