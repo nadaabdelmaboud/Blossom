@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div class="orderView">
+    <!-- "orderId", -->
     <ordersCard
       v-for="(v, i) in orders"
       :key="i"
       :Index="i + 1"
+      :userId="v.userId"
       :imageId="v.image"
       :price="v.price"
       :Items="v.orders"
@@ -43,4 +45,9 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/Colors";
 @import "../scss/General";
+.orderView{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
 </style>

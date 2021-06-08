@@ -64,12 +64,12 @@
       <button @click="confirmStatus">confirm</button>
       <button @click="cancelStatus">cancel</button>
     </div>
-    <div class="toast" id="viewOrder">
+    <!-- <div class="toast" id="viewOrder">
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
         {{ it[1].name }} : {{ it[1].price }}
       </p>
       <button @click="hideOrder">close</button>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -90,7 +90,6 @@ export default {
   mixins: [getImage],
   props: [
     "userId",
-    "cartId",
     "Index",
     "orderId",
     "isAdmin",
@@ -203,13 +202,16 @@ export default {
   display: flex;
   align-content: center;
   justify-content: space-between;
-  bottom: 18%;
+  bottom: 5%;
   left: calc(50% - 250px);
   margin-right: auto;
   width: 500px;
   height: 80px;
   padding: 5px;
   border-radius: 0;
+    -webkit-box-shadow: 0px 0px 3px 3px $golden;
+  -moz-box-shadow: 0px 0px 3px 3px $golden;
+  box-shadow: 0px 0px 3px 3px $golden;
   .addedToCart {
     font-size: 20px;
     padding-top: 30px;
@@ -225,7 +227,7 @@ button {
 }
 .orderCard {
   width: 240px;
-  height: 340px;
+  height: 370px;
   margin: 20px;
   padding: 30px;
   -webkit-box-shadow: 0px 0px 3px 3px $golden;
