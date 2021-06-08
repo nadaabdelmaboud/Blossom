@@ -85,12 +85,6 @@ const ShopService={
         return { data: false, err: await error("No users found", 404) };
         let sales=Array(32).fill(0);
         var currentMonth = new Date( ).getMonth();
-        if(currentMonth==0){
-            currentMonth=11;
-        }
-        else{
-        currentMonth=currentMonth-1;
-        }
         let isEmpty=true;
         users.forEach(user => {
             for(let i=0;i<user.Cart.length;i++){
