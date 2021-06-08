@@ -12,9 +12,6 @@
     <div class="toast" id="upload">
       <div class="addedToCart">A new product is uploaded!</div>
     </div>
-    <div class="toast" id="upload">
-      <div class="addedToCart">A new product is uploaded!</div>
-    </div>
     <router-view class="content" />
     <homeFooter />
   </div>
@@ -24,6 +21,11 @@
 @import "../scss/BlossomToast";
 .content {
   min-height: calc(100vh - 400px);
+}
+#upload{
+    -webkit-box-shadow: 0px 0px 3px 3px $golden;
+  -moz-box-shadow: 0px 0px 3px 3px $golden;
+  box-shadow: 0px 0px 3px 3px $golden;
 }
 </style>
 

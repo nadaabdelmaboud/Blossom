@@ -91,10 +91,10 @@
               <div v-for="(c, i) in plantCategories" :key="i" class="options">
                 <ul>
                   <li
-                    v-if="c.search(new RegExp(searchCategoryPlant, 'i')) != -1"
-                    @click="chooseCategoryPlant(c)"
+                    v-if="c.name.search(new RegExp(searchCategoryPlant, 'i')) != -1"
+                    @click="chooseCategoryPlant(c.name)"
                   >
-                    {{ c }}
+                    {{ c.name }}
                   </li>
                 </ul>
               </div>
@@ -131,11 +131,11 @@
                 <ul>
                   <li
                     v-if="
-                      c.search(new RegExp(searchCategoryBouquet, 'i')) != -1
+                      c.name.search(new RegExp(searchCategoryBouquet, 'i')) != -1
                     "
-                    @click="chooseCategoryBouquet(c)"
+                    @click="chooseCategoryBouquet(c.name)"
                   >
-                    {{ c }}
+                    {{ c.name }}
                   </li>
                 </ul>
               </div>
@@ -167,10 +167,10 @@
               <div v-for="(s, i) in bouquetSentiments" :key="i" class="options">
                 <ul>
                   <li
-                    v-if="s.search(new RegExp(searchSpecial, 'i')) != -1"
-                    @click="chooseSpecial(s)"
+                    v-if="s.name.search(new RegExp(searchSpecial, 'i')) != -1"
+                    @click="chooseSpecial(s.name)"
                   >
-                    {{ s }}
+                    {{ s.name }}
                   </li>
                 </ul>
               </div>

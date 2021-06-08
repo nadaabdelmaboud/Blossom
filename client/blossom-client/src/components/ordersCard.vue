@@ -64,7 +64,8 @@
       <button @click="confirmStatus">confirm</button>
       <button @click="cancelStatus">cancel</button>
     </div>
-    <div class="toast v" :id="'viewOrder'+Index">
+    <div class="toast v" 
+    :id="'viewOrder'+Index">
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
         {{ it[1].name }} : {{ it[1].price }}
       </p>
@@ -154,7 +155,7 @@ export default {
     },
     viewOrder() {
       var mytoast = document.getElementById("viewOrder"+this.Index);
-      mytoast.className = "toast toast--visible";
+      mytoast.className = "toast v toast--visible";
     },
     hideOrder() {
       var mytoast = document.getElementById("viewOrder"+this.Index);

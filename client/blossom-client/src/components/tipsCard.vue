@@ -45,7 +45,7 @@ export default {
   color: black;
 }
 .tip {
-  width: 200px;
+  width: 220px;
   margin: 10px 0;
   padding: 5px;
   -webkit-box-shadow: 0px 0px 3px 3px $shadowColor;
@@ -73,7 +73,7 @@ i {
   transform: scale(0.98);
 }
 p {
-  max-width: 180px;
+  max-width: 200px;
   word-break: break-all;
 }
 </style>
