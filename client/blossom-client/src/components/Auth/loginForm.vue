@@ -67,7 +67,6 @@ export default {
         email: this.email,
         password: this.password,
       };
-      console.log("gvasfdjs");
       this.$store.dispatch("authorization/login", user);
     },
     switchState() {

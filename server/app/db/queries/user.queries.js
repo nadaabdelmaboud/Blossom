@@ -1,5 +1,6 @@
 const UserModel = require("../models/user.model");
 const mongoose = require("mongoose");
+const ShopModel = require("../models/shop.model");
 const bcrypt = require("bcrypt");
 const User = {
   async findUserById(id, projection = { _id: 1 }) {
@@ -10,7 +11,7 @@ const User = {
     const user = await UserModel.findOne({ email: email }, projection);
     return user;
   },
-  async getUsers(projection = { _id: 1 }){
+  async getUsers(projection = { _id: 1 }) {
     const users = await UserModel.find({}, projection);
     return users;
   },
@@ -40,14 +41,18 @@ const User = {
           address: user.address,
           feedback: {
             rate: 0,
-            comment:""
+            comment: "",
           },
         },
       ],
     });
     const userObject = await newUser.save();
     if (userObject) {
-      return { _id: userObject._id ,type:"user"};
+      const shop = await ShopModel.find({}, { topRatings: 1 });
+      shop[0].topRatings[0] += 1;
+      shop[0].markModified("topRatings");
+      await shop[0].save();
+      return { _id: userObject._id, type: "user" };
     }
     return false;
   },
@@ -75,8 +80,7 @@ const User = {
     });
     if (user[0].Cart[0].orders)
       user[0].orders = Object.keys(user[0].Cart[0].orders).length;
-    else 
-      user[0].orders=0;
+    else user[0].orders = 0;
     user[0].Cart = user[0].Cart.length;
     return user[0];
   },
@@ -94,6 +98,14 @@ const User = {
   },
   async deleteUser(id) {
     const user = await UserModel.findByIdAndRemove(id);
+    if (user) {
+      const shop = await ShopModel.find({}, { topRatings: 1 });
+      for (let i = 0; i < user.Cart.length; i++) {
+        shop[0].topRatings[user.Cart[i].feedback.rate] -= 1;
+      }
+      shop[0].markModified("topRatings");
+      await shop[0].save();
+    }
     return user;
   },
   async updateUser(user, id) {

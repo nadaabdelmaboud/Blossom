@@ -1,4 +1,5 @@
 const UserModel = require("../models/user.model");
+const ShopModel = require("../models/shop.model");
 const FeedBack = {
   async getCurrentUserFeedback(cartId, userId) {
     const result = await UserModel.find(
@@ -13,11 +14,17 @@ const FeedBack = {
       { _id: userId, "Cart._id": cartId },
       { "Cart.feedback": 1, name: 1 }
     );
+    if (!User || User.length == 0) return User;
     if (feedback.comment) {
       User[0].Cart[0].feedback.comment = feedback.comment;
       User[0].Cart[0].feedback.feedbackDate = Today;
     }
     if (feedback.rate) {
+      const shop = await ShopModel.find({}, { topRatings: 1 });
+      shop[0].topRatings[feedback.rate] += 1;
+      shop[0].topRatings[User[0].Cart[0].feedback.rate] -= 1;
+      shop[0].markModified("topRatings");
+      await shop[0].save();
       User[0].Cart[0].feedback.rate = feedback.rate;
       User[0].Cart[0].feedback.feedbackDate = Today;
     }
@@ -30,11 +37,21 @@ const FeedBack = {
       { _id: userId, "Cart._id": cartId },
       { "Cart.feedback": 1, name: 1 }
     );
+    if(!User || User.length == 0)
+      return User;
+    console.log(User);
     if (feedback.comment) {
       User[0].Cart[0].feedback.comment = "";
       User[0].Cart[0].feedback.feedbackDate = Today;
     }
     if (feedback.rate) {
+      const shop = await ShopModel.find({}, { topRatings: 1 });
+      if (User[0].Cart[0].feedback.rate != 0) {
+        shop[0].topRatings[0] += 1;
+        shop[0].topRatings[User[0].Cart[0].feedback.rate] -= 1;
+        shop[0].markModified("topRatings");
+        await shop[0].save();
+      }
       User[0].Cart[0].feedback.rate = 0;
       User[0].Cart[0].feedback.feedbackDate = Today;
     }

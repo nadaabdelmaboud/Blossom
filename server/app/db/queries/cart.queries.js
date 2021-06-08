@@ -1,6 +1,7 @@
 const UserModel = require('../models/user.model');
 const PlantModel = require('../models/plants.model').PlantModel;
 const BouquetModel = require('../models/bouquet.model').BouquetModel;
+const ShopModel = require("../models/shop.model");
 
 const client = require('../db.caching');
 const  Mongoose  = require('mongoose');
@@ -28,6 +29,11 @@ const Cart = {
                   price:0
                 });
             user = await user.save();
+
+            const shop = await ShopModel.find({}, { topRatings: 1 });
+            shop[0].topRatings[0] += 1;
+            shop[0].markModified("topRatings");
+            await shop[0].save();
         }
         return user;
     },

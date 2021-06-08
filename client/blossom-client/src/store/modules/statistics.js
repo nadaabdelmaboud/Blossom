@@ -33,7 +33,7 @@ const actions = {
       commit("setSales", data.data);
       setTimeout(() => {
         commit("setSalsesLoaded", true);
-      }, 1000);
+      }, 3000);
     } catch (err) {
       console.log(err);
     }
