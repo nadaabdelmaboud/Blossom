@@ -58,7 +58,6 @@ const actions = {
     axios
       .post("users/cart/orders", param)
       .then((response) => {
-        console.log("error", response.data);
         if (response.data.status == 0) {
           commit("setAvailableCount", response.data.count);
           commit("setErrorDetected", true);
@@ -85,8 +84,6 @@ const actions = {
   buyCart({ commit }, { address, payment }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
-    console.log("address", address);
-    console.log("payment", payment);
     const cartAddress = address ? address.address : address;
     axios
       .post("me/cart", { address: cartAddress, paymentMethod: payment })

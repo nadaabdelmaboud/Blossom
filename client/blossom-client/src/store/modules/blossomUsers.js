@@ -29,7 +29,6 @@ const actions = {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     state.isLoading = true;
-    //////////////////////////////////////
     axios
       .get("users?pageSize=3&pageNumber=" + index)
       .then((response) => {
@@ -37,7 +36,6 @@ const actions = {
         state.users = [];
         commit("setUsers", response.data.users);
         commit("setMaxPage", response.data.maxPage);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -46,7 +44,6 @@ const actions = {
   banUser({ commit }, id) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
-    //////////////////////////////////////
     axios
       .delete("users/" + id)
       .then(() => {

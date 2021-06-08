@@ -170,7 +170,6 @@ img {
 .title {
   margin-top: 7px;
   overflow-wrap: break-word;
-  //margin-bottom: 7px;
   color: $darkGolden;
   font-size: 25px;
   font-weight: 700;
@@ -213,7 +212,6 @@ img {
 }
 .buttonDiv {
   display: flex;
-  //justify-content: space-between;
   justify-content: center;
 }
 .chooseAmount {
@@ -228,7 +226,6 @@ img {
 .cartBlock {
   display: flex;
   flex-direction: column;
-  //justify-content: space-between;
 }
 #errorMessage {
   color: red;

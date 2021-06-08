@@ -73,7 +73,7 @@
     </div>
     <div class="toast v" :id="'viewOrder' + Index">
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
-        {{ it[1].name }} : {{ it[1].price }}LE
+        {{ it[1].name }} : {{ it[1].price }} LE
       </p>
       <button @click="hideOrder">close</button>
     </div>
@@ -235,7 +235,6 @@ button {
 }
 .orderCard {
   width: 240px;
-  //height: 370px;
   height: calc(100% - 90px);
   margin: 20px;
   padding: 30px;
