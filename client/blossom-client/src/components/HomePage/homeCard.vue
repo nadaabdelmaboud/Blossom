@@ -94,7 +94,7 @@
         <p id="errorMessage" v-if="zeroAmount">choose amount first</p>
       </div>
     </div>
-    <div class="toast" id="toastId">
+    <div class="toast" :id="'toastId'+this.id">
       <img class="toastimage" :src="getImage(image)" />
       <div class="addedToCart">Added to Cart</div>
     </div>
@@ -344,7 +344,7 @@ export default {
         this.zeroAmount = true;
       } else {
         this.zeroAmount = false;
-        this.showToast("toastId");
+        this.showToast("toastId" + this.id);
         this.$store.commit("authorization/updateOrdersNum", this.name);
 
         if (this.isFlower == true)
