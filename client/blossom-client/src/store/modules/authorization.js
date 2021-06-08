@@ -37,7 +37,6 @@ const mutations = {
 };
 const actions = {
   signup({ commit, dispatch }, user) {
-    commit("auth_request");
     axios
       .post("sign", user)
       .then((response) => {
@@ -54,7 +53,6 @@ const actions = {
       });
   },
   login({ commit, dispatch }, user) {
-    commit("auth_request");
     axios
       .post("login", user)
       .then((response) => {

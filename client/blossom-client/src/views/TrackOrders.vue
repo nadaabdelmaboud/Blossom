@@ -6,6 +6,7 @@
       :key="i"
       :Index="i + 1"
       :userId="v.userId"
+      :orderId="v.id"
       :imageId="v.image"
       :price="v.price"
       :Items="v.orders"
