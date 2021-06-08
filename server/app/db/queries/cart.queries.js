@@ -93,7 +93,7 @@ const Cart = {
         return {items,totalPrice,totalCashPrice,cartId};
     },
     async setPaymentId(user,paymentId,cartId){
-      for(let i=user.Cart.length;i>=0;i--){
+      for(let i=user.Cart.length-1;i>=0;i--){
         if(user.Cart[i]._id==cartId){
           user.Cart[i].paymentId=paymentId;
           break;
@@ -102,7 +102,7 @@ const Cart = {
       return true;
     },
     async getAmountFromPaymentId(user,paymentId){
-      for(let i=user.Cart.length;i>=0;i--){
+      for(let i=user.Cart.length-1;i>=0;i--){
         if(user.Cart[i].paymentId==paymentId){
           return user.Cart[i].paypalPrice;
         }

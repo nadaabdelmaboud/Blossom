@@ -72,6 +72,7 @@ const mutations = {
         state.homeCards[index][item] = updatedObejct[item];
       })
     }
+    console.log("edited object" , state.homeCards[index]);
   }
 };
 
