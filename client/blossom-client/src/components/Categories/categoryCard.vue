@@ -13,7 +13,12 @@
     <div class="card" @click="selectCategory()">
       <div class="typeImage">
         <img :src="getImage(image)" alt="flower" v-if="image != ''" />
-        <img src="../../assets/defaultFlower.svg" alt="flower" v-else />
+        <img
+          src="../../assets/defaultFlower.svg"
+          id="defaultImage"
+          alt="flower"
+          v-else
+        />
       </div>
     </div>
   </div>
@@ -38,14 +43,17 @@
 }
 .typeImage {
   width: 100%;
-  //height: 98%;
   height: 380px;
   img {
     width: 100%;
-    padding-top: 20px;
+    height: 99%;
     background-size: cover;
     object-fit: cover;
   }
+}
+#defaultImage {
+  height: auto;
+  padding-top: 20px;
 }
 .trash {
   display: flex;
