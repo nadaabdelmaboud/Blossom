@@ -18,7 +18,6 @@ const PlantValidation = {
   },
   async validatePlant(plant) {
     const types = await Shop.getAllPlantsTypes();
-    console.log(plant.type);
     const schema = Joi.object({
       name: Joi.string().min(3).max(30).required(),
       type: Joi.string()
@@ -32,7 +31,7 @@ const PlantValidation = {
       tips: Joi.array().items(Joi.string()),
       images: Joi.string().required(),
     });
-  //  plant.type = plant.type.toLowerCase();
+    plant.type = plant.type.toLowerCase();
     return schema.validate(plant);
   },
   async validateUpdatePlant(plant) {
