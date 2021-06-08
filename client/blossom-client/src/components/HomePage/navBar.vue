@@ -266,9 +266,11 @@ export default {
       list.classList.toggle("show");
     },
     showLogin() {
+      window.scrollTo(0,0);
       this.$store.commit("popupsState/toggleAuthPopup");
     },
     callFlowers() {
+      window.scrollTo(0,0);
       this.$store.commit("homePage/setIsFlower", true);
       this.$store.commit("homePage/setCateogry", "");
       this.$store.commit("homePage/setSentiment", "");
@@ -276,21 +278,26 @@ export default {
       this.$store.dispatch("homePage/callFlowerCards", 1);
     },
     callPlants() {
+      window.scrollTo(0,0);
       this.$store.commit("homePage/setIsFlower", false);
       this.$store.commit("homePage/setCateogry", "");
       this.$store.commit("homePage/setCounter", 1);
       this.$store.dispatch("homePage/callPlantCards", 1);
     },
     logOut() {
+      window.scrollTo(0,0);
       this.$store.dispatch("authorization/logout");
     },
     toUploadPage() {
+      window.scrollTo(0,0);
       this.$router.push("/uploadProduct");
     },
     toTrackOrders() {
+      window.scrollTo(0,0);
       this.$router.push("/trackOrders");
     },
     toProfile() {
+       window.scrollTo(0,0);
       this.$router.push("/myprofile");
     },
   },
