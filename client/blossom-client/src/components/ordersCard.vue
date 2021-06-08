@@ -73,7 +73,7 @@
     </div>
     <div class="toast v" :id="'viewOrder' + Index">
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
-        {{ it[1].name }} : {{ it[1].price }}
+        {{ it[1].name }} : {{ it[1].price }}LE
       </p>
       <button @click="hideOrder">close</button>
     </div>
@@ -82,7 +82,6 @@
 
 <script>
 import { default as getImage } from "../mixins/getImage";
-//import { mapSatate } from "vuex";
 export default {
   data: function () {
     return {
@@ -297,6 +296,6 @@ u {
 }
 input {
   margin: 10px auto;
-  display: block
+  display: block;
 }
 </style>
