@@ -115,3 +115,24 @@
 {"level":"error","message":"Cannot read property 'name' of null Cannot read property 'name' of null","stack":"TypeError: Cannot read property 'name' of null\n    at Object.addItem (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\order.queries.js:17:25)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property 'length' of undefined Cannot read property 'length' of undefined","stack":"TypeError: Cannot read property 'length' of undefined\n    at Object.addCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:19:35)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '0' of undefined Cannot read property '0' of undefined","stack":"TypeError: Cannot read property '0' of undefined\n    at Object.addCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:20:20)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"level":"error","message":"Cannot read property '0' of undefined Cannot read property '0' of undefined","stack":"TypeError: Cannot read property '0' of undefined\n    at Object.addCurrentUserFeedback (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\feedback.queries.js:20:20)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

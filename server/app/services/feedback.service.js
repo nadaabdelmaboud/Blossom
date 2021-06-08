@@ -11,15 +11,19 @@ const FeedBackService = {
     return { data: FeedBackObject, err: "" };
   },
   async addCurrentUserFeedback(cartId,userId,feedback) {
+    if(!cartId)
+      return { data: false, err: await error("Invalid Cart ID", 400) };
     const isValid = await FeedbackValidation.validateFeedback(feedback);
     if(isValid.error)
-      return { data: false, err: await error(isValid.error.message, 404) };
+      return { data: false, err: await error(isValid.error.message, 400) };
     const FeedBackObject = await FeedBack.addCurrentUserFeedback(cartId, userId,feedback);
     if (!FeedBackObject|| FeedBackObject.length==0)
       return { data: false, err: await error("Error Finding Cart", 404) };
     return { data: FeedBackObject, err: "" };
   },
   async deleteCurrentUserFeedback(cartId, userId ,feedback) {
+    if(!cartId)
+      return { data: false, err: await error("Invalid Cart ID", 400) };
     var isValid = await FeedbackValidation.validateDeleteFeedback(feedback);
     if(!isValid)
       return { data: false, err: await error("No Deleting property Specified In The Request Body", 404) };
