@@ -31,7 +31,7 @@ const PlantValidation = {
       tips: Joi.array().items(Joi.string()),
       images: Joi.string().required(),
     });
-    plant.type = plant.type.toLowerCase();
+    plant.type = plant.type;
     return schema.validate(plant);
   },
   async validateUpdatePlant(plant) {
@@ -47,8 +47,8 @@ const PlantValidation = {
       tips: Joi.array().items(Joi.string()),
       images: Joi.string(),
     });
-    if (plant.type) plant.type = plant.type.toLowerCase();
-    if (plant.name) plant.name = plant.name.toLowerCase();
+    if (plant.type) plant.type = plant.type;
+    if (plant.name) plant.name = plant.name;
     return schema.validate(plant);
   },
   async filterPlant(Plant) {
