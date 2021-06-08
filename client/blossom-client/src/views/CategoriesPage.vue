@@ -73,7 +73,13 @@ h1 {
   text-align: center;
   justify-self: center;
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1100px) {
+  .container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    padding: 4px;
+  }
+}
+@media screen and (max-width: 990px) {
   .container {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 4px;

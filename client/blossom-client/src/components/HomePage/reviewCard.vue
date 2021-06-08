@@ -32,7 +32,6 @@
   width: 96%;
   height: 100%;
   margin-top: 20px;
-  //box-shadow: 0 3px 3px 3px rgba(7, 7, 7, 0.06);
   justify-content: center;
   text-align: center;
 }
@@ -47,7 +46,7 @@
   }
 }
 .userName {
-  overflow-wrap: break-word;
+  word-break: break-all;
   margin-top: 7px;
   margin-bottom: 7px;
   color: $darkGolden;
@@ -56,7 +55,7 @@
   font-weight: 700;
 }
 .userReview {
-  overflow-wrap: break-word;
+  word-break: break-all;
   margin-top: 15px;
   margin-bottom: 7px;
   font-size: 20px;

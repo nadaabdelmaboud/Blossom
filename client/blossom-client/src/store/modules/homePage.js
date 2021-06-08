@@ -133,12 +133,14 @@ const actions = {
       });
   },
   callPlantCards({ commit, state }, index) {
+    state.isLoading = true;
     let typeVal = "";
     if (state.type != "") typeVal = "type=" + state.type + "&";
     console.log("type", typeVal);
     axios
       .get("plant?" + typeVal + "pageSize=12&pageNumber=" + index)
       .then((response) => {
+        state.isLoading = false;
         state.homeCards = [];
         commit("setHomeCards", response.data.Plants);
         commit("setMaxPage", response.data.MaxPage);
