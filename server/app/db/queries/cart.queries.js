@@ -153,12 +153,15 @@ const Cart = {
                     let orders = Object.values(user.Cart[i].orders);
                     user.Cart[i].price=0;
                     for(let j=0;j<orders.length;j++){
+                      if(!orders[j].price){
+                        orders[j].price=0;
+                      }
                       user.Cart[i].price+=(orders[j].amount*orders[j].price);
                     }
                     await user.save();
                   }
                   const firstOrderKey = Object.keys(user.Cart[i].orders)[0];
-                  const cartImage = user.Cart[i].orders[firstOrderKey].image;
+                  const cartImage = user.Cart[i].orders[firstOrderKey].images;
                   const cart={
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
@@ -187,13 +190,17 @@ const Cart = {
                   if(!user.Cart[i].price){
                     let orders = Object.values(user.Cart[i].orders);
                     user.Cart[i].price=0;
+                    
                     for(let j=0;j<orders.length;j++){
+                      if(!orders[j].price){
+                        orders[j].price=0;
+                      }
                       user.Cart[i].price+=(orders[j].amount*orders[j].price);
                     }
                     await user.save();
                   }
                   const firstOrderKey = Object.keys(user.Cart[i].orders)[0];
-                  const cartImage = user.Cart[i].orders[firstOrderKey].image;
+                  const cartImage = user.Cart[i].orders[firstOrderKey].images;
                   const cart={
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
