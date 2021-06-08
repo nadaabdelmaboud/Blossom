@@ -323,6 +323,7 @@ export default {
             payment: this.payment,
           });
       }
+      this.$store.commit("popupsState/toggleCheckoutFormPopup");
     },
   },
 };

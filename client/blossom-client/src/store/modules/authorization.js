@@ -9,6 +9,7 @@ const state = {
   },
   isAdmin: false,
   orders: 0,
+  cartOrdersName:[],
 };
 
 const mutations = {
@@ -34,6 +35,31 @@ const mutations = {
   setOrders(state, num) {
     state.orders = num;
   },
+  updateCartOrders(state , cards){
+    for(let i=0 ;i<cards.length ; i++){
+      state.cartOrdersName.push(cards[i].name);
+    }
+  },
+  updateOrdersNum(state , name){
+    let found = false;
+    for(let i=0 ; i<state.cartOrdersName.length ; i++){
+      if(state.cartOrdersName[i] === name){
+        found = true;
+        break;
+      }
+    }
+    if(found == false){
+        state.orders = state.orders + 1;
+        state.cartOrdersName.push(name);
+    }
+  },
+  deleteCartName(state , name){
+    var index = state.cartOrdersName.findIndex((x) => x === name);
+    if (index !== -1) {
+      state.cartOrdersName.splice(index, 1);
+    }
+    console.log("deleted now" ,state.cartOrdersName )
+  }
 };
 const actions = {
   signup({ commit, dispatch }, user) {
@@ -98,6 +124,19 @@ const actions = {
     localStorage.removeItem("token");
     delete axios.defaults.headers.common["Authorization"];
     if (router.history.current.path != "/") router.replace("/");
+  },
+  currentUserCart({ commit }) {
+    const token = localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"] = token;
+    axios
+      .get("users/cart/orders")
+      .then((response) => {
+        commit("updateCartOrders", response.data);
+        console.log("Cart", response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 const getters = {

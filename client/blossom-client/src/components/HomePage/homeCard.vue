@@ -94,8 +94,8 @@
         <p id="errorMessage" v-if="zeroAmount">choose amount first</p>
       </div>
     </div>
-    <div class="toast" id="toastId">
-      <img class="toastimage" src="../../assets/flower.jpg" />
+    <div class="toast" :id="'toastId'+this.id">
+      <img class="toastimage" :src="getImage(image)" />
       <div class="addedToCart">Added to Cart</div>
     </div>
   </div>
@@ -298,7 +298,6 @@ export default {
       errorDetected: (state) => state.cart.errorDetected,
       isAdmin: (state) => state.authorization.isAdmin,
       status: (state) => state.authorization.status,
-      orders: (state) => state.authorization.orders,
     }),
   },
   methods: {
@@ -345,8 +344,8 @@ export default {
         this.zeroAmount = true;
       } else {
         this.zeroAmount = false;
-        this.showToast("toastId");
-        this.$store.commit("authorization/setOrders", this.orders + 1);
+        this.showToast("toastId" + this.id);
+        this.$store.commit("authorization/updateOrdersNum", this.name);
 
         if (this.isFlower == true)
           this.$store.dispatch("cart/addToCart", {

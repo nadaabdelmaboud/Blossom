@@ -137,6 +137,7 @@ export default {
     deleteCartCard() {
       this.$store.dispatch("cart/deleteCardFromCart", this.id);
       this.$store.commit("authorization/setOrders", this.orders - 1);
+      this.$store.commit("authorization/deleteCartName", this.orderName);
     },
   },
 };
