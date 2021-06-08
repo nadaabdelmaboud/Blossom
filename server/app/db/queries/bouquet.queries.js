@@ -16,8 +16,8 @@ const Bouquet = {
         }
         return bouquets;
     },
-    async getBouquetById(id){
-        const bouquet = await BouquetModel.findById(id).lean();
+    async getBouquetById(id,projection = {}){
+        const bouquet = await BouquetModel.findById(id, projection).lean();
         return bouquet;
     },
     async createBouquet(bouquet){
@@ -78,22 +78,6 @@ const Bouquet = {
         const Result = await BouquetData.save();
         if (Result) return { status: 1};
         return false;
-    },
-    async fillData(orderObject){
-        const Bouquets = await BouquetModel.find(
-          { _id: { $in: orderObject.bouquetId } },
-          { name: 1, images: 1, price: 1, count: 1 }
-        );
-        if (!Bouquets || !Bouquets.length) return false;
-        for (var i = 0; i < Bouquets.length; i++) {
-          orderObject.UserData[Bouquets[i]._id].name = Bouquets[i].name;
-          orderObject.UserData[Bouquets[i]._id].images = Bouquets[i].images;
-          orderObject.UserData[Bouquets[i]._id].price = Bouquets[i].price;
-          orderObject.UserData[Bouquets[i]._id].count = Bouquets[i].count;
-        }
-        return true;
     }
-   
-   
 }
 module.exports = Bouquet;

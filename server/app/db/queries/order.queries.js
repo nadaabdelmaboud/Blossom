@@ -1,6 +1,6 @@
 const UserModel = require("../models/user.model");
 const Order = {
-  async addItem(userId, item) {
+  async addItem(userId, item, ExtraInfo) {
     let today = new Date();
     const UserData = await UserModel.findById(userId, "Cart");
     const Index = UserData.Cart.length - 1;
@@ -14,6 +14,9 @@ const Order = {
         amount: item.amount,
         orderType: item.orderType,
         category: item.category,
+        name: ExtraInfo.name,
+        price: ExtraInfo.price,
+        images: ExtraInfo.images,
       };
     }
     UserData.Cart[Index].lastEdit = today;
@@ -60,7 +63,7 @@ const Order = {
     return result;
   },
   async formateItems(items) {
-    if(!items)return []
+    if (!items) return [];
     var orderItems = [];
     Object.keys(items).forEach(function (item) {
       var obj = items[item];
@@ -69,6 +72,5 @@ const Order = {
     });
     return orderItems;
   },
-  
 };
 module.exports = Order;

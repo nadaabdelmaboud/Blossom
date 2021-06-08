@@ -17,8 +17,8 @@ const OrderService = {
     const isOrderVaild = await OrderValidation.validateItem(item);
     if (isOrderVaild.error)
       return { data: false, err: await error(isOrderVaild.error.message, 400) };
-    const idPlant = await Plant.getPlantById(item.bouquetId, 1);
-    const idBouquet = await Bouquet.getBouquetById(item.bouquetId);
+    const idPlant = await Plant.getPlantById(item.bouquetId, {name:1,price:1,images:1});
+    const idBouquet = await Bouquet.getBouquetById(item.bouquetId,{name:1,price:1,images:1});
     if (!idPlant && !idBouquet) {
       return {
         data: false,
@@ -46,7 +46,8 @@ const OrderService = {
       if (UpdateBouquet.status == 0)
         return {data: UpdateBouquet, err: ""};
     }
-    const userObject = await Order.addItem(userId, item);
+    const ExtraInfo = (item.orderType == "plant") ? idPlant : idBouquet;
+    const userObject = await Order.addItem(userId, item, ExtraInfo);
     if (!userObject)
       return { data: false, err: await error("Problem Adding Item", 500) };
     return { data: userObject, err: "" };
@@ -61,22 +62,6 @@ const OrderService = {
     const orderObject = await Order.getOrderItems(userId);
     if (!orderObject)
       return { data: false, err: await error("Problem Adding Item", 500) };
-    if (orderObject.plantId.length != 0) {
-      const plantData = await Plant.fillData(orderObject);
-      if (!plantData)
-        return {
-          data: false,
-          err: await error("Problem Retrieving Plants", 500),
-        };
-    }
-    if (orderObject.bouquetId.length != 0) {
-      const bouquetData = await Bouquet.fillData(orderObject);
-      if (!bouquetData)
-        return {
-          data: false,
-          err: await error("Problem Retrieving Bouquet", 500),
-        };
-    }
     const OrderItems = await Order.formateItems(orderObject.UserData);
     return { data: OrderItems, err: "" };
   },
@@ -90,7 +75,7 @@ const OrderService = {
     const isUserFound = await User.findUserById(userId);
     if (!isUserFound)
       return { data: false, err: await error("User Not Found", 404) };
-    const idPlant = await Plant.getPlantById(itemId, 1);
+    const idPlant = await Plant.getPlantById(itemId, { _id: 1 });
     const idBouquet = await Bouquet.getBouquetById(itemId);
     if (!idPlant && !idBouquet) {
       return {

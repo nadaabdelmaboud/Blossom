@@ -100,3 +100,15 @@
 {"level":"error","message":"Cannot read property 'length' of undefined Cannot read property 'length' of undefined","stack":"TypeError: Cannot read property 'length' of undefined\n    at Object.getCurrentUserInfo (D:\\college\\third year\\arch\\Blossom\\server\\app\\db\\queries\\user.queries.js:81:32)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
 {"message":"Server is listening at port 3000","level":"info"}
 {"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}
+{"message":"Server is listening at port 3000","level":"info"}
+{"message":"Successfully connected to the database","level":"info"}

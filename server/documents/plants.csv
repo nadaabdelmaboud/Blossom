@@ -1,0 +1,3 @@
+_id,tips,name,type,price,count,info,images,__v
+ObjectId("60bd3caf153b0e2f74e5891e"),"["kkkkkkkkkkkkkkkkkk"]",grabes,fruit,20,"{"sold":5,"available":50}",My beautiful grapes ,Plant/82d41b28-32ab-4986-b3a5-36f3baba1e00.image/png,1
+ObjectId("60bd3df4153b0e2f74e58920"),"[]",mint,vegetable,200,"{"sold":13,"available":50}",Mint is a perennial with very fragrant, toothed leaves and tiny purple, pink, or white flowers. It has a fruity, aromatic taste.,Plant/4c6cfc02-5063-400a-91c2-8e114072a765.image/jpeg,10
