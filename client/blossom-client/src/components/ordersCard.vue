@@ -72,6 +72,7 @@
       <button @click="cancelStatus">cancel</button>
     </div>
     <div class="toast v" :id="'viewOrder' + Index">
+      <p class="addedToCart" >Ordered By: {{username}}</p>
       <p class="addedToCart" v-for="(it, i) in Items" :key="i">
         {{ it[1].name }} : {{ it[1].price }} LE
       </p>
@@ -105,6 +106,7 @@ export default {
     "rating",
     "Items",
     "comment",
+    "username"
   ],
   created() {
     this.cardRating = this.rating;

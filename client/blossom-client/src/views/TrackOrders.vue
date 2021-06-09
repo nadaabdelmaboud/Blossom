@@ -21,6 +21,7 @@
         :status="v.status"
         :rating="v.feedback.rate"
         :comment="v.feedback.comment"
+        :username="v.name"
       />
     </div>
   </div>
