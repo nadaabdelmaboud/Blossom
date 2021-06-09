@@ -322,9 +322,9 @@ export default {
             address: null,
             payment: this.payment,
           });
+        this.$store.commit("popupsState/toggleCheckoutFormPopup");
+        this.$store.commit("cart/setIsScreenLoading", true);
       }
-      this.$store.commit("popupsState/toggleCheckoutFormPopup");
-      this.$store.commit("cart/setIsScreenLoading", true);
     },
   },
 };

@@ -151,7 +151,7 @@ export default {
         } else {
           this.$store.dispatch("homePage/callPlantCards", this.counter);
         }
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
       }
     },
     previousPage() {
@@ -162,7 +162,7 @@ export default {
         } else {
           this.$store.dispatch("homePage/callPlantCards", this.counter);
         }
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
       }
     },
   },
