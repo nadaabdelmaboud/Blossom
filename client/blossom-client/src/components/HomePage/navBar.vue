@@ -21,8 +21,10 @@
       <img src="../../assets/BlossomLogo_v7.png" class="logoImg" alt="Logo" />
     </div>
     <div class="navContent" id="stickyNav">
-      <div class="blossom">
-        <router-link to="/"> Blossom </router-link>
+      <div class="blossom" @click="toBlossom">
+        <!-- <router-link to="/">  -->
+        Blossom 
+        <!-- </router-link> -->
       </div>
       <div class="pages">
         <button id="bars" @click="showlist()">
@@ -297,6 +299,10 @@ export default {
       window.scrollTo(0, 0);
       this.$router.push("/myprofile");
     },
+    toBlossom(){
+      window.scrollTo(0, 0);
+      if (this.$router.history.current.path != "/") this.$router.push("/");
+    }
   },
 };
 </script>

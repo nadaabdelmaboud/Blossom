@@ -72,6 +72,13 @@ export default {
       isAdmin: (state) => state.authorization.isAdmin,
     }),
   },
-  created() {},
+  created() {
+    window.scrollTo(0,0);
+
+  },
+  updated(){
+      window.scrollTo(0,0);
+  console.log("ff")
+  }
 };
 </script>
