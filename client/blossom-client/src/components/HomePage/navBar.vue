@@ -23,7 +23,7 @@
     <div class="navContent" id="stickyNav">
       <div class="blossom" @click="toBlossom">
         <!-- <router-link to="/">  -->
-        Blossom 
+        Blossom
         <!-- </router-link> -->
       </div>
       <div class="pages">
@@ -299,10 +299,10 @@ export default {
       window.scrollTo(0, 0);
       this.$router.push("/myprofile");
     },
-    toBlossom(){
+    toBlossom() {
       window.scrollTo(0, 0);
       if (this.$router.history.current.path != "/") this.$router.push("/");
-    }
+    },
   },
 };
 </script>

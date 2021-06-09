@@ -288,6 +288,12 @@
     width: 100%;
   }
 }
+@media screen and (max-width: 864px) {
+  .popupBody {
+    margin: 50px auto;
+    width: 75%;
+  }
+}
 @media screen and (max-width: 650px) {
   .blossomSelectList {
     width: 90%;

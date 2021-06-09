@@ -112,14 +112,14 @@ export default {
       if (this.counter + 1 <= this.maxPages) {
         this.$store.commit("blossomUsers/setCounter", this.counter + 1);
         this.$store.dispatch("blossomUsers/callBlossomUsers", this.counter);
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
       }
     },
     previousPage() {
       if (this.counter - 1 != 0) {
         this.$store.commit("blossomUsers/setCounter", this.counter - 1);
         this.$store.dispatch("blossomUsers/callBlossomUsers", this.counter);
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
       }
     },
   },

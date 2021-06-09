@@ -73,12 +73,11 @@ export default {
     }),
   },
   created() {
-    window.scrollTo(0,0);
-
+    window.scrollTo(0, 0);
   },
-  updated(){
-      window.scrollTo(0,0);
-  console.log("ff")
-  }
+  updated() {
+    window.scrollTo(0, 0);
+    console.log("ff");
+  },
 };
 </script>
