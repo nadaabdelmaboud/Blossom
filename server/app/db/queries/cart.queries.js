@@ -155,6 +155,7 @@ const Cart = {
                   const cartImage = user.Cart[i].orders[firstOrderKey].images;
                   const cart={
                       id: user.Cart[i]._id,
+                      name:user.name,
                       userId:user._id,
                       lastEdit : user.Cart[i].lastEdit,
                       status : user.Cart[i].status,
