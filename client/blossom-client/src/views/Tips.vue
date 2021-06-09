@@ -18,8 +18,10 @@
           :isAdmin="isAdmin"
         />
       </div>
+      <div class="addWrapper">
       <div v-if="isAdmin" class="add" @click="addTip">
         <i class="fa fa-plus hoverGolden"></i>
+      </div>
       </div>
     </div>
   </div>
@@ -82,10 +84,13 @@ export default {
   background-color: black;
   bottom: 0;
   font: 30px;
-  left: calc(50%);
   border-radius: 50px;
   cursor: pointer;
   margin-top: 20px;
+}
+.addWrapper{
+  display: flex;
+  justify-content: center;
 }
 h1 {
   color: $golden;
