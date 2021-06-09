@@ -14,20 +14,19 @@
   right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
+  justify-content: center;
   max-height: 100vh;
   overflow: auto;
 }
 img {
-  margin: 30% auto;
+  margin-top: 70px;
   display: inherit;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
 .image {
   position: absolute;
-  top: 30%;
-  left: calc(50% - 100px);
-  margin: -60px 0 0 -60px;
   -webkit-animation: spin 4s linear infinite;
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;
@@ -53,9 +52,5 @@ img {
 <script>
 export default {
   name: "loadingScreen",
-  data: function () {
-    return {};
-  },
-  methods: {},
 };
 </script>

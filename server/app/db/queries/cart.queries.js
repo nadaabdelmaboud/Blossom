@@ -3,10 +3,7 @@ const PlantModel = require('../models/plants.model').PlantModel;
 const BouquetModel = require('../models/bouquet.model').BouquetModel;
 const ShopModel = require("../models/shop.model");
 
-//test from client
 
-
-const client = require('../db.caching');
 const  Mongoose  = require('mongoose');
 const Cart = {
     async getUserCart(user){
@@ -51,7 +48,6 @@ const Cart = {
         return true;
     },
     async buyCart(user,address){
-      console.log(user.Cart)
         if(user.Cart.length==0||user.Cart[user.Cart.length-1].status!="ordering"){
             return false;
         }
@@ -94,7 +90,6 @@ const Cart = {
         user.Cart[user.Cart.length-1].status="pending";
         user.Cart[user.Cart.length-1].price=totalCashPrice;
         if(address){
-          console.log(address)
             user.Cart[user.Cart.length-1].address=address;
         }
         await user.save();

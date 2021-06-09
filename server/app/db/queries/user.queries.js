@@ -42,7 +42,6 @@ const User = {
       ],
     });
     const userObject = await newUser.save();
-    console.log(userObject)
     if (userObject) {
       const shop = await ShopModel.find({}, { topRatings: 1 });
       shop[0].topRatings[0] += 1;

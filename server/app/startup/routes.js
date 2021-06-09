@@ -15,7 +15,6 @@ module.exports = function (app, winston) {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(cors());
-  // app.use('/', serveStatic(path.join(__dirname, '../dist')))
 
 
   app.use("/api", ShopRoutes);
@@ -28,10 +27,6 @@ module.exports = function (app, winston) {
   app.use("/api", CartRoutes);
   app.use("/api", FeedBackRoutes);
 
-  // // this * route is to serve project on different page routes except root `/`
-  // app.get(/.*/, function (req, res) {
-  //   res.sendFile(path.join(__dirname, '../dist/index.html'))
-  // })
 
 
 

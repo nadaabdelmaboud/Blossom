@@ -324,6 +324,7 @@ export default {
           });
       }
       this.$store.commit("popupsState/toggleCheckoutFormPopup");
+      this.$store.commit("cart/setIsScreenLoading", true);
     },
   },
 };

@@ -7,6 +7,7 @@ const state = {
   checkoutDone: "",
   totalPrice: 0,
   isLoading: false,
+  isScreenLoading: false,
 };
 
 const mutations = {
@@ -35,6 +36,9 @@ const mutations = {
     for (let i = 0; i < state.cartCards.length; i++) {
       state.totalPrice = state.totalPrice + state.cartCards[i].price;
     }
+  },
+  setIsScreenLoading(state, val) {
+    state.isScreenLoading = val;
   },
 };
 const actions = {
@@ -81,7 +85,7 @@ const actions = {
         console.log(error);
       });
   },
-  buyCart({ commit }, { address, payment }) {
+  buyCart({ commit, state }, { address, payment }) {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     const cartAddress = address ? address.address : address;
@@ -93,6 +97,7 @@ const actions = {
           location.replace(response.data);
         } else {
           commit("checkoutIsDone", "cash");
+          state.isScreenLoading = false;
           router.push("payment");
         }
         commit("setTotalPrice", 0);
@@ -102,6 +107,7 @@ const actions = {
       });
   },
   finishPayment({ commit }, { paymentId, PayerID }) {
+    state.isScreenLoading = false;
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
     axios
