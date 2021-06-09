@@ -82,7 +82,7 @@ const CartService={
         const isValidStatus = await CartValidation.validateStatusLimit({status,limit});
         if (isValidStatus.error)
         return { data: false, err: await error(isValidStatus.error.message, 400) };
-        const users = await User.getUsers({Cart:1,_id:1});
+        const users = await User.getUsers({Cart:1,_id:1,name:1});
         if(!users ||users.length==0)
         return { data: false, err: await error("No users found", 404) };
         const carts = await Cart.getAllCartsWithDefinedStatus(users,status,limit);
