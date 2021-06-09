@@ -67,7 +67,7 @@
     </div>
     <div class="toast" :id="'status' + Index">
       <img class="toastimage" :src="getImage(imageId)" />
-      <div class="addedToCart">Confirm {{ cartStatus }} status?</div>
+      <div class="addedToCart">Confirm {{ cartStatus }} ?</div>
       <button @click="confirmStatus">confirm</button>
       <button @click="cancelStatus">cancel</button>
     </div>
@@ -211,9 +211,9 @@ export default {
   align-content: center;
   justify-content: space-between;
   bottom: 5%;
-  left: calc(50% - 250px);
+  left: calc(50% - 175px);
   margin-right: auto;
-  width: 500px;
+  width: 350px;
   height: 80px;
   padding: 5px;
   border-radius: 0;
@@ -221,8 +221,8 @@ export default {
   -moz-box-shadow: 0px 0px 3px 3px $golden;
   box-shadow: 0px 0px 3px 3px $golden;
   .addedToCart {
-    font-size: 20px;
-    padding-top: 30px;
+    font-size: 16px;
+    padding-top: 16px;
     margin: 0;
   }
 }
