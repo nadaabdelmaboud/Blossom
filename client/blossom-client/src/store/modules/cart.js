@@ -34,7 +34,8 @@ const mutations = {
   },
   getTotalPrice() {
     for (let i = 0; i < state.cartCards.length; i++) {
-      state.totalPrice = state.totalPrice + state.cartCards[i].price;
+      state.totalPrice =
+        state.totalPrice + state.cartCards[i].price * state.cartCards[i].amount;
     }
   },
   setIsScreenLoading(state, val) {
