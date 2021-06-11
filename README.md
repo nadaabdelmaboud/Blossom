@@ -16,11 +16,11 @@
 
 1. [Description](#Description)
 2. [Screenshots](#Screenshots)
-3. [Live Link](#Links)
+3. [Live Link](#Live-Link)
 4. [Tools](#Tools)
 5. [Getting Started](#Getting-Started)
-6. [Contributors](#Stay-in-touch)
-7. [License](#Lisence)
+6. [Contributors](#Contributors)
+7. [License](#License)
 
 ## Description
 
@@ -30,7 +30,7 @@ Blossom is a responsive website of a flower shop for different categories of bou
 
 * **Home Page**
 
-	![Home](https://i.ibb.co/ZJVCz1m/blossom.gif)
+	![Home](blossom.gif)
 
       	
 
@@ -159,7 +159,7 @@ Blossom is a responsive website of a flower shop for different categories of bou
 	- Nihal Mansour - nihalmansour0599@gmail.com 
 	- Menna Mahmoud - menna123mahmoud@gmail.com
 - Backend 
-	- Hager Ismael - dinaalaaahmed@gmail.com 
+	- Hager Ismael - hager.aismail@gmail.com 
 	- Nada AbdElmaboud - nada5aled52@gmail.com
 
 ## License
