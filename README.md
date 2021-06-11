@@ -136,21 +136,21 @@ Blossom is a responsive website of a flower shop for different categories of bou
 
 
 
-	* ####  Frontend Run
-		```bash
+   * ####  Frontend Run
+	```bash
 	
-		   $ cd client/blossom-client
+	   $ cd client/blossom-client
 
-		   # install
-		   $ npm install
+           # install
+	   $ npm install
 
-		   # development
-		   $ npm run serve
+	   # development
+	   $ npm run serve
 
-		   # production mode
-		   $ npm run build
+	   # production mode
+	   $ npm run build
 
-		```
+	```
 		
     * #### Env Variables
 	     * refer to [.env.example](server/.env.example)
