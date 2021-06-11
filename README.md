@@ -148,8 +148,8 @@ Blossom is a responsive website of a flower shop for different categories of bou
 
 
 		
-    * #### Env Variables
-	     * refer to [.env.example](server/.env.example)
+   * ####  Env Variables
+	   *  refer to [.env.example](server/.env.example)
 
 
 
