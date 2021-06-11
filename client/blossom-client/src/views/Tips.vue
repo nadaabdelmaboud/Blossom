@@ -19,9 +19,9 @@
         />
       </div>
       <div class="addWrapper">
-      <div v-if="isAdmin" class="add" @click="addTip">
-        <i class="fa fa-plus hoverGolden"></i>
-      </div>
+        <div v-if="isAdmin" class="add" @click="addTip">
+          <i class="fa fa-plus hoverGolden"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -88,7 +88,7 @@ export default {
   cursor: pointer;
   margin-top: 20px;
 }
-.addWrapper{
+.addWrapper {
   display: flex;
   justify-content: center;
 }

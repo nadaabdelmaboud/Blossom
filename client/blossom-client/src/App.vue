@@ -21,8 +21,7 @@ export default {
       await this.$store.dispatch("authorization/get_user");
       if (this.isAdmin == false)
         this.$store.dispatch("authorization/currentUserCart");
-      var status = this.isLoggedIn;
-      if (status == "error") {
+      if (this.status == "error") {
         //token is expired
         this.$store.dispatch("authorization/logout");
         this.$router.replace("/");
