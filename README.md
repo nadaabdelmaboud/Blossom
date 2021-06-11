@@ -27,14 +27,13 @@
 Blossom is a responsive website of a flower shop for different categories of bouquets and plants , you can order whatever you want and choose to ship it to your house or as a surprise for a friend . You can find tips for taking care of your plants and description for every bouquet and plant in the shop . You can track your orders till they get delivered to you and give us feedback ,you can also choose whether to buy in Cash or by PayPal .
 
 ## Screenshots
-	
 
 * **Home Page**
-	
+
 	![Home](https://i.ibb.co/ZJVCz1m/blossom.gif)
-	
 
       	
+
 * **Login**
 	
 	![Login](https://i.ibb.co/6Dnf96Z/login.png)
@@ -122,35 +121,32 @@ Blossom is a responsive website of a flower shop for different categories of bou
 
    * ####  Server Run
      	```bash
-	
-	   $ cd server
+       $ cd server
 
-      	   # install
-      	   $ npm install
+       # install
+       $ npm install
 
-      	   # development
-      	   $ npm run start
+       # development
+       $ npm run start
 
       	```
 
-
-
-
    * ####  Frontend Run
-	```bash
-	
-	   $ cd client/blossom-client
+     	```bash
+       $ cd client/blossom-client
 
-           # install
-	   $ npm install
+       # install
+       $ npm install
 
-	   # development
-	   $ npm run serve
+       # development
+       $ npm run serve
+       
+       # production mode
+       $ npm run build
+       
+      	```
 
-	   # production mode
-	   $ npm run build
 
-	```
 		
     * #### Env Variables
 	     * refer to [.env.example](server/.env.example)
