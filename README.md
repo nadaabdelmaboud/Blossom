@@ -8,7 +8,7 @@
 </div>
 <div align="center">
 
- [![GitHub contributors](https://img.shields.io/github/contributors/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/contributors)  [![GitHub issues](https://img.shields.io/github/issues/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/issues) [![GitHub forks](https://img.shields.io/github/forks/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/network) [![GitHub stars](https://img.shields.io/github/stars/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/stargazers) [![GitHub license](https://img.shields.io/github/license/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/blob/main/LICENSE) <img src="https://img.shields.io/github/languages/count/nadaabdelmaboud/Blossom" /> <img src="https://img.shields.io/github/languages/code-size/nadaabdelmaboud/Blossom" /> 
+ [![GitHub contributors](https://img.shields.io/github/contributors/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/contributors)  [![GitHub issues](https://img.shields.io/github/issues/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/issues) [![GitHub forks](https://img.shields.io/github/forks/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/network) [![GitHub stars](https://img.shields.io/github/stars/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/stargazers) [![GitHub](https://img.shields.io/github/license/nadaabdelmaboud/Blossom)](https://github.com/nadaabdelmaboud/Blossom/blob/main/LICENSE) <img src="https://img.shields.io/github/languages/count/nadaabdelmaboud/Blossom" /> <img src="https://img.shields.io/github/languages/code-size/nadaabdelmaboud/Blossom" /> 
 </div>
 
 
